@@ -1,0 +1,14 @@
+// markdown编译过后的文章内容样式，目前包括以下几个方面（持续更新）：
+// 1.列表
+// 2.引用
+// 3.代码块
+blockquote {
+  color: $quote-color;
+  background-color: $quote-bg-color;
+  line-height: 1.8;
+  &::before {
+    display: inline-block;
+    width: 10px;
+    color: $quote-before-color;
+  }
+}

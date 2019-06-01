@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<%# common head, including head tile and many seo messages %>
+  <%- partial("_partial/head") %>
+  <body>
+      <%# header, including nav and search %>
+    <%- partial("_partial/header") %>
+    <main id="main">
+    <%# sidebar, including categories, archives, recent post %>
+    <%- partial("_partial/sidebar", {left: true}) %>
+    <!--<%- partial("_partial/sidebar", {left: false}) %>-->
+    <article id="article" class="card margin-right">
+      <%- body %>
+      </article>
+    </main>
+    <%- partial("_partial/foot") %>
+  </body>
+</html>

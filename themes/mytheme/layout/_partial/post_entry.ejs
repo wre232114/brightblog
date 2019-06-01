@@ -1,0 +1,5 @@
+<div>
+  <span><%-post.date.format("YYYY-MM-DD")%></span>  
+  <a href="<%-url_for(post.path,{post:post}) %>"><%-post.title%></a>
+  <span><%- post.title %></span>
+</div>

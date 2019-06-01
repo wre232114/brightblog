@@ -1,0 +1,42 @@
+@import "../variable";
+#left-sidebar {
+  ul > li {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
+#right-siderbar {
+  ul > li {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
+
+.post-list, .archive-list, .category-list {
+  margin-top: 10px;
+  .archive-list-count {
+    color: $sidebar-count-color;
+    &::before {
+      content: "（";
+    }
+    &::after {
+      content: "篇）";
+    }
+  }
+  .category-list-count {
+    color: $sidebar-count-color;
+    &::before {
+      content: "（";
+    }
+    &::after {
+      content: "篇）";
+    }
+  }
+}
+
+.sidebar-component {
+  margin-bottom: 20px;
+  height: 150px;
+}

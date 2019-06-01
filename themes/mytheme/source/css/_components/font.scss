@@ -1,0 +1,15 @@
+@font-face {
+  font-family: "Font-Awesome";
+  src: url("./fonts/fontawesome-webfont.ttf"),
+       url("./fonts/fontawesome-webfont.eot"),
+       url("./fonts/fontawesome-webfont.woff"),
+       url("./fonts/FontAwesome.otf");
+}
+i.fa {
+  font-family: "Font-Awesome";
+  &.search {
+    &::before {
+      content: "\f002";
+    }
+  }
+}

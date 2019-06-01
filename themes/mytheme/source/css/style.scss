@@ -1,0 +1,40 @@
+@import "./variable";
+h1 {
+  margin: 1em 0;
+  text-indent: 5px;
+}
+h2 {
+  margin: 0.75em 0;
+  text-indent: 5px;
+}
+h3 {
+  margin: 0.5em 0;
+}
+h4 {
+  margin: 0.25em 0;
+}
+p {
+  font-size: 16px;
+  text-indent: 2em;
+  line-height: 1.5em;
+  margin: 0.5em 0;
+}
+hr {
+  margin-top: -1em;
+  margin-bottom: 1em;
+  border-color: $hr-color;
+}
+a {
+  color: $font-color;
+}
+@import "./_partial/layout";
+@import "./_partial/header";
+@import "./_partial/article";
+@import "./_partial/sidebar";
+
+// 下面是常用组件的样式
+@import "./_components/card.scss";
+@import "./_components/font.scss";
+// * {
+//   border: 1px solid black;
+// }

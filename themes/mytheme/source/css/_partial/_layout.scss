@@ -1,0 +1,39 @@
+@import "../variable";
+
+html {
+  background: whitesmoke;
+}
+
+#header {
+  height: 60px;
+  line-height: 60px;
+  overflow: hidden;
+  margin-bottom: $card-margin;
+  color: #333;
+  nav {
+    float: right;
+    overflow: hidden;
+  }
+}
+#left-sidebar {
+  float: left;
+  width: $sidebar-width;
+  margin-right: $card-margin;
+}
+#right-sidebar {
+  float: right;
+  width: $sidebar-width;
+  margin-left: $card-margin;
+}
+#main {
+  width: 95%;
+  margin: 0 auto;
+}
+#article {
+  margin-left: $sidebar-width + 1%;
+  padding: 0 0.5em;
+  border-top: 1px solid transparent;
+}
+#footer {
+  clear: left;
+}

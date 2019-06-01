@@ -1,0 +1,4 @@
+
+<% site.posts.sort("data", "desc").each(function (post) { %>
+    <%-partial("_partial/post_entry", {post:post}) %>
+<%})%>  

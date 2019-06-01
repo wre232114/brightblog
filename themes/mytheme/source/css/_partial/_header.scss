@@ -1,0 +1,29 @@
+@import "../variable";
+#header {
+  ul > li {
+    float: left;
+    width: 100px;
+    text-align: center;
+    a {
+      height: 100%;
+      line-height: 40px;
+      text-decoration: none;
+      color: #333;
+      &:hover {
+        color: #ccc;
+        
+      }
+    }
+    i {
+      font-style: normal;
+      vertical-align: 3px;
+      &:hover {
+        color: #ccc;
+      }
+    }
+  }
+  span {
+    font-size: 1.2em;
+    margin-left: 2.5%;
+  }
+}

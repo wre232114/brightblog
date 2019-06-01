@@ -1,0 +1,15 @@
+<header id="header" class="card">
+  <span>Bright的个人博客</span>
+  <nav>
+    <ul>
+    <% for(var name in theme.menu) { %>
+      <li>
+        <a href="<%- url_for(theme.menu[name]) %>"><%= name %> </a>
+      </li>
+    <% } %>
+      <li>
+        <i class="fa search">
+      </li>
+    </ul>
+  </nav>
+</header>
