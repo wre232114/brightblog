@@ -1,5 +1,7 @@
 # 在centos上搭建git服务器仓库
 
+git的[官方文档](<https://git-scm.com/book/zh/v1/Git-%E5%9F%BA%E7%A1%80-%E5%8F%96%E5%BE%97%E9%A1%B9%E7%9B%AE%E7%9A%84-Git-%E4%BB%93%E5%BA%93>)，这里有git命令，git服务器，git配置，git管理等一系列的说明都有。
+
 ## 1. 安装git
 
 首先查看有没有安装git，输入：
@@ -93,3 +95,8 @@ authorized-keys用来存放允许连接的客户端的公钥，也就是说如�
    > ssh-copy-id -i ~/.ssh/id_rsa.pub git@你的域名或者ip地址
 
 2. 直接将你的客户端的公钥添加到authorized_keys文件中
+
+
+
+## 6. git服务器也能够浏览代码
+
