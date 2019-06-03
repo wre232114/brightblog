@@ -1,3 +1,7 @@
+---
+title: Smarty块度入门
+category: php
+---
 # Smarty快速入门
 
 smarty官方中文文档：<https://www.smarty.net/docs/zh_CN/what.is.smarty.tpl>

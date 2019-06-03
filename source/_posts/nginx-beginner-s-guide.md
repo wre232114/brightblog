@@ -1,7 +1,7 @@
 ---
 title: nginx入门教程
 date: 2019-05-24 16:05:24
-tags:
+categories: nginx
 ---
 
 这篇教程给出了一个nginx的基本介绍以及描述了nginx可以完成的一些基本任务。这里假定读者的设备中已经安装了nginx。如果没有，请查看[安装nginx](http://nginx.org/en/docs/install.html)。这篇教程描述了怎样启动和停止eginx，以及重新读取配置文件，解释配置的结构并且说明怎样设置nginx来服务静态内容，怎样配置nginx作为代理服务器，以及怎样用FastCGI程序连接它。
