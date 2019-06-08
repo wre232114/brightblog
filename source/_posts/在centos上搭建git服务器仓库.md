@@ -102,5 +102,17 @@ authorized-keys用来存放允许连接的客户端的公钥，也就是说如�
 
 
 
-## 6. git服务器也能够浏览代码
+## 6. 代码自动部署
+在服务器上clone另一个仓库：
+> git clone git@localhost:/data/gitrepo/brightblog.git
 
+编写post-receive shell脚本，需要为脚本文件赋予执行权限：
+```shell
+cd 服务器clone的仓库目录
+unset GIT_DIR
+git pull origin master
+hexo clean
+hexo generate
+```
+上面的shell脚本做的事情是：
+进入目录=》重值GIT_DIR=》获取最新代码=》清空public=》生成静态文件
