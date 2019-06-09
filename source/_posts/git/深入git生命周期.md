@@ -24,11 +24,11 @@ git中有两个核心概念：1、三区：工作区、暂存区、git仓库；2
 接下来对git中的这几种状态进行深入的学习和实践，希望能够深入理解git中原理。能够深入git的版本控制，包括分支（branch）、提交（commit）、重置（reset）等的原理和流程，在工作中能够更加深入地控制项目的版本。
 
 三区的状态转移图：
-![三区的状态转移图（来源于git官网）](./img/areas.png)
+![三区的状态转移图（来源于git官网）](/img/areas.png)
 
 四态的状态转移图：
 
-![git的生命周期图解（来源于git官网）](./img/lifecycle.png "lifecycle.png")
+![git的生命周期图解（来源于git官网）](/img/lifecycle.png)
 
 接下来我们详细分析在git中的状态转移的命令和细节。**下面的内容对照着这张图可以更好的理解**
 
@@ -43,7 +43,7 @@ git中有两个核心概念：1、三区：工作区、暂存区、git仓库；2
 
 这时候如果我们修改README.md呢？如图：
 
-![修改staged的文件](./img/stagedmodified.png)
+![修改staged的文件](/img/stagedmodified.png)
 
 修改README.md后，我们发现文件状态有两种，怎么回事呢？其实当前文件的状态是modified。暂存区中的是我们刚刚add时的文件的快照。暂存区中的文件等待commit。如果希望保留新修改的内容，需要再次add，将最新的文件添加到暂存区。
 
@@ -54,7 +54,7 @@ commit的时候是从暂存区取的，如果不太明白请看看文章开头�
 
 接着上面的问题，如果add了之后没有commit，又修改了，这时commit会发生什么？commit后执行git status如下图：
 
-![commit后又修改了再commit](./img/commitwithoutadd.png)
+![commit后又修改了再commit](/img/commitwithoutadd.png)
 
 暂存区中已经被提交了，但是未暂存的没有提交到git仓库中，仍然为修改或者未跟踪。那为什么commit过后，仍然会保留“修改”、“未跟踪”这些信息呢？commit的是暂存区中的文件，是否修改或者是否跟踪是根据git仓库中的文件版本和当前工作区中的文件版本来确定的。
 
@@ -81,7 +81,7 @@ git reset默认只会修改HEAD和暂存区，不会修改工作区中的内容�
 
 commit可以通过git log得到，commit后面的hash就是:
 
-![gitlog](./img/gitlog.png)
+![gitlog](/img/gitlog.png)
 
 #### 重命名/移动工作目录下的文件
 如果我们直接修改工作目录中的文件名，那么在git中的状态是删除了一个文件又新增了一个文件。git提供了命令来执行类似的操作：
