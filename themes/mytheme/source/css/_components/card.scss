@@ -4,11 +4,11 @@
   box-shadow: $card-shadow;
   padding: 10px;
   border-radius: 5px;
-  .title {
+  .card-title {
     color: #0e83cd;
     font-size: 1.1em;
   }
-  .title::after {
+  .card-title::after {
     content: "";
     display: block;
     width:  100%;
