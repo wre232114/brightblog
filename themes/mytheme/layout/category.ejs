@@ -1,3 +1,36 @@
-<article>
-这是分类的页面  
-</article>
+<% var last; %>
+  <% page.posts.each(function(post, i){ %>
+    <% var year = post.date.year(); %>
+    <% if (last != year){ %>
+      <% if (last != null){ %>
+        </div></section>
+      <% } %>
+      <% last = year; %>
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="<%- url_for(config.category_dir + '/' + year) %>" class="archive-year"><%= year %></a>
+        </div>
+        <div class="archives">
+    <% } %>
+    <article class="archive-article archive-type-<%= post.layout %>">
+      <div class="archive-article-inner">
+        <header class="archive-article-header">
+          <a href="<%- url_for(post.path) %>">
+            <time datetime="<%= date_xml(post.date) %>" itemprop="datePublished"><%= date(post.date, "MMM D") %></time>
+          </a>
+          <% if (post.link){ %>
+            <h1 itemprop="name">
+              <a  href="<%- url_for(post.link) %>" target="_blank" itemprop="url"><%= post.title %></a>
+            </h1>
+          <% } else if (post.title){ %>
+              <h1 itemprop="name">
+                <a  href="<%- url_for(post.path) %>"><%= post.title %></a>
+              </h1>
+          <% } %>
+        </header>
+      </div>
+    </article>
+  <% }) %>
+  <% if (page.posts.length){ %>
+    </div></section>
+  <% } %>

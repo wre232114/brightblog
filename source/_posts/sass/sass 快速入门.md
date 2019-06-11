@@ -1,11 +1,9 @@
 ---
 title: Sass快速入门
-category: Sass
+category: 
+- css
+- sass
 ---
-# sass 快速入门
-
-[TOC]
-
 
 
 ## 1. 使用变量
