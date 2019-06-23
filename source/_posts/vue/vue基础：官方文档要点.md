@@ -36,19 +36,19 @@ Vue.js的模板允许开发者声明式地将DOM绑定至底层Vue实例的数�
 底层模板会被编译成渲染函数。
 
 #### 插值
-数据绑定语法:{{}}（Mustache)，绑定的数据变化时，DOM会自动更新。
+数据绑定语法:<code>{{}}</code>（Mustache)，绑定的数据变化时，DOM会自动更新。
 ```html
 <span>Message: {{ msg }} </span>
 ```
 v-once指令可以一次性插值，数据改变不会更新DOM。
 
-{{}}会将数据解释成文本，要插入html，使用v-html="html code"。v-html不能复合局部模板，只能是html。
+<code>{{}}</code>会将数据解释成文本，要插入html，使用v-html="html code"。v-html不能复合局部模板，只能是html。
 
-{{}}不能作用再HTML属性上，需要用v-bind指令:
+<code>{{}}</code>不能作用再HTML属性上，需要用v-bind指令:
 ```html
 <div v-bind:id="dynamicId"></div>
 ```
 
-{{}}支持支持完整的javascript表达式（只能是单个表达式）。**表达式会在Vue实例的数据作用域下作为javascript被解析，意思就是说，表达式中使用的变量，会被解析成对应vm实例的属性。只能访问Math、Date等，不应该访问自定义的全局变量。**
+<code>{{}}</code>支持支持完整的javascript表达式（只能是单个表达式）。**表达式会在Vue实例的数据作用域下作为javascript被解析，意思就是说，表达式中使用的变量，会被解析成对应vm实例的属性。只能访问Math、Date等，不应该访问自定义的全局变量。**
 
 #### 指令
