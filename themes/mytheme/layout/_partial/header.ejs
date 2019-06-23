@@ -1,5 +1,6 @@
 <header id="header" class="card">
-  <span>Bright的个人博客</span>
+  <span class="logo">Bright</span>
+  <span class="motto">技术 & 梦想 |&nbsp;学习 & 总结</span>
   <nav>
     <ul>
     <% for(var name in theme.menu) { %>
@@ -8,7 +9,10 @@
       </li>
     <% } %>
       <li>
-        <i class="fa search">
+        <div class="search-input">
+          <i class="fa search"></i>
+          <input id="search-input" type="text"/>
+        </div>
       </li>
     </ul>
   </nav>

@@ -1,0 +1,35 @@
+@import "../variable";
+// 这是搜索输入框的css组件，实现搜索icon包裹在输入框中，同时hover出现的动画效果
+.search-input {
+  height: 30px;
+  width: 25px;
+  display: inline-block;
+  line-height: 30px;
+  overflow: hidden;
+  margin-top: 18px;
+  position: relative;
+  transition: width $transition-time ease-in-out;
+  border-radius: 10px;
+  &:hover {
+    border: 2px solid #ccc;
+    width: 200px;
+    background: #fff;
+  }
+  i {
+    margin-left: 5px;
+  }
+  input {
+    position: absolute;
+    left: 30px;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    border: none;
+    font-size: 1px;
+    &:focus {
+      border: none;
+      outline: none;
+      font-size: 18px;
+    }
+  }
+}

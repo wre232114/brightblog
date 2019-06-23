@@ -44,6 +44,8 @@ td {
 
 如果我们想让一个元素表现得像块级元素，只需设置其display:block，这样设置的元素和div元素没有任何的区别，因为div的默认样式就是display:block。去掉外在，大家都一样，穿上一样的衣服，大家也都一样，这篇文件中会始终使用这个思想（仅仅是个人的理解，不具备任何权威性，大家做个参考就好，欢迎提出批评和指正）
 
+inline和inline-block会继承上级的line-height属性，block每一个block都有自己的line-height属性，当我们要使用line-height进行子元素垂直居中的时候，就需要注意这一点。
+
 ## display:inline-block
 display:inline-block综合了两种元素的特性，表现的像内联元素，但是它可以设置宽高。
 

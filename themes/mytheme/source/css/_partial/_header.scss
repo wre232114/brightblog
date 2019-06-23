@@ -3,27 +3,57 @@
   ul > li {
     float: left;
     width: 100px;
-    text-align: center;
+    text-align: left;
+    white-space: nowrap;
+    transition: width $transition-time ease-in-out;
     a {
+      display: inline-block;
       height: 100%;
+      max-width: 1px;
+      white-space: nowrap;
       line-height: 40px;
       text-decoration: none;
       color: #333;
       &:hover {
         color: #ccc;
-        
+        transition: max-width $transition-time ease-in-out;
+        max-width: 50px;
+        border-bottom: 2px solid #77aaad;
+      }
+      &.active {
+        width: auto;
+        max-width: 50px;
+        border-bottom: 2px solid #77aaad;
       }
     }
     i {
       font-style: normal;
-      vertical-align: 3px;
       &:hover {
         color: #ccc;
       }
     }
+    &:last-child {
+      min-width: 100px;
+      width: auto;
+      height: 70px;
+    }
   }
-  span {
-    font-size: 1.2em;
-    margin-left: 2.5%;
+  
+  .logo {
+    background-color: #6e7783;
+    border-radius: 50%;
+    display: inline-block;
+    width: 70px;
+    height: 70px;
+    color: white;
+    font-weight: bold;
+    font-style: italic;
+    margin-left: 30px;
+  }
+  .motto {
+    display: inline-block;
+    margin-left: 10px;
+    color: #6e7783;
+    font-style: italic;
   }
 }
