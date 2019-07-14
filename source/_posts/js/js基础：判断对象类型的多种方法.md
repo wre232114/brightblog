@@ -19,7 +19,7 @@ js中有多种方式可以判断对象的类型，每种判断类型的方式都
 4. constructor
 
 ## 1. instanceof
-使用方法：```obj instanceof Object```，左操作数是对象实例，右操作数是构造函数。
+使用方法：<code>obj instanceof Object</code>，左操作数是对象实例，右操作数是构造函数。
 
 instanceof关键字判断的方式如下，假定o是对象实例、c是构造函数：
 **如果o继承自c.prototype，则o instanceof c的值为true。这里的继承可以是直接继承，也可以是间接继承**
