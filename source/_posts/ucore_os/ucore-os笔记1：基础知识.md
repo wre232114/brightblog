@@ -3,11 +3,11 @@ title: ucore_os笔记1：基础知识
 date: 2019-06-12 07:49:20
 tags:
 - 操作系统
-- ucore_os
+- ucore
 
 category:
 - 操作系统原理和实现
-- ucore_os
+- ucore
 ---
 
 ## GCC的基本用法
