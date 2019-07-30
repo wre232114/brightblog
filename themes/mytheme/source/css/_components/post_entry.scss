@@ -1,0 +1,17 @@
+.post-entry {
+  margin-bottom: 5px;
+  padding: 5px 25px;
+  .title-right {
+    float: right;
+    font-weight: 600;
+    font-size: 1rem;
+    color: $color-gray-light;
+  }
+  .content {
+    color: $color-gray;
+  }
+  .post-time {
+    margin-top: 10px;
+    color: $color-gray-light;
+  }
+}

@@ -1,4 +1,9 @@
-<div>
-  <span><%-post.date.format("YYYY-MM-DD")%></span>  
-  <a href="<%-url_for(post.path,{post:post}) %>"><%-post.title%></a>
+<div class="post-entry card">
+  <a href="<%-url_for(post.path,{post:post}) %>">
+    <h3><%- post.title %>
+      <span class="title-right"><%=post.categories.data[0] && post.categories.data[0].name%></span>
+    </h3>
+    <div class="content"><%=post.content.replace(/<(.+?)>|(<\/\1>)/g,'').slice(0, 100)%></div>
+    <div class="post-time"><%-post.date.format("YYYY-MM-DD")%></div>
+  </a>
 </div>

@@ -69,11 +69,11 @@ commit的时候是从暂存区取的，如果不太明白请看看文章开头�
 > git rm --cached
 
 #### 撤销修改
-使用git checkout [file]可以撤销对文件的修改，回到上一次commit时的状态，即状态图中的unmodified状态。
+使用git checkout [file]可以撤销对文件的修改，回到上一次commit时的状态，即状态图中的unmodified状态。git checkout不仅会修改更新索引（暂存区），还会覆盖工作目录中对应的文件。
 > git checkout README.md
 
 #### 撤销暂存
-使用git reset命令可以撤销暂存，原理是将HEAD移动到指定commit记录（默认是HEAD），然后用这一次记录重置暂存区。
+使用git reset命令可以撤销暂存，原理是将HEAD移动到指定commit记录（默认是HEAD），然后用这一次记录重置暂存区。git reset --soft：仅修改head的指向；--mixed：修改head的指向，并更新暂存区（默认）；--hard：修改head的指向、暂存区和工作目录。
 
 git reset默认只会修改HEAD和暂存区，不会修改工作区中的内容，如果要替换工作区中的内容，使用--hard选项。
 
@@ -89,5 +89,6 @@ commit可以通过git log得到，commit后面的hash就是:
 
 如果path1=path2，则为重命名。修改会被直接保存到暂存区中。
 
-## 版本回退
+## 版本控制
 上面所列举的所有操作可以用下面的这一张图来概括：
+![图](/img/git-lifecycle.png)

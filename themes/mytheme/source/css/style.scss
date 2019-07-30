@@ -1,11 +1,13 @@
 @import "./variable";
+h1,h2,h3,h4,h5,h6 {
+  color: #222222;
+  font-weight: 600;
+}
 h1 {
   margin: 1em 0;
-  text-indent: 5px;
 }
 h2 {
   margin: 0.75em 0;
-  text-indent: 5px;
 }
 h3 {
   margin: 0.5em 0;
@@ -36,6 +38,7 @@ a {
 @import "./_components/card.scss";
 @import "./_components/font.scss";
 @import "./_components/search-input.scss";
+@import "./_components/post_entry.scss";
 // * {
 //   border: 1px solid black;
 // }

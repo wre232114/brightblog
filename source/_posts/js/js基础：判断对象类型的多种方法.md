@@ -26,7 +26,7 @@ instanceof关键字判断的方式如下，假定o是对象实例、c是构造�
 
 也就是说，只要某一个构造函数的prototype在某一个实例原型链上，实例 instanceof 构造函数的值就为true。来个图可能比较好理解：
 
-![原型链](../../../themes/mytheme/source/img/原型链.png)
+![原型链](https://www.brightblog.cn/img/%E5%8E%9F%E5%9E%8B%E9%93%BE.png)
 
 因为Object.prototype和Array.prototype都在原型链上，那么数组实例，例如:
 ```js
