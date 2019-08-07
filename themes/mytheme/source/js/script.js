@@ -13,3 +13,15 @@ if(archive.test(path)) {
 if(path == '/') {
   tabs[0].getElementsByTagName('a')[0].className = 'active';
 }
+
+// 动态设置当前category/archive的名字
+// var x = path.match(category);
+// var restPath = path.substring(x.index+x[0].length);
+// var resolvePath = /^\/(.+?)(?:\/(.+?)\/?)*$/;
+// var restResult = restPath.match(resolvePath);
+
+// function genBreads(breads) {
+//   for(var i = 0;i < breads.length;i++) {
+//     var bread = document.querySelector('#bread-wrap');
+//   }
+// }

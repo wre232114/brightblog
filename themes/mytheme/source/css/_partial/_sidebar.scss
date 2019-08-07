@@ -1,9 +1,52 @@
 @import "../variable";
 #left-sidebar {
   ul > li {
+    width: fit-content;
+    padding: 3px;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    position: relative;
+  }
+  .category-list > .category-list-item {
+    padding-left: 1em;
+  }
+  .category-list > .category-list-item > .category-list-child {
+    max-height: 0;
+    transition: max-height .5s linear;
+    margin-left: 1em;
+  }
+  .category-list > .category-list-item::before {
+    content: '';
+    width: 7px;
+    height: 7px;
+    position: absolute;
+    left: 2px;
+    top: 0.5em;
+    transform: rotate(45deg);
+    border: none;
+    border-top: 1px solid $font-color;
+    border-right: 1px solid $font-color; 
+    transition: all 0.5s ease-in-out;
+  }
+  .category-list > .category-list-item:hover::before {
+    content: '';
+    width: 7px;
+    height: 7px;
+    position: absolute;
+    left: 2px;
+    top: 0.5em;
+    transform: rotate(135deg);
+    border:none;
+    border-top: 1px solid $font-color;
+    border-right: 1px solid $font-color; 
+    transition: all 0.5s ease-in-out;
+  }
+  .category-list > .category-list-item:hover > .category-list-child {
+    max-height: 10em;
+  }
+  ul > li:hover, ul > li:hover > a {
+    color: $font-color-gray;
   }
 }
 #right-siderbar {

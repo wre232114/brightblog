@@ -29,6 +29,11 @@ hr {
 a {
   color: $font-color;
 }
+.g-aline {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
 @import "./_partial/layout";
 @import "./_partial/header";
 @import "./_partial/article";
@@ -39,6 +44,7 @@ a {
 @import "./_components/font.scss";
 @import "./_components/search-input.scss";
 @import "./_components/post_entry.scss";
+@import "./_components/bread.scss";
 // * {
 //   border: 1px solid black;
 // }

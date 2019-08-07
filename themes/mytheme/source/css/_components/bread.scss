@@ -1,0 +1,17 @@
+@import "../variable";
+.bread-wrap {
+  line-height: 2em;
+  height: 2em;
+  margin-left: 10px;
+  font-size: 1.2em;
+  position: relative;
+
+  .cate-name {
+    color: $font-color-blue;
+    &:not(:last-child)::after {
+      content: ">";
+      font-size: 1em;
+      margin-left: 10px;
+    }
+  }
+}

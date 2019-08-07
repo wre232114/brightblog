@@ -5,8 +5,8 @@ html {
 }
 
 #header {
-  height: 70px;
-  line-height: 70px;
+  height: 40px;
+  line-height: 45px;
   overflow: hidden;
   margin-bottom: $card-margin;
   color: #333;
@@ -28,6 +28,7 @@ html {
 #main {
   width: 95%;
   margin: 0 auto;
+  margin-top: 70px;
 }
 #article {
   margin-left: $sidebar-width + 1%;
@@ -36,4 +37,7 @@ html {
 }
 #footer {
   clear: left;
+  width: fit-content;
+  margin: 0 auto;
+  color: $font-color-gray;
 }
