@@ -6,6 +6,7 @@ tags:
 - css基础
 category:
 - css
+- css基础
 ---
 ## 概述
 这是一篇css基础的文章，主要讲css中的各类框模型的细节，比如inline-block，table，flex，grid。这里会解答一些开发中常见的问题，例如：为什么有时候我设了外边距、内边距没有效果？

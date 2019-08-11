@@ -11,42 +11,55 @@
     width: 100px;
     text-align: left;
     white-space: nowrap;
-    transition: width $transition-time ease-in-out;
     a {
       display: inline-block;
       height: 100%;
-      max-width: 1px;
       white-space: nowrap;
       line-height: 40px;
       text-decoration: none;
-      color: #333;
-      &:hover {
-        color: #ccc;
-        transition: max-width $transition-time ease-in-out;
-        max-width: 50px;
-        border-bottom: 2px solid #77aaad;
+      color: $font-color;
+      position: relative;
+      transition: all $transition-time ease-in-out;
+      &::after {
+        content: "";
+        position: absolute;
+        bottom:0;
+        left: 50%;
+        right: 50%;
+        height: 2px;
+        background-color: $color-lightblue;
+        transition: all $transition-time ease-in-out;
+      }
+      &:hover::after {
+        left: 0;
+        right: 0;
+        max-width: 100px;
+      }
+      &.active:hover {
+        color: $font-color-hover-nav;
+        border-bottom: none;
       }
       &.active {
         width: auto;
         max-width: 50px;
-        border-bottom: 2px solid #77aaad;
+        border-bottom: 2px solid $color-lightblue;
       }
     }
     i {
       font-style: normal;
       &:hover {
-        color: #ccc;
+        color: $font-color-hover-nav;
       }
     }
     &:last-child {
       min-width: 100px;
       width: auto;
-      height: 70px;
+      height: 40px;
     }
   }
   
   .logo {
-    background-color: #6e7783;
+    background-color: $color-blue-gray;
     border-radius: 50%;
     display: inline-block;
     width: 40px;
@@ -61,7 +74,7 @@
   .motto {
     display: inline-block;
     margin-left: 10px;
-    color: #6e7783;
+    color: $color-blue-gray;
     font-style: italic;
   }
 }

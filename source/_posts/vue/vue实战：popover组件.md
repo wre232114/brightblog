@@ -4,6 +4,10 @@ date: 2019-07-06 10:42:47
 tags:
 - vue
 - vue实战
+
+category:
+- vue
+- vue实战
 ---
 
 业务需要，我们需要一个vue的弹出类组件容器，能够自动根据给定的元素定位到视口的固定位置。popper.js的功能比较多，我们需要的功能比较少，这里实现了popper.js的简化版本popsim.js：

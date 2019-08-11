@@ -6,7 +6,7 @@ tags:
 - ucore
 
 category:
-- 操作系统原理和实现
+- 操作系统
 - ucore
 ---
 
