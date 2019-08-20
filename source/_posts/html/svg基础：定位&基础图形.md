@@ -1,5 +1,5 @@
 ---
-title: svg基础：定位
+title: svg基础：定位&基础图形
 date: 2019-07-27 07:43:30
 tags:
 - html5
@@ -31,7 +31,17 @@ category:
 上面的元素仅仅对应100x100 px，一个用户单元等于一个屏幕单元。
 > \<svg width="200" height="200" viewBox="0 0 100 100">
 
-整个SVG画布是200x200 px。但是viewBox属性定义了画布展示的部分。200x200的区域从用户单元(0,0)开始，并且跨度为100x100用户单元。这有效的缩小为100x100用户单元并且将图片扩大为两倍的大小。
+整个SVG画布是200x200 px。但是viewBox属性定义了画布展示的部分。200x200的区域从用户单元(0,0)开始，并且跨度为100x100用户单元。**在这里，width=200，height=200，定义了svg的宽和高，这是不变的，那么viewBox的作用是什么呢?viewBox可以控制图形和显示区域的比例，在上例中，viewbox是(0,0)到(100,100)，那么可视区域将在200x200的区域内展示原图形中100x100的图形，相当于将svg放大了两倍。如下例：**
+
+<svg version="1.1"
+     baseProfile="full"
+     width="300" height="200"
+     xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 150 100">
+  <rect width="100%" height="100%" fill="red" />
+  <circle cx="150" cy="100" r="80" fill="green" />
+  <text x="150" y="125" font-size="60" text-anchor="middle" fill="white">SVG</text>
+</svg>
 
 将用户单元转为屏幕单元的匹配称为用户坐标系统。除了缩放之外，坐标系统还可以旋转、扭曲和翻转。默认的用户坐标系统匹配一个用户像素称1个设备像素（但是，设备可能决定，设备的1个像素意味着什么。例如，一个设备像素可能对应多个物理像素，比如移动设备）。SVG文件中的用于明确w维度的长度单元，比如"in"或者"cm"，会用一种方式计算，让其在结果图片中1:1显示。
 
@@ -39,13 +49,41 @@ category:
 ## 基本形状
 ### 矩形
 > \<rect x="10" y="10" width="30" height="30" stroke="black" fill="transparent" stroke-width="5" />
+
+<svg version="1.1"
+     baseProfile="full"
+     width="100" height="50"
+     xmlns="http://www.w3.org/2000/svg">
+     <rect x="10" y="10" width="30" height="30" stroke="black" fill="transparent" stroke-width="5" />
+</svg>
+
 > \<rect x="60" y="10" rx="10" ry="10" width="30" height="30" stroke="black" fill="transparent" stroke-width="5" />
 
+<svg version="1.1"
+     baseProfile="full"
+     width="100" height="50"
+     xmlns="http://www.w3.org/2000/svg">
+     <rect x="60" y="10" rx="10" ry="10" width="30" height="30" stroke="black" fill="transparent" stroke-width="5" />
+</svg>
 ### 圆
 > \<circle cx="25" cy="75" r="20" stroke="red" fill="transparent" stroke-width="5" />
 
+<svg version="1.1"
+     baseProfile="full"
+     width="100" height="100"
+     xmlns="http://www.w3.org/2000/svg">
+     <circle cx="25" cy="75" r="20" stroke="red" fill="transparent" stroke-width="5" />
+</svg>
+
 ### 椭圆
 > \<ellipse cx="75" cy="75" rx="25" cy="5" />
+
+<svg version="1.1"
+     baseProfile="full"
+     width="100" height="100"
+     xmlns="http://www.w3.org/2000/svg">
+     <ellipse cx="75" cy="75" rx="25" cy="5" />
+</svg>
 
 ### 线
 > \<line x1="10" x2="50" y1="110" y2="150"/>

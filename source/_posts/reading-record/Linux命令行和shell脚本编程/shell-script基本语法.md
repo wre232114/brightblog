@@ -6,6 +6,7 @@ tags:
 - Linux命令行与shell脚本编程
 
 category:
+- 操作系统
 - shell
 ---
 
