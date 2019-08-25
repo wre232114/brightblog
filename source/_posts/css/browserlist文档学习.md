@@ -10,7 +10,7 @@ category:
 - css
 - css工具
 ---
-browserslist用于在不同的前端工具，比如autoprefixer、stylelint、babel-preset-env间共享相同的目标浏览器和nodejs环境。使用改配置的工具如下：
+browserslist用于在不同的前端工具，比如autoprefixer、stylelint、babel-preset-env间共享相同的目标浏览器和nodejs环境。使用该配置的工具如下：
 * [autoprefixer](https://github.com/postcss/autoprefixer)
 * [babel](https://github.com/babel/babel/tree/master/packages/babel-preset-env)
 * [postcss-preset-env](https://github.com/jonathantneal/postcss-preset-env)

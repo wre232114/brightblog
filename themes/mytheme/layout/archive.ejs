@@ -1,17 +1,22 @@
 <% var last; %>
   <% page.posts.each(function(post, i){ %>
     <% var year = post.date.year(); %>
-    <% if (last != year){ %>
-      <% if (last != null){ %>
-        </div></section>
-      <% } %>
-      <% last = year; %>
-      <section class="bread-wrap">
-        <a href="<%- url_for(config.archive_dir + '/' + year) %>" class="cate-name"><%= year %></a>
-        <div class="archives">
-    <% } %>
-    <%-partial("_partial/post_entry", {post:post}) %>
-  <% }) %>
-  <% if (page.posts.length){ %>
-    </div></section>
-  <% } %>
+      <% if (last != year){ %>
+        <% if (last != null){ %>
+          </div>
+          </section>
+          <% } %>
+            <% last = year; %>
+              <section class="bread-wrap">
+                <a href="<%- url_for(config.archive_dir + '/' + year) %>" class="cate-name">
+                  <%= year %>
+                </a>
+              </section>
+              <div class="archives">
+                <% } %>
+                  <%-partial("_partial/post_entry", {post:post}) %>
+                    <% }) %>
+                      <% if (page.posts.length){ %>
+              </div>
+              </section>
+              <% } %>

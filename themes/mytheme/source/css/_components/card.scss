@@ -7,15 +7,17 @@
   .card-title {
     color: #0e83cd;
     font-size: 1.1em;
+    line-height: 1.5em;
   }
   .card-title::after {
     content: "";
     display: block;
-    width:  100%;
+    width: 100%;
     margin: 0 auto;
     border-bottom: 1px solid #ccc;
   }
 }
+
 .margin-right {
   margin-right: $card-margin;
 }

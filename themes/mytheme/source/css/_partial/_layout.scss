@@ -1,5 +1,4 @@
 @import "../variable";
-
 html {
   background: whitesmoke;
 }
@@ -15,27 +14,35 @@ html {
     overflow: hidden;
   }
 }
+
 #left-sidebar {
+  position: sticky;
+  top: 70px;
+  left: 0;
   float: left;
   width: $sidebar-width;
   margin-right: $card-margin;
 }
 
 #right-sidebar {
+  position: sticky;
   float: right;
   width: $sidebar-width;
   margin-left: $card-margin;
 }
+
 #main {
   width: 95%;
   margin: 0 auto;
   margin-top: 70px;
 }
+
 #article {
   margin-left: $sidebar-width + 1%;
   padding: 0 0.5em;
   border-top: 1px solid transparent;
 }
+
 #footer {
   clear: left;
   width: fit-content;

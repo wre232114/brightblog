@@ -12,3 +12,16 @@ blockquote {
     color: $quote-before-color;
   }
 }
+
+.post-article {
+  background: #fff;
+  padding: 0 1em;
+  overflow: hidden;
+  ul {
+    margin: 1.5em 2em;
+    list-style: disc;
+    li {
+      margin: 0.5em;
+    }
+  }
+}
