@@ -1,5 +1,5 @@
 ---
-title: vue基础：vue-router介绍和源码解析
+title: vue基础：vue-router使用
 date: 2019-07-10 21:50:28
 tags:
 - vue

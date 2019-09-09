@@ -3,7 +3,7 @@ title: vue基础：tips
 date: 2019-07-06 08:40:46
 tags:
 - vue
-- tips
+- vue-tips
 
 category:
 - vue

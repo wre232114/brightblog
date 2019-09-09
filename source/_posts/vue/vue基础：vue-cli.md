@@ -3,7 +3,7 @@ title: vue基础：vue-cli
 date: 2019-07-03 21:32:13
 tags:
 - vue
-- cli
+- vue-cli
 
 category:
 - vue

@@ -3,7 +3,7 @@ title: vue基础：官方文档要点
 date: 2019-06-18 21:12:54
 tags:
 - vue
-- 基础要点
+- vue基础
 
 category:
 - vue

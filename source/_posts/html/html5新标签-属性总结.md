@@ -27,7 +27,7 @@ html5新增了很多结构型的标签，这些标签没有默认样式，只设
 p、ul、figure、body、ol，menu，dir，dd
 
 ## 默认有padding的元素
-ul、ol，menu，dir
+ul、ol，menu，dir，button
 
 ## 默认有background的元素
 mark
