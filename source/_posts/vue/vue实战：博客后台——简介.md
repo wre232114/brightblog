@@ -39,6 +39,38 @@ category:
 * markdown：markdown编辑器组件，支持编辑、预览、快捷键、快捷图表。
 * tree：树形组件、以树型的结构来展示层次型的数据。
 
+## 开发进度
+* markdown组件
+  * 实现可视化编辑和预览（**done**）
+  * 实现快捷键和图标点击插入
+  * RangeSelection API封装
+    * 获取/删除选中区域的文本
+    * 插入指定内容（**done**）
+    * 获取/设置光标位置（**done**）
+  * CopyPaste API封装（**done**）
+  * WebWorker API封装
+  * 自定义事件
+    * change，内容改变
+    * compile-start，编译开始
+    * compile-end，编译结束
+  * 样式可配置
+* tree组件
+  * 目录展开折叠
+  * 右键单击弹出菜单
+    * 复制/粘贴
+    * 重命名
+    * 删除
+    * 新建
+  * 事件
+    * click-left，鼠标左健点击
+    * click-rigt，鼠标右键点击
+    * item-click，点击tree的子节点
+    * collapse，展开/收起
+  * 样式可配置
+* 前端防抖同步输入的内容到服务器，websocket
+* 服务器同步文件到多台机器
+* 分布式部署
+
 
 ## 依赖的库
 * marked：轻量级markdown编译

@@ -25,4 +25,17 @@ tags:
 ## mysql client连接远程数据库
 > mysql -h 远程地址 -u root -p
 
-前提是远程数据库要开启允许远程连接，如何开启请百度。
+## 配置mysql
+安装完mysql后，mysql默认是不会启动的，所以我们在控制台输入mysql命令，会报错。接下来我们手动启动mysql服务，并添加到开机自启动。
+
+启动mysql服务：
+> systemctl start mysqld.service
+
+然后执行：
+> systemctl status mysqld.service
+
+如果看到输出中提示mysql server处于running中，说明mysql启动成功。mysql启动后会有一个默认的密码，我们要找出这个默认的密码，输入：
+> grep "password" /var/log/mysqld.log
+
+结果如图：
+![默认密码](/img/mysql默认密码.png)
