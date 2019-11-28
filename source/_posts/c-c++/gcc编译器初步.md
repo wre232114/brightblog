@@ -1,10 +1,14 @@
 ---
 title: gcc编译器初步
 date: 2019-06-11 22:16:59
-tags: gcc c c++
+tags: 
+- 编程语言
+- C语言
+- GCC
+
 category:
-- c/c++
-- gcc
+- 编程语言
+- C语言
 ---
 
 ## gcc编译器入门

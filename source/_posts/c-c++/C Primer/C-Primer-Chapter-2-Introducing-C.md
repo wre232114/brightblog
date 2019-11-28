@@ -4,6 +4,7 @@ date: 2019-11-04 09:54:31
 tags:
 - 编程语言
 - C语言
+- 《C Primer》
 
 category:
 - 编程语言

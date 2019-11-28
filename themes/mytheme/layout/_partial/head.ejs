@@ -17,19 +17,22 @@
     title = __('tag') + ': ' + page.tag;
   }
   %>
-  <title><% if (title){ %><%= title %> | <% } %><%= config.title %></title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <%- css("css/reset") %>
-  <%- css("css/style") %>
-  <% if (page.mathjax) { %>
-    <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-      extensions: ["tex2jax.js"],
-      jax: ["input/TeX","output/HTML-CSS"],
-      tex2jax: {inlineMath: [["$","$"],["\\(","\\)"]]}
-    });
-  </script>
-    <%- js("js/MathJax") %>
-  <%  }
+    <title>
+      <% if (title){ %>
+        <%= title %> |
+          <% } %>
+            <%= config.title %>
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <%- css("css/reset") %>
+      <%- css("css/style") %>
+        <%- css("css/github-markdown") %>
+          <%- css("css/atom-one-dark") %>
+            <% if (page.mathjax) { %>
+              <script type="text/x-mathjax-config">
+                MathJax.Hub.Config({ extensions: ["tex2jax.js"], jax: ["input/TeX","output/HTML-CSS"], tex2jax: {inlineMath: [["$","$"],["\\(","\\)"]]} });
+              </script>
+              <%- js("js/MathJax") %>
+                <%  }
   %>
 </head>

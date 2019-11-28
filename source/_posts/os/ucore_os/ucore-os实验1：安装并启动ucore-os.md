@@ -25,6 +25,8 @@ gcc是编译器，qemu是硬件模拟器，通过编译器编译生成.img文件
 > sudo yum install gcc gcc-c++ qemu
 
 安装完成后在命令行输入qemu，提示无命令，这是因为默认安装的命令是qemu-system-i386，可以创建一个链接文件qemu链接到qemu-system-i386:
+> cd /usr/bin
+> 
 > sudo ln -s qemu-system-i386 qemu
 
 提示：如果编译过程中出现错误，请尝试升级gcc编译器版本。

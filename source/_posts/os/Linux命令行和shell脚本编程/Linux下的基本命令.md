@@ -2,8 +2,9 @@
 title: Linux下的基本命令
 date: 2019-08-05 22:13:23
 tags:
-- 读书笔记
-- Linux命令行与shell脚本编程
+- 《Linux命令行和Shell脚本编程》
+- 操作系统
+- linux命令
 
 category:
 - 操作系统
@@ -97,3 +98,9 @@ linux采用信号来进行通信。进程如何处理信号是由开发人员通
 
 
 ## 用户管理
+
+
+## 查看系统信息
+```shell
+lsb_release -b
+```

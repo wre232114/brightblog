@@ -2,17 +2,19 @@
 <html>
 <%# common head, including head tile and many seo messages %>
   <%- partial("_partial/head") %>
-  <body>
+
+    <body>
       <%# header, including nav and search %>
-    <%- partial("_partial/header") %>
-    <main id="main">
-    <%# sidebar, including categories, archives, recent post %>
-    <%- partial("_partial/sidebar", {left: true}) %>
-    <!--<%- partial("_partial/sidebar", {left: false}) %>-->
-    <article id="article" class="margin-right">
-      <%- body %>
-      </article>
-    </main>
-    <%- partial("_partial/foot") %>
-  </body>
+        <%- partial("_partial/header") %>
+          <main id="main">
+            <%# sidebar, including categories, archives, recent post %>
+              <%- partial("_partial/sidebar", {left: true}) %>
+                <!--<%- partial("_partial/sidebar", {left: false}) %>-->
+                <article id="article markdown-body" class="margin-right">
+                  <%- body %>
+                </article>
+          </main>
+          <%- partial("_partial/foot") %>
+    </body>
+
 </html>
