@@ -2,6 +2,12 @@
 title: centos 下安装mysql
 date: 2019-05-24 22:34:33
 tags:
+- 数据库
+- mysql
+
+category:
+- 数据库
+- mysql
 ---
 ## 安装client
 > yum install mysql

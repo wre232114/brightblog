@@ -289,7 +289,7 @@ sass运行@import命令写在css规则内（原生css不允许）。这种导入
 混合器中不仅可以包含属性，也可以包含css规则，包含选择器和选择器中的属性：
 
 ```scss
-@minxi no-bullets {
+@minin no-bullets {
     list-style: none;
     li {
         list-style-image: none;

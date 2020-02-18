@@ -93,7 +93,7 @@ declare module 'vue/types/vue' {
 }
 ```
 
-在项目中包含了尚书作为声明文件的代码之后（像my-property.d.ts），就可以在vue实例上使用$myProperty了。
+在项目中包含了上述作为声明文件的代码之后（像my-property.d.ts），就可以在vue实例上使用$myProperty了。
 
 ```typescript
 var vm = new Vue()
@@ -120,4 +120,32 @@ declare module 'vue/types/options' {
 ## 标注返回值
 typescript可能在推断某个方法的类型时存在困难。因此，可能需要在render或computed里的方法上标注返回值。
 
+返回类型一般来说在typescript中可以自动推导，例如`a(){return 1;}`，a的返回类型会被推导为`number`，当不自动推断时，需要手动：`a():number {return 1;}`
+```typescript
+import Vue, { VNode } from 'vue'
+
+const Component = Vue.extend({
+  data () {
+    return {
+      msg: 'Hello'
+    }
+  },
+  methods: {
+    // 需要标注有 `this` 参与运算的返回值类型
+    greet (): string {
+      return this.msg + ' world'
+    }
+  },
+  computed: {
+    // 需要标注
+    greeting(): string {
+      return this.greet() + '!'
+    }
+  },
+  // `createElement` 是可推导的，但是 `render` 需要返回值类型
+  render (createElement): VNode {
+    return createElement('div', this.greeting)
+  }
+})
+```
 如果发现类型推导或者成员补齐不工作了，使用--noImplicitAny选项会帮助找到这些未标注的方法。

@@ -181,6 +181,9 @@ table和inline-table的区别是，table占单独的一行，而inline-table是�
   </div>
 * 内联元素和块级类似，块级元素水平居中使用margin:0 auto;，内联元素使用text-align: center;垂直居中使用
 
+## 内联元素、块级元素、匿名元素之间的关系
+
+
 ## 总结
 
 接下来对上面提到的一些框模型进行总结，如下表：

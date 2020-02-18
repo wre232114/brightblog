@@ -52,6 +52,10 @@ a {
   white-space: nowrap;
 }
 
+.ofhidn {
+  overflow: hidden;
+}
+
 @import "./_partial/layout";
 @import "./_partial/header";
 @import "./_partial/article";

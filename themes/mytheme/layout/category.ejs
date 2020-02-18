@@ -1,13 +1,14 @@
-<section>
+<section class="ofhidn">
   <article class="bread-wrap hr">
     <%var path = '/categories/';%>
-    <%page.posts.data[0].categories.each(function(cate,i){%>
-      <%path += cate.name+'/'%>
-      <a class="cate-name" href="<%=path%>"><%=cate.name%></a>
-    <%})%>
+      <%page.posts.data[0].categories.each(function(cate,i){%>
+        <%path += cate.name+'/'%>
+          <a class="cate-name" href="<%=path%>">
+            <%=cate.name%>
+          </a>
+          <%})%>
   </article>
   <% page.posts.each(function(post, i){ %>
     <%-partial("_partial/post_entry", {post:post}) %>
-  <% }) %>
+      <% }) %>
 </section>
-

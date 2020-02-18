@@ -1,4 +1,5 @@
-
-<% site.posts.sort("data", "desc").each(function (post) { %>
+<section class="ofhidn">
+  <% site.posts.sort("data", "desc").each(function (post) { %>
     <%-partial("_partial/post_entry", {post:post}) %>
-<%})%>  
+      <%})%>
+</section>

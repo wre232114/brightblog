@@ -1,5 +1,5 @@
 ---
-title: ucore-os实验1：lab1练习
+title: ucore-os实验1：lab1练习1
 date: 2019-06-17 08:13:51
 tags:
 - 操作系统
@@ -259,56 +259,3 @@ sign.c从main接收两个参数，一个是输入文件名argv[1]，另一个是
 从上面的流程可以看出，规则是：
 1. 总大小为512字节
 2. 最后两个字节空出来填充0x55和0xAA，bootloader的内容必须小于510字节。
-
-## 练习2：使用qemu执行并调试lab1中的软件
-重点是熟悉qemu和gdb的调试，进行如下练习：
-1. 从CPU加电后执行的第一条指令开始，单步跟踪BIOS的执行
-2. 在初始化位置0x7c00设置实地址断点，测试断点正常
-3. 从0x7c00开始跟踪代码运行，将单步跟踪反汇编得到的代码于bootasm.S和bootblock.asm进行比较
-4. 自己找一个bootloader或内核中的代码位置，设置断点并进行测试
-
-### 答案
-答：先对实验过程进行分析和记录，最后给出练习体的到答案
-
-### 启动qemu并于gdb联调
-Makefile中有：
-```shell
-qemu-mon: $(UCOREIMG)
-	$(V)$(QEMU)  -no-reboot -monitor stdio -hda $< -serial null
-qemu: $(UCOREIMG)
-	$(V)$(QEMU) -no-reboot -parallel stdio -hda $< -serial null
-qemu-nox: $(UCOREIMG)
-	$(V)$(QEMU)   -no-reboot -serial mon:stdio -hda $< -nographic
-TERMINAL        :=gnome-terminal
-debug: $(UCOREIMG)
-	$(V)$(QEMU) -S -s -parallel stdio -hda $< -serial null &
-	$(V)sleep 2
-	$(V)$(TERMINAL) -e "gdb -q -tui -x tools/gdbinit"
-debug-nox: $(UCOREIMG)
-	$(V)$(QEMU) -S -s -serial mon:stdio -hda $< -nographic &
-	$(V)sleep 2
-	$(V)$(TERMINAL) -e "gdb -q -x tools/gdbinit"
-```
-选项分析如下：
-* -no-reboot：退出不重启
-* -parallel stdio：将模拟器的并行端口重定向为stdio
-* -hda bin/ucore.img：将bin/ucore.img作为磁盘0的硬盘镜像
-* -serial null：将模拟器的串行端口重新向为null
-* -monitor stdio：将显示器重定向到stdio
-* -S：启动时不启动CPU，必须需要输入'c'才能让qemu继续工作
-* -s：-gdb::1234的缩写，等待连接到端口1234
-
-相关命令分析如下：
-* gnome-terminal -e command：启动一个新的gnome-terminal终端，-e command表示在该终端中将command字符串作为命令执行
-* gdb：运行gnu调试器，可以调试C程序
-  * -q：不打印copyright信息
-  * -x file：从文件中执行gdb命令
-* sleep 2：延迟两秒
-
-gdbinit中的内容如下（通过命令行输入gdb进行gdb命令模式，然后输入help file等查看命令详情）：
-```shell
-file bin/kernel # 表示调试bin/kernel文件，会读取文件中的符号表。该文件要使用-g选项生成才包含调试使用的信息。
-target remote :1234 # 连接到目标机器或者进程
-break kern_init # 在函数或者行数打断点
-continue # 继续执行
-```
