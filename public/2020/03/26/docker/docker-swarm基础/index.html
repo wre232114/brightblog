@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+
+  <head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+    <title>
+      
+        docker swarm基础 |
+          
+            Bright的个人博客
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="/css/reset.css">
+      <link rel="stylesheet" href="/css/style.css">
+        <link rel="stylesheet" href="/css/github-markdown.css">
+          <link rel="stylesheet" href="/css/atom-one-dark.css">
+            
+</head>
+
+    <body>
+      
+        <header id="header" class="card">
+  <span class="logo">B</span>
+  <span class="motto">技术 & 梦想 |&nbsp;学习 & 总结</span>
+  <nav>
+    <ul>
+    
+      <li>
+        <a href="/">首页 </a>
+      </li>
+    
+      <li>
+        <a href="/archives">归档 </a>
+      </li>
+    
+      <li>
+        <a href="/categories">分类 </a>
+      </li>
+    
+      <li>
+        <div class="search-input">
+          <i class="fa search"></i>
+          <input id="search-input" type="text">
+        </div>
+      </li>
+    </ul>
+  </nav>
+</header>
+          <main id="main">
+            
+              
+<aside id="left-sidebar" class="margin-right">
+  <nav class="card sidebar-component">
+  <div class="card-title">文章归档</div>
+  <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a><span class="archive-list-count">18</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a><span class="archive-list-count">17</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a><span class="archive-list-count">30</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a><span class="archive-list-count">15</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a><span class="archive-list-count">17</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a><span class="archive-list-count">18</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a><span class="archive-list-count">2</span></li></ul>
+</nav>
+  <nav class="card sidebar-component">
+  <div class="card-title">文章分类</div>
+  <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/css/">css</a><span class="category-list-count">10</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/css/css基础/">css基础</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/css工具/">css工具</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/less/">less</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/sass/">sass</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/docker/">docker</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/docker/docker-swarm/">docker swarm</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/docker/docker基础/">docker基础</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">git</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html5/">html5</a><span class="category-list-count">8</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/html5/dom/">dom</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html5/html5-API/">html5 API</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html5/html5标签和属性/">html5标签和属性</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html5/svg/">svg</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html5/tips/">tips</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html5/实战/">实战</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/">java</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/java/spring实战/">spring实战</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/js/">js</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/js/js基础/">js基础</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/js/typescript/">typescript</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/js/正则表达式/">正则表达式</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/linux/工具/">工具</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/nginx/">nginx</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node-js/">node.js</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/node-js/npm/">npm</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node-js/命令行工具/">命令行工具</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/php/">php</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/spring-boot/">spring-boot</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/spring-boot/开发工具/">开发工具</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/typescript/">typescript</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/typescript/踩坑指南/">踩坑指南</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/">vue</a><span class="category-list-count">11</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/vue/cli/">cli</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/tips/">tips</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/vue-router/">vue-router</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/vue实战/">vue实战</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/vue组件开发/">vue组件开发</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/基础/">基础</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/webpack/">webpack</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/webpack/webpack基础/">webpack基础</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/xml/">xml</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/xml/基础/">基础</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/学习打卡/">学习打卡</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/安全/">安全</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/安全/密码技术/">密码技术</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/操作系统/">操作系统</a><span class="category-list-count">23</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/操作系统/shell/">shell</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/操作系统/ucore/">ucore</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/操作系统/操作系统原理/">操作系统原理</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据库/">数据库</a><span class="category-list-count">10</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/数据库/mysql/">mysql</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据库/sql语句/">sql语句</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据库/导论/">导论</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据库/数据库编程/">数据库编程</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据库/数据库设计/">数据库设计</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据结构/">数据结构</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/数据结构/图/">图</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/毕设/">毕设</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/">算法</a><span class="category-list-count">20</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/算法/leetcode/">leetcode</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/模式匹配/">模式匹配</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/深度优先搜索/">深度优先搜索</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程语言/">编程语言</a><span class="category-list-count">20</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/编程语言/C/">C</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/编程语言/C/语言/">语言</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程语言/C语言/">C语言</a><span class="category-list-count">17</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程语言/Java/">Java</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程语言/java/">java</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/英语/">英语</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/英语/生词/">生词</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/计算机网络/">计算机网络</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/计算机网络/wireshark/">wireshark</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/计算机网络/问题记录/">问题记录</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/设计模式/">设计模式</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/设计模式/交给子类/">交给子类</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/设计模式/生成实例/">生成实例</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/设计模式/适应设计模式/">适应设计模式</a><span class="category-list-count">2</span></li></ul></li></ul>
+</nav>
+  <nav class="card sidebar-component">
+  <div class="card-title">最近文章</div>
+  <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2020/05/19/algorithm/leetcode/动态规划/interleaving-string/">interleaving string</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/17/algorithm/leetcode/分治/maximum-product-subarray/">maximum product subarray</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/15/algorithm/leetcode/动态规划/triangle/">triangle</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/12/algorithm/leetcode/动态规划/unique-binary-search-trees-ii/">unique binary search trees ii</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/11/algorithm/leetcode/动态规划/decode-ways/">decode-ways</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/09/algorithm/leetcode/动态规划/unique-path-II/">unique path II</a></li></ul>
+</nav>
+</aside>
+
+
+                <!--
+<aside id="right-sidebar">
+  <nav class="card margin-bottom">
+  
+</nav>
+</aside>
+
+-->
+                <article id="article" class="margin-right ofhidn">
+                  <article class="post-article article markdown-body">
+  <h1>
+    docker swarm基础
+  </h1>
+  <hr>
+  <p>Docker的基础知识在另一系列文章中，<img src="#" alt="docker基础">。这一篇文章主要介绍docker swarm的基础知识，包括docker swarm的基础概念，如何使用docker swarm进行集群部署。</p>
+<h2 id="概览"><a href="#概览" class="headerlink" title="概览"></a>概览</h2><p>当前版本（19）的Docker包含了用于swarm集群的swarm模式，通过docker cli就可以创建一个swarm、发布部署到swarm、控制swarm的行为。</p>
+<p>Swarm有如下亮点：</p>
+<ul>
+<li><strong>与docker engine集成的集群管理</strong>：通过docker cli就可以创建和控制集群</li>
+<li><strong>去中心化设计</strong>：通过docker engine了一在一台机器上部署任意类型的节点、manager或者workers。</li>
+<li><strong>声明式的服务模型</strong>：可以在docker中利用声明式的方式为应用程序配置多种不同的服务，例如前端和后端。</li>
+<li><strong>扩容</strong>：对于每一个服务，可以指定任意多个任务，swarm会根据配置自动添加或者减少任务</li>
+<li><strong>理想的状态调和</strong>：例如需要10份拷贝，但是有两份挂了，swarm会自动生成两份新的拷贝</li>
+<li><strong>多主机网络</strong>：对于服务可以指定一个覆盖网络，swarm会自动在启动或者更新的时候为网络中的容器分配地址</li>
+<li><strong>服务发现</strong>：swarm manager为每一个服务分配独特的dns名称以及负载均衡容器。通过swarm内嵌的dns服务器可以查询swarm中运行的任意一个容器</li>
+<li><strong>负载均衡</strong></li>
+<li><strong>默认的安全策略</strong>：swarm中的每一个节点强制TLS相互认证和加密，可以使用本地的证书或者CA提供的证书</li>
+<li><strong>滚动更新</strong>：可以滚动更新节点，出错可以回滚</li>
+</ul>
+<h2 id="swarm-mode的关键概念"><a href="#swarm-mode的关键概念" class="headerlink" title="swarm mode的关键概念"></a>swarm mode的关键概念</h2><p>一个swarm由运行在swarm模式并且作为manager或worker的多个Docker主机组成，一个给定的Docker主机可以是manager、worker或者两者都是。</p>
+<blockquote>
+<p>docker swarm join –token SWMTKN-1-02lxm9l0xnjvb6p8a0623gw4yd41ckh53mhs4kcupqiskk63ku-4l1u2h45oh77sbg6u85rr19am 106.12.110.215:2377</p>
+</blockquote>
+<h2 id="docker-swarm的routing-mesh策略"><a href="#docker-swarm的routing-mesh策略" class="headerlink" title="docker swarm的routing mesh策略"></a>docker swarm的routing mesh策略</h2><p>docker swarm的routing mesh允许用户从集群上的任意一台机器上通过服务开放的端口来访问服务，这意味这swarm上的所有服务对外开放的端口应该是不同的，例如我想启动两个mysql服务，一个用于写，一个用于读，那么这两个服务的开放端口应该不一样，例如读使用3306，而写使用3307.</p>
+<p>参考：<a href="https://docs.docker.com/engine/swarm/ingress/" target="_blank" rel="noopener">https://docs.docker.com/engine/swarm/ingress/</a></p>
+<p>如果希望能够绕过routing mesh策略，例如两个mysql容器部署在两台机器上，想直接通过ip和端口直接定位到具体的mysql服务器，而不通过docker的routing mesh策略，那么需要将mysql容器的service的端口设置成host模式。如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker service create --name mysql-writer -e MYSQL_ROOT_PASSWORD=B123. --publish published=3307,target=3306,mode=host --mode global --config source=my-writer.cnf,target=/etc/mysql/my.cnf mysql:5.7</span><br></pre></td></tr></table></figure></p>
+<h2 id="docker-service的配置信息"><a href="#docker-service的配置信息" class="headerlink" title="docker service的配置信息"></a>docker service的配置信息</h2><p>当我们使用一个mysql容器的时候，有时候需要修改配置文件。但是mysql容器并没有提供vim、vi等文本编辑工具、也没有yum等命令，不能直接修改配置文件。如果直接使用<code>docker cp</code>从主机拷贝配置文件到容器，需要重启服务，重启mysql后容器也会重启，镜像的配置又会覆盖调<code>docker cp</code>的配置文件，简单来说就是这种方式也行不同。</p>
+<p>如果是在单独的容器中使用，可以在<code>docker run</code>的时候使用<code>-v</code>参数挂载配置文件目录到指定的配置文件目录下，这样可以自定义配置文件并生效。</p>
+<p>但是如果在swarm的service中，上述方式又行不通了，因为swarm的service是由manager启动的，并不能提供挂载的能力。那应该怎么办呢？幸好service提供了能够自定义配置文件的能力，参考<a href="https://docs.docker.com/engine/swarm/configs/" target="_blank" rel="noopener">Store configuration data using Docker Configs</a>。通过<code>docker config</code>创建配置文件，然后在service启动的时候通过<code>--config</code>参数将配置传给指定的容器。</p>
+<h2 id="限制service的分配"><a href="#限制service的分配" class="headerlink" title="限制service的分配"></a>限制service的分配</h2><p>如果相让service在指定的node上执行，需要进行两部操作：</p>
+<ol>
+<li>为节点分配label，例如<code>docker node update --label-add bar=baz node-1</code></li>
+<li>service create的时候添加<code>--constraint node.labels.{name}</code>选项</li>
+</ol>
+<h2 id="创建私有的registry并在docker上运行"><a href="#创建私有的registry并在docker上运行" class="headerlink" title="创建私有的registry并在docker上运行"></a>创建私有的registry并在docker上运行</h2><p>资料：<a href="https://docs.docker.com/registry/deploying/" target="_blank" rel="noopener">https://docs.docker.com/registry/deploying/</a></p>
+
+</article>
+                </article>
+          </main>
+          <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 Bright<br>
+      powered_by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+<script src="/js/script.js"></script>
+    </body>
+
+</html>

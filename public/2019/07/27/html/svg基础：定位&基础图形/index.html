@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+
+  <head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+    <title>
+      
+        svg基础：定位&amp;基础图形 |
+          
+            Bright的个人博客
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="/css/reset.css">
+      <link rel="stylesheet" href="/css/style.css">
+        <link rel="stylesheet" href="/css/github-markdown.css">
+          <link rel="stylesheet" href="/css/atom-one-dark.css">
+            
+</head>
+
+    <body>
+      
+        <header id="header" class="card">
+  <span class="logo">B</span>
+  <span class="motto">技术 & 梦想 |&nbsp;学习 & 总结</span>
+  <nav>
+    <ul>
+    
+      <li>
+        <a href="/">首页 </a>
+      </li>
+    
+      <li>
+        <a href="/archives">归档 </a>
+      </li>
+    
+      <li>
+        <a href="/categories">分类 </a>
+      </li>
+    
+      <li>
+        <div class="search-input">
+          <i class="fa search"></i>
+          <input id="search-input" type="text">
+        </div>
+      </li>
+    </ul>
+  </nav>
+</header>
+          <main id="main">
+            
+              
+<aside id="left-sidebar" class="margin-right">
+  <nav class="card sidebar-component">
+  <div class="card-title">文章归档</div>
+  <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a><span class="archive-list-count">18</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a><span class="archive-list-count">17</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a><span class="archive-list-count">30</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a><span class="archive-list-count">15</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a><span class="archive-list-count">17</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a><span class="archive-list-count">18</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a><span class="archive-list-count">2</span></li></ul>
+</nav>
+  <nav class="card sidebar-component">
+  <div class="card-title">文章分类</div>
+  <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/css/">css</a><span class="category-list-count">10</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/css/css基础/">css基础</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/css工具/">css工具</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/less/">less</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/sass/">sass</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/docker/">docker</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/docker/docker-swarm/">docker swarm</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/docker/docker基础/">docker基础</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">git</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html5/">html5</a><span class="category-list-count">8</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/html5/dom/">dom</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html5/html5-API/">html5 API</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html5/html5标签和属性/">html5标签和属性</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html5/svg/">svg</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html5/tips/">tips</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html5/实战/">实战</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/">java</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/java/spring实战/">spring实战</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/js/">js</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/js/js基础/">js基础</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/js/typescript/">typescript</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/js/正则表达式/">正则表达式</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/linux/工具/">工具</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/nginx/">nginx</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node-js/">node.js</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/node-js/npm/">npm</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node-js/命令行工具/">命令行工具</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/php/">php</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/spring-boot/">spring-boot</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/spring-boot/开发工具/">开发工具</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/typescript/">typescript</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/typescript/踩坑指南/">踩坑指南</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/">vue</a><span class="category-list-count">11</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/vue/cli/">cli</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/tips/">tips</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/vue-router/">vue-router</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/vue实战/">vue实战</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/vue组件开发/">vue组件开发</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/基础/">基础</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/webpack/">webpack</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/webpack/webpack基础/">webpack基础</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/xml/">xml</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/xml/基础/">基础</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/学习打卡/">学习打卡</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/安全/">安全</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/安全/密码技术/">密码技术</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/操作系统/">操作系统</a><span class="category-list-count">23</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/操作系统/shell/">shell</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/操作系统/ucore/">ucore</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/操作系统/操作系统原理/">操作系统原理</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据库/">数据库</a><span class="category-list-count">10</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/数据库/mysql/">mysql</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据库/sql语句/">sql语句</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据库/导论/">导论</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据库/数据库编程/">数据库编程</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据库/数据库设计/">数据库设计</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据结构/">数据结构</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/数据结构/图/">图</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/毕设/">毕设</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/">算法</a><span class="category-list-count">20</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/算法/leetcode/">leetcode</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/模式匹配/">模式匹配</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/深度优先搜索/">深度优先搜索</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程语言/">编程语言</a><span class="category-list-count">20</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/编程语言/C/">C</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/编程语言/C/语言/">语言</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程语言/C语言/">C语言</a><span class="category-list-count">17</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程语言/Java/">Java</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程语言/java/">java</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/英语/">英语</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/英语/生词/">生词</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/计算机网络/">计算机网络</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/计算机网络/wireshark/">wireshark</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/计算机网络/问题记录/">问题记录</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/设计模式/">设计模式</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/设计模式/交给子类/">交给子类</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/设计模式/生成实例/">生成实例</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/设计模式/适应设计模式/">适应设计模式</a><span class="category-list-count">2</span></li></ul></li></ul>
+</nav>
+  <nav class="card sidebar-component">
+  <div class="card-title">最近文章</div>
+  <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2020/05/19/algorithm/leetcode/动态规划/interleaving-string/">interleaving string</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/17/algorithm/leetcode/分治/maximum-product-subarray/">maximum product subarray</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/15/algorithm/leetcode/动态规划/triangle/">triangle</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/12/algorithm/leetcode/动态规划/unique-binary-search-trees-ii/">unique binary search trees ii</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/11/algorithm/leetcode/动态规划/decode-ways/">decode-ways</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/09/algorithm/leetcode/动态规划/unique-path-II/">unique path II</a></li></ul>
+</nav>
+</aside>
+
+
+                <!--
+<aside id="right-sidebar">
+  <nav class="card margin-bottom">
+  
+</nav>
+</aside>
+
+-->
+                <article id="article" class="margin-right ofhidn">
+                  <article class="post-article article markdown-body">
+  <h1>
+    svg基础：定位&基础图形
+  </h1>
+  <hr>
+  <p>在这篇文章中，我们检验SVG怎么样在一个绘制上下文中呈现对象的位置和大小，包括坐标系统以及’pixel’度量在可伸缩上下文中意味着什么。</p>
+<h2 id="网格"><a href="#网格" class="headerlink" title="网格"></a>网格</h2><p>对于所有的元素，SVG使用一个坐标系统或者grid系统，和canvas中使用的相似，左上角是(0,0)，向左x增大，向下y增大。位置可以通过指定相对于原点的左上偏移来指定。这也是HTML元素默认的坐标系统形式。</p>
+<p><strong>例如</strong><br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">rect</span> <span class="attr">x</span>=<span class="string">"0"</span> <span class="attr">y</span>=<span class="string">"0"</span> <span class="attr">width</span>=<span class="string">"100"</span> <span class="attr">height</span>=<span class="string">"100"</span> /&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>定义了一个从左上角开始的举行，并且左右、上下横跨100px。</p>
+<h2 id="什么是“像素-pixel-”"><a href="#什么是“像素-pixel-”" class="headerlink" title="什么是“像素(pixel)”"></a>什么是“像素(pixel)”</h2><p>在大部分的基础场景中，SVG文档中的1像素对应输出设备的1像素（比如屏幕）。但是SVG中的S对应着Scalable（可伸缩的），如果SVG没有改变这个行为的可能性的话，它就不会有这个名字。非常像css种的绝对和相对的font-size。SVG定义了绝对长度单元（比如”pt”或者”cm”），称其为用户单元，它缺少单位并且只是单纯的数字。</p>
+<p>没有进一步明确的说明，一个用户单元等与1个屏幕分辨率。为了显式地改变这个行为，在SVG中有几个途径。从svg标签开始：</p>
+<blockquote>
+<p>\<svg width="100" height="100"/></p>
+</blockquote>
+<p>上面的元素仅仅对应100x100 px，一个用户单元等于一个屏幕单元。</p>
+<blockquote>
+<p>\<svg width="200" height="200" viewbox="0 0 100 100"/></p>
+</blockquote>
+<p>整个SVG画布是200x200 px。但是viewBox属性定义了画布展示的部分。200x200的区域从用户单元(0,0)开始，并且跨度为100x100用户单元。<strong>在这里，width=200，height=200，定义了svg的宽和高，这是不变的，那么viewBox的作用是什么呢?viewBox可以控制图形和显示区域的比例，在上例中，viewbox是(0,0)到(100,100)，那么可视区域将在200x200的区域内展示原图形中100x100的图形，相当于将svg放大了两倍。如下例：</strong></p>
+<svg version="1.1" baseprofile="full" width="300" height="200" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 150 100"><br/>  <rect width="100%" height="100%" fill="red"/><br/>  <circle cx="150" cy="100" r="80" fill="green"/><br/>  <text x="150" y="125" font-size="60" text-anchor="middle" fill="white">SVG</text><br/></svg>
+
+<p>将用户单元转为屏幕单元的匹配称为用户坐标系统。除了缩放之外，坐标系统还可以旋转、扭曲和翻转。默认的用户坐标系统匹配一个用户像素称1个设备像素（但是，设备可能决定，设备的1个像素意味着什么。例如，一个设备像素可能对应多个物理像素，比如移动设备）。SVG文件中的用于明确w维度的长度单元，比如”in”或者”cm”，会用一种方式计算，让其在结果图片中1:1显示。</p>
+<h2 id="基本形状"><a href="#基本形状" class="headerlink" title="基本形状"></a>基本形状</h2><h3 id="矩形"><a href="#矩形" class="headerlink" title="矩形"></a>矩形</h3><blockquote>
+<p>\<rect x="10" y="10" width="30" height="30" stroke="black" fill="transparent" stroke-width="5"></rect></p>
+</blockquote>
+<svg version="1.1" baseprofile="full" width="100" height="50" xmlns="http://www.w3.org/2000/svg"><br/>     <rect x="10" y="10" width="30" height="30" stroke="black" fill="transparent" stroke-width="5"/><br/></svg>
+
+<blockquote>
+<p>\<rect x="60" y="10" rx="10" ry="10" width="30" height="30" stroke="black" fill="transparent" stroke-width="5"></rect></p>
+</blockquote>
+<svg version="1.1" baseprofile="full" width="100" height="50" xmlns="http://www.w3.org/2000/svg"><br/>     <rect x="60" y="10" rx="10" ry="10" width="30" height="30" stroke="black" fill="transparent" stroke-width="5"/><br/></svg><br>### 圆<br>&gt; \<circle cx="25" cy="75" r="20" stroke="red" fill="transparent" stroke-width="5"></circle><br><br><svg version="1.1" baseprofile="full" width="100" height="100" xmlns="http://www.w3.org/2000/svg"><br/>     <circle cx="25" cy="75" r="20" stroke="red" fill="transparent" stroke-width="5"/><br/></svg>
+
+<h3 id="椭圆"><a href="#椭圆" class="headerlink" title="椭圆"></a>椭圆</h3><blockquote>
+<p>\<ellipse cx="75" cy="75" rx="25"></ellipse></p>
+</blockquote>
+<svg version="1.1" baseprofile="full" width="100" height="100" xmlns="http://www.w3.org/2000/svg"><br/>     <ellipse cx="75" cy="75" rx="25"/><br/></svg>
+
+<h3 id="线"><a href="#线" class="headerlink" title="线"></a>线</h3><blockquote>
+<p>\<line x1="10" x2="50" y1="110" y2="150"></line></p>
+</blockquote>
+<h3 id="多点连线"><a href="#多点连线" class="headerlink" title="多点连线"></a>多点连线</h3><blockquote>
+<p>\<polyline points="60 110, 65 120"></polyline></p>
+</blockquote>
+<h3 id="多边形"><a href="#多边形" class="headerlink" title="多边形"></a>多边形</h3><blockquote>
+<p>\<polygon points="50 160, 55 180, 70 180"></polygon></p>
+</blockquote>
+<h3 id="路径"><a href="#路径" class="headerlink" title="路径"></a>路径</h3><blockquote>
+<p>\<path d="M20,230,Q40,205,50,230,T90,230" fill="none" stroke="blue" stroke-width="5"></path></p>
+</blockquote>
+<p>其中路径是最基础的形状，可以用路径画出其他的所有形状。</p>
+
+</article>
+                </article>
+          </main>
+          <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 Bright<br>
+      powered_by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+<script src="/js/script.js"></script>
+    </body>
+
+</html>

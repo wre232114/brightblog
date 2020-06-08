@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+
+  <head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+    <title>
+      
+        C语言深入篇1：指向数组和函数的指针 |
+          
+            Bright的个人博客
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="/css/reset.css">
+      <link rel="stylesheet" href="/css/style.css">
+        <link rel="stylesheet" href="/css/github-markdown.css">
+          <link rel="stylesheet" href="/css/atom-one-dark.css">
+            
+</head>
+
+    <body>
+      
+        <header id="header" class="card">
+  <span class="logo">B</span>
+  <span class="motto">技术 & 梦想 |&nbsp;学习 & 总结</span>
+  <nav>
+    <ul>
+    
+      <li>
+        <a href="/">首页 </a>
+      </li>
+    
+      <li>
+        <a href="/archives">归档 </a>
+      </li>
+    
+      <li>
+        <a href="/categories">分类 </a>
+      </li>
+    
+      <li>
+        <div class="search-input">
+          <i class="fa search"></i>
+          <input id="search-input" type="text">
+        </div>
+      </li>
+    </ul>
+  </nav>
+</header>
+          <main id="main">
+            
+              
+<aside id="left-sidebar" class="margin-right">
+  <nav class="card sidebar-component">
+  <div class="card-title">文章归档</div>
+  <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a><span class="archive-list-count">18</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a><span class="archive-list-count">17</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a><span class="archive-list-count">30</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a><span class="archive-list-count">15</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a><span class="archive-list-count">17</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a><span class="archive-list-count">18</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a><span class="archive-list-count">2</span></li></ul>
+</nav>
+  <nav class="card sidebar-component">
+  <div class="card-title">文章分类</div>
+  <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/css/">css</a><span class="category-list-count">10</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/css/css基础/">css基础</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/css工具/">css工具</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/less/">less</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/sass/">sass</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/docker/">docker</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/docker/docker-swarm/">docker swarm</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/docker/docker基础/">docker基础</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">git</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html5/">html5</a><span class="category-list-count">8</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/html5/dom/">dom</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html5/html5-API/">html5 API</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html5/html5标签和属性/">html5标签和属性</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html5/svg/">svg</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html5/tips/">tips</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html5/实战/">实战</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/">java</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/java/spring实战/">spring实战</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/js/">js</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/js/js基础/">js基础</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/js/typescript/">typescript</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/js/正则表达式/">正则表达式</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/linux/工具/">工具</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/nginx/">nginx</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node-js/">node.js</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/node-js/npm/">npm</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node-js/命令行工具/">命令行工具</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/php/">php</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/spring-boot/">spring-boot</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/spring-boot/开发工具/">开发工具</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/typescript/">typescript</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/typescript/踩坑指南/">踩坑指南</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/">vue</a><span class="category-list-count">11</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/vue/cli/">cli</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/tips/">tips</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/vue-router/">vue-router</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/vue实战/">vue实战</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/vue组件开发/">vue组件开发</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/基础/">基础</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/webpack/">webpack</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/webpack/webpack基础/">webpack基础</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/xml/">xml</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/xml/基础/">基础</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/学习打卡/">学习打卡</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/安全/">安全</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/安全/密码技术/">密码技术</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/操作系统/">操作系统</a><span class="category-list-count">23</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/操作系统/shell/">shell</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/操作系统/ucore/">ucore</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/操作系统/操作系统原理/">操作系统原理</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据库/">数据库</a><span class="category-list-count">10</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/数据库/mysql/">mysql</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据库/sql语句/">sql语句</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据库/导论/">导论</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据库/数据库编程/">数据库编程</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据库/数据库设计/">数据库设计</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据结构/">数据结构</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/数据结构/图/">图</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/毕设/">毕设</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/">算法</a><span class="category-list-count">20</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/算法/leetcode/">leetcode</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/模式匹配/">模式匹配</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/深度优先搜索/">深度优先搜索</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程语言/">编程语言</a><span class="category-list-count">20</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/编程语言/C/">C</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/编程语言/C/语言/">语言</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程语言/C语言/">C语言</a><span class="category-list-count">17</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程语言/Java/">Java</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程语言/java/">java</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/英语/">英语</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/英语/生词/">生词</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/计算机网络/">计算机网络</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/计算机网络/wireshark/">wireshark</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/计算机网络/问题记录/">问题记录</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/设计模式/">设计模式</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/设计模式/交给子类/">交给子类</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/设计模式/生成实例/">生成实例</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/设计模式/适应设计模式/">适应设计模式</a><span class="category-list-count">2</span></li></ul></li></ul>
+</nav>
+  <nav class="card sidebar-component">
+  <div class="card-title">最近文章</div>
+  <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2020/05/19/algorithm/leetcode/动态规划/interleaving-string/">interleaving string</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/17/algorithm/leetcode/分治/maximum-product-subarray/">maximum product subarray</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/15/algorithm/leetcode/动态规划/triangle/">triangle</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/12/algorithm/leetcode/动态规划/unique-binary-search-trees-ii/">unique binary search trees ii</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/11/algorithm/leetcode/动态规划/decode-ways/">decode-ways</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/09/algorithm/leetcode/动态规划/unique-path-II/">unique path II</a></li></ul>
+</nav>
+</aside>
+
+
+                <!--
+<aside id="right-sidebar">
+  <nav class="card margin-bottom">
+  
+</nav>
+</aside>
+
+-->
+                <article id="article" class="margin-right ofhidn">
+                  <article class="post-article article markdown-body">
+  <h1>
+    C语言深入篇1：指向数组和函数的指针
+  </h1>
+  <hr>
+  <p>前面我们学习过指针、数组、函数的概念，也了解了指向数组和函数的指针。这里深入理解和学习指向数组和函数的指针。</p>
+<p>首先我们从类型的概念入手，每一种指针都有自己的类型，要了解指向数组和函数的指针，首先需要理解这两种指针指向的数据类型。</p>
+<p>然后了解这两种类型的变量的声明方式以及理解。</p>
+<p>然后学习这两种类型复合类型，例如：指向数组的指针的数组怎么表示？指向函数的指针的数组怎么表示？如果作为函数的参数类型和返回类型？</p>
+<h2 id="如何理解指针的类型"><a href="#如何理解指针的类型" class="headerlink" title="如何理解指针的类型"></a>如何理解指针的类型</h2><p>C语言中的指针的值是一个地址，在64位系统中，始终是8个字节，那么<code>int *</code>和<code>double *</code>有什么区别呢？前面的学习文章也提到过，区别在于，如何解释指针的值，也就是指向的地址，中的内容。</p>
+<p>如果是<code>int *</code>，则将指针指向的地址作为起始地址，到其后4个字节的内容解释为1个int型的整数。</p>
+<p>指向数组和函数的指针也是指针，自然也有上面的结论，所以我们知道：</p>
+<ol>
+<li>指向数组的指针的值，是一个数组的地址</li>
+<li>指向函数的指针的值，是一个函数的地址</li>
+</ol>
+<p>学习数组的时候，我们知道<code>int *</code>可以指向一个数组，那和指向数组的指针有什么区别呢？</p>
+<p><code>int *p = &amp;a</code>表示的是指向数组的起始地址，并将起始地址之后的4字节字节作为int解释。<strong>所以一种解释是，<code>int*</code>指向的是数组的元素，通过移动<code>int*</code>指针可以访问数组元素</strong></p>
+<p><code>int(*pa)[n] = &amp;a</code>表示的是指向数组的起始地址，并将起始地址之后的4<em>n个字节作为<strong>数组</strong>解释。<strong>所以指针pa指向的是数组</strong>，`</em>pa<code>取到是数组，我们要取数组元素怎么办？</code>(<em>pa)[i]<code>，</code>(</em>pa)<code>是数组，加括号是因为运算符优先级的原因。因为</code>*pa<code>和</code>p[0]<code>是等同的，我们也可以写成</code>pa[0][i]`</p>
+<p>如果指向数组的指针指向了二维数组呢？例如：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> aa[<span class="number">2</span>][<span class="number">3</span>] = &#123; <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span> &#125;;</span><br><span class="line"><span class="keyword">int</span> (*pa)[<span class="number">3</span>] = &amp;a;</span><br></pre></td></tr></table></figure></p>
+<p>和上面一样理解，pa指向二维数组a的地址；这里我们首先要了解一个概念，二维数组元素也是连续存放的，假设是<code>[1,2,3,4,5,6]</code>，那么<code>(*pa)</code>或<code>pa[0]</code>取到的就是一个数组，其值是<code>[1,2,3]</code>，<code>*(pa+1)</code>或者<code>pa[1]</code>值是<code>[4,5,6]</code></p>
+<p>由此我们也能知道<code>int **p</code>的含义，指针的值还是一个指针。</p>
+<h2 id="两种指针的类型和变量声明方式"><a href="#两种指针的类型和变量声明方式" class="headerlink" title="两种指针的类型和变量声明方式"></a>两种指针的类型和变量声明方式</h2><h3 id="指向数组的指针"><a href="#指向数组的指针" class="headerlink" title="指向数组的指针"></a>指向数组的指针</h3><p>指向数组的指针的类型是：<code>类型 (*)[n]</code>，这是指向一维数组的。指向二维数组的呢？<code>类型 (*)[n][m]</code>。依次类推。</p>
+<blockquote>
+<p>这里要注意类型很重要，在这两种指针类型作为函数返回类型以及作为形参类型的时候，需要正确书写类型，后面会详细说明</p>
+</blockquote>
+<p>如何声明指针变量呢？<code>类型 (*标识符)[n][m]...</code>，例如：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 声明了一个类型为int(*)[3]的指针</span></span><br><span class="line"><span class="keyword">int</span> (*p)[<span class="number">3</span>];</span><br><span class="line"><span class="comment">// 声明了一个类型为int(*)[3][3]的指针</span></span><br><span class="line"><span class="keyword">int</span> (*pa)[<span class="number">3</span>][<span class="number">3</span>];</span><br></pre></td></tr></table></figure></p>
+<p>如何声明指向数组的指针的数组呢？<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 声明含两个元素的数组，数组成员是int(*)[3]</span></span><br><span class="line"><span class="keyword">int</span> (*pa[<span class="number">2</span>])[<span class="number">3</span>];</span><br></pre></td></tr></table></figure></p>
+<h3 id="指向函数的指针"><a href="#指向函数的指针" class="headerlink" title="指向函数的指针"></a>指向函数的指针</h3><p>类型：<code>类型 (*)(形参列表)</code>。</p>
+<p>声明：<code>类型 (*标识符)(形参列表)</code>，<code>类型 (*标识符[n])(形参列表)</code>。</p>
+<p>示例：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 声明了指向 一个返回类型为int，只有一个int参数的函数 指针</span></span><br><span class="line"><span class="keyword">int</span> (*func)(<span class="keyword">int</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 两个元素的数组，成员是函数指针</span></span><br><span class="line"><span class="keyword">int</span> (*func[<span class="number">2</span>])(<span class="keyword">int</span>);</span><br></pre></td></tr></table></figure></p>
+<h2 id="作为函数的参数和返回值"><a href="#作为函数的参数和返回值" class="headerlink" title="作为函数的参数和返回值"></a>作为函数的参数和返回值</h2><h3 id="指向数组的指针-1"><a href="#指向数组的指针-1" class="headerlink" title="指向数组的指针"></a>指向数组的指针</h3><ol>
+<li>作为函数返回值类型</li>
+</ol>
+<pre><code>形式：`类型 (* 标识符(型数列表))[n]`，例如`int (*f(int))[2]`，示例中的`int (* xxx)[2]`表示返回类型为`int(*)[2]`，`f(int)`表示函数名和形参列表的声明。
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> (*func1(<span class="keyword">int</span> n))[<span class="number">3</span>] &#123;</span><br><span class="line">  <span class="keyword">return</span> &amp;(<span class="keyword">int</span>[])&#123; <span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span> &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</code></pre><ol start="2">
+<li><p>作为函数参数类型</p>
+<p> 形式：<code>int main(int(*p)[10]);</code></p>
+ <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 参数为int(*)[10]类型的函数声明</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">func2</span><span class="params">(<span class="keyword">int</span>(*)[<span class="number">10</span>])</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">func2</span><span class="params">(<span class="keyword">int</span>(*p)[<span class="number">10</span>])</span> </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">sizeof</span>(p);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p> 两者结合起来：</p>
+ <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">    <span class="keyword">int</span> (* func3(<span class="keyword">int</span>(*pp)[<span class="number">10</span>]))[<span class="number">10</span>] &#123;</span><br><span class="line">     <span class="keyword">return</span> pp;</span><br><span class="line">    &#125;   </span><br><span class="line">### 指向函数的指针</span><br><span class="line">指向函数的指针和指向数组的指针是类似的。将指针类型换一下就行了，我们直接上代码：</span><br><span class="line">```c</span><br><span class="line"><span class="comment">// 函数指针作为返回类型</span></span><br><span class="line"><span class="comment">// int(* xxx)(int)，表示返回类型为int(*)(int)，xxx是：函数名(形参列表)</span></span><br><span class="line"><span class="keyword">int</span> (* func4(<span class="keyword">int</span>))(<span class="keyword">int</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 函数指针作为形参</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">func5</span><span class="params">(<span class="keyword">int</span>(*p)(<span class="keyword">int</span> a))</span> </span>&#123;</span><br><span class="line">  p(<span class="number">10</span>);</span><br><span class="line">  <span class="keyword">return</span> (*p)(<span class="number">20</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 两者结合</span></span><br><span class="line"><span class="comment">// 返回类型是int(*)(int)</span></span><br><span class="line"><span class="comment">// 参数有两个，一个是int(*)(float)，一个是int(*)[10]</span></span><br><span class="line"><span class="keyword">int</span> (* func6(<span class="keyword">int</span>(* f1)(<span class="keyword">float</span>), <span class="keyword">int</span>(*pa)[<span class="number">10</span>]))(<span class="keyword">int</span>) &#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+
+</article>
+                </article>
+          </main>
+          <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 Bright<br>
+      powered_by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+<script src="/js/script.js"></script>
+    </body>
+
+</html>

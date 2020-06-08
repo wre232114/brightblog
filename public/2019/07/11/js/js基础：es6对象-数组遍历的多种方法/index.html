@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+
+  <head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+    <title>
+      
+        js基础：es6对象/数组遍历的多种方法 |
+          
+            Bright的个人博客
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="/css/reset.css">
+      <link rel="stylesheet" href="/css/style.css">
+        <link rel="stylesheet" href="/css/github-markdown.css">
+          <link rel="stylesheet" href="/css/atom-one-dark.css">
+            
+</head>
+
+    <body>
+      
+        <header id="header" class="card">
+  <span class="logo">B</span>
+  <span class="motto">技术 & 梦想 |&nbsp;学习 & 总结</span>
+  <nav>
+    <ul>
+    
+      <li>
+        <a href="/">首页 </a>
+      </li>
+    
+      <li>
+        <a href="/archives">归档 </a>
+      </li>
+    
+      <li>
+        <a href="/categories">分类 </a>
+      </li>
+    
+      <li>
+        <div class="search-input">
+          <i class="fa search"></i>
+          <input id="search-input" type="text">
+        </div>
+      </li>
+    </ul>
+  </nav>
+</header>
+          <main id="main">
+            
+              
+<aside id="left-sidebar" class="margin-right">
+  <nav class="card sidebar-component">
+  <div class="card-title">文章归档</div>
+  <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a><span class="archive-list-count">18</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a><span class="archive-list-count">17</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a><span class="archive-list-count">30</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a><span class="archive-list-count">15</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a><span class="archive-list-count">17</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a><span class="archive-list-count">18</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a><span class="archive-list-count">2</span></li></ul>
+</nav>
+  <nav class="card sidebar-component">
+  <div class="card-title">文章分类</div>
+  <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/css/">css</a><span class="category-list-count">10</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/css/css基础/">css基础</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/css工具/">css工具</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/less/">less</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/sass/">sass</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/docker/">docker</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/docker/docker-swarm/">docker swarm</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/docker/docker基础/">docker基础</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">git</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html5/">html5</a><span class="category-list-count">8</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/html5/dom/">dom</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html5/html5-API/">html5 API</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html5/html5标签和属性/">html5标签和属性</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html5/svg/">svg</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html5/tips/">tips</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html5/实战/">实战</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/">java</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/java/spring实战/">spring实战</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/js/">js</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/js/js基础/">js基础</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/js/typescript/">typescript</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/js/正则表达式/">正则表达式</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/linux/工具/">工具</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/nginx/">nginx</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node-js/">node.js</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/node-js/npm/">npm</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node-js/命令行工具/">命令行工具</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/php/">php</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/spring-boot/">spring-boot</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/spring-boot/开发工具/">开发工具</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/typescript/">typescript</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/typescript/踩坑指南/">踩坑指南</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/">vue</a><span class="category-list-count">11</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/vue/cli/">cli</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/tips/">tips</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/vue-router/">vue-router</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/vue实战/">vue实战</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/vue组件开发/">vue组件开发</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/基础/">基础</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/webpack/">webpack</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/webpack/webpack基础/">webpack基础</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/xml/">xml</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/xml/基础/">基础</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/学习打卡/">学习打卡</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/安全/">安全</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/安全/密码技术/">密码技术</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/操作系统/">操作系统</a><span class="category-list-count">23</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/操作系统/shell/">shell</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/操作系统/ucore/">ucore</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/操作系统/操作系统原理/">操作系统原理</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据库/">数据库</a><span class="category-list-count">10</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/数据库/mysql/">mysql</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据库/sql语句/">sql语句</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据库/导论/">导论</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据库/数据库编程/">数据库编程</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据库/数据库设计/">数据库设计</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据结构/">数据结构</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/数据结构/图/">图</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/毕设/">毕设</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/">算法</a><span class="category-list-count">20</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/算法/leetcode/">leetcode</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/模式匹配/">模式匹配</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/深度优先搜索/">深度优先搜索</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程语言/">编程语言</a><span class="category-list-count">20</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/编程语言/C/">C</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/编程语言/C/语言/">语言</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程语言/C语言/">C语言</a><span class="category-list-count">17</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程语言/Java/">Java</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程语言/java/">java</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/英语/">英语</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/英语/生词/">生词</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/计算机网络/">计算机网络</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/计算机网络/wireshark/">wireshark</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/计算机网络/问题记录/">问题记录</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/设计模式/">设计模式</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/设计模式/交给子类/">交给子类</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/设计模式/生成实例/">生成实例</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/设计模式/适应设计模式/">适应设计模式</a><span class="category-list-count">2</span></li></ul></li></ul>
+</nav>
+  <nav class="card sidebar-component">
+  <div class="card-title">最近文章</div>
+  <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2020/05/19/algorithm/leetcode/动态规划/interleaving-string/">interleaving string</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/17/algorithm/leetcode/分治/maximum-product-subarray/">maximum product subarray</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/15/algorithm/leetcode/动态规划/triangle/">triangle</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/12/algorithm/leetcode/动态规划/unique-binary-search-trees-ii/">unique binary search trees ii</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/11/algorithm/leetcode/动态规划/decode-ways/">decode-ways</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/09/algorithm/leetcode/动态规划/unique-path-II/">unique path II</a></li></ul>
+</nav>
+</aside>
+
+
+                <!--
+<aside id="right-sidebar">
+  <nav class="card margin-bottom">
+  
+</nav>
+</aside>
+
+-->
+                <article id="article" class="margin-right ofhidn">
+                  <article class="post-article article markdown-body">
+  <h1>
+    js基础：es6对象/数组遍历的多种方法
+  </h1>
+  <hr>
+  <h2 id="对象属性的遍历"><a href="#对象属性的遍历" class="headerlink" title="对象属性的遍历"></a>对象属性的遍历</h2><p>ES6一共有5种方法可以遍历对象的属性。</p>
+<h4 id="1-for…in"><a href="#1-for…in" class="headerlink" title="(1) for…in"></a>(1) for…in</h4><p>for…in循环遍历对象<strong>自身的和继承的可枚举属性</strong>（不包含Symbol属性）。</p>
+<h4 id="2-Object-keys-obj"><a href="#2-Object-keys-obj" class="headerlink" title="(2) Object.keys(obj)"></a>(2) Object.keys(obj)</h4><p>Object.keys返回一个数组，包括对象自身的（不含继承的）所有可枚举属性（不含symbol属性）</p>
+<h4 id="3-Object-getOwnPropertyNames-obj"><a href="#3-Object-getOwnPropertyNames-obj" class="headerlink" title="(3) Object.getOwnPropertyNames(obj)"></a>(3) Object.getOwnPropertyNames(obj)</h4><p>Object.getOwnPropertyNames返回一个数组，包括对象自身的所有属性（不含继承，不含symbol，但是包含不可枚举属性）</p>
+<h4 id="4-Object-getOwnPropertySymbols-obj"><a href="#4-Object-getOwnPropertySymbols-obj" class="headerlink" title="(4) Object.getOwnPropertySymbols(obj)"></a>(4) Object.getOwnPropertySymbols(obj)</h4><p>Object.getOwnPropertySymbols(obj)返回一个数组，包括对象自身的所有Symbol属性</p>
+<h4 id="5-Reflect-ownKeys-obj"><a href="#5-Reflect-ownKeys-obj" class="headerlink" title="(5) Reflect.ownKeys(obj)"></a>(5) Reflect.ownKeys(obj)</h4><p>Reflect.ownKeys返回一个数组，包含对象自身的所有属性，不管是属性名、Symbol或字符串，也不管是否可枚举</p>
+<p>以上的5种方法遍历对象的属性，都遵循同样的属性遍历的顺序：</p>
+<ul>
+<li>首先是属性名为数值的属性</li>
+<li>其次是属性名为字符串的属性，按照生成时间排序</li>
+<li>最后是所有属性名为Symbol值的属性，按照生成时间排序</li>
+</ul>
+<p>下面按照能不能遍历到继承的属性、能不能获取到symbol、能不能获取到可枚举属性进行分类：</p>
+<h4 id="可遍历继承的属性"><a href="#可遍历继承的属性" class="headerlink" title="可遍历继承的属性"></a>可遍历继承的属性</h4><p>只有for…in可以遍历到可继承属性，其他的都不能遍历到继承的属性</p>
+<h4 id="可遍历symbol属性"><a href="#可遍历symbol属性" class="headerlink" title="可遍历symbol属性"></a>可遍历symbol属性</h4><ul>
+<li>Reflect.ownKeys(obj)可以获取symbol，属性（可枚举和不可枚举）</li>
+<li>Object.getOwnPropertySymbols</li>
+</ul>
+<h4 id="可遍历不可枚举属性"><a href="#可遍历不可枚举属性" class="headerlink" title="可遍历不可枚举属性"></a>可遍历不可枚举属性</h4><ul>
+<li>Object.getOwnPropertyNames可以获取到除Symbol外的所有属性（包括不可枚举属性）</li>
+<li>Reflect.ownKeys可以获取到所有属性，包括Symbol、可枚举和不可枚举属性</li>
+</ul>
+<h2 id="数组属性的遍历"><a href="#数组属性的遍历" class="headerlink" title="数组属性的遍历"></a>数组属性的遍历</h2><ul>
+<li>for循环（用length属性区边界)</li>
+<li>for…in</li>
+<li>for…of</li>
+<li>Array.prototype.keys ，返回包含键的一个遍历器对象，可以用for…of进行遍历</li>
+<li>Array.prototype.entries，返回包含键值对一个遍历器对象</li>
+<li>Array.prototype.values，返回一个包含值的遍历器对象</li>
+<li>for+Object.keys，先用Object.keys拿到所有自由属性，然后for遍历</li>
+</ul>
+<h3 id="判断一个对象是不是数组"><a href="#判断一个对象是不是数组" class="headerlink" title="判断一个对象是不是数组"></a>判断一个对象是不是数组</h3><p>假设要判断obj是不是数组实例，可以用下面的方法：</p>
+<ul>
+<li>obj instanceof Array</li>
+<li>Array.isArray()</li>
+<li>Object.prototype.String.call(obj).match(/[object (.*)]/)[1] === ‘Array’</li>
+</ul>
+<h2 id="实战1：数组和对象的深度-广度优先遍历"><a href="#实战1：数组和对象的深度-广度优先遍历" class="headerlink" title="实战1：数组和对象的深度/广度优先遍历"></a>实战1：数组和对象的深度/广度优先遍历</h2><p>根据我们前面提到的几种获取属性的方法，来实现不同返回的深度、广度遍历。我们根据需要，可以写出遍历包含可枚举属性的版本，也可以写出不包含可枚举属性的版本。在进行遍历的时候，我们需要判断对象的类型，判断对象的类型的多种方法和其比较请参考我的另一篇博客：js判断对象类型的多种方法和比较</p>
+<h4 id="不包含不可枚举属性的遍历"><a href="#不包含不可枚举属性的遍历" class="headerlink" title="不包含不可枚举属性的遍历"></a>不包含不可枚举属性的遍历</h4><ol>
+<li><p>深度优先遍历<br>前提是没有循环引用，如果有循环引用，会有无穷遍历的问题，可以给遍历过的每一个对象加上特殊的标记解决这个问题，上代码：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">dfs</span>(<span class="params">obj</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> type = <span class="built_in">Object</span>.prototype.toString.call(obj).match(<span class="regexp">/\[object (.*)\]/</span>)[<span class="number">1</span>]</span><br><span class="line">  <span class="keyword">if</span>(type == <span class="string">'Object'</span> || type == <span class="string">'Array'</span>) &#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> name <span class="keyword">of</span> <span class="built_in">Object</span>.keys(obj)) dfs(obj[name])</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(obj)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>广度优先遍历</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">bfs</span>(<span class="params">obj2</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> queue = []</span><br><span class="line">  queue.push(obj2)</span><br><span class="line">  <span class="keyword">while</span>(!(queue.length === <span class="number">0</span>)) &#123;</span><br><span class="line">    <span class="keyword">let</span> obj = queue.shift()</span><br><span class="line">    <span class="keyword">let</span> type = <span class="built_in">Object</span>.prototype.toString.call(obj).match(<span class="regexp">/\[object (.*)\]/</span>)[<span class="number">1</span>]</span><br><span class="line">    <span class="keyword">if</span>(type === <span class="string">'Object'</span> || type === <span class="string">'Array'</span>) &#123;</span><br><span class="line">      <span class="keyword">for</span>(<span class="keyword">let</span> name <span class="keyword">of</span> <span class="built_in">Object</span>.keys(obj)) &#123;</span><br><span class="line">        queue.push(obj[name])</span><br><span class="line">      &#125;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(obj)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h4 id="包含不可枚举属性的遍历"><a href="#包含不可枚举属性的遍历" class="headerlink" title="包含不可枚举属性的遍历"></a>包含不可枚举属性的遍历</h4><p>与前面的代码基本相同，我们只要将Object.keys改称Object.getOwnPropertyNames就行了</p>
+<h2 id="实战2：数组和对象的深拷贝"><a href="#实战2：数组和对象的深拷贝" class="headerlink" title="实战2：数组和对象的深拷贝"></a>实战2：数组和对象的深拷贝</h2><p>对象通过=赋值是浅拷贝，也就是只会拷贝对该对象的引用，修改该对象会导致所有指向该对象的引用的内容改变。</p>
+<p>有时候我们希望获得一份独立的拷贝，这时候就需要深拷贝了，js原生不支持深拷贝，我们可以利用深度优先遍历拷贝一个对象的所有属性和方法，包括不可枚举属性。</p>
+<p>使用getOwnPropertyNames获取所有的对象属性，然后将其拷贝到一个新对象中，上代码:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Object</span>.prototype.clone = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> cloneObj = <span class="literal">null</span>, tempObj = <span class="literal">null</span></span><br><span class="line">  <span class="keyword">let</span> thisType = <span class="built_in">Object</span>.prototype.toString.call(<span class="keyword">this</span>).match(<span class="regexp">/\[object (.*)\]/</span>)[<span class="number">1</span>]</span><br><span class="line">  <span class="keyword">if</span>(thisType === <span class="string">'Object'</span>) cloneObj = tempObj = &#123;&#125;</span><br><span class="line">  <span class="keyword">else</span> <span class="keyword">if</span>(thisType === <span class="string">'Array'</span>) cloneObj = tempObj = []</span><br><span class="line">  <span class="keyword">else</span> cloneObj = <span class="keyword">this</span></span><br><span class="line"></span><br><span class="line">  ;(<span class="function"><span class="keyword">function</span> <span class="title">traverse</span>(<span class="params">obj, tempObj</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> names = <span class="built_in">Object</span>.getOwnPropertyNames(obj)</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> name <span class="keyword">of</span> names) &#123;</span><br><span class="line">      <span class="keyword">let</span> type = <span class="built_in">Object</span>.prototype.toString.call(obj[name]).match(<span class="regexp">/\[object (.*)\]/</span>)[<span class="number">1</span>]</span><br><span class="line">      <span class="keyword">if</span>(type === <span class="string">'Object'</span>) &#123;</span><br><span class="line">        tempObj[name] = &#123;&#125;</span><br><span class="line">        traverse(obj[name], tempObj[name])</span><br><span class="line">      &#125; <span class="keyword">if</span>(type === <span class="string">'Array'</span>) &#123;</span><br><span class="line">        tempObj[name] = []</span><br><span class="line">        traverse(obj[name], tempObj[name])</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        tempObj[name] = obj[name]</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;(<span class="keyword">this</span>, tempObj));</span><br><span class="line">  <span class="keyword">return</span> cloneObj;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+</article>
+                </article>
+          </main>
+          <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 Bright<br>
+      powered_by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+<script src="/js/script.js"></script>
+    </body>
+
+</html>

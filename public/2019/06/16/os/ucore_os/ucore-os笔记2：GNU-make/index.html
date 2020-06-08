@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html>
+
+  <head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+    <title>
+      
+        ucore-os笔记2：GNU make |
+          
+            Bright的个人博客
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="/css/reset.css">
+      <link rel="stylesheet" href="/css/style.css">
+        <link rel="stylesheet" href="/css/github-markdown.css">
+          <link rel="stylesheet" href="/css/atom-one-dark.css">
+            
+</head>
+
+    <body>
+      
+        <header id="header" class="card">
+  <span class="logo">B</span>
+  <span class="motto">技术 & 梦想 |&nbsp;学习 & 总结</span>
+  <nav>
+    <ul>
+    
+      <li>
+        <a href="/">首页 </a>
+      </li>
+    
+      <li>
+        <a href="/archives">归档 </a>
+      </li>
+    
+      <li>
+        <a href="/categories">分类 </a>
+      </li>
+    
+      <li>
+        <div class="search-input">
+          <i class="fa search"></i>
+          <input id="search-input" type="text">
+        </div>
+      </li>
+    </ul>
+  </nav>
+</header>
+          <main id="main">
+            
+              
+<aside id="left-sidebar" class="margin-right">
+  <nav class="card sidebar-component">
+  <div class="card-title">文章归档</div>
+  <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a><span class="archive-list-count">18</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a><span class="archive-list-count">17</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a><span class="archive-list-count">30</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a><span class="archive-list-count">15</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a><span class="archive-list-count">17</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a><span class="archive-list-count">18</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a><span class="archive-list-count">2</span></li></ul>
+</nav>
+  <nav class="card sidebar-component">
+  <div class="card-title">文章分类</div>
+  <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/css/">css</a><span class="category-list-count">10</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/css/css基础/">css基础</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/css工具/">css工具</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/less/">less</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/sass/">sass</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/docker/">docker</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/docker/docker-swarm/">docker swarm</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/docker/docker基础/">docker基础</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">git</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html5/">html5</a><span class="category-list-count">8</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/html5/dom/">dom</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html5/html5-API/">html5 API</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html5/html5标签和属性/">html5标签和属性</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html5/svg/">svg</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html5/tips/">tips</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html5/实战/">实战</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/">java</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/java/spring实战/">spring实战</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/js/">js</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/js/js基础/">js基础</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/js/typescript/">typescript</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/js/正则表达式/">正则表达式</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/linux/工具/">工具</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/nginx/">nginx</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node-js/">node.js</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/node-js/npm/">npm</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node-js/命令行工具/">命令行工具</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/php/">php</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/spring-boot/">spring-boot</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/spring-boot/开发工具/">开发工具</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/typescript/">typescript</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/typescript/踩坑指南/">踩坑指南</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/">vue</a><span class="category-list-count">11</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/vue/cli/">cli</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/tips/">tips</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/vue-router/">vue-router</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/vue实战/">vue实战</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/vue组件开发/">vue组件开发</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/基础/">基础</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/webpack/">webpack</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/webpack/webpack基础/">webpack基础</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/xml/">xml</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/xml/基础/">基础</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/学习打卡/">学习打卡</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/安全/">安全</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/安全/密码技术/">密码技术</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/操作系统/">操作系统</a><span class="category-list-count">23</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/操作系统/shell/">shell</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/操作系统/ucore/">ucore</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/操作系统/操作系统原理/">操作系统原理</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据库/">数据库</a><span class="category-list-count">10</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/数据库/mysql/">mysql</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据库/sql语句/">sql语句</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据库/导论/">导论</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据库/数据库编程/">数据库编程</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据库/数据库设计/">数据库设计</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据结构/">数据结构</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/数据结构/图/">图</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/毕设/">毕设</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/">算法</a><span class="category-list-count">20</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/算法/leetcode/">leetcode</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/模式匹配/">模式匹配</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/深度优先搜索/">深度优先搜索</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程语言/">编程语言</a><span class="category-list-count">20</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/编程语言/C/">C</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/编程语言/C/语言/">语言</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程语言/C语言/">C语言</a><span class="category-list-count">17</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程语言/Java/">Java</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程语言/java/">java</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/英语/">英语</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/英语/生词/">生词</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/计算机网络/">计算机网络</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/计算机网络/wireshark/">wireshark</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/计算机网络/问题记录/">问题记录</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/设计模式/">设计模式</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/设计模式/交给子类/">交给子类</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/设计模式/生成实例/">生成实例</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/设计模式/适应设计模式/">适应设计模式</a><span class="category-list-count">2</span></li></ul></li></ul>
+</nav>
+  <nav class="card sidebar-component">
+  <div class="card-title">最近文章</div>
+  <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2020/05/19/algorithm/leetcode/动态规划/interleaving-string/">interleaving string</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/17/algorithm/leetcode/分治/maximum-product-subarray/">maximum product subarray</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/15/algorithm/leetcode/动态规划/triangle/">triangle</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/12/algorithm/leetcode/动态规划/unique-binary-search-trees-ii/">unique binary search trees ii</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/11/algorithm/leetcode/动态规划/decode-ways/">decode-ways</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/09/algorithm/leetcode/动态规划/unique-path-II/">unique path II</a></li></ul>
+</nav>
+</aside>
+
+
+                <!--
+<aside id="right-sidebar">
+  <nav class="card margin-bottom">
+  
+</nav>
+</aside>
+
+-->
+                <article id="article" class="margin-right ofhidn">
+                  <article class="post-article article markdown-body">
+  <h1>
+    ucore-os笔记2：GNU make
+  </h1>
+  <hr>
+  <p>c/c++程序基本都是使用GNU make来构建的，其基础是位于根目录的Makefiles文件。</p>
+<p>GNU make有什么用呢？我们使用gcc编译器的时候，gcc -o target source，将源文件编译成目标文件，那么如果我们有很多的c/c++文件呢？使用gcc命令就不太合适了。makefiles就是帮我们做这个事情的，它会管理我们要编译的内容，我们指定构建的依赖和构建目标，然后编写对应的构建脚本，完成之后只需要一个make命令，就可以完成构建。make会判断源文件是否被更新过，如果源文件被更新了，那么被更新的那部分会被重新编译。</p>
+<p><a href="https://www.gnu.org/software/make/manual/make.html#Overview" target="_blank" rel="noopener">GNU Make的官方文档</a>，阅读步骤：阅读每一章的前几个章节，因为前几个章节是介绍性的内容。等到具体到细节的时候，再阅读后面的内容。</p>
+<h2 id="概览"><a href="#概览" class="headerlink" title="概览"></a>概览</h2><p>这一部分说明make的使用、makefiles的基本构成、规则、编译脚本、变量等等，先对整体有一个印象，然后我们在后面再深入一些细节。</p>
+<h3 id="make的使用"><a href="#make的使用" class="headerlink" title="make的使用"></a>make的使用</h3><p>如果我们在某一个目录下使用make命令，那么会自动区查找该目录下的makefiles或Makefils文件，并执行makefiles文件中的第一个规则（可以通过.MAKEFILE_GOAL变量来修改，后面会说明）。</p>
+<h3 id="makefiles的基本构成"><a href="#makefiles的基本构成" class="headerlink" title="makefiles的基本构成"></a>makefiles的基本构成</h3><p>先看一个示例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">edit: test.c</span><br><span class="line">  cc -o edit test.c</span><br><span class="line">.PHONY:clean</span><br><span class="line">clean:</span><br><span class="line">	rm -r -f ./bin/</span><br></pre></td></tr></table></figure></p>
+<p>makefile由三个部分组成: target、prerequisites、recipes，对应到上面的实例中就是，edit是target，test.c是prerequisites、下面的脚本是recipes（每一条语句占一行，前面必须有一个tab）。target可以只是命令，而不生成某个输出文件，比如上面的clean。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">target: prerequisites</span><br><span class="line">	...</span><br></pre></td></tr></table></figure>
+<p>除此之外，makefiles文件由五个元素组成：显式规则、隐式规则、变量定义、指令（例如include）和注释。</p>
+<ul>
+<li>显示规则说明了如何重新编译一个或者更多的文件，就是target。</li>
+<li>隐式规则说明了合适根据文件的名字来重新构建一类文件。例如target是main.o，那么会自动寻找和编译main.c</li>
+<li>变量是将文件赋值给一个变量的一行，稍后使用变量的地方会用该文本代替（类似C中的宏替换）。</li>
+<li>指令是在makefiles被解析时告诉make去做一些特殊的事情，包括：<ul>
+<li>读取其他makefiles</li>
+<li>决定是否使用或者忽略makefiles的一部分（makefiles的条件指令，类似C的预编译条件指令）</li>
+<li>从多行字符串定义一个变量</li>
+</ul>
+</li>
+<li>‘#’开头一行，’#’所在行后面的部分都是注释，注意：<ul>
+<li>没有被转义的’\’会将注释延续到下一行；这样一个’#’可以实现多行注释</li>
+<li>如果要使用符号’#’使用，<code>\#</code></li>
+<li>变量和函数调用中不能使用注释，注释会当做纯文本传给变量和函数</li>
+<li>recipe中的注释会传给shell</li>
+</ul>
+</li>
+</ul>
+<p>include可以导入其他的文件，这个过程时阻塞的，导入其他文件的过程会暂停当前makefiles的解析。</p>
+<h3 id="make的运行规则"><a href="#make的运行规则" class="headerlink" title="make的运行规则"></a>make的运行规则</h3><p>当prerequistes被更新时，target会被重新编译。prerequisite有可能也是其他rule的输出，这时候会先更新prerequisites再更新target。make会检测到target所依赖的文件的文件，执行必要的重新编译（未改变的那些不重新编译），在make内部会根据prerequisites来生成依赖图，依据依赖图来决定哪些部分需要重新编译。例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">edit : main.o kbd.o command.o display.o \</span><br><span class="line">       insert.o search.o files.o utils.o</span><br><span class="line">        cc -o edit main.o kbd.o command.o display.o \</span><br><span class="line">                   insert.o search.o files.o utils.o</span><br><span class="line"></span><br><span class="line">main.o : main.c defs.h</span><br><span class="line">        cc -c main.c</span><br><span class="line">kbd.o : kbd.c defs.h command.h</span><br><span class="line">        cc -c kbd.c</span><br><span class="line">command.o : command.c defs.h command.h</span><br><span class="line">        cc -c command.c</span><br><span class="line">display.o : display.c defs.h buffer.h</span><br><span class="line">        cc -c display.c</span><br><span class="line">insert.o : insert.c defs.h buffer.h</span><br><span class="line">        cc -c insert.c</span><br><span class="line">search.o : search.c defs.h buffer.h</span><br><span class="line">        cc -c search.c</span><br><span class="line">files.o : files.c defs.h buffer.h command.h</span><br><span class="line">        cc -c files.c</span><br><span class="line">utils.o : utils.c defs.h</span><br><span class="line">        cc -c utils.c</span><br><span class="line">clean :</span><br><span class="line">        rm edit main.o kbd.o command.o display.o \</span><br><span class="line">           insert.o search.o files.o utils.o</span><br></pre></td></tr></table></figure>
+<p>edit依赖于.o文件，每一个.o文件又依赖于对应的.c和.h文件，当执行make的时候，会根据.c文件判断那些.o文件是要重新生成的并重新生成.o文件，然后再生成edit可执行文件。</p>
+<p>不是第一条rule或者goal指定的rule所依赖的rule时，该rule不会被执行，例如clean，只能显式使用make clean。</p>
+<h3 id="定义变量"><a href="#定义变量" class="headerlink" title="定义变量"></a>定义变量</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">objects = main.o kbd.o command.o display.o \</span><br><span class="line">          insert.o search.o files.o utils.o</span><br></pre></td></tr></table></figure>
+<p>上面的格式就可以定义变量，可以使用=(递归查找变量的值，意味着可以多层引用变量)，:=(最多只查找一层的变量值，多于的直接当文本处理)，还有其他的定义方式，见变量。</p>
+<h3 id="make推断规则"><a href="#make推断规则" class="headerlink" title="make推断规则"></a>make推断规则</h3><p>make有一个隐式的规则：.o文件会自动去找其名字对应的.c文件执行cc命令。也就是说我们可以仅指定.o文件的依赖，不用每条都写对应的cc语句，在prerequisies中也可以不写.c文件，如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">objects = main.o kbd.o command.o display.o \</span><br><span class="line">          insert.o search.o files.o utils.o</span><br><span class="line"></span><br><span class="line">edit : $(objects)</span><br><span class="line">        cc -o edit $(objects)</span><br><span class="line"></span><br><span class="line">main.o : defs.h</span><br><span class="line">kbd.o : defs.h command.h</span><br><span class="line">command.o : defs.h command.h</span><br><span class="line">display.o : defs.h buffer.h</span><br><span class="line">insert.o : defs.h buffer.h</span><br><span class="line">search.o : defs.h buffer.h</span><br><span class="line">files.o : defs.h buffer.h command.h</span><br><span class="line">utils.o : defs.h</span><br><span class="line"></span><br><span class="line">.PHONY : clean</span><br><span class="line">clean :</span><br><span class="line">        rm edit $(objects)</span><br></pre></td></tr></table></figure>
+<h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><p>上面是对makefiles的一个小的概括，关键包括下面几点：</p>
+<ol>
+<li>makefiles是做什么用的？<br>答：makefiles用于自动构建，通过<code>构建目标: 构建依赖\n 构建命令</code>这样的格式来自动构建程序。makefiles会根据我们编写的构建规则来处理构建关系，最后生成构建目标。不仅仅使用于c、c++语言，也适用于其他语言甚至文档。总之，makefiles是一个管理依赖关系的自动构建工具。</li>
+<li>makefiles的构建过程？<br>答：输入make之后，会找到第一个规则（如果是make target，则找到target对应的规则），先构建prequistes，例如上例的main.o，先去构建target为main.o的依赖。所有prequistes构建完成后，执行后面的脚本。相当于makefiles先根据我们编写的规则构建依赖树，然后自底向上执行规则的脚本，同时会检测更新确定是否要执行脚本。</li>
+</ol>
+<h3 id="编译脚本"><a href="#编译脚本" class="headerlink" title="编译脚本"></a>编译脚本</h3><p>recipes会被shell执行所以recipes用shell语法来编写。make不理解shell语法，它仅仅只做一点点简单的处理，然后将其将给shell执行。</p>
+<p>make中的recipes规则：</p>
+<ul>
+<li>以tab开头的空行不是空的，是一条空的recipes</li>
+<li>在recipes中的comment不是make的comment，它会被传给shell</li>
+<li>在rule中定义，以tab开头的变量不是make变量，它会被传给shell</li>
+</ul>
+<h2 id="编写makefiles"><a href="#编写makefiles" class="headerlink" title="编写makefiles"></a>编写makefiles</h2><p>上面提到了makefiles包含五个部分，显式规则、隐式规则、变量、指令、注释。接下来会逐步介绍细节。</p>
+<h3 id="多行语法"><a href="#多行语法" class="headerlink" title="多行语法"></a>多行语法</h3><p>makefiles使用了一种多行语法，每一个换行符都表示一条语句的结束。通过\可以将单行的内容分布在多行中，非recipe脚本中的\和其前后的空格都会被合并成单个空格。</p>
+<blockquote>
+<p>指定了<code>.POSIX</code>的target的\不会被压缩。</p>
+</blockquote>
+<h3 id="Makefile文件的名字"><a href="#Makefile文件的名字" class="headerlink" title="Makefile文件的名字"></a>Makefile文件的名字</h3><p>按照<code>GNUmakefile</code>、<code>makefiles</code>、<code>Makefile</code>的顺序查找。</p>
+<p>如果make没有找到上述文件的任何一个，则会启用内置的隐式规则来决定如何构建。</p>
+<p>通过make的-f或者–file选项可以指定自己的makefile文件。可以多次使用-f选项，指定的文件按顺序拼接。使用-f会忽略默认的makefile文件。</p>
+<h3 id="包括其他makefile文件"><a href="#包括其他makefile文件" class="headerlink" title="包括其他makefile文件"></a>包括其他makefile文件</h3><p><code>include</code>会暂停当前文件的读取转而读取和解析指定的文件，完成后继续本文件。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">include filename</span><br></pre></td></tr></table></figure></p>
+<p>例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">include *.mk $(bar)</span><br></pre></td></tr></table></figure></p>
+<p>等价于（假定当前文件夹下有a.mk,b.mk,c.mk。bar的值是bish bash<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">include a.mk b.mk c.mk bish bash</span><br></pre></td></tr></table></figure></p>
+<p>如果指定的文件路径下没找到，会去–include-dir选项指定的文件夹下找，以及<code>/usr/local/include</code>、<code>usr/gnu/include</code>、<code>/usr/include</code></p>
+<blockquote>
+<p>注意：环境变量MAKEFILES用于在文件其他部分解析之前include 变量MAKEFILES指定的一系列文件。类似于include，建议显式使用include而不是MAKEFILES变量。</p>
+</blockquote>
+<h3 id="没看懂的两节"><a href="#没看懂的两节" class="headerlink" title="没看懂的两节"></a>没看懂的两节</h3><p>How makefiles are remade以及Overriding part of another makefile.</p>
+<p>主要是不懂这个部分讲了什么功能，这些功能如何使用以及用于什么场景。</p>
+<h3 id="make如何处理Makefile"><a href="#make如何处理Makefile" class="headerlink" title="make如何处理Makefile"></a>make如何处理Makefile</h3><p>GNU make经过两个阶段处理Makefile。第一阶段读取所有makefile，包括included的makefile。内化所有的变量和其值，以及显式和隐式规则，并且构建target和其prerequisites之间的依赖图。</p>
+<p>第二阶段利用第一阶段构建的内部结构，决定哪些target需要构建，并且执行其脚本。</p>
+<p>理解两阶段构建很重要，因为这涉及到变量和函数何时扩展。先说明基本概念，<code>扩展</code>指变量和函数被替换为相应的值；<code>immediate</code>指第一阶段扩展；<code>deffered</code>指第二阶段扩展。</p>
+<h4 id="变量赋值"><a href="#变量赋值" class="headerlink" title="变量赋值"></a>变量赋值</h4><p>变量赋值的解析规则如下，注意前面提到的immediate和deffered的概念。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">immediate = deffered</span><br><span class="line">immediate ?= deffered</span><br><span class="line">immediate := immediate</span><br><span class="line">immediate ::= immediate</span><br><span class="line">immediate += immediate or deffered</span><br><span class="line">immediate != immediate</span><br></pre></td></tr></table></figure>
+<h4 id="条件指令"><a href="#条件指令" class="headerlink" title="条件指令"></a>条件指令</h4><p>条件指令是immediate parsed的，在第一阶段就处理了。这意味着，自动化变量不能用于条件指令（因为自动化变量直到rule的recipe调用时才设置）。如果需要使用自动化变量，需要在recipe中使用shell语法的条件指令。</p>
+<h4 id="规则定义"><a href="#规则定义" class="headerlink" title="规则定义"></a>规则定义</h4><p>规则定义始终按照如下以下方式处理：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">immediate: immediate; deffered</span><br><span class="line">        deffered</span><br></pre></td></tr></table></figure></p>
+<p>target和prerequisites始终时immediate的，而recipe始终时deffered的。</p>
+<h3 id="二次扩展"><a href="#二次扩展" class="headerlink" title="二次扩展"></a>二次扩展</h3><p><strong>对于prerequisites</strong>，GNU提供了额外的能力，叫做二次扩展。必须在第一个prerequisites前使用<code>.SECONDEXPANSION</code>来启用这个能力。</p>
+<blockquote>
+<p>注意：二次扩展仅适用于prerequisites。</p>
+</blockquote>
+<p>怎么用呢？通过两个$，来实现在正常扩展后的二次扩展，例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">.SECONDEXPANSION</span><br><span class="line">ONEVAR = onefile</span><br><span class="line">TWOVAR = twofile</span><br><span class="line">myfile: $(ONEVAR) $$(TWOVAR)</span><br></pre></td></tr></table></figure></p>
+<p>在第一次扩展以后myfile是<code>myfile: onefile $(TWOVAR)</code>，在二次扩展后，才会变成<code>myfile: onefile twofile</code>。</p>
+<p><strong>这里还有其他内容，和自动化变量，显示规则、隐式规则相关，先阅读后面，回来再继续补充。</strong></p>
+<h2 id="编写Rule"><a href="#编写Rule" class="headerlink" title="编写Rule"></a>编写Rule</h2><p>rule的顺序不太重要，除了默认的rule——第一个rule。没有指定target的时候，默认找第一个rule。</p>
+<h3 id="Rule示例"><a href="#Rule示例" class="headerlink" title="Rule示例"></a>Rule示例</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">foo.o : foo.c defs.h # module for twiddling the frobs</span><br><span class="line">        cc -c -g foo.c</span><br></pre></td></tr></table></figure>
+<p>构建target是foo.o，前置要求是foo.c 和defs.h。说明了两个事情：</p>
+<ol>
+<li>如何决定foo.o是否过期：foo.o不存在或者foo.c 和defs.h更新</li>
+<li>如何更新foo.o：执行脚本中的cc命令</li>
+</ol>
+<h3 id="Rule-语法"><a href="#Rule-语法" class="headerlink" title="Rule 语法"></a>Rule 语法</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">targets : prerequisites</span><br><span class="line">        recipe</span><br><span class="line">        …</span><br><span class="line"><span class="meta">#</span><span class="bash"> or like this:</span></span><br><span class="line"></span><br><span class="line">targets : prerequisites ; recipe</span><br><span class="line">        recipe</span><br><span class="line">        …</span><br></pre></td></tr></table></figure>
+<p>要点：</p>
+<ul>
+<li>targets可以是多个</li>
+<li>targets是文件名，可以使用通配符。变量赋值的通配符需要使用通配符函数</li>
+<li>recipe是tab开头的行（或者.PRECIPEPREFIX环境变量指定的）</li>
+<li><code>$</code>用于变量，如果要使用<code>$</code>符号，使用<code>$$</code>。recipe决定如何更新target，它被传递给shell执行</li>
+</ul>
+<h3 id="一个target，多个规则"><a href="#一个target，多个规则" class="headerlink" title="一个target，多个规则"></a>一个target，多个规则</h3><p>同一个target可以有多个规则，这些规则会合并成一个规则。这些规则的所有rerequisites会合并成同一个规则。</p>
+<p><strong>但是一个target只能有一个recipe</strong>。如果一个target有多个recipe，make会使用最后一个，并给出警告。</p>
+<p>使用<code>::</code>可以让一个target拥有多个recipe。target重新构建的时候，每一个recipe都会被独立的执行。</p>
+<h2 id="在Rules中编写Recipes"><a href="#在Rules中编写Recipes" class="headerlink" title="在Rules中编写Recipes"></a>在Rules中编写Recipes</h2><p>Recipes包含一条或者多条shell命令，按照出现的次序依次执行。</p>
+<h3 id="Recipe语法"><a href="#Recipe语法" class="headerlink" title="Recipe语法"></a>Recipe语法</h3><ul>
+<li>tab开头，或者.RECIPEPREFIX变量指定的符号开头，第一条语句可以接在prerequisites后面</li>
+<li>recipe中的comment不是make的comment，会传给shell</li>
+<li>rule上下文中的变量定义，如果以tab开头，当作shell的变量</li>
+<li>条件表达式会传给shell</li>
+</ul>
+<h4 id="Recipe中使用变量"><a href="#Recipe中使用变量" class="headerlink" title="Recipe中使用变量"></a>Recipe中使用变量</h4><p>recipe中的变量在结束读取makefiles，确定targets过时了之后才会被扩展。</p>
+<p>recipe中的变量和函数和makefiles中其他位置有相同的语法和语义，使用上没有区别。</p>
+<h3 id="Recipe的执行"><a href="#Recipe的执行" class="headerlink" title="Recipe的执行"></a>Recipe的执行</h3><p>更新target时执行recipes，这些recipe将会在一个新的子shell中执行，除非指定了.ONESHELL。</p>
+<h2 id="如何使用变量"><a href="#如何使用变量" class="headerlink" title="如何使用变量"></a>如何使用变量</h2><p>一个变量类似于C语言中的宏替换，其值是一个文本。这些值被替换到targets，prerequisites，recipes以及makefile的其他位置。（变量也叫宏）。</p>
+<p>变量名大小写敏感。</p>
+<h3 id="变量引用基础"><a href="#变量引用基础" class="headerlink" title="变量引用基础"></a>变量引用基础</h3><p>使用<code>$(var)</code>或者<code>${var}</code>来使用变量。var是变量名。变量可用于targets、prerequisites、recipes、大多数指令以及新的变量。变量被扩展的时候用其值替换。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">objects = program.o foo.o utils.o</span><br><span class="line">program : $(objects)</span><br><span class="line">        cc -o program $(objects)</span><br><span class="line">$(objects) : defs.h</span><br></pre></td></tr></table></figure></p>
+<h3 id="两种类型的变量"><a href="#两种类型的变量" class="headerlink" title="两种类型的变量"></a>两种类型的变量</h3><p>一种是使用<code>=</code>，表示递归扩展的变量；意思就是，如果扩展后的值还是一个变量，那么会继续对改变量进行扩展。递归扩展在每次扩展时都会对函数进行求值。</p>
+<p>另一种是<code>:=</code>，表示简单扩展变量；意思就是，只会扩展一次，值就是扩展后的文本，即便该文本可能是一个变量的扩展（<code>$(two)</code>这种形式）。</p>
+<p>还有一种<code>?=</code>，表示条件赋值；意思就是，只有变量没有定义的时候才会定义变量并赋值：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">FOO ?= bar</span><br></pre></td></tr></table></figure></p>
+<p>相当于：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ifeq ($(origin FOO), undefined)</span><br><span class="line">        FOO = bar #注意是=，而不是:=</span><br><span class="line">endif</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>注意：变量赋值时会忽略前置的空格，但是后置的空格不会。当涉及到目录的时候，容易出错。例如<code>BINDIR = bin # bin dir</code>，后置空格不会被去除，那么<code>$(BINDIR)/file</code>就会变成<code>bin /file</code>，如果作为命令行参数，<code>bin/file</code>是一个选项，而<code>bin /file</code>就变成两个选项了。</p>
+</blockquote>
+<h3 id="变量的"><a href="#变量的" class="headerlink" title="变量的+="></a>变量的+=</h3><p>分成两种情况，如果变量已经定义，那么<code>a += b</code>等价于<code>a := $(a) b</code>。</p>
+<p>如果变量没有定义，<code>a += b</code>等价于<code>a = b</code></p>
+<h3 id="多行变量"><a href="#多行变量" class="headerlink" title="多行变量"></a>多行变量</h3><p>define是另一种定义变量的方式（还有=、:=等等）。语法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">define vari-name[=|+=|:=]</span><br><span class="line">foo</span><br><span class="line">$(bar)</span><br><span class="line">endef</span><br></pre></td></tr></table></figure></p>
+<p>等于符号可以省略，省略默认使用=。define可以定义多行变量。多行内容的中的变量和函数会正确扩展。里面的make指令也会被正确解析。</p>
+<h2 id="makefile中的条件片段"><a href="#makefile中的条件片段" class="headerlink" title="makefile中的条件片段"></a>makefile中的条件片段</h2><p>示例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">libs_for_gcc = -lgnu</span><br><span class="line">normal_libs = </span><br><span class="line"></span><br><span class="line">foo: $(objects)</span><br><span class="line">ifeq ($(CC), gcc)</span><br><span class="line">        $(CC) -o foo $(objects) $(libs_for_gcc)</span><br><span class="line">else</span><br><span class="line">        $(CC) -o foo $(objects) $(normal_libs)</span><br><span class="line">endif</span><br></pre></td></tr></table></figure></p>
+<h3 id="条件指令的语法"><a href="#条件指令的语法" class="headerlink" title="条件指令的语法"></a>条件指令的语法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ifeq(arg1, arg2)</span><br><span class="line">        ...</span><br><span class="line">else</span><br><span class="line">        ...</span><br><span class="line">endif</span><br></pre></td></tr></table></figure>
+<p>一共有下面这些条件指令：</p>
+<ol>
+<li><code>ifeq(arg1, arg2)</code>或者`ifeq “arg1” “arg2”</li>
+<li><code>ifdef varname</code></li>
+<li><code>ifndef varname</code></li>
+</ol>
+<h2 id="处理文本的函数"><a href="#处理文本的函数" class="headerlink" title="处理文本的函数"></a>处理文本的函数</h2><p>函数用于处理文本。使用一个函数称为函数调用。通过给函数传一些参数，能够得到函数的返回值。</p>
+<h3 id="函数调用语法"><a href="#函数调用语法" class="headerlink" title="函数调用语法"></a>函数调用语法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(function arguments)</span><br><span class="line"># 或者</span><br><span class="line">$&#123;function arguments&#125;</span><br></pre></td></tr></table></figure>
+<p>通过内置的call函数可以定义自己的函数。</p>
+<h3 id="shell函数"><a href="#shell函数" class="headerlink" title="shell函数"></a>shell函数</h3><p>shell函数将参数传给shell命令并且对命令的输出求值。make对参数的处理仅仅是将<code>\</code>替换成空格。</p>
+<p>shell函数被扩展的时候执行命令。取决于shell函数的位置，如果在recipe中，则是第二阶段，也就是recipe执行的时候扩展。</p>
+<p>示例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">files = $(shell echo *.c)</span><br></pre></td></tr></table></figure></p>
+<h3 id="用于文本替换和分析的函数"><a href="#用于文本替换和分析的函数" class="headerlink" title="用于文本替换和分析的函数"></a>用于文本替换和分析的函数</h3><ol>
+<li><p>$(filter pattern…,text)<br>返回text中匹配模式字符串的空格隔开的单词，移除不匹配的单词。可以使用<code>%</code>作为通配符。</p>
+<p>示例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">source := foo.c bar.c baz.s ugh.h</span><br><span class="line">foo: $(source)</span><br><span class="line">     cc $(filter %.c %.s, $(source)) -o foo</span><br></pre></td></tr></table></figure>
+<p>$(filter %.c %.s, $(source))会把source中满足%.c或者%.s的单词取出来。</p>
+</li>
+<li><p>$(patsubst pattern,replacement,text)<br>找到text中使用空格分开的满足pattern的单词，并用replacement替换他们。可能含有<code>%</code>作为通配符，表示匹配单词中的任意多个字符。如果replacement中出现了<code>%</code>，那么<code>%</code>会使用text中匹配的字符串替换。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(patsubst %.c,%.o,foo.c bar.c)</span><br></pre></td></tr></table></figure>
+<p>patsubst还有缩写形式：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(var.pattern=replacement)</span><br></pre></td></tr></table></figure>
+<p>等价于：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(patsubst pattern,replacement,$(var))</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>$(sort list)<br>以字符顺序排序list中的单词，移除重复单词。输出是空格隔开的单词序列。<br>例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(sort foo bar lose)</span><br></pre></td></tr></table></figure>
+<p>的结果为：<code>bar foo lose</code></p>
+<h3 id="条件处理的函数"><a href="#条件处理的函数" class="headerlink" title="条件处理的函数"></a>条件处理的函数</h3><p>有三种提供条件扩展的函数。函数的参数不会在初始化的时候扩展，而只会在需要扩展的时候扩展。</p>
+</li>
+<li><p>$(if condition,then-part[,else-part])<br>condition的前后空格都会被去掉，然后扩展。如果扩展后的结果是非空字符串，认为是true，如果是空字符串，认为是false。</p>
+<p>如果condition为true，那么then-part会被扩展，并将其值作为if函数的值。</p>
+<p>如果condition为false，那么else-part会被扩展，并将其值作为if函数的值，如果没有else-part，返回空字符串。</p>
+</li>
+</ol>
+<h3 id="用于文件名的函数"><a href="#用于文件名的函数" class="headerlink" title="用于文件名的函数"></a>用于文件名的函数</h3><ol>
+<li>$(addprefix prefix,name…)<br>name是一系列文件名，用空格分割。会将prefix添加到name中的每一个文件名的前面，结果是添加后的空格隔开的字符串。</li>
+<li>$(wildcard pattern…)<br>pattern是一个文件名pattern，一般包含通配符。wildcard函数的结果是空格隔开的一系列匹配pattern的文件名。pattern可以是空格隔开的多个规则。</li>
+<li>$(basename names…)<br>取出空格隔开的文件名中的除了去掉的值。</li>
+<li>$(dir names…)<br>提取names中每一个name的文件夹部分，包括最后的<code>/</code>。当前目录返回<code>./</code>。结果用空格隔开。</li>
+</ol>
+<h3 id="origin函数"><a href="#origin函数" class="headerlink" title="origin函数"></a>origin函数</h3><p>origin函数说明变量的来源。语法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(origin variable)</span><br></pre></td></tr></table></figure></p>
+<p>注意这里的variable是变量的名字，不带<code>$</code>。</p>
+<p>origin函数可能返回的值：</p>
+<ul>
+<li>undefined：变量未定义</li>
+<li>default：内置的变量</li>
+<li>environment：从环境中继承并提供给make的变量</li>
+<li>environment override：从环境中继承，但是使用-e选项改写了</li>
+<li>file：makefile中定义</li>
+<li>command line：命令行中定义</li>
+<li>automatic：自动</li>
+</ul>
+<h3 id="call函数"><a href="#call函数" class="headerlink" title="call函数"></a>call函数</h3><p>call函数可以用于创建新的函数，可以定义一个变量，通过call给该变量传参数将该变量扩展成不同的值。</p>
+<p>语法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(call variable,param,param,...)</span><br></pre></td></tr></table></figure></p>
+<p><code>$(1)</code>，<code>$(2)</code>…用于获取param的值。<code>$(0)</code>是variable。没有最大参数个数也没有最小参数个数。但是参数为0call函数就没有作用了，和普通变量没有区别。variable是变量的名字，没有开头的<code>$</code>，可以但是可以使用变量来扩展成其他变量的名字。</p>
+<p>参数在赋值给临时变量前求值。</p>
+<h3 id="eval函数"><a href="#eval函数" class="headerlink" title="eval函数"></a>eval函数</h3><p>eval函数通过变量的方式创建新的makefile结构。意思就是，通过eval可以将一个动态的字符串（可以是变量或者函数的值）作为makefile来解析。eval函数的参数会被扩展，扩展的结果用makefile语法解析。扩展的结果中可以定义make变量、target、显式和隐式的规则。</p>
+<p>语法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(eval argument)</span><br></pre></td></tr></table></figure></p>
+<p>eval函数的返回值始终是一个空字符串。</p>
+<p>例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(foreach prog,$(PROGRAMS),$(eval $(call PROGRAM_template,$(prog))))</span><br></pre></td></tr></table></figure></p>
+<p>要注意到eval参数会被扩展两次，第一次作为参数扩展一次。第二次作为make的语法扩展一次。</p>
+<h3 id="foreach函数"><a href="#foreach函数" class="headerlink" title="foreach函数"></a>foreach函数</h3><p>语法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(foreach var,list,text)</span><br></pre></td></tr></table></figure></p>
+<p>第一个参数和第二个参数将在最开始扩展。var扩展后的值是临时变量的名字。list扩展后是一个空格隔开的列表。foreach会遍历list，将其值赋给名字为var扩展后的值的变量。text会在每次遍历的时候扩展，text中一般会引用var。</p>
+<p>foreach函数的值是text扩展后通过空格隔开的列表。</p>
+<h2 id="9-如何运行make"><a href="#9-如何运行make" class="headerlink" title="9.如何运行make"></a>9.如何运行make</h2><p>一个makefile说明了如何重新编译一个程序。最简单的方式就是重新编译每一个过时的文件。当不带参数执行make的时候是这样的。</p>
+<p>但是你也许想只编译一部分文件。可能对于不用的编译器使用不同的编译器选项。通过给make传递特定的选项可以做到这些。</p>
+<h3 id="构建目标"><a href="#构建目标" class="headerlink" title="构建目标"></a>构建目标</h3><p>我们前面提到了对于makefiles中的rule，默认使用第一条rule，但是我们也可以通过环境变量或者make选项来设置默认的rule。例如通过<code>.DEFAULT_GOAL</code>变量可以设置默认的rule。</p>
+<h2 id="10-使用隐式规则"><a href="#10-使用隐式规则" class="headerlink" title="10.使用隐式规则"></a>10.使用隐式规则</h2><p>隐式规则告诉编译器如果使用常用的技术，可以让你需要使用这些技术的时候不用详细的指定它们。例如将C文件编译成.o文件是一种make常用的场景，make会有相应的隐式规则来将C文件编译成.o文件，例如使用cc命令等等。通过内置的环境变量我们可以控制隐式规则如何工作，比如使用CFLAGS变量改变传给C编译器的flags。</p>
+<h3 id="隐式规则使用的变量"><a href="#隐式规则使用的变量" class="headerlink" title="隐式规则使用的变量"></a>隐式规则使用的变量</h3><p>通过内置的一些变量可以设置隐式规则。例如设置编译器选项等等。通过makefile中给变量赋值以及make命令参数可以改变这些变量。</p>
+<p>隐式规则使用的变量分成两类：程序的名字（例如CC）以及程序的参数（例如CFLAGS）。</p>
+<p>编译C语言程序主要就使用下面几个：</p>
+<ul>
+<li>CC，编译器命令名</li>
+<li>CFLAGS，编译器选项</li>
+<li>LDFLAG，链接连接器选项</li>
+<li>LDLIBS，链接器链接的库</li>
+</ul>
+<h3 id="如何使用？"><a href="#如何使用？" class="headerlink" title="如何使用？"></a>如何使用？</h3><p>看一个示例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">foo: foo.o bar.o</span><br><span class="line">        cc -o foo.o bar.o $(CFLAGS) $(LDFLAGS)</span><br></pre></td></tr></table></figure></p>
+<p>这里使用中我们并写没有foo.o的rule，但是make会使用隐式规则自动编译得到foo.o。</p>
+<p>make的隐式规则会根据源文件的类型自动选择合适的规则进行处理。</p>
+<p>如果不想为一个没有recipe的target使用隐式规则，在recipe中使用<code>;</code>。</p>
+<h3 id="定义和重定义模式规则"><a href="#定义和重定义模式规则" class="headerlink" title="定义和重定义模式规则"></a>定义和重定义模式规则</h3><p>模式规则就是在target中有%的规则。一个模式规则可能长这样：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">%.o:%.c; recipe...</span><br></pre></td></tr></table></figure></p>
+<h4 id="自动变量"><a href="#自动变量" class="headerlink" title="自动变量"></a>自动变量</h4><p>如果我们要应用模式规则中的文件名怎么办呢？通过自动变量。例如通过<code>$@</code>来使用target文件名，通过<code>@&lt;</code>来使用源文件名。</p>
+<p>可用的自动变量如下：</p>
+<ul>
+<li>$@：target文件名。如果是一个模式匹配的target，那么是触发rule的那一个target</li>
+<li>$%：target成员名，当target是一个archive成员的时候</li>
+<li>%&lt;：第一个prequisites的名字。如果target从隐式规则获取recipe，那么是隐式规则添加的第一个prerequisites</li>
+<li>$?：所有比target新的prerequisites的名字，用空格分开。</li>
+<li>$^：所有prerequisites的名字，空格隔开</li>
+<li>$|：order-only的prerequisites，空格分开</li>
+<li>…</li>
+</ul>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a href="https://www.gnu.org/software/make/manual/make.html#Overview" target="_blank" rel="noopener">GNU make 文档</a></p>
+
+</article>
+                </article>
+          </main>
+          <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 Bright<br>
+      powered_by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+<script src="/js/script.js"></script>
+    </body>
+
+</html>

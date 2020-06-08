@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+
+  <head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+    <title>
+      
+        2.实体-联系数据模型 |
+          
+            Bright的个人博客
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="/css/reset.css">
+      <link rel="stylesheet" href="/css/style.css">
+        <link rel="stylesheet" href="/css/github-markdown.css">
+          <link rel="stylesheet" href="/css/atom-one-dark.css">
+            
+</head>
+
+    <body>
+      
+        <header id="header" class="card">
+  <span class="logo">B</span>
+  <span class="motto">技术 & 梦想 |&nbsp;学习 & 总结</span>
+  <nav>
+    <ul>
+    
+      <li>
+        <a href="/">首页 </a>
+      </li>
+    
+      <li>
+        <a href="/archives">归档 </a>
+      </li>
+    
+      <li>
+        <a href="/categories">分类 </a>
+      </li>
+    
+      <li>
+        <div class="search-input">
+          <i class="fa search"></i>
+          <input id="search-input" type="text">
+        </div>
+      </li>
+    </ul>
+  </nav>
+</header>
+          <main id="main">
+            
+              
+<aside id="left-sidebar" class="margin-right">
+  <nav class="card sidebar-component">
+  <div class="card-title">文章归档</div>
+  <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a><span class="archive-list-count">18</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a><span class="archive-list-count">17</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a><span class="archive-list-count">30</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a><span class="archive-list-count">15</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a><span class="archive-list-count">17</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a><span class="archive-list-count">18</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a><span class="archive-list-count">2</span></li></ul>
+</nav>
+  <nav class="card sidebar-component">
+  <div class="card-title">文章分类</div>
+  <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/css/">css</a><span class="category-list-count">10</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/css/css基础/">css基础</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/css工具/">css工具</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/less/">less</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/sass/">sass</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/docker/">docker</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/docker/docker-swarm/">docker swarm</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/docker/docker基础/">docker基础</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">git</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html5/">html5</a><span class="category-list-count">8</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/html5/dom/">dom</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html5/html5-API/">html5 API</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html5/html5标签和属性/">html5标签和属性</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html5/svg/">svg</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html5/tips/">tips</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html5/实战/">实战</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/">java</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/java/spring实战/">spring实战</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/js/">js</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/js/js基础/">js基础</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/js/typescript/">typescript</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/js/正则表达式/">正则表达式</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/linux/工具/">工具</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/nginx/">nginx</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node-js/">node.js</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/node-js/npm/">npm</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node-js/命令行工具/">命令行工具</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/php/">php</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/spring-boot/">spring-boot</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/spring-boot/开发工具/">开发工具</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/typescript/">typescript</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/typescript/踩坑指南/">踩坑指南</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/">vue</a><span class="category-list-count">11</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/vue/cli/">cli</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/tips/">tips</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/vue-router/">vue-router</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/vue实战/">vue实战</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/vue组件开发/">vue组件开发</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/基础/">基础</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/webpack/">webpack</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/webpack/webpack基础/">webpack基础</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/xml/">xml</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/xml/基础/">基础</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/学习打卡/">学习打卡</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/安全/">安全</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/安全/密码技术/">密码技术</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/操作系统/">操作系统</a><span class="category-list-count">23</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/操作系统/shell/">shell</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/操作系统/ucore/">ucore</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/操作系统/操作系统原理/">操作系统原理</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据库/">数据库</a><span class="category-list-count">10</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/数据库/mysql/">mysql</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据库/sql语句/">sql语句</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据库/导论/">导论</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据库/数据库编程/">数据库编程</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据库/数据库设计/">数据库设计</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据结构/">数据结构</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/数据结构/图/">图</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/毕设/">毕设</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/">算法</a><span class="category-list-count">20</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/算法/leetcode/">leetcode</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/模式匹配/">模式匹配</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/深度优先搜索/">深度优先搜索</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程语言/">编程语言</a><span class="category-list-count">20</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/编程语言/C/">C</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/编程语言/C/语言/">语言</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程语言/C语言/">C语言</a><span class="category-list-count">17</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程语言/Java/">Java</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程语言/java/">java</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/英语/">英语</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/英语/生词/">生词</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/计算机网络/">计算机网络</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/计算机网络/wireshark/">wireshark</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/计算机网络/问题记录/">问题记录</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/设计模式/">设计模式</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/设计模式/交给子类/">交给子类</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/设计模式/生成实例/">生成实例</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/设计模式/适应设计模式/">适应设计模式</a><span class="category-list-count">2</span></li></ul></li></ul>
+</nav>
+  <nav class="card sidebar-component">
+  <div class="card-title">最近文章</div>
+  <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2020/05/19/algorithm/leetcode/动态规划/interleaving-string/">interleaving string</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/17/algorithm/leetcode/分治/maximum-product-subarray/">maximum product subarray</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/15/algorithm/leetcode/动态规划/triangle/">triangle</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/12/algorithm/leetcode/动态规划/unique-binary-search-trees-ii/">unique binary search trees ii</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/11/algorithm/leetcode/动态规划/decode-ways/">decode-ways</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/09/algorithm/leetcode/动态规划/unique-path-II/">unique path II</a></li></ul>
+</nav>
+</aside>
+
+
+                <!--
+<aside id="right-sidebar">
+  <nav class="card margin-bottom">
+  
+</nav>
+</aside>
+
+-->
+                <article id="article" class="margin-right ofhidn">
+                  <article class="post-article article markdown-body">
+  <h1>
+    2.实体-联系数据模型
+  </h1>
+  <hr>
+  <h2 id="复习要点大全"><a href="#复习要点大全" class="headerlink" title="复习要点大全"></a>复习要点大全</h2><p>本篇复习笔记的要点，分成大概下面几个部分：</p>
+<ul>
+<li>1.E/R图的基础知识：E/R的组成、表示及其细节等<ul>
+<li>数据库建模的步骤：构思-&gt;E/R模型-&gt;关系模型-&gt;关系DBMS</li>
+<li>E/R模型的三个要素：实体集、属性（带下划线的属性是键）、联系</li>
+<li>E/R图的图形表示：矩形表示实体集、椭圆表示属性、菱形表示联系</li>
+<li>联系的多样性：两个实体集中的联系可能存在<code>一对一</code>，<code>多对一</code>，<code>多对多</code>。重点是这三种关系的理解。</li>
+<li>多路联系：多个实体共享相同的联系，例如多方签合同</li>
+<li>联系中的角色：一个联系中，一个实体集可以出现多次，每次表示不同的角色。通过命名联系来区分角色。</li>
+<li>联系的属性：有时候需要给联系添加属性，例如合同有签订薪水，这份薪水与合同（联系）相关，而于任何实体集不相关。</li>
+<li>多路联系化二元联系：将多路联系化成实体集，原来的联系与实体集的连线变成新的二元联系。</li>
+<li>E/R模型中的子类：子类有父类公共的属性以及自生额外的属性。子类与父实体集通过<code>isa</code>的联系相连，<code>isa</code>用顶角向上的三角形表示。<code>isa</code>联系不标箭头，但是都是1对1联系。E/R图中子类上只连接自己特有的属性。子类拥有父类的属性和联系。</li>
+</ul>
+</li>
+<li>2.设计原则<ul>
+<li>忠实性：设计要忠于现实世界，以及实际情况。</li>
+<li>避免冗余：相同的数据避免存储两次。冗余可能导致：1.浪费空间。2.修改时没有全部修改导致不一致。</li>
+<li>简单性考虑：设计尽可能简单，除非绝对需要，否则一定不要添加额外的成份。</li>
+<li>选择正确的联系：实体集可以以多种方式联系起来。联系是否需要首先取决于实际情况，其次取决于联系是否是冗余的——即该联系可以由其他联系导出。</li>
+<li>选择正确的元素种类：属性是最容易实现，当然是使用实体集还是使用属性来进行建模，是根据实际情况确定的。</li>
+</ul>
+</li>
+<li>约束的建模<ul>
+<li>E/R图中的元素只能表示结构上的约束，不能表示数据上的约束。数据上的约束需要额外的建模。</li>
+<li>约束一般有：<ul>
+<li>键约束：唯一标识一个实体的属性或者属性集。E/R图中通过带下划线的属性表示键。父实体集必须拥有所有的键属性。</li>
+<li>单值约束：属性值在某种情况下具有唯一性要求。键约束也是单值约束；还有多对一联系等</li>
+<li>引用完整性约束：被引用的某个值在数据库中必须存在。E/R图中通过连线的圆角表示引用完整性约束。</li>
+<li>域约束：属性只必须在一个值集或者范围内。</li>
+<li>一般约束：任意定义的任意的约束。例如要求影星不超过10个。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>弱实体集<ul>
+<li>一个实体集的键是由<strong>另一个实体集的部分或者全部属性构成</strong>，这样的实体集称为弱实体集。</li>
+<li>弱实体集主要由两个来源：1.一个实体集E和另一个实体集F处于层次结构中，但是不是子类的关系，E的键要通过F才能唯一确定。例如球员编号，只有知道是哪个球队的多少号才能确定一个球员。2.连接实体集，例如多路联系中转为二元联系时新建的实体集，这种实体集没有自己的键，其键由多个实体集来确定。</li>
+<li>弱实体集的要求：1.只能通过多对一联系来获取其他实体集的<strong>键属性</strong>作为键。2.该多对一联系必须有引用完整性。3.多个多对一联系，每个联系都会提供键</li>
+<li>弱实体集的符号：1.弱实体集用双边矩形来表示。2.弱实体集的多对一支持联系用双边菱形表示。</li>
+</ul>
+</li>
+</ul>
+<p>上面的是要点总结，忘记细节看本文后面的详细知识点细节。</p>
+<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>实体-联系模型也叫E/R模型，是数据库设计方向的研究范畴。数据库设计最要的是设计出要存储的信息以及信息组成部分之间的关系。通常数据库的结构称为<strong>数据库模式</strong>，一般以某种语言或者符号来描述。除了E/R模型以外，还有关系模型、对象模型、半结构化模型等。</p>
+<p>在实际的数据库建模中，E/R模型并不直接作为数据库管理系统的直接模式，原因是E/R模型是一种抽象模型，并不是足够有效的数据结构。最常见的DBMS采用的模型是关系模型。所以实际数据库建模的步骤一般如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">思想  ---&gt; E/R设计 ---&gt; 关系模式 ---&gt; 关系DBMS</span><br></pre></td></tr></table></figure></p>
+<p>一般的数据库设计步骤是：先明确要存储的数据，利用E/R模型设计出数据实体属性以及数据实体之间的联系；然后通过一定的规则将E/R模型转为关系模型；最后将关系模型转成DBMS支持的输入，例如sql语句，输入DBMS建立真实的数据模型。</p>
+<h2 id="E-R模型的要素"><a href="#E-R模型的要素" class="headerlink" title="E/R模型的要素"></a>E/R模型的要素</h2><p>E/R模型一共有三个要素：</p>
+<ol>
+<li>实体集</li>
+<li>属性</li>
+<li>联系</li>
+</ol>
+<p>实体集是某一个抽象事务的集合，从面向对象的角度来说，“实体”和“对象”很相似。“实体集”和“对象类”也有相似性，但是“实体集”只包含属性，而不包含对属性的操作。以电影举例，每部电影是一个实体，所有电影构成实体集，电影都有主演、制片人、导演等等属性。</p>
+<p>实体集具有<code>属性</code>，属性是实体集中的实体所有的性质。例如电影实体中可能有title、length这些属性来表明电影的标题和时长。</p>
+<p>联系是两个或者多个实体集之间的连接。例如Movie和Stars是两个实体集，那么Star出演Movie，那么两个实体集之间就具有了某种联系Star-in。例子中的联系是二元的，E/R模型支持多路联系。在转为关系模型时，多路联系会转成二元联系，后面的笔记会详细讲述这一部分。</p>
+<h3 id="实体-联系图"><a href="#实体-联系图" class="headerlink" title="实体-联系图"></a>实体-联系图</h3><p>上面讨论了E/R模型的三个要素，可以以图形的形式来描述实体集、属性和联系。每一种元素都用不同的图形来表示，使用实线来连接属性、联系和实体集。三个要素分别用下面的图形来表示：</p>
+<ul>
+<li>矩形表示实体集</li>
+<li>椭圆表示属性</li>
+<li>菱形表示联系</li>
+</ul>
+<p>如下例：<br>！<a href="/img/E-R模型示例.png">E/R模型图例</a></p>
+<p>上图中的有三个实体集：movies、stars、studios，这些实体集用矩形表示。每一个实体集都有自己的属性，属性用椭圆表示。三个实体集之间有两个联系，联系用菱形表示。实体集、属性、联系之间均以实线相连。</p>
+<p>E/R模型并不会直接存入数据库，但是在进行数据库设计之前，先想一下E/R模型，确定数据对象的属性和其联系，能够帮助我们更好的进行数据库设计。</p>
+<p>联系一般表示两个实体之间某些属性之间的对应关系，例如star和movie具有star-in的联系R，表示某一个明星出演某一步电影，R的可以元组可能是<code>Alice Starwar</code>，表示Alice出演了Starwar这部电影。通过在联系中将star的name属性和movies的title属性关联，就能确定不同实体集之间的实体的关系。</p>
+<h3 id="联系的多样性"><a href="#联系的多样性" class="headerlink" title="联系的多样性"></a>联系的多样性</h3><p>上面举的联系的例子中，两个实体集之间的实体的关系可能是一对一的关系，即仅一个明星出演仅一部电影，但是可能存在一个演员至多出演一步电影且一部电影可以请多个演员，这种关系就是多对一。也可能存在一个明星参演多部电影，一部电影多个明星演，这种关系就是多对多。所以我们说联系具有<strong>多样性</strong>，联系可能是一对一、多对一、多对多。向下详细说明这三种联系的定义：</p>
+<ul>
+<li>多对一：如果实体集E中任一实体通过联系R<strong>至多</strong>与实体集F中的一个实体联系，那么R称为E到F的多对一联系</li>
+<li>一对一：如果E到F是多对一联系，F到E也是多对一联系，那么R称为E到F的一对一联系</li>
+<li>多对多：即不是多对一也不是一对一</li>
+</ul>
+<blockquote>
+<p>为了便于理解，可以从函数的角度来理解，E看作定义域，F看作值域。定义域中取一个值，如果值域值多有一个值相对应，那么是函数。所以多对一和函数的定义其实是相同的。取一个x，最多一个y。如果反过来也成立，取一个y最多一个x，那么x和y就是一一对应的了，即一对一的关系。</p>
+</blockquote>
+<p>E/R图中使用箭头来表示联系的多样性，简单来记就是：<strong>箭头指向一</strong>，即如果R是E到F的多对一联系，那么R到F的联系要打箭头。用上例的图，如果stars到movies是多对一联系，那么图如下：<br><img src="/img/E-R模型示例1.png" alt="E/R图例1"></p>
+<p>给定一个演员，最多一部电影，但是多个演员可以出演相同的电影。</p>
+<h3 id="多路联系"><a href="#多路联系" class="headerlink" title="多路联系"></a>多路联系</h3><p>上面给出的联系都是二元联系，但是联系可以是多路的。举个例子，假如有三方签合同，三方分别是三个实体集，那么这三个实体集肯定都共享“合同”这个联系，如下例：<br><img src="/img/多路联系.png" alt="多路联系"><br>上例中的箭头也表示多对一的关系，表示一个明星最多签约一家制片公司，一部电影也最多签约一家制片公司。</p>
+<h3 id="联系中的角色"><a href="#联系中的角色" class="headerlink" title="联系中的角色"></a>联系中的角色</h3><p>同样，一个实体集在一个E/R图中可能多次出现，例如电影和其续集的关系。电影和电影的续集都属于电影这个实体集，那么在电影到电影续集这个联系中，同一个实体集（电影）充当了两个<strong>角色</strong>。人们一般给联系的联系来命名来区分角色，如下例：<br><img src="/img/联系中的角色.png" alt="联系中的角色"></p>
+<h3 id="联系的属性"><a href="#联系的属性" class="headerlink" title="联系的属性"></a>联系的属性</h3>
+</article>
+                </article>
+          </main>
+          <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 Bright<br>
+      powered_by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+<script src="/js/script.js"></script>
+    </body>
+
+</html>

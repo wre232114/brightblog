@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+
+  <head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+    <title>
+      
+        MySQL数据类型 |
+          
+            Bright的个人博客
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="/css/reset.css">
+      <link rel="stylesheet" href="/css/style.css">
+        <link rel="stylesheet" href="/css/github-markdown.css">
+          <link rel="stylesheet" href="/css/atom-one-dark.css">
+            
+</head>
+
+    <body>
+      
+        <header id="header" class="card">
+  <span class="logo">B</span>
+  <span class="motto">技术 & 梦想 |&nbsp;学习 & 总结</span>
+  <nav>
+    <ul>
+    
+      <li>
+        <a href="/">首页 </a>
+      </li>
+    
+      <li>
+        <a href="/archives">归档 </a>
+      </li>
+    
+      <li>
+        <a href="/categories">分类 </a>
+      </li>
+    
+      <li>
+        <div class="search-input">
+          <i class="fa search"></i>
+          <input id="search-input" type="text">
+        </div>
+      </li>
+    </ul>
+  </nav>
+</header>
+          <main id="main">
+            
+              
+<aside id="left-sidebar" class="margin-right">
+  <nav class="card sidebar-component">
+  <div class="card-title">文章归档</div>
+  <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a><span class="archive-list-count">18</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a><span class="archive-list-count">17</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a><span class="archive-list-count">30</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a><span class="archive-list-count">15</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a><span class="archive-list-count">17</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a><span class="archive-list-count">18</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a><span class="archive-list-count">2</span></li></ul>
+</nav>
+  <nav class="card sidebar-component">
+  <div class="card-title">文章分类</div>
+  <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/css/">css</a><span class="category-list-count">10</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/css/css基础/">css基础</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/css工具/">css工具</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/less/">less</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/sass/">sass</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/docker/">docker</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/docker/docker-swarm/">docker swarm</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/docker/docker基础/">docker基础</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">git</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html5/">html5</a><span class="category-list-count">8</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/html5/dom/">dom</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html5/html5-API/">html5 API</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html5/html5标签和属性/">html5标签和属性</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html5/svg/">svg</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html5/tips/">tips</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html5/实战/">实战</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/">java</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/java/spring实战/">spring实战</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/js/">js</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/js/js基础/">js基础</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/js/typescript/">typescript</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/js/正则表达式/">正则表达式</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/linux/工具/">工具</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/nginx/">nginx</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node-js/">node.js</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/node-js/npm/">npm</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node-js/命令行工具/">命令行工具</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/php/">php</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/spring-boot/">spring-boot</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/spring-boot/开发工具/">开发工具</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/typescript/">typescript</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/typescript/踩坑指南/">踩坑指南</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/">vue</a><span class="category-list-count">11</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/vue/cli/">cli</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/tips/">tips</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/vue-router/">vue-router</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/vue实战/">vue实战</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/vue组件开发/">vue组件开发</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/基础/">基础</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/webpack/">webpack</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/webpack/webpack基础/">webpack基础</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/xml/">xml</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/xml/基础/">基础</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/学习打卡/">学习打卡</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/安全/">安全</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/安全/密码技术/">密码技术</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/操作系统/">操作系统</a><span class="category-list-count">23</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/操作系统/shell/">shell</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/操作系统/ucore/">ucore</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/操作系统/操作系统原理/">操作系统原理</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据库/">数据库</a><span class="category-list-count">10</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/数据库/mysql/">mysql</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据库/sql语句/">sql语句</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据库/导论/">导论</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据库/数据库编程/">数据库编程</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据库/数据库设计/">数据库设计</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据结构/">数据结构</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/数据结构/图/">图</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/毕设/">毕设</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/">算法</a><span class="category-list-count">20</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/算法/leetcode/">leetcode</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/模式匹配/">模式匹配</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/深度优先搜索/">深度优先搜索</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程语言/">编程语言</a><span class="category-list-count">20</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/编程语言/C/">C</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/编程语言/C/语言/">语言</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程语言/C语言/">C语言</a><span class="category-list-count">17</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程语言/Java/">Java</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程语言/java/">java</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/英语/">英语</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/英语/生词/">生词</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/计算机网络/">计算机网络</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/计算机网络/wireshark/">wireshark</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/计算机网络/问题记录/">问题记录</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/设计模式/">设计模式</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/设计模式/交给子类/">交给子类</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/设计模式/生成实例/">生成实例</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/设计模式/适应设计模式/">适应设计模式</a><span class="category-list-count">2</span></li></ul></li></ul>
+</nav>
+  <nav class="card sidebar-component">
+  <div class="card-title">最近文章</div>
+  <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2020/05/19/algorithm/leetcode/动态规划/interleaving-string/">interleaving string</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/17/algorithm/leetcode/分治/maximum-product-subarray/">maximum product subarray</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/15/algorithm/leetcode/动态规划/triangle/">triangle</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/12/algorithm/leetcode/动态规划/unique-binary-search-trees-ii/">unique binary search trees ii</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/11/algorithm/leetcode/动态规划/decode-ways/">decode-ways</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/09/algorithm/leetcode/动态规划/unique-path-II/">unique path II</a></li></ul>
+</nav>
+</aside>
+
+
+                <!--
+<aside id="right-sidebar">
+  <nav class="card margin-bottom">
+  
+</nav>
+</aside>
+
+-->
+                <article id="article" class="margin-right ofhidn">
+                  <article class="post-article article markdown-body">
+  <h1>
+    MySQL数据类型
+  </h1>
+  <hr>
+  <p>这篇文章主要介绍mysql的数据类型，基于《MySQL技术内幕》的第三章，主要内容是mysql中的详细数据类型、类型转换以及如何对数据进行处理。</p>
+<h2 id="要点总结"><a href="#要点总结" class="headerlink" title="要点总结"></a>要点总结</h2><ul>
+<li>数据值类别：mysql数据库中能够存储如下类别的数据<ul>
+<li>数值：包括整数、浮点数、和位域值。其中整数和浮点数可以分成精确值和近似值，用科学计数法（例如.158E8）表示的是近似值，4、1.25这样形式表示的精确值。近似值会有舍入误差，精确值的近似结果是精确的。</li>
+<li>字符串值：例如’123ss’，可以值单引号或者双引号（尽量使用单引号）。可以只用\转义（例如\’,\t），使用<code>&#39;&#39;</code>也可以转义单引号</li>
+<li>日期时间值：可以单独日期和时间，例如（’2012-06-17’、’12:30:43），也可以组合在一起（’2008-06-15 10:30:12.5）</li>
+<li>空间值：例如(10,20)这种表示平面中坐标系的</li>
+<li>布尔值：常量TRUE和FALSE，分别表示1和0。表达式中的0表示FALSE，非0、非NULL表示真</li>
+</ul>
+</li>
+<li>mysql数据类型<ul>
+<li>数字类型：<ul>
+<li>TINYINT</li>
+<li>SMALLINT</li>
+<li>MEDIUMINT</li>
+<li>INT</li>
+<li>BIGINT</li>
+<li>DECIMAL</li>
+<li>FLOAT</li>
+<li>DOUBLE</li>
+<li>BIT</li>
+</ul>
+</li>
+<li>字符串类型：<ul>
+<li>CHAR</li>
+<li>VARCHAR</li>
+<li>BINARY</li>
+<li>VARBINARY</li>
+<li>TYNYBLOB</li>
+<li>BLOB</li>
+<li>MEDIUMBLOB</li>
+<li>LONGBLOB</li>
+<li>TINYTEXT</li>
+<li>TEXT</li>
+<li>MEDIUMTEXT</li>
+<li>LONGTEXT</li>
+<li>ENUM</li>
+<li>SET</li>
+</ul>
+</li>
+<li>时态类型：<ul>
+<li>DATE: ‘YYYY-MM-DD’</li>
+<li>TIME: ‘hh:mm:ss’</li>
+<li>DATETIME: ‘YYYY-MM-DD hh:mm:ss’</li>
+<li>TIMESTAMP: ‘YYYY-MM-DD hh:mm:ss’</li>
+<li>YEAR: YYYY或YY<h2 id="数据值类别"><a href="#数据值类别" class="headerlink" title="数据值类别"></a>数据值类别</h2>MySQL支持多种常规类别的数据值。其中包括数值、字符串值、日期/时间这样的时态值、空间值，以及NULL值。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="数值"><a href="#数值" class="headerlink" title="数值"></a>数值</h3><p>MySQL能够识别的数字标阔整数、定点数或者浮点数，以及位阈值。</p>
+<h4 id="精确值数和近似值数"><a href="#精确值数和近似值数" class="headerlink" title="精确值数和近似值数"></a>精确值数和近似值数</h4><p>MySQL支持对精确值进行精确运算，以及对近似值的近似运算。<strong>精确值包括整数（如0、14、-382）和带小数点的数（0.0、38.5、-18.247）；近似值是采用科学计数法表示的浮点数，他们带有一个底数和一个指数（如1.58E5、-1.58E5）</strong>。</p>
+<p>整数可以用十进制和16进制两种格式来表示。<strong>16进制默认为字符串，但在数值运算的时候，十六进制常量会被视为64位的整数。例如，0x10==16</strong></p>
+<p>小数精确值由三部分组成：整数部分、小数点、小数部分，其中整数部分和小数部分都是数字序列。小数点前后的数字序列可以有一个为空，但是不能同时为空。</p>
+<p><strong>16进制不能用科学计数法来表示</strong></p>
+<p>精确值运算后得到的值也是精确的，只要没有超出精度。近似值的计算是近似的，会有舍入误差。MySQL按照以下规则决定使用精确计算还是近似计算：</p>
+<ul>
+<li>只要表达式里有近似值，就会当作浮点（近似）表达式来计算</li>
+<li>如果表达式只包含整数精确值，但其中的值带有小数部分，那么它会以BIGINT（64位）精度来计算</li>
+<li>如果表达式只包含精确值，但是有小数，会按照65位decimal算法来计算</li>
+<li>在表达式里，如果存在字符串必须转换成一个数才能进行计算的情况，那么该字符串会被转换成一个双精度浮点值。该表达式进行近似计算。</li>
+</ul>
+<h4 id="位域值"><a href="#位域值" class="headerlink" title="位域值"></a>位域值</h4><p>位阈值可以写成b’val’或者0bval，其中，bal是一个或者多个0/1组成的数字序列。例如b’1001’或0b1001表示9。</p>
+<p>在结果集里面，BIT值会被显示为一个二进制串。将BIT结果+0，或者使用CAST()函数，可以将其转化为一个整数。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select b&apos;1001&apos; + 0, CAST(0b1001 AS UNSIGNED);</span><br></pre></td></tr></table></figure></p>
+<h3 id="字符串值"><a href="#字符串值" class="headerlink" title="字符串值"></a>字符串值</h3><p>字符串两端的引号既可以是单引号，也可以是双引号。<strong>但是推荐使用单引号：</strong></p>
+<ul>
+<li>SQL标准规定使用单引号</li>
+<li>如果启用了SQL模式ANSI_QUOTES，那么mysql会将双引号引起来的值处理成标识符，代表数据库中的表名、数据库名或者表的列名等等。例如，如果开启了ANSI_QUOTES模式，<code>SELECT &quot;last_name&quot; from president;</code>中的<code>&quot;last_name&quot;</code>会被视为president表中<code>last_name</code>字段，而不是一个字符串常量。</li>
+</ul>
+<p>上面原因的第二个，两种结果天差地别，如果<code>&quot;last_name&quot;</code>被当成常量，那么选出来的结果中有一列就是常量，值就是<code>&quot;last_name&quot;</code>。如果当成标识符，选的是president表中的last_name字符串的值。</p>
+<p>MySQL能够识别出字符串里用来代表特殊字符的转义序列：<code>\0, \&#39;, \&quot;, \b, \n, \r, \t, \\, \z</code>。如果向取消反斜线字符的特殊含义，并把他当作一个普通的字符，需要启用SQL的NO_BACKSLASH_ESCAPE模式。转义序列区分大小写。不是上列转义字符，如果加上<code>\</code>，会被解释成原字符。</p>
+<h4 id="字符串的16进制表示法"><a href="#字符串的16进制表示法" class="headerlink" title="字符串的16进制表示法"></a>字符串的16进制表示法</h4><p>有两种16进制的字符串表示法，一种是X’val’，<code>val</code>是16进制串，<code>x</code>和<code>val</code>都中的字母都不区分大小写。例如X’4A’表示J：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; select X'4A', x'4a';</span><br><span class="line">+<span class="comment">-------+-------+</span></span><br><span class="line">| X'4A' | x'4a' |</span><br><span class="line">+<span class="comment">-------+-------+</span></span><br><span class="line">| J     | J     |</span><br></pre></td></tr></table></figure></p>
+<p>在字符串上下文中16进制串当作字符串，在数字上下文中，16进制串当作数字：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; select X'4A', x'4a';</span><br><span class="line">+<span class="comment">-------+-------+</span></span><br><span class="line">| X'4A' | x'4a' |</span><br><span class="line">+<span class="comment">-------+-------+</span></span><br><span class="line">| J     | J     |</span><br></pre></td></tr></table></figure></p>
+<p>另一种就是<code>0x</code>开头的16进制表示法，例如<code>0x0a</code>，其中<code>0x</code>只能是小写。16进制默认是字符串，当用于数字/数学运算时，被解析成64位整数。<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; select 0x61626364, 0x61626364+0;</span><br><span class="line">+<span class="comment">------------+--------------+</span></span><br><span class="line">| 0x61626364 | 0x61626364+0 |</span><br><span class="line">+<span class="comment">------------+--------------+</span></span><br><span class="line">| abcd       |   1633837924 |</span><br><span class="line">+<span class="comment">------------+--------------+</span></span><br></pre></td></tr></table></figure></p>
+
+</article>
+                </article>
+          </main>
+          <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 Bright<br>
+      powered_by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+<script src="/js/script.js"></script>
+    </body>
+
+</html>

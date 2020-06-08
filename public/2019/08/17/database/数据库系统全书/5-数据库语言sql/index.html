@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+
+  <head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+    <title>
+      
+        5.数据库语言sql |
+          
+            Bright的个人博客
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="/css/reset.css">
+      <link rel="stylesheet" href="/css/style.css">
+        <link rel="stylesheet" href="/css/github-markdown.css">
+          <link rel="stylesheet" href="/css/atom-one-dark.css">
+            
+</head>
+
+    <body>
+      
+        <header id="header" class="card">
+  <span class="logo">B</span>
+  <span class="motto">技术 & 梦想 |&nbsp;学习 & 总结</span>
+  <nav>
+    <ul>
+    
+      <li>
+        <a href="/">首页 </a>
+      </li>
+    
+      <li>
+        <a href="/archives">归档 </a>
+      </li>
+    
+      <li>
+        <a href="/categories">分类 </a>
+      </li>
+    
+      <li>
+        <div class="search-input">
+          <i class="fa search"></i>
+          <input id="search-input" type="text">
+        </div>
+      </li>
+    </ul>
+  </nav>
+</header>
+          <main id="main">
+            
+              
+<aside id="left-sidebar" class="margin-right">
+  <nav class="card sidebar-component">
+  <div class="card-title">文章归档</div>
+  <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a><span class="archive-list-count">18</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a><span class="archive-list-count">17</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a><span class="archive-list-count">30</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a><span class="archive-list-count">15</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a><span class="archive-list-count">17</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a><span class="archive-list-count">18</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a><span class="archive-list-count">2</span></li></ul>
+</nav>
+  <nav class="card sidebar-component">
+  <div class="card-title">文章分类</div>
+  <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/css/">css</a><span class="category-list-count">10</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/css/css基础/">css基础</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/css工具/">css工具</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/less/">less</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/sass/">sass</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/docker/">docker</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/docker/docker-swarm/">docker swarm</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/docker/docker基础/">docker基础</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">git</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html5/">html5</a><span class="category-list-count">8</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/html5/dom/">dom</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html5/html5-API/">html5 API</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html5/html5标签和属性/">html5标签和属性</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html5/svg/">svg</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html5/tips/">tips</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html5/实战/">实战</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/">java</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/java/spring实战/">spring实战</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/js/">js</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/js/js基础/">js基础</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/js/typescript/">typescript</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/js/正则表达式/">正则表达式</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/linux/工具/">工具</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/nginx/">nginx</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node-js/">node.js</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/node-js/npm/">npm</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node-js/命令行工具/">命令行工具</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/php/">php</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/spring-boot/">spring-boot</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/spring-boot/开发工具/">开发工具</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/typescript/">typescript</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/typescript/踩坑指南/">踩坑指南</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/">vue</a><span class="category-list-count">11</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/vue/cli/">cli</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/tips/">tips</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/vue-router/">vue-router</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/vue实战/">vue实战</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/vue组件开发/">vue组件开发</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/基础/">基础</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/webpack/">webpack</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/webpack/webpack基础/">webpack基础</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/xml/">xml</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/xml/基础/">基础</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/学习打卡/">学习打卡</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/安全/">安全</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/安全/密码技术/">密码技术</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/操作系统/">操作系统</a><span class="category-list-count">23</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/操作系统/shell/">shell</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/操作系统/ucore/">ucore</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/操作系统/操作系统原理/">操作系统原理</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据库/">数据库</a><span class="category-list-count">10</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/数据库/mysql/">mysql</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据库/sql语句/">sql语句</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据库/导论/">导论</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据库/数据库编程/">数据库编程</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据库/数据库设计/">数据库设计</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据结构/">数据结构</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/数据结构/图/">图</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/毕设/">毕设</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/">算法</a><span class="category-list-count">20</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/算法/leetcode/">leetcode</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/模式匹配/">模式匹配</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/深度优先搜索/">深度优先搜索</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程语言/">编程语言</a><span class="category-list-count">20</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/编程语言/C/">C</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/编程语言/C/语言/">语言</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程语言/C语言/">C语言</a><span class="category-list-count">17</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程语言/Java/">Java</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程语言/java/">java</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/英语/">英语</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/英语/生词/">生词</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/计算机网络/">计算机网络</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/计算机网络/wireshark/">wireshark</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/计算机网络/问题记录/">问题记录</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/设计模式/">设计模式</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/设计模式/交给子类/">交给子类</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/设计模式/生成实例/">生成实例</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/设计模式/适应设计模式/">适应设计模式</a><span class="category-list-count">2</span></li></ul></li></ul>
+</nav>
+  <nav class="card sidebar-component">
+  <div class="card-title">最近文章</div>
+  <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2020/05/19/algorithm/leetcode/动态规划/interleaving-string/">interleaving string</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/17/algorithm/leetcode/分治/maximum-product-subarray/">maximum product subarray</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/15/algorithm/leetcode/动态规划/triangle/">triangle</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/12/algorithm/leetcode/动态规划/unique-binary-search-trees-ii/">unique binary search trees ii</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/11/algorithm/leetcode/动态规划/decode-ways/">decode-ways</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/09/algorithm/leetcode/动态规划/unique-path-II/">unique path II</a></li></ul>
+</nav>
+</aside>
+
+
+                <!--
+<aside id="right-sidebar">
+  <nav class="card margin-bottom">
+  
+</nav>
+</aside>
+
+-->
+                <article id="article" class="margin-right ofhidn">
+                  <article class="post-article article markdown-body">
+  <h1>
+    5.数据库语言sql
+  </h1>
+  <hr>
+  <p>《数据库系统全书》读书笔记，主要包括书中有关sql部分，主要是的第六章和第七章。这里记录了最常用的sql语法及其详细的语法规则。这一系列读书笔记作为<code>数据库系统原理</code>课程同步复习笔记，综合了课程所学和书中所述，同时尽量添加自己的个人理解。</p>
+<h2 id="复习要点"><a href="#复习要点" class="headerlink" title="复习要点"></a>复习要点</h2><p>SQL语句是数据库系统中最普遍使用的对于数据库进行操作和修改的语言。查询部分的功能类似于前面学习过的扩展关系代数，关系代数是sql实现的工具。除此之外包括数据库定义和修改等，SQL既是DDL（数据定义语言）又是DML（数据描述语言）。</p>
+<ul>
+<li>简单查询：<code>SELECT attrNames FROM tableNames WHERE condition</code>。<ul>
+<li>SELECT对应扩展投影，后面接投影属性名，*表示所有属性。</li>
+<li>WHERE对应选择，选择关系中满足condition的元组（condition可以使用$+-*/$和比较运算符$\ge$、$\gt$、$\le$、$\lt$、=、&lt;&gt;，<code>&lt;&gt;</code>表示不等于。</li>
+<li><strong>字符串用单引号括起来</strong>。字符串比较的几种方式：1.比较，包括等于、大于、小于等。2.匹配，使用s (NOT )LIKE p的形式，s是字符串，p是模式可以使用%(任意长度字符，包括0)和_(任一个字符)。</li>
+</ul>
+</li>
+<li>多关系查询</li>
+<li>子查询</li>
+<li>去重、分组和聚集</li>
+<li>关系增删改查</li>
+<li>数据库、关系定义</li>
+</ul>
+<h2 id="查询"><a href="#查询" class="headerlink" title="查询"></a>查询</h2><h3 id="sql中的简单查询"><a href="#sql中的简单查询" class="headerlink" title="sql中的简单查询"></a>sql中的简单查询</h3><p>sql中最简单的查询是找出关系中满足特定条件的元组。简单查询使用三个保留字：SELECT、FORM、WHERE来表示一个SQL查询语句。<br>例如：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> *</span><br><span class="line"><span class="keyword">FROM</span> Movie</span><br><span class="line"><span class="keyword">WHERE</span> studioName = <span class="string">'Disney'</span> <span class="keyword">AND</span> <span class="keyword">year</span> = <span class="number">1990</span></span><br><span class="line"><span class="comment"># 形式</span></span><br><span class="line"><span class="keyword">SELECT</span> col1, col2, ...</span><br><span class="line"><span class="keyword">FROM</span> relation1, relation2,...</span><br><span class="line"><span class="keyword">WHERE</span> cond1 <span class="keyword">and</span>/<span class="keyword">or</span> cond2, ...</span><br></pre></td></tr></table></figure></p>
+<p>上面的语句从数据库的关系模式Movie中找出studioName=’Disney’和year=1990的元组（就是在Movie中找出某些列满足特定条件的行），select *表示选择所有列。简单总结就是：from确定从哪些关系中查询，where确定要取的行，select确定取到的行中的哪些列。</p>
+<p><strong>todo select from where的所有可能取值的总结</strong><br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> 逗号隔开的属性列表|*|属性 <span class="keyword">as</span> 别名|常量 <span class="keyword">as</span> 别名</span><br><span class="line"><span class="keyword">from</span> 逗号隔开的关系列表|元组变量例如Movie m|</span><br><span class="line"><span class="keyword">where</span> 布尔表达式 <span class="keyword">and</span>/<span class="keyword">or</span>/<span class="keyword">not</span> 布尔表达式|<span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">null</span>|a <span class="keyword">in</span> b|</span><br><span class="line"><span class="keyword">order</span> <span class="keyword">by</span> 属性列表</span><br></pre></td></tr></table></figure></p>
+<h4 id="1-sql中的投影"><a href="#1-sql中的投影" class="headerlink" title="1. sql中的投影"></a>1. sql中的投影</h4><p>   select * 会选择满足where条件的关系中的所有的元组（行）中的所有属性（列），但是有时候我们不需要所有的列，这个时候可以使用投影，select title选择元组中和title属性，然后将其投影到结果列title上。</p>
+<p>   如果我们希望将选择的列投影到不同的列上我们可以使用as，例如：<code>select title as name</code>，这样选择的元组中对应的title属性会被投影到结果表的name列。</p>
+<p>   <strong>select还可以用表达式取代属性</strong>，例如<code>select length*0.66667 as duration</code>，这将选择的元组中的length属性乘以0.6667的结果投影到duration，这样我们在结果表中拿到的length对应的列就是计算后的结果duration。</p>
+<p>   还可以添加常量到select中，例如：<code>select ‘.html’ as ext</code></p>
+<h4 id="2-sql中的选择"><a href="#2-sql中的选择" class="headerlink" title="2. sql中的选择"></a>2. sql中的选择</h4><p>   where后面接一个条件表达式，和c中的表达式类型，其求值结果是布尔值。</p>
+<ul>
+<li>值比较：使用6中常用的比较运算符：=、&lt;&gt;（不等于）、&lt;、&gt;、&lt;=和&gt;=。常量和跟在from后面的关系的属性都是可以比较的，也可以通过算术运算比如+、-、*、/来计算后比较。<strong>通过||可以连接字符串（’foo’||’bar’=’foobar’</strong>。</li>
+<li>布尔运算：上面提到的比较的结果可以通过and,or,not来进行布尔运算</li>
+</ul>
+<h4 id="3-字符串比较"><a href="#3-字符串比较" class="headerlink" title="3. 字符串比较"></a>3. 字符串比较</h4><p>   当两个字符串里面的字符序列完全相同时，称两个字符串相等。sql允许固定长度和可变长的字符串。</p>
+<p>   字符串的大小比较是比较其字典顺序，按照其逐个字母的先后比较。</p>
+<p>   sql提供了简单的字符串模式匹配的功能：like，例如：<code>s NOT LIKE p</code>其中s是字符串，p是模式。模式的形式是字符串+特殊字符串(%表示匹配任意长度的字符串，包括0，_表示匹配任意一个字符)。当s符合模式p的时候表达式才为真。</p>
+<p>   <strong>sql规定单引号是字符串的开始和结束，如果要在字符串内部使用单引号，那么使用两个单引号</strong>，例如: <code>‘%’’s%’=%’s%</code>。</p>
+<h4 id="4-日期和时间"><a href="#4-日期和时间" class="headerlink" title="4. 日期和时间"></a>4. 日期和时间</h4><p>   sql的实现版本通常将时间和日期作为特殊的数据类型。<strong>日期常量是由DATE保留字+单引号+特定字符串，例如date’1948-05-14’</strong>，时间是time’15:33:14’，时间日期是timestamp’1948-05-14 12:00:00’。<strong>可以直接用比较运算符对时间日期进行运算</strong></p>
+<h4 id="5-空值的比较"><a href="#5-空值的比较" class="headerlink" title="5. 空值的比较"></a>5. 空值的比较</h4><p>   SQL允许属性的值为特殊值null。where中要考虑null空值带来的影响：</p>
+<ul>
+<li>null和其他任何数据（包括null）算术运算+-得到的结果依然是空值</li>
+<li><p>null和其他任何数据（包括null）比较运算=或&gt;，结果都是unknown值。</p>
+<p>正确判断是否空值的方式是使用<code>x is null</code>或者<code>x is not null。</code></p>
+</li>
+</ul>
+<h4 id="6-布尔值unknown"><a href="#6-布尔值unknown" class="headerlink" title="6. 布尔值unknown"></a>6. 布尔值unknown</h4><p>   前面提到涉及到null的比较运算结果是unknown，那么我们布尔值的可能就有三种了：true、false、unknown。而前面又提到，布尔值可以通过AND、OR、NOT进行运算，那么这三种情况的运算结果是什么呢？</p>
+<p>   一种方式是将true看成1，false看成0，unknown看成0.5，三者的and运算取值的最小值，例如true AND unknown值是0.5，也就是unknown。or取最大值，例如false or unknown值是unknown。not取1-v，not unknown = 1-0.5=0.5=unknown。</p>
+<p>   综上，unknown and false = false，unknown or false = unknown，not (unknown or false) = unknown。</p>
+<p>   但使用where查询时，只有值时true才有效，false和unknown都无效。</p>
+<h4 id="7-输出排序"><a href="#7-输出排序" class="headerlink" title="7. 输出排序"></a>7. 输出排序</h4><p>   可以基于任何一个属性（或者多个）来进行排序，并将其他的属性跟在它后面进行约束。当第一属性相同时，按照第二属性排序，以此类推。</p>
+<p>   <code>order by 属性列表，逗号隔开</code></p>
+<h3 id="多个关系上的查询"><a href="#多个关系上的查询" class="headerlink" title="多个关系上的查询"></a>多个关系上的查询</h3><p><strong>关系代数的强大在于它能够通过连接、笛卡尔积、并、交和差来组合多个关系。在SQL中也可以做相同的操作</strong></p>
+<h4 id="1-SQL中的积和连接"><a href="#1-SQL中的积和连接" class="headerlink" title="1. SQL中的积和连接"></a>1. SQL中的积和连接</h4><p><strong>查询多个关系：在from后面接逗号隔开的多个关系，在select和where中可以使用任何出现在这些关系中的属性</strong></p>
+<p>例如：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">name</span></span><br><span class="line"><span class="keyword">from</span> Movie, MovieExec</span><br><span class="line"><span class="keyword">where</span> title = <span class="string">'Star Wars'</span> <span class="keyword">and</span> producerid = certid;</span><br></pre></td></tr></table></figure></p>
+<p>该语句的执行过程是：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">|     |    |     |</span><br><span class="line">|-----|-   |     |</span><br><span class="line">|     | \-&gt;|-----|</span><br><span class="line">|     |    |     |</span><br></pre></td></tr></table></figure></p>
+<ol>
+<li>遍历两个关系的所有元组对</li>
+<li>找出所有满足关系的元素对，将元组对合成一个元素返回。</li>
+</ol>
+<p>执行的结果是：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">|-----||----|</span><br><span class="line">|-----||----|</span><br></pre></td></tr></table></figure></p>
+<h4 id="2-属性歧义"><a href="#2-属性歧义" class="headerlink" title="2. 属性歧义"></a>2. 属性歧义</h4><p><strong>如果两个关系中有同名属性，可以通过table1.name=table2.name这种添加表名限定的形式来实现区分，包括在select和where中都可以这么区分</strong></p>
+<h4 id="3-元组变量"><a href="#3-元组变量" class="headerlink" title="3. 元组变量"></a>3. 元组变量</h4><p>可以对同一个关系进行多次查询，也就是说，对于关系R，可以<code>from R r1, R r2, ...</code>，这里的r1，r2就代表R的两个拷贝的不同元组。</p>
+<p>例如，找出Star表中所有地址相同的star（s1.name &lt; s2.name是为了去重）:<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> s1.name, s2.name</span><br><span class="line"><span class="keyword">from</span> Star s1, Star s2</span><br><span class="line"><span class="keyword">where</span> s1.address = s2.address <span class="keyword">and</span> s1.name &lt; s2.name</span><br></pre></td></tr></table></figure></p>
+<p><em>tips：这里看起来是根据address进行分组，但是其实不是，sql中的分组只能select分组的属性和其他属性的聚集操作。我们要找到同一个表中的某一项相同的不同元组，只能通过同表的多表查询来实现。</em></p>
+<h4 id="4-多关系的解释"><a href="#4-多关系的解释" class="headerlink" title="4. 多关系的解释"></a>4. 多关系的解释</h4><p>多关系的连接书中给了多种解释方案，比如嵌套循环——看成两个元组集合的二重循环；并行赋值——两个不同实例将可能的元组赋值给各自的元组变量，然后比较这两个元组变量；关系代数——先取笛卡尔积（笛卡尔积是《离散数学》中的概念，在我的《离散数学》复习篇博客中会涉及），然后对结果进行筛选。</p>
+<p>这多种解释的结果是相同的，只是过程不同，结果都是将两个关系的元组进行组合，并进行筛选。上面给的解释只是组合前筛选和组合后筛选的区别。</p>
+<h4 id="5-查询的并、交、差"><a href="#5-查询的并、交、差" class="headerlink" title="5. 查询的并、交、差"></a>5. 查询的并、交、差</h4><p>sql中的union、intersect和except分别表示并、交、查。可以直接用这三个关键字，将多个括号括起来的查询的结果组合起来。</p>
+<p><strong>只能对列数相同的结果关系集合进行操作</strong></p>
+<p>例如：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(<span class="keyword">select</span> bookid, bookname <span class="keyword">from</span> book) <span class="keyword">union</span> (<span class="keyword">select</span> majorid, majorname <span class="keyword">from</span> major);</span><br></pre></td></tr></table></figure></p>
+<p>结果是：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">+--------+--------------------------+</span><br><span class="line">| bookid | bookname                 |</span><br><span class="line">+--------+--------------------------+</span><br><span class="line">| b001   | 货币银行学               |</span><br><span class="line">| m2     | 信息安全                 |</span><br><span class="line">| m1     | 计算机科学与技术         |</span><br><span class="line">+--------+--------------------------+</span><br></pre></td></tr></table></figure></p>
+<p><em>注意：mysql中只支持union，不支持intersect和except，需要使用group by或者not in来模拟</em></p>
+<h3 id="子查询"><a href="#子查询" class="headerlink" title="子查询"></a>子查询</h3><p>当某个查询是另一个查询的一部分时，称为子查询。子查询可以拥有下一级的子查询。例如上例中通过两个子查询的union得到最终的查询结果。使用子查询的其他方式：</p>
+<ul>
+<li>子查询可以返回单个常量，这个常量能在where中和另一个常量进行比较</li>
+<li>子查询可以返回关系，该关系可以在where子句中以不同的方式使用（in、not in、exist、all等等）</li>
+<li>像许多存储的关系一样，子查询形成的关系能够出现在FROM子句中。</li>
+</ul>
+
+</article>
+                </article>
+          </main>
+          <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 Bright<br>
+      powered_by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+<script src="/js/script.js"></script>
+    </body>
+
+</html>

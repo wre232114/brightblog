@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+
+  <head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+    <title>
+      
+        ucore-os笔记4：bios和bootloader的启动过程 |
+          
+            Bright的个人博客
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="/css/reset.css">
+      <link rel="stylesheet" href="/css/style.css">
+        <link rel="stylesheet" href="/css/github-markdown.css">
+          <link rel="stylesheet" href="/css/atom-one-dark.css">
+            
+</head>
+
+    <body>
+      
+        <header id="header" class="card">
+  <span class="logo">B</span>
+  <span class="motto">技术 & 梦想 |&nbsp;学习 & 总结</span>
+  <nav>
+    <ul>
+    
+      <li>
+        <a href="/">首页 </a>
+      </li>
+    
+      <li>
+        <a href="/archives">归档 </a>
+      </li>
+    
+      <li>
+        <a href="/categories">分类 </a>
+      </li>
+    
+      <li>
+        <div class="search-input">
+          <i class="fa search"></i>
+          <input id="search-input" type="text">
+        </div>
+      </li>
+    </ul>
+  </nav>
+</header>
+          <main id="main">
+            
+              
+<aside id="left-sidebar" class="margin-right">
+  <nav class="card sidebar-component">
+  <div class="card-title">文章归档</div>
+  <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a><span class="archive-list-count">18</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a><span class="archive-list-count">17</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a><span class="archive-list-count">30</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a><span class="archive-list-count">15</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a><span class="archive-list-count">17</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a><span class="archive-list-count">18</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a><span class="archive-list-count">2</span></li></ul>
+</nav>
+  <nav class="card sidebar-component">
+  <div class="card-title">文章分类</div>
+  <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/css/">css</a><span class="category-list-count">10</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/css/css基础/">css基础</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/css工具/">css工具</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/less/">less</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/sass/">sass</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/docker/">docker</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/docker/docker-swarm/">docker swarm</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/docker/docker基础/">docker基础</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">git</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html5/">html5</a><span class="category-list-count">8</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/html5/dom/">dom</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html5/html5-API/">html5 API</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html5/html5标签和属性/">html5标签和属性</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html5/svg/">svg</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html5/tips/">tips</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html5/实战/">实战</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/">java</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/java/spring实战/">spring实战</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/js/">js</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/js/js基础/">js基础</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/js/typescript/">typescript</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/js/正则表达式/">正则表达式</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/linux/工具/">工具</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/nginx/">nginx</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node-js/">node.js</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/node-js/npm/">npm</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node-js/命令行工具/">命令行工具</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/php/">php</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/spring-boot/">spring-boot</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/spring-boot/开发工具/">开发工具</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/typescript/">typescript</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/typescript/踩坑指南/">踩坑指南</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/">vue</a><span class="category-list-count">11</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/vue/cli/">cli</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/tips/">tips</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/vue-router/">vue-router</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/vue实战/">vue实战</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/vue组件开发/">vue组件开发</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/基础/">基础</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/webpack/">webpack</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/webpack/webpack基础/">webpack基础</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/xml/">xml</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/xml/基础/">基础</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/学习打卡/">学习打卡</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/安全/">安全</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/安全/密码技术/">密码技术</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/操作系统/">操作系统</a><span class="category-list-count">23</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/操作系统/shell/">shell</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/操作系统/ucore/">ucore</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/操作系统/操作系统原理/">操作系统原理</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据库/">数据库</a><span class="category-list-count">10</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/数据库/mysql/">mysql</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据库/sql语句/">sql语句</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据库/导论/">导论</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据库/数据库编程/">数据库编程</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据库/数据库设计/">数据库设计</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据结构/">数据结构</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/数据结构/图/">图</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/毕设/">毕设</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/">算法</a><span class="category-list-count">20</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/算法/leetcode/">leetcode</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/模式匹配/">模式匹配</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/深度优先搜索/">深度优先搜索</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程语言/">编程语言</a><span class="category-list-count">20</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/编程语言/C/">C</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/编程语言/C/语言/">语言</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程语言/C语言/">C语言</a><span class="category-list-count">17</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程语言/Java/">Java</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程语言/java/">java</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/英语/">英语</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/英语/生词/">生词</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/计算机网络/">计算机网络</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/计算机网络/wireshark/">wireshark</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/计算机网络/问题记录/">问题记录</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/设计模式/">设计模式</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/设计模式/交给子类/">交给子类</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/设计模式/生成实例/">生成实例</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/设计模式/适应设计模式/">适应设计模式</a><span class="category-list-count">2</span></li></ul></li></ul>
+</nav>
+  <nav class="card sidebar-component">
+  <div class="card-title">最近文章</div>
+  <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2020/05/19/algorithm/leetcode/动态规划/interleaving-string/">interleaving string</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/17/algorithm/leetcode/分治/maximum-product-subarray/">maximum product subarray</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/15/algorithm/leetcode/动态规划/triangle/">triangle</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/12/algorithm/leetcode/动态规划/unique-binary-search-trees-ii/">unique binary search trees ii</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/11/algorithm/leetcode/动态规划/decode-ways/">decode-ways</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/09/algorithm/leetcode/动态规划/unique-path-II/">unique path II</a></li></ul>
+</nav>
+</aside>
+
+
+                <!--
+<aside id="right-sidebar">
+  <nav class="card margin-bottom">
+  
+</nav>
+</aside>
+
+-->
+                <article id="article" class="margin-right ofhidn">
+                  <article class="post-article article markdown-body">
+  <h1>
+    ucore-os笔记4：bios和bootloader的启动过程
+  </h1>
+  <hr>
+  <p>这篇笔记学习BIOS和bootloader的执行过程，将详细分析机器加电后执行的第一条指令到操作系统的第一行代码中间经历的过程。</p>
+<h2 id="BOIS的启动过程"><a href="#BOIS的启动过程" class="headerlink" title="BOIS的启动过程"></a>BOIS的启动过程</h2><p>计算机开机后并不是直接启动操作系统，而是先要执行一小部分初始化软件。在80386体系结构下由BIOS和BOOTLOADER组成。BOIS是存储在主板上ROM中的一个小程序，承担了最基础的输入输出功能（电脑没装系统时，我们也可以进入BOIS，BOIS中可以看到计算机的硬件信息，设置启动盘等等，其包括了对硬件最最基本的访问能力）。</p>
+<p>计算机加电后，将BIOS加载内存中开始执行。会从一条特定的地址开始执行，该指令调转到BIOS程序的起始地址执行。BIOS会检测硬件并进行初始化，然后会选择一个启动设备。然后将该设备的第一个扇区（512字节）加载到内存的特定地址（0x7c00）。然后将控制权转交给0x7c00地址处的程序开始执行。</p>
+<p>简单来说，当我们按下电脑的开机键后，CPU会进行如下的处理：</p>
+<ol>
+<li>BIOS被加载到内存中</li>
+<li>CPU的第一条指令是调转到BIOS程序的第一条指令（1、2步都是硬件预先设计好的）</li>
+<li>开始执行BIOS，BIOS会初始化显示器、检测计算机总线上连接的所有硬件；一切正常后将启动盘的第一个扇区（512个字节）加载到内存的0x7c00处，然后调转到0x7c00执行。所以我们的bootloader会放在磁盘的第一个扇区，大小小于512字节，BIOS执行完了就会执行bootloader的指令。</li>
+<li>bootloader执行，切换执行模式，加载操作系统内核，将控制权交给操作系统。</li>
+<li>操作系统初始化</li>
+</ol>
+<blockquote>
+<p>BIOS初始化是硬件自动的。启动的时候，硬件会将BIOS映射到高位内存地址中，以保证向下兼容8086的启动模式。</p>
+</blockquote>
+<h2 id="bootloader的启动过程"><a href="#bootloader的启动过程" class="headerlink" title="bootloader的启动过程"></a>bootloader的启动过程</h2><p>BIOS读取硬件扇区到0x7c00的内存中，并调转到0x7c00执行。所以bootloader被放在0x7c00的位置开始执行。（<strong>所以在makefile中链接bootblock的时候，将代码段地址设置成0x7c00。目前不懂这里链接指定的地址有什么用？后面学会了回来该</strong>）</p>
+<p>bootloader的主要工作是：</p>
+<ul>
+<li>切换到保护模式，启用分段机制</li>
+<li>读取ELF执行文件格式ucore操作系统到内存中</li>
+<li>显示字符串信息</li>
+<li>把控制权交给ucore操作系统</li>
+</ul>
+<p>接下来我们详细分析下面两个部分：</p>
+<ul>
+<li>如何切换到保护模式？（如果不了解什么是保护模式，请先阅读<a href="#">实模式与保护模式</a>）</li>
+<li>如何读取ELF执行文件格式？（如果不了解elf文件格式，请先阅读<a href="#">elf文件结构</a>）</li>
+</ul>
+<h3 id="如何从实模式切换到保护模式"><a href="#如何从实模式切换到保护模式" class="headerlink" title="如何从实模式切换到保护模式"></a>如何从实模式切换到保护模式</h3><p>从实模式切换到保护模式要经历两个步骤：</p>
+<ol>
+<li>开启a20 gate</li>
+<li>启用80386的分段机制实现保护</li>
+</ol>
+<p>下面分别说明这两个部分：</p>
+<ol>
+<li>开启a20 gate<br>8086处理器是16位的，只能以实模式运行，最大只能访问1MB内存。但是通过segment:offset的形式，可以得到高于1MB的地址。在这种情况下，8086会将高于1MB的地址“回卷”（只取前20位，溢出的部分舍弃），变成低于1MB的地址。一些8086的软件用到了这样的特性。在80386中，最大内存是4GB，超过1MB就不会“回卷”了，这样就不向下兼容了。所以有了A20 gate（A0-A19是20根地址线），A20 gate默认是不启用的，这样实模式下就只能访问1MB的内存，<strong>保证向下兼容</strong>。</li>
+</ol>
+<p><strong>因为a20 gate只是控制第21根地址的开启和关闭</strong>。在80386下（大于1MB的内存），如果开启了a20 gate：</p>
+<ul>
+<li>实模式下就可以访问<code>ffff0+0ffff=10ffef=1088KB</code>的内存，超出的64KB也能访问；</li>
+<li>保护模式下能够访问完整的4G内存</li>
+</ul>
+<p>如果没有开启a20 gate：</p>
+<ul>
+<li>实模式下只能访问1MB的内存</li>
+<li>保护模式下，<strong>a20始终位0</strong>，那么只能访问奇数兆的内存0-1M，2-3M…</li>
+</ul>
+<p>计算机开机以后是以实模式运行，我们的操作系统是面向32位CPU设计的，所以在bootloader中要启用全部的32根地址线。从实模式切换到保护模式的第一步就是开启a20 gate。</p>
+<p>a20 gate的开启和关闭使用<strong>通过键盘控制器8042来控制</strong>的（需要通过一种方式来控制a20的开启和关闭，工程师们为了<strong>节省硬件设计成本</strong>将其集成到了键盘控制器中，a20 gate和键盘没有关系），所以我们需要通过io指令向键盘控制器8042发出控制命令，启用a20。bootasm.S中相关代码如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">seta20.1:</span><br><span class="line">    inb $0x64, %al                                  # Wait for not busy(8042 input buffer empty).</span><br><span class="line">    testb $0x2, %al</span><br><span class="line">    jnz seta20.1</span><br><span class="line"></span><br><span class="line">    movb $0xd1, %al                                 # 0xd1 -&gt; port 0x64</span><br><span class="line">    outb %al, $0x64                                 # 0xd1 means: write data to 8042&apos;s P2 port</span><br><span class="line"></span><br><span class="line">seta20.2:</span><br><span class="line">    inb $0x64, %al                                  # Wait for not busy(8042 input buffer empty).</span><br><span class="line">    testb $0x2, %al</span><br><span class="line">    jnz seta20.2</span><br><span class="line"></span><br><span class="line">    movb $0xdf, %al                                 # 0xdf -&gt; port 0x60</span><br><span class="line">    outb %al, $0x60</span><br></pre></td></tr></table></figure></p>
+<p><img src="/img/8042键盘控制器.png" alt="8042键盘控制器"><br>8042对外暴露了两个端口：0x60和0x64，下面是对8042的简单介绍：</p>
+<ul>
+<li>键盘控制器的端口是0x60-0x6f，但是只使用了0x60和0x64两个端口。通过这两个端口给键盘控制器发送命令或者读取状态</li>
+<li><p>8042有两个寄存器，一个是状态寄存器，保存了控制器当前的状态信息（键盘使用启用，buffer中是否有数据等），另一个是控制寄存器。状态寄存器各位信息如下：<br>  | bit  | meaning  |<br>  |—|—|<br>  |0 |output    register    (60h)    中有数据|<br>  |1 |input    register    (60h/64h)    有数据|<br>  |2 |系统标志(上电复位后被置为0)|<br>  |3 |data    in    input    register    is    command    (1)    or    data    (0)|<br>  |4 |1=keyboard    enabled,    0=keyboard    disabled    (via    switch)|<br>  |5 |1=transmit    timeout    (data    transmit    not    complete|)<br>  |6 |1=receive    timeout    (data    transmit    not    complete)|<br>  |7 |1=even    parity    rec’d,    0=odd    parity    rec’d    (should    be    odd)|</p>
+</li>
+<li><p>0x64端口用于写入命令，读取状态信息。0x60用于写入和读取数据。在0x64端口状态信息；写0x64端口写入命令。</p>
+</li>
+<li>8042有两个内部端口（上图中有），这两个内部端口在内部电路中使用，程序员不可见，但是通过向0x64端口写入特定的命令可以改变这两个端口的数据。我们本次要改的a20控制就在内部输出端口的p21，这个信号控制a20的开启和关闭。</li>
+</ul>
+<p>设置键盘控制器的步骤是：</p>
+<ol>
+<li>等待8042的输入缓存为空。等待上一条IO命令结束，结束后会清空标识寄存器。因为CPU的速度远快于IO设备的速度，所以一定要加这个判断。</li>
+<li>向0x64写入设置内部输出端口的命令</li>
+<li>等待输入缓存为空</li>
+<li>向0x60写入要设置的值</li>
+</ol>
+<p>在代码中，<code>inb $0x64,%al</code>和<code>testb 0x2,%al</code>用于判断键盘控制器的输入缓存是否为空。0x2=00000010，对照上面状态寄存器的第二位，1表示input register中有数据，当有数据时，重复，直到没有数据为止。</p>
+<p>然后向0x64写入命令0xd1，表示写内部输出端口，然后写入0xdf(11011111)，将p21置高电平，其他的位可以不管，是键盘控制器细节相关的，我们这里只了解一下就可以了。</p>
+<blockquote>
+<p>计算机接口技术课程的相关知识：一个IO设备控制器一般会占用多个端口，分别是状态端口、数据端口、控制端口，一般都是通过控制端口输入控制字，控制字可以设置要对IO控制器进行的操作，如读取IO设备状态、向设备写入数据等等；控制寄存器用于写入IO设备控制器的操作命令，通过改变控制寄存器的相关位，就可以改变控制器的工作模式，例如从写数据切换到读数据。通过地址总线或者IO总线来寻址到特定设备端口，通过数据总线向控制器端口写入或者读取数据，通过控制总线发出一些特定的控制信号。一般来说IO操作的步骤是：</p>
+<p>1.向IO设备控制器的控制端口写入控制字<br>2.根据控制字的设置向数据端口写入或者从数据端口读取数据</p>
+<p>Intel 80386相关知识：通过out指令寻址的IO设备使用的是IO地址空间，该地址空间和内存地址空间独立。</p>
+</blockquote>
+<ol start="2">
+<li>开启分段机制进入保护模式<blockquote>
+<p>这里需要了解保护模式的知识（请学习<a href="#">GDT与保护模式</a>）</p>
+</blockquote>
+</li>
+</ol>
+<p>先看bootasm.S中的相关代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">    lgdt gdtdesc</span><br><span class="line">    movl %cr0, %eax</span><br><span class="line">    orl $CR0_PE_ON, %eax</span><br><span class="line">    movl %eax, %cr0</span><br><span class="line"></span><br><span class="line">    # Jump to next instruction, but in 32-bit code segment.</span><br><span class="line">    # Switches processor into 32-bit mode.</span><br><span class="line">    ljmp $PROT_MODE_CSEG, $protcseg</span><br><span class="line"></span><br><span class="line">.code32                                             # Assemble for 32-bit mode</span><br><span class="line">protcseg:</span><br><span class="line">    # Set up the protected-mode data segment registers</span><br><span class="line">    movw $PROT_MODE_DSEG, %ax                       # Our data segment selector</span><br><span class="line">    movw %ax, %ds                                   # -&gt; DS: Data Segment</span><br><span class="line">    movw %ax, %es                                   # -&gt; ES: Extra Segment</span><br><span class="line">    movw %ax, %fs                                   # -&gt; FS</span><br><span class="line">    movw %ax, %gs                                   # -&gt; GS</span><br><span class="line">    movw %ax, %ss                                   # -&gt; SS: Stack Segment</span><br></pre></td></tr></table></figure></p>
+<p>80386及之后的CPU提供了保护模式，主要通过GDTR寄存器和GDT（全局描述符表）来实现。GDTR中存了GDT的入口地址。第一步我们将GDT的地址加载到GDTR寄存器中，使用<code>lgdt gdtdesc</code>从内存中加载GDT的大小和地址到GDTR寄存器中。注意这个时候cr0寄存器中的PE位没有打开，所以CPU还没有启用分段机制，所以此时的内存访问就不涉及到分段的问题。</p>
+<p>接下来设置cr0中的PE位，开启了CPU的保护模式。这时候就要设置段寄存器的值了，因为接下来的内存访问就会从GDT中取找对应的段了。所以接下来通过ljmp设置CS寄存器的值，因为CS寄存器的值只能通过调转指令间接设置。然后通过mov指令设置其他段寄存器的值。这样我们就开启了CPU的保护模式。</p>
+<h3 id="如何加载操作系统"><a href="#如何加载操作系统" class="headerlink" title="如何加载操作系统"></a>如何加载操作系统</h3><p>前面提到了操作系统的加载由bootloader来实现，bootloader是放在硬盘第一个扇区、大小小于512字节的一段程序，bootloader主要做了两部分的工作，一个是<code>从实模式切换到保护模式</code>，另一个是<code>加载操作系统到ram中并移交控制权</code>。前面我们讨论了如何从实模式切换到保护模式，这里如何加载操作系统。</p>
+<p>要理解如何加载操作系统，需要直到两方面的知识，第一个是操作系统的格式细节，这里我们使用的操作系统是ELF格式；另一个如何访问硬盘。下面我们先分别介绍这两方面的知识，因为只有直到ELF文件的格式之后，才能直到如何去读取操作系统并运行。</p>
+<h4 id="ELF文件格式介绍"><a href="#ELF文件格式介绍" class="headerlink" title="ELF文件格式介绍"></a>ELF文件格式介绍</h4><p>ELF(Executable    and    linking    format)文件格式是Linux系统下的一种常用目标文件(object file)格<br>式，有三种主要类型:</p>
+<ul>
+<li>用于执行的可执行文件(executable file),用于提供程序的进程映像,加载的内存执行。<br>这也是本实验的OS文件类型。</li>
+<li>用于连接的可重定位文件(relocatable file),可与其它目标文件一起创建可执行文件和共<br>享目标文件。</li>
+<li>共享目标文件(shared object file),连接器可将它与其它可重定位文件和共享目标文件连接<br>成其它的目标文件,动态连接器又可将它与可执行文件和其它共享目标文件结合起来创<br>建一个进程映像。</li>
+</ul>
+<blockquote>
+<p>参考资料：<img src="http://www.skyfree.org/linux/references/ELF_Format.pdf" alt="ELF_format"><br>这里只介绍第一种，也就是可执行文件的格式。</p>
+</blockquote>
+<p><a href="/img/elf-overview.png">elf-overview</a></p>
+<p>可以看到ELF文件最开始的部分是ELF header，header包含了elf文件的所有信息，包括程序的每一部分大小、位置等等。对于可执行文件，其次最重要的就是<code>program header table(pht)</code>，pht包含了如何创建一个进程映像的信息，可执行文件必须含有pht。pht并不一定就紧跟在header后面，除了elf header以外的其他部分的顺序是不确定的。</p>
+<h5 id="ELF-header"><a href="#ELF-header" class="headerlink" title="ELF header"></a>ELF header</h5><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">elfhdr</span> &#123;</span></span><br><span class="line">    <span class="keyword">uint32_t</span> e_magic;     <span class="comment">// must equal ELF_MAGIC</span></span><br><span class="line">    <span class="keyword">uint8_t</span> e_elf[<span class="number">12</span>];</span><br><span class="line">    <span class="keyword">uint16_t</span> e_type;      <span class="comment">// 1=relocatable, 2=executable, 3=shared object, 4=core image</span></span><br><span class="line">    <span class="keyword">uint16_t</span> e_machine;   <span class="comment">// 3=x86, 4=68K, etc.</span></span><br><span class="line">    <span class="keyword">uint32_t</span> e_version;   <span class="comment">// file version, always 1</span></span><br><span class="line">    <span class="keyword">uint32_t</span> e_entry;     <span class="comment">// entry point if executable</span></span><br><span class="line">    <span class="keyword">uint32_t</span> e_phoff;     <span class="comment">// file position of program header or 0，程序头表在文件中的字节偏移。</span></span><br><span class="line">    <span class="keyword">uint32_t</span> e_shoff;     <span class="comment">// file position of section header or 0</span></span><br><span class="line">    <span class="keyword">uint32_t</span> e_flags;     <span class="comment">// architecture-specific flags, usually 0</span></span><br><span class="line">    <span class="keyword">uint16_t</span> e_ehsize;    <span class="comment">// size of this elf header</span></span><br><span class="line">    <span class="keyword">uint16_t</span> e_phentsize; <span class="comment">// size of an entry in program header</span></span><br><span class="line">    <span class="keyword">uint16_t</span> e_phnum;     <span class="comment">// number of entries in program header or 0，程序头表的项数。</span></span><br><span class="line">    <span class="keyword">uint16_t</span> e_shentsize; <span class="comment">// size of an entry in section header</span></span><br><span class="line">    <span class="keyword">uint16_t</span> e_shnum;     <span class="comment">// number of entries in section header or 0</span></span><br><span class="line">    <span class="keyword">uint16_t</span> e_shstrndx;  <span class="comment">// section number that contains section name strings</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>elf header的前16个字节用于标识一个elf文件，前四个字节是magic number，表示这个文件是一个elf文件，后面的12个字节表示elf文件类别，平台等等，这里没有用到，所以我们用<code>uchar elf[12]</code>表示了。其他重要的有entry——程序入口的虚拟地址、program header和phnum。</p>
+<p>对于可执行文件其次最重要的是program header，program header是一个特定结构的数组，数组中的每一个元素代表一个section。结构如下：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">proghdr</span> &#123;</span></span><br><span class="line">    <span class="keyword">uint32_t</span> p_type;   <span class="comment">// loadable code or data, dynamic linking info,etc.</span></span><br><span class="line">    <span class="keyword">uint32_t</span> p_offset; <span class="comment">// file offset of segment</span></span><br><span class="line">    <span class="keyword">uint32_t</span> p_va;     <span class="comment">// virtual address to map segment</span></span><br><span class="line">    <span class="keyword">uint32_t</span> p_pa;     <span class="comment">// physical address, not used</span></span><br><span class="line">    <span class="keyword">uint32_t</span> p_filesz; <span class="comment">// size of segment in file</span></span><br><span class="line">    <span class="keyword">uint32_t</span> p_memsz;  <span class="comment">// size of segment in memory (bigger if contains bss）</span></span><br><span class="line">    <span class="keyword">uint32_t</span> p_flags;  <span class="comment">// read/write/execute bits</span></span><br><span class="line">    <span class="keyword">uint32_t</span> p_align;  <span class="comment">// required alignment, invariably hardware page size</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>包含section的偏移，虚拟地址、物理地址、大小等等信息。ucore-os的加载将会利用这些信息，将每一个段加载到指定的内存地址中。</p>
+<blockquote>
+<p>elf其他格式的解析，会结合操作系统程序的链接、加载一起学习，请看<a href="#">操作系统程序的链接、加载</a></p>
+</blockquote>
+<h4 id="硬盘访问概述"><a href="#硬盘访问概述" class="headerlink" title="硬盘访问概述"></a>硬盘访问概述</h4><p>当前硬盘数据是储存到硬盘扇区中,一个扇区大小为512字节。读一个扇区的流程(可参看<br>boot/bootmain.c中的readsect函数实现)大致如下:</p>
+<ol>
+<li>等待磁盘准备好</li>
+<li>发出读取扇区的命令</li>
+<li>等待磁盘准备好</li>
+<li>把磁盘扇区数据读到指定内存</li>
+</ol>
+<p>硬盘访问的具体细节，我们在其他的文章中学习，因为涉及到计算机接口、计算机组成原理等的知识，请看<a href="#">x86下的IO访问详解</a></p>
+<h4 id="操作系统加载"><a href="#操作系统加载" class="headerlink" title="操作系统加载"></a>操作系统加载</h4><p>前面我们了解了基础知识，接下来分析操作系统的加载过程，首先分析代码中：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="keyword">void</span></span><br><span class="line">readseg(<span class="keyword">uintptr_t</span> va, <span class="keyword">uint32_t</span> count, <span class="keyword">uint32_t</span> offset) &#123;</span><br><span class="line">    <span class="keyword">uintptr_t</span> end_va = va + count;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// round down to sector boundary</span></span><br><span class="line">    va -= offset % SECTSIZE;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// translate from bytes to sectors; kernel starts at sector 1</span></span><br><span class="line">    <span class="keyword">uint32_t</span> secno = (offset / SECTSIZE) + <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// If this is too slow, we could read lots of sectors at a time.</span></span><br><span class="line">    <span class="comment">// We'd write more to memory than asked, but it doesn't matter --</span></span><br><span class="line">    <span class="comment">// we load in increasing order.</span></span><br><span class="line">    <span class="keyword">for</span> (; va &lt; end_va; va += SECTSIZE, secno ++) &#123;</span><br><span class="line">        readsect((<span class="keyword">void</span> *)va, secno);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// read the 1st page off disk</span></span><br><span class="line"><span class="comment">// 读取磁盘的第一页到内存中的ELFHRD（0x10000）位置，1页是4K，8个扇区。</span></span><br><span class="line"><span class="comment">// ELF可执行文件的ELF头在最开始的位置，这里将头读出来，然后根据头中的信息去读程序信息</span></span><br><span class="line">readseg((<span class="keyword">uintptr_t</span>)ELFHDR, SECTSIZE * <span class="number">8</span>, <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// is this a valid ELF?</span></span><br><span class="line"><span class="keyword">if</span> (ELFHDR-&gt;e_magic != ELF_MAGIC) &#123;</span><br><span class="line">    <span class="keyword">goto</span> bad;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">proghdr</span> *<span class="title">ph</span>, *<span class="title">eph</span>;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// load each program segment (ignores ph flags)</span></span><br><span class="line"><span class="comment">// ph是程序头段的开始地址</span></span><br><span class="line">ph = (struct proghdr *)((<span class="keyword">uintptr_t</span>)ELFHDR + ELFHDR-&gt;e_phoff);</span><br><span class="line"><span class="comment">// eph是程序头段的结束地址（指针+数字的值是：指针值+数据类型大小*数字）</span></span><br><span class="line">eph = ph + ELFHDR-&gt;e_phnum;</span><br><span class="line"><span class="keyword">for</span> (; ph &lt; eph; ph ++) &#123;</span><br><span class="line">    <span class="comment">// 这里p_offset按照扇区对齐去读</span></span><br><span class="line">    readseg(ph-&gt;p_va &amp; <span class="number">0xFFFFFF</span>, ph-&gt;p_memsz, ph-&gt;p_offset);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// call the entry point from the ELF header</span></span><br><span class="line"><span class="comment">// note: does not return</span></span><br><span class="line"><span class="comment">// 将ELF文件读入之后，到elf程序的开始地址执行</span></span><br><span class="line">((<span class="keyword">void</span> (*)(<span class="keyword">void</span>))(ELFHDR-&gt;e_entry &amp; <span class="number">0xFFFFFF</span>))();</span><br></pre></td></tr></table></figure></p>
+<p>最开始直接将硬盘的第一页读取到设定的内核起始位置0x10000，注意这个是从第二个扇区开始读，因为第一个扇区是bootloader，所以有<code>offset / SECSIZE + 1</code>。读取的第一页中可能也包含了其他的段，但是这里我们只关心elf header，其他的段后段会再读，读的时候可能会覆盖本次读的段，这些都没有问题。事实上我们也可以按照扇区大小和header的大小向上取整读若干个扇区，但是这里为了方便就直接读一页了。</p>
+<p>硬盘读取是一次读取一个扇区，所以我们的硬盘访问分为两个方面：</p>
+<p>第一个是按照段来解析，从program header中读取每一个段的虚拟地址、大小和偏移，虚拟地址是加载到内存中的地址，虚拟地址+大小就能确定这个段的范围；这里要注意偏移是指段在文件中的偏移位置，不一定按照扇区对齐了，而读取硬盘却是按照一个一个扇区读取的，所以我们要按照扇区来对齐进行读取，<code>offset / SECSIZE + 1</code>就是扇区号（从1开始，因为0是bootloader），而且这里将硬盘中的内容加载到<strong>连续的内存中</strong>，offset向下取整了，所以其映射到内存位置也要向下调整，所以有<code>va -= offset % SECSIZE</code>。</p>
+<p>第二个是按照扇区来读，前面我们已经得到了段的范围和偏移，由偏移可以确定起始扇区，范围可以确定扇区的个数。先按照扇区对齐，然后逐个读入扇区到内存中，就将对应的段加载到了内存中。</p>
+<p>最后调用<code>((void (*)(void))(ELFHDR-&gt;e_entry &amp; 0xFFFFFF))()</code>，将入口地址作为一个没有返回值没有参数的函数指针调用，就将控制权交给了操作系统，后面执行的就是操作系统内核代码了。</p>
+
+</article>
+                </article>
+          </main>
+          <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 Bright<br>
+      powered_by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+<script src="/js/script.js"></script>
+    </body>
+
+</html>

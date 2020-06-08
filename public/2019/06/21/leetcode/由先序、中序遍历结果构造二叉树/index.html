@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+
+  <head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <title>数据结构基础：根据先序、中序遍历结果构造二叉树 | Bright的个人博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link rel="stylesheet" href="/css/reset.css">
+  <link rel="stylesheet" href="/css/style.css">
+  
+</head>
+  <body>
+      
+    <header id="header" class="card">
+  <span>Bright的个人博客</span>
+  <nav>
+    <ul>
+    
+      <li>
+        <a href="/">首页 </a>
+      </li>
+    
+      <li>
+        <a href="/archives">归档 </a>
+      </li>
+    
+      <li>
+        <a href="/categories">分类 </a>
+      </li>
+    
+      <li>
+        <i class="fa search">
+      </i></li>
+    </ul>
+  </nav>
+</header>
+    <main id="main">
+    
+    
+<aside id="left-sidebar" class="margin-right">
+  <nav class="card sidebar-component">
+  <div class="card-title">文章归档</div>
+  <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a><span class="archive-list-count">23</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a><span class="archive-list-count">2</span></li></ul>
+</nav>
+  <nav class="card sidebar-component">
+  <div class="card-title">文章分类</div>
+  <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/c-c/">c/c++</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/c-c/gcc/">gcc</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/">css</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/css/less/">less</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/sass/">sass</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">git</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/nginx/">nginx</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/php/">php</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/shell/">shell</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/学习打卡/">学习打卡</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/操作系统/">操作系统</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/操作系统/ucore/">ucore</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/操作系统/ucore-os/">ucore-os</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/操作系统原理和实现/">操作系统原理和实现</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/操作系统原理和实现/ucore-os/">ucore_os</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据结构/">数据结构</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/数据结构/二叉树遍历/">二叉树遍历</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/">算法</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/算法/二叉树遍历/">二叉树遍历</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/深度优先搜索/">深度优先搜索</a><span class="category-list-count">1</span></li></ul></li></ul>
+</nav>
+  <nav class="card sidebar-component">
+  <div class="card-title">最近文章</div>
+  <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/06/23/php/Smarty快速入门/">Smarty块度入门</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/22/leetcode/二叉树的层级遍历/">二叉树的层级遍历</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/21/leetcode/由先序、中序遍历结果构造二叉树/">数据结构基础：根据先序、中序遍历结果构造二叉树</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/19/reading-record/Linux命令行和shell脚本编程/shell-script基本语法/">shell script基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/18/vue/vue基础：官方文档要点/">vue基础：官方文档要点</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/18/math/高数1：函数/">高数1：函数</a></li></ul>
+</nav>
+</aside>
+
+
+    <!--
+<aside id="right-sidebar">
+  <nav class="card margin-bottom">
+  
+</nav>
+</aside>
+
+-->
+    <article id="article" class="card margin-right">
+      
+  <h1>数据结构基础：根据先序、中序遍历结果构造二叉树</h1>
+  <hr>
+  <h2 id="要求"><a href="#要求" class="headerlink" title="要求"></a>要求</h2><p>给定一个二叉树的前序遍历和中序遍历结果，构造出这颗二叉树：</p>
+<p>例如：<br>输入：</p>
+<blockquote>
+<p>preorder = [3,9,20,15,7]<br>inorder = [9,3,15,20,7]</p>
+</blockquote>
+<p>输出：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">  3</span><br><span class="line"> / \</span><br><span class="line">9  20</span><br><span class="line">  /  \</span><br><span class="line"> 15   7</span><br></pre></td></tr></table></figure></p>
+<h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><p>由先序遍历，我们可以确定树根。在上例中，3是先序遍历的第一个结果，所以3肯定是树根；然后再中序遍历的结果中找到3，在3的左边的肯定是根的左子树，在3的右边的肯定是根的右子树。</p>
+<p>这样我们就将中序遍历的结果分成三个部分，3的左边（左子树）、3（根）、3的右边（右子树），然后对左右递归处理，递归的结果返回左右子树的根，然后根结点连接左右节点的根就得到结果了。</p>
+<p>大致的思路有了，接下来我们深入细节。当我们向左右递归的时候，怎么知道左右子树的根呢？还是要回到先序遍历，我们已经知道左子树和右子树了，我们根据先序遍历的特点——在前面的结果在树中的位置肯定是靠左的——也就是说左子树的先序遍历结果肯定在右子树先序遍历结果的前面。</p>
+<p>通过上面的分析，我们的思路就清楚的了，构造步骤如下：</p>
+<ol>
+<li>取出先序遍历的结果中未使用的第一个节点作为根</li>
+<li>在中序遍历的结果中查找上一步得到的根，然后以改根为支点，将中序遍历的结果分成左右两部分，分别对应左子树和右子树</li>
+<li>用上一步得到的结果，将先序遍历的结果分成左右两部分，具体操作是：得到上一步左边部分的长度，在先序遍历的结果中截取相同的长度——左子树的先序遍历结果，然后右边做相同的操作</li>
+<li>将左右递归处理，回到第一步</li>
+</ol>
+<p>以上面的例子来执行该算法：</p>
+<ol>
+<li>拿先序遍历的第一个结果，得到根：3</li>
+<li>在中序遍历的结果中搜索3，将中序遍历的结果：[9,3,15,20,7]，分成左右两个部分：[9]，[15,20,7]</li>
+<li><p>将先序遍历的结果：[3,9,20,15,7]，也分成左右两个部分（不包括3了，已经处理过的就不再处理）：[9]，[20,15,7]。现在我们得到的结果看起来向下面这样：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">  3</span><br><span class="line"> / \</span><br><span class="line">9   20,15,7</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>然后我们对左右分别递归，先拿到左递归的根——取先序遍历中的左边的结果：[9]中的第一个节点9，所有左子树的根就是9，处理中序遍历的左边结果：[9]，发现只有一个节点，直接返回该节点。</p>
+</li>
+<li><p>然后递归右子树，先拿到右递归的根——取先序比阿尼中有边的结果：[20,15,7]中的第一个节点20，所有右子树的根就是20，现在得到的结果看起来向下面这样：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">  3</span><br><span class="line"> / \</span><br><span class="line">9   20</span><br><span class="line">    |</span><br><span class="line">  15，7 (15，7是20的左右子树，但是现在还不确定谁是左谁是右，需要下一步来确定)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>回到第二步，在中序遍历的结果中搜索20，得到左右子树[15]、[7]，此时我们就得到了完整的二叉树：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">  3</span><br><span class="line"> / \</span><br><span class="line">9   20</span><br><span class="line">   /  \</span><br><span class="line">  15   7</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="javascript代码实现"><a href="#javascript代码实现" class="headerlink" title="javascript代码实现"></a>javascript代码实现</h2><p>看到这里应该完整的理解了构造过程了吧～接下来上代码，使用javascript：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* preleft，preright是preorder的左右边界，left和right是inorder的左右边界，因为左右子树在两个遍历结果中的位置不同，所以要区分</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">construct</span>(<span class="params">preorderResult,inorderResult,preleft,preright,left,right</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(right-left &lt;= <span class="number">1</span>) <span class="keyword">return</span> &#123;</span><br><span class="line">    val: preorderResult[preleft],</span><br><span class="line">    left: <span class="literal">null</span>,</span><br><span class="line">    right: <span class="literal">null</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 取根结点</span></span><br><span class="line">  <span class="keyword">var</span> troot = preorderResult[preleft];</span><br><span class="line">  <span class="comment">// 找到根结点在中序遍历结果中的位置</span></span><br><span class="line">  <span class="keyword">var</span> trootIndexInorder = inorderResult.indexOf(troot);</span><br><span class="line">  <span class="keyword">var</span> lchild=<span class="literal">null</span>,rchild=<span class="literal">null</span>;</span><br><span class="line">  <span class="comment">// 确定左子树的节点数量</span></span><br><span class="line">  <span class="keyword">var</span> llength = trootIndexInorder-left;</span><br><span class="line">  <span class="comment">// 确定先序遍历结果中左右子树的边界</span></span><br><span class="line">  <span class="keyword">var</span> tpreright = preleft+<span class="number">1</span>+llength;</span><br><span class="line">  <span class="comment">// 下面的两个if处理边界条件，至少有一个节点时才递归处理</span></span><br><span class="line">  <span class="keyword">if</span>(trootIndexInorder &gt; left) &#123;</span><br><span class="line">    lchild = construct(preorderResult,inorderResult,preleft+<span class="number">1</span>,tpreright,left,trootIndexInorder);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span>(trootIndexInorder+<span class="number">1</span> &lt; right) &#123;</span><br><span class="line">    rchild = construct(preorderResult,inorderResult,tpreright,preorderResult.length,trootIndexInorder+<span class="number">1</span>,right);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 返回根结点和左右子树</span></span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    val: troot,</span><br><span class="line">    left: lchild,</span><br><span class="line">    right: rchild</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="扩展思考"><a href="#扩展思考" class="headerlink" title="扩展思考"></a>扩展思考</h2><p>那现在假如已知中序遍历和后续遍历的结果，要构造二叉树怎么办呢？是不是也可以用类似的思路解决这个问题呢呢？其实思路和前面的是一样，只是要结合后序遍历的特点（与前序相反，根结点在结果的最后面），我这里就只给代码了，如果前面的理解了，这个so easy了。<br>javascript:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">construct</span>(<span class="params">inorder, postorder, inleft,inright,postleft,postright</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(inright - inleft &lt;= <span class="number">1</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">      val: postorder[postright<span class="number">-1</span>],</span><br><span class="line">      left: <span class="literal">null</span>,</span><br><span class="line">      right: <span class="literal">null</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">var</span> troot = postorder[postright<span class="number">-1</span>];</span><br><span class="line">  <span class="keyword">var</span> trootInorderIndex = inorder.indexOf(troot);</span><br><span class="line">  <span class="keyword">var</span> lchild = <span class="literal">null</span>, rchild = <span class="literal">null</span>;</span><br><span class="line">  <span class="keyword">var</span> rlength = inright<span class="number">-1</span>-trootInorderIndex;</span><br><span class="line">  <span class="keyword">var</span> tpostright = postright<span class="number">-1</span>-rlength;</span><br><span class="line">  <span class="keyword">if</span>(trootInorderIndex &gt; inleft) &#123;</span><br><span class="line">    lchild = construct(inorder,postorder,inleft,trootInorderIndex,<span class="number">0</span>,tpostright)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span>(trootInorderIndex+<span class="number">1</span> &lt; inright) &#123;</span><br><span class="line">    rchild = construct(inorder,postorder,trootInorderIndex+<span class="number">1</span>,inright,tpostright,postright<span class="number">-1</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    val: troot,</span><br><span class="line">    left: lchild,</span><br><span class="line">    right: rchild</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+
+      </article>
+    </main>
+    <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 Bright<br>
+      powered_by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+  </body>
+</html>

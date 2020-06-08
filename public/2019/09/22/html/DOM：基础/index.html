@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+
+  <head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+    <title>
+      
+        DOM：基础 |
+          
+            Bright的个人博客
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="/css/reset.css">
+      <link rel="stylesheet" href="/css/style.css">
+        <link rel="stylesheet" href="/css/github-markdown.css">
+          <link rel="stylesheet" href="/css/atom-one-dark.css">
+            
+</head>
+
+    <body>
+      
+        <header id="header" class="card">
+  <span class="logo">B</span>
+  <span class="motto">技术 & 梦想 |&nbsp;学习 & 总结</span>
+  <nav>
+    <ul>
+    
+      <li>
+        <a href="/">首页 </a>
+      </li>
+    
+      <li>
+        <a href="/archives">归档 </a>
+      </li>
+    
+      <li>
+        <a href="/categories">分类 </a>
+      </li>
+    
+      <li>
+        <div class="search-input">
+          <i class="fa search"></i>
+          <input id="search-input" type="text">
+        </div>
+      </li>
+    </ul>
+  </nav>
+</header>
+          <main id="main">
+            
+              
+<aside id="left-sidebar" class="margin-right">
+  <nav class="card sidebar-component">
+  <div class="card-title">文章归档</div>
+  <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a><span class="archive-list-count">18</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a><span class="archive-list-count">17</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a><span class="archive-list-count">30</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a><span class="archive-list-count">15</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a><span class="archive-list-count">17</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a><span class="archive-list-count">18</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a><span class="archive-list-count">2</span></li></ul>
+</nav>
+  <nav class="card sidebar-component">
+  <div class="card-title">文章分类</div>
+  <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/css/">css</a><span class="category-list-count">10</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/css/css基础/">css基础</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/css工具/">css工具</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/less/">less</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/sass/">sass</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/docker/">docker</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/docker/docker-swarm/">docker swarm</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/docker/docker基础/">docker基础</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">git</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html5/">html5</a><span class="category-list-count">8</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/html5/dom/">dom</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html5/html5-API/">html5 API</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html5/html5标签和属性/">html5标签和属性</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html5/svg/">svg</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html5/tips/">tips</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html5/实战/">实战</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/">java</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/java/spring实战/">spring实战</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/js/">js</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/js/js基础/">js基础</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/js/typescript/">typescript</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/js/正则表达式/">正则表达式</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/linux/工具/">工具</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/nginx/">nginx</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node-js/">node.js</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/node-js/npm/">npm</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node-js/命令行工具/">命令行工具</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/php/">php</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/spring-boot/">spring-boot</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/spring-boot/开发工具/">开发工具</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/typescript/">typescript</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/typescript/踩坑指南/">踩坑指南</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/">vue</a><span class="category-list-count">11</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/vue/cli/">cli</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/tips/">tips</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/vue-router/">vue-router</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/vue实战/">vue实战</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/vue组件开发/">vue组件开发</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/基础/">基础</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/webpack/">webpack</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/webpack/webpack基础/">webpack基础</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/xml/">xml</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/xml/基础/">基础</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/学习打卡/">学习打卡</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/安全/">安全</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/安全/密码技术/">密码技术</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/操作系统/">操作系统</a><span class="category-list-count">23</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/操作系统/shell/">shell</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/操作系统/ucore/">ucore</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/操作系统/操作系统原理/">操作系统原理</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据库/">数据库</a><span class="category-list-count">10</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/数据库/mysql/">mysql</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据库/sql语句/">sql语句</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据库/导论/">导论</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据库/数据库编程/">数据库编程</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据库/数据库设计/">数据库设计</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据结构/">数据结构</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/数据结构/图/">图</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/毕设/">毕设</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/">算法</a><span class="category-list-count">20</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/算法/leetcode/">leetcode</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/模式匹配/">模式匹配</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/深度优先搜索/">深度优先搜索</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程语言/">编程语言</a><span class="category-list-count">20</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/编程语言/C/">C</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/编程语言/C/语言/">语言</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程语言/C语言/">C语言</a><span class="category-list-count">17</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程语言/Java/">Java</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程语言/java/">java</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/英语/">英语</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/英语/生词/">生词</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/计算机网络/">计算机网络</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/计算机网络/wireshark/">wireshark</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/计算机网络/问题记录/">问题记录</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/设计模式/">设计模式</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/设计模式/交给子类/">交给子类</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/设计模式/生成实例/">生成实例</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/设计模式/适应设计模式/">适应设计模式</a><span class="category-list-count">2</span></li></ul></li></ul>
+</nav>
+  <nav class="card sidebar-component">
+  <div class="card-title">最近文章</div>
+  <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2020/05/19/algorithm/leetcode/动态规划/interleaving-string/">interleaving string</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/17/algorithm/leetcode/分治/maximum-product-subarray/">maximum product subarray</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/15/algorithm/leetcode/动态规划/triangle/">triangle</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/12/algorithm/leetcode/动态规划/unique-binary-search-trees-ii/">unique binary search trees ii</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/11/algorithm/leetcode/动态规划/decode-ways/">decode-ways</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/09/algorithm/leetcode/动态规划/unique-path-II/">unique path II</a></li></ul>
+</nav>
+</aside>
+
+
+                <!--
+<aside id="right-sidebar">
+  <nav class="card margin-bottom">
+  
+</nav>
+</aside>
+
+-->
+                <article id="article" class="margin-right ofhidn">
+                  <article class="post-article article markdown-body">
+  <h1>
+    DOM：基础
+  </h1>
+  <hr>
+  <p>这篇文章主要介绍dom的基础知识，基于最新的<a href="https://dom.spec.whatwg.org/" target="_blank" rel="noopener">DOM标准</a>，和历史dom标准：<a href="https://www.w3.org/TR/?tag=dom&amp;status=rec" target="_blank" rel="noopener">DOM 4/3/2/1</a>，包括dom的层级结构、dom事件、dom的遍历、dom层级中的接口和API等。</p>
+<h2 id="dom简介"><a href="#dom简介" class="headerlink" title="dom简介"></a>dom简介</h2><p>dom是Document Object Model的简写，就是xml或者html这种树形结构的文档以一种层级对象的形式表现出来。</p>
+<p>例如：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>hello world<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>welcome to the frontend world!<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>用dom表示就是：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">              Document</span><br><span class="line">                 |</span><br><span class="line">                html</span><br><span class="line">              /     \</span><br><span class="line">head:HTMLHeadElement  HTMLBodyElement</span><br><span class="line">            /                 \</span><br><span class="line">  title:HTMLTileElement     p:HTMLPElement</span><br><span class="line">           /                     \</span><br><span class="line">   &quot;...&quot;:TextNode           &quot;...&quot;:TextNode</span><br></pre></td></tr></table></figure></p>
+<p>这里我们注意到有Document、Element、Node等等一系列接口，接下来我们终点关注接口的继承关系和接口中重要的API。</p>
+<h2 id="WHATWG和W3C"><a href="#WHATWG和W3C" class="headerlink" title="WHATWG和W3C"></a>WHATWG和W3C</h2><p>我们观察到DOM标准来自两个官网：WHATWG和W3C，那么WHATWG和W3C上的内容有什么区别呢？接下来我们从下面几个方向来取WHATWG和W3C做一个比较</p>
+<h3 id="WHATWG和W3C的组成"><a href="#WHATWG和W3C的组成" class="headerlink" title="WHATWG和W3C的组成"></a>WHATWG和W3C的组成</h3><p>WHATWG的全称是The Web Hypertext Application Technology Working Group(web超文本应用技术工作组)，WHATWG是一个由对web标准和测试的人组成的社区。由Apple、Mozilla、Opera在2004年创建。</p>
+<p>W3C的全称是The World Wide Web Consortium，由W3C会员、员工和社区共同贡献。</p>
+<h3 id="WHATWG和W3C标准"><a href="#WHATWG和W3C标准" class="headerlink" title="WHATWG和W3C标准"></a>WHATWG和W3C标准</h3><p>WHATWG和W3C是两个不同的标准组织，都致力于web标准的开发。但是WHATWG主要工作内容是HTML、HTML API、encode、DOM这些，与html文档内容及其操作相关，不包括css等。W3C的工作内容涉及到web的方方面面，web性能、css、可访问性等等。</p>
+<p>WHATWG中的标准叫living stardard，表示不断维护的html标准，其内容浓缩了多个历史W3C标准以及最新的标准。</p>
+<p>W3C标准按照版本号来区分标准版本，每一个历史标准都有版本号。</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>WAHTWG主要是由浏览器厂商发起的标准工作组，主要工作内容是HTML文档方向标准的开发。</p>
+<p>W3C是由W3C会员和世界各地的社区成员、学术组织工作维护的web标准，其标准内容涉及到web的方方面面。</p>
+<h2 id="DOM标准的历史"><a href="#DOM标准的历史" class="headerlink" title="DOM标准的历史"></a>DOM标准的历史</h2><p>这里的DOM标准主要基于W3C DOM标准</p>
+<h2 id="DOM中的空白和回车的处理"><a href="#DOM中的空白和回车的处理" class="headerlink" title="DOM中的空白和回车的处理"></a>DOM中的空白和回车的处理</h2><p>在DOM中，回车和空白都会被解析成文本节点。例如，一些文本序列是这样的：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span>\n\t<span class="tag">&lt;<span class="name">head</span>&gt;</span>\n\t\t<span class="tag">&lt;<span class="name">title</span>&gt;</span>空白测试<span class="tag">&lt;/<span class="name">title</span>&gt;</span>\n<span class="tag">&lt;/<span class="name">head</span>&gt;</span>\n<span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>会被处理成如下的结构，请看<a href="http://software.hixie.ch/utilities/js/live-dom-viewer/" target="_blank" rel="noopener">DOM结构在线演示</a>:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">-Doctype</span><br><span class="line">-HTML</span><br><span class="line">--HEAD</span><br><span class="line">---:text</span><br><span class="line">---TITLE</span><br><span class="line">----空白测试</span><br><span class="line">---:text</span><br><span class="line">----</span><br></pre></td></tr></table></figure></p>
+<p>我们可以知道html源文档中的空白和换行，在DOM中都会变成文本节点。在块级元素之间，这些文档节点在显示上没有区别，只是我们用Node的遍历API遍历时，会取到Text节点。</p>
+<p><strong>行内元素源文档之间的空白和换行和被合并成一个空格</strong>，这也是我们在使用inline-block时会出现额外的空格的原因。解决方案一个是设置父元素的font-size=0，子元素为正常的font-size；另一个是压缩文档去掉标签之间的空格。<strong>第二个种方法是解决这个问题的最佳反感，尤其是在生产环境下，可以借助各种工程化工具来压缩html文档去掉额外的空格</strong></p>
+<h2 id="DOM中的继承"><a href="#DOM中的继承" class="headerlink" title="DOM中的继承"></a>DOM中的继承</h2><p>继承在DOM中是非常重要的，每一个DOM对象都有其实现的接口，该接口可能继承了其他的接口，这些接口中定义的API和属性可以操纵和控制DOM元素。</p>
+<p>我们这一节的主要目的是弄清楚DOM的继承关系，以及继承链上有哪些接口，这些接口有些什么属性和方法。</p>
+<h3 id="继承链"><a href="#继承链" class="headerlink" title="继承链"></a>继承链</h3><p>下面我们以a标签为例，弄清楚其继承链，包括继承链上接口信息：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">EventTarget----&gt;Node----&gt;Element----&gt;HTMLElement----&gt;HTMLAnchorElement</span><br></pre></td></tr></table></figure></p>
+<p>我们可以看到a标签的DOM实例是HTMLAnchorElement的实现，其继承链上有HTMLElement、Element、Node、EventTarget，我们只要知道了其实例和继承的接口上有哪些实例和方法，就知道了该如何操作该DOM对象。</p>
+<h3 id="EventTarget接口"><a href="#EventTarget接口" class="headerlink" title="EventTarget接口"></a>EventTarget接口</h3><p>EventTarget接口提供了监听和触发事件的方法，能够监听事件的接口比如Element、Document、XMLHttpRequest等等。</p>
+<p>接口中只提供了以下方法：</p>
+<ul>
+<li>addEventListener(type, listener, [useCapture/options])：useCapture该函数一个useCapture从ie9+开始开始支持（默认是false，即冒泡阶段调用），options底版本浏览器不支持，options是一个对象，参数属性如下：<ul>
+<li>capture：布尔值，true表示捕获，默认是false</li>
+<li>once：布尔值，true表示只执行一次，默认是false</li>
+<li>passive：布尔值，true表示监听器永远不会调用preventDefault()，默认是false</li>
+<li><strong>this的处理：事件处理函数的this指向当前的EventTarget（哪个元素绑定的事件就指向哪一个元素）。箭头函数没有自己的this。如果使用bind绑定this，那么获取到的this就是bind绑定的this（只有new绑定的this优先级比bind高）。关于addEventListener的详细请看<a href="https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener" target="_blank" rel="noopener">EventTarget.addEventListener</a></strong></li>
+</ul>
+</li>
+<li>removeEventListener</li>
+<li>dispatchEvent</li>
+</ul>
+<h3 id="Node接口"><a href="#Node接口" class="headerlink" title="Node接口"></a>Node接口</h3><p>我们先看Node接口，其属性和方法如下。</p>
+<p>先来属性：</p>
+<ul>
+<li>nodeType：节点类型，可能的值是1-12，对应关系如下：<ul>
+<li>1：Node.ELEMENT_NODE，元素比如<code>&lt;p&gt;</code>、<code>&lt;div&gt;</code></li>
+<li>3：Node.TEXT_NODE，文本节点，是Element或Attribute的子节点</li>
+<li>4：Node.CDATA_SECTION_NODE，例如&lt;!CDATA[[ … ]]&gt;</li>
+<li>7：Node.PROCESSING_INSTRUCTION_NODE，XML文档的ProcessingInstruction，例如<code>&lt;?xml-stylesheet ...?&gt;</code></li>
+<li>8：Node.COMMENT_NODE</li>
+<li>9：Node.DOCUMENT</li>
+<li>10：Node.DOCUMENT_TYPE，例如<code>&lt;!DOCTYPE html&gt;</code></li>
+<li>11：Node.DOCUMENT_FRAGMENT_NODE</li>
+<li>最新的标准中就这些，其他还有ENTITY、NOTATION等都已经在DOM4中被废除了，<strong>ATTRIBUTE没有被废除但是不属于Node了</strong>。具体需要的时候查<a href="https://developer.mozilla.org/en-US/docs/Web/API/Node/nodeType" target="_blank" rel="noopener">MDN</a></li>
+</ul>
+</li>
+<li>nodeName：节点名称，对于不同的节点类型会返回不同的值<ul>
+<li>Element.nodeName：返回元素的名称，<strong>大写</strong></li>
+<li>Attr.nodeName：属性的名称，<strong>小写</strong></li>
+<li>Text.nodeName：返回#text</li>
+<li>CDATASection.nodeName：返回#cdata-section</li>
+<li>ProcessingInstruction.nodeName：目标的名称</li>
+<li>Comment.nodeName：#comment</li>
+<li>Document.nodeName：#document，例如document.nodeName的值就是”#document”</li>
+<li>DocumentType.nodeName：文档的类型，例如html，document会有两个子节点，一个是doctyoe，另一个是html根结点。取document.documentElement取到的就是html根结点</li>
+<li>DocumentFragment.nodeName：返回#document fragment</li>
+</ul>
+</li>
+<li>nodeValue：从字面意思上看，nodeValue就是Node的值，但是事实上，nodeValue只对少量的DOM对象有效，主要是值是文本的节点，其他的均返回null<ul>
+<li>Attr.nodeValue，字符串形式的属性值</li>
+<li>Text.nodeValue，字符串形式的节点内容</li>
+<li>CDATASection.nodeValue，字符串形式的节点内容</li>
+<li>ProcessingInstruction.nodeValue，同上</li>
+<li>Comment.nodeValue，字符串形式的注释文本</li>
+<li>其他的都返回null</li>
+</ul>
+</li>
+<li>parentNode：引用父节点</li>
+<li>childNodes：引用子节点，返回的是NodeList对象，这是一个类似于数组的对象，内容是Node列表，可能包含Element、Text、Comment等</li>
+<li>firstChild</li>
+<li>lastChild</li>
+<li>previouSibling，如果是同辈第一个节点，那么值为null</li>
+<li>nextSibling，如果是同辈最后一个节点，那么值为null</li>
+<li>ownerDocument：引用document/window.document</li>
+<li>textContent：文本，textContent的值取决于以下情况：<ul>
+<li>如果node是document、DOCTYPE或者notation(xml)，返回null</li>
+<li>如果node是CDATA、COMMENT、TEXT，textContent返回节点的值（文本）</li>
+<li>对于其他的类型，返回每一个子节点的textContent，不包括comment和processing instruction。如果没有子节点也没有内容，返回空字符串</li>
+</ul>
+</li>
+</ul>
+<p>再来方法：</p>
+<ul>
+<li>parent.appendChild(child)：将child插入到parent的最后面。如果child是一个对DOM中元素的引用，那么会将其<strong>移动到新的位置</strong>。如果需要克隆，而不是移动，需要使用cloneNode先克隆节点，然后再使用appendChild</li>
+<li>cloneNode([deep])：复制一个节点，可选参数deep是一个布尔值，当deep=true的时候，会复制其所有子节点，默认为false。cloneNode会复制所有的属性和内联的事件处理器。<strong>但是不会复制addEventListener挂载的事件处理器，也不会复制后来添加的事件处理器（例如：dom.onclick=）。canvas绘制的图像也不会被复制。被复制的节点游离于dom外</strong></li>
+<li>node1.compareDocumentPosition(node2)：比较两个节点的位置关系。IE9+。</li>
+<li>node1.contains(node2)：判断一个节点是不是另一个节点的子节点。IE9+。</li>
+<li>node.hasChildNodes()</li>
+<li>parent.insertBefore(newNode, referenceNode)，再parent下插入到参考节点的前面。如果是对文档中已有的节点进行操作那么是移动。如果需要复制使用cloneNode(true)。如果refNode是null，插入到最后面</li>
+<li>node.isEqualNode(otherNode)</li>
+<li>node.normalise()：将node的子树格式化，格式化的子树中没有空的文本节点以及没有相邻的文本节点。</li>
+<li>parent.removeChild(child)</li>
+<li>parent.replaceChild(newChild, oldChild)</li>
+</ul>
+<blockquote>
+<p></p><h3 id="difference-between-textContent-innerText">textContent和innerText的区别</h3><p></p>
+<ol>
+<li>textContent获取所有的文本内容，包括style和script标签,但是innerText只返回人类可读的内容</li>
+<li>textContent获取每一个节点的文本内容，包括隐藏的元素。innerText获取使用的css以后的文本，<strong>innerText会触发回流</strong></li>
+<li>使用textContent只会当作文本处理，不会有xss攻击的可能</li>
+</ol>
+</blockquote>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
+<li><a href="https://dom.spec.whatwg.org/" target="_blank" rel="noopener">DOM Living Standard</a></li>
+<li><a href="https://www.w3.org/TR/?tag=dom&amp;status=rec" target="_blank" rel="noopener">W3C DOM</a></li>
+<li>《Javascript DOM高级程序设计》</li>
+</ul>
+
+</article>
+                </article>
+          </main>
+          <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 Bright<br>
+      powered_by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+<script src="/js/script.js"></script>
+    </body>
+
+</html>

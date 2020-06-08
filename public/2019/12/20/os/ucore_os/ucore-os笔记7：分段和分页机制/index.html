@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+
+  <head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+    <title>
+      
+        ucore-os笔记7：分段和分页机制 |
+          
+            Bright的个人博客
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="/css/reset.css">
+      <link rel="stylesheet" href="/css/style.css">
+        <link rel="stylesheet" href="/css/github-markdown.css">
+          <link rel="stylesheet" href="/css/atom-one-dark.css">
+            
+</head>
+
+    <body>
+      
+        <header id="header" class="card">
+  <span class="logo">B</span>
+  <span class="motto">技术 & 梦想 |&nbsp;学习 & 总结</span>
+  <nav>
+    <ul>
+    
+      <li>
+        <a href="/">首页 </a>
+      </li>
+    
+      <li>
+        <a href="/archives">归档 </a>
+      </li>
+    
+      <li>
+        <a href="/categories">分类 </a>
+      </li>
+    
+      <li>
+        <div class="search-input">
+          <i class="fa search"></i>
+          <input id="search-input" type="text">
+        </div>
+      </li>
+    </ul>
+  </nav>
+</header>
+          <main id="main">
+            
+              
+<aside id="left-sidebar" class="margin-right">
+  <nav class="card sidebar-component">
+  <div class="card-title">文章归档</div>
+  <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a><span class="archive-list-count">18</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a><span class="archive-list-count">17</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a><span class="archive-list-count">30</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a><span class="archive-list-count">15</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a><span class="archive-list-count">17</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a><span class="archive-list-count">18</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a><span class="archive-list-count">2</span></li></ul>
+</nav>
+  <nav class="card sidebar-component">
+  <div class="card-title">文章分类</div>
+  <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/css/">css</a><span class="category-list-count">10</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/css/css基础/">css基础</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/css工具/">css工具</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/less/">less</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/sass/">sass</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/docker/">docker</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/docker/docker-swarm/">docker swarm</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/docker/docker基础/">docker基础</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">git</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html5/">html5</a><span class="category-list-count">8</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/html5/dom/">dom</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html5/html5-API/">html5 API</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html5/html5标签和属性/">html5标签和属性</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html5/svg/">svg</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html5/tips/">tips</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html5/实战/">实战</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/">java</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/java/spring实战/">spring实战</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/js/">js</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/js/js基础/">js基础</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/js/typescript/">typescript</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/js/正则表达式/">正则表达式</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/linux/工具/">工具</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/nginx/">nginx</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node-js/">node.js</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/node-js/npm/">npm</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node-js/命令行工具/">命令行工具</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/php/">php</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/spring-boot/">spring-boot</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/spring-boot/开发工具/">开发工具</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/typescript/">typescript</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/typescript/踩坑指南/">踩坑指南</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/">vue</a><span class="category-list-count">11</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/vue/cli/">cli</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/tips/">tips</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/vue-router/">vue-router</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/vue实战/">vue实战</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/vue组件开发/">vue组件开发</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/基础/">基础</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/webpack/">webpack</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/webpack/webpack基础/">webpack基础</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/xml/">xml</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/xml/基础/">基础</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/学习打卡/">学习打卡</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/安全/">安全</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/安全/密码技术/">密码技术</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/操作系统/">操作系统</a><span class="category-list-count">23</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/操作系统/shell/">shell</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/操作系统/ucore/">ucore</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/操作系统/操作系统原理/">操作系统原理</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据库/">数据库</a><span class="category-list-count">10</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/数据库/mysql/">mysql</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据库/sql语句/">sql语句</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据库/导论/">导论</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据库/数据库编程/">数据库编程</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据库/数据库设计/">数据库设计</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据结构/">数据结构</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/数据结构/图/">图</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/毕设/">毕设</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/">算法</a><span class="category-list-count">20</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/算法/leetcode/">leetcode</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/模式匹配/">模式匹配</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/深度优先搜索/">深度优先搜索</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程语言/">编程语言</a><span class="category-list-count">20</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/编程语言/C/">C</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/编程语言/C/语言/">语言</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程语言/C语言/">C语言</a><span class="category-list-count">17</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程语言/Java/">Java</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程语言/java/">java</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/英语/">英语</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/英语/生词/">生词</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/计算机网络/">计算机网络</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/计算机网络/wireshark/">wireshark</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/计算机网络/问题记录/">问题记录</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/设计模式/">设计模式</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/设计模式/交给子类/">交给子类</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/设计模式/生成实例/">生成实例</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/设计模式/适应设计模式/">适应设计模式</a><span class="category-list-count">2</span></li></ul></li></ul>
+</nav>
+  <nav class="card sidebar-component">
+  <div class="card-title">最近文章</div>
+  <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2020/05/19/algorithm/leetcode/动态规划/interleaving-string/">interleaving string</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/17/algorithm/leetcode/分治/maximum-product-subarray/">maximum product subarray</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/15/algorithm/leetcode/动态规划/triangle/">triangle</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/12/algorithm/leetcode/动态规划/unique-binary-search-trees-ii/">unique binary search trees ii</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/11/algorithm/leetcode/动态规划/decode-ways/">decode-ways</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/09/algorithm/leetcode/动态规划/unique-path-II/">unique path II</a></li></ul>
+</nav>
+</aside>
+
+
+                <!--
+<aside id="right-sidebar">
+  <nav class="card margin-bottom">
+  
+</nav>
+</aside>
+
+-->
+                <article id="article" class="margin-right ofhidn">
+                  <article class="post-article article markdown-body">
+  <h1>
+    ucore-os笔记7：分段和分页机制
+  </h1>
+  <hr>
+  <p>前面我们讨论了x86的保护模式和实模式的区别，最新的处理器架构都运行在保护模式下，但是为了向下兼容都也支持实模式。这里学习的分段和分页机制都是保护模式提供的机制，通过CPU为内存提供了抽象。这篇文章详细学习分段和分页相关原理和相关硬件、软件的知识。</p>
+<h2 id="地址空间"><a href="#地址空间" class="headerlink" title="地址空间"></a>地址空间</h2><p>在讨论分段和分页机制之前，首先要讨论地址空间的概念。在最早的CPU架构中，使用的都是物理地址，所有的程序都能够访问任何一处物理地址，这样在程序保护和隔离以及并发程序的内存分配存在很大的问题。</p>
+<p>所以最初的设想就是能够让不同的程序地址隔离，同时能够有访问权限的区分。例如程序a的28地址和程序b的28地址是不一样的，那么就能在逻辑上实现a和b的地址空间上隔离的。但是物理地址只有已有，要让a和b的28地址得到的物理地址不同，最好的方式就是地址重定向，将a和b的28重定向到不同的物理地址。可以用软件来实现，例如在每次内存访问前重新计算地址。但是最好的方式是将这一部分提取出来，所以80386以后的x86架构CPU都内置了重定位功能，称为分段机制。</p>
+<p>分段机制由段来实现<code>重定向</code>的功能，采用段+偏移这种形式，偏移是程序员可见的地址，称为逻辑地址（或虚拟地址）。在内存访问前，CPU会自动将段基址加上，分段机制计算之后的地址称为线性地址，计算方式是<code>段基址+偏移=线性地址</code>。</p>
+<p>在没有开启分页机制的机器中，线性地址就等于物理地址。</p>
+<p>现在实现了地址重定向，但是还有更多的问题没有解决。对于32位cpu，最多能够访问4g的内存，但是有时候物理内存没有4g，一种方式是将一部分内存交换到硬盘中，当需要使用的时候再将这一部分内容交换到RAM中。如何实现高效的交换也是一个问题，分页机制就可以实现这样的功能，分页机制以页位单位来进行内存的分配和交换，提供了对RAM和硬盘的抽象。分页机制会检查需要的数据是在内存中还是在硬盘中，如果再硬盘中会自动将数据交换到内存中。</p>
+<p>地址的转化是：逻辑地址-&gt;分段机制-&gt;线性地址-&gt;分页机制-&gt;物理地址</p>
+<p>逻辑地址空间、线性地址空间、物理地址空间分别是三个阶段对应的不同的地址空间，前两者都是一种抽象，从真实的物理空间上抽象出来的地址空间，通过一定的匹配将空间中的地址映射成真实的地址。</p>
+<h2 id="分段机制"><a href="#分段机制" class="headerlink" title="分段机制"></a>分段机制</h2><p>分段机制是实现内存抽象和保护的关键，分段机制提供了4个特权级和完整的特权级检查，由此能够实现操作系统内核，关键软件，用户态程序的区分。硬件实现的特权级检查能够有效的保护系统的运行。分段机制的核心是GDTR（全局描述符表寄存器）、GDT（全局描述符表）、LDTR（局部描述符表寄存器）、LDT（局部描述符表）。分段机制与段寄存器（cs、ds、ss等）、GDTR、GDT有关。通过lgdt和sgdt指令能够操作gdtr。lldt和sldt能够操作ldtr。</p>
+<p>GDTR是全局描述符表寄存器，存放GDT的起始地址和大小。GDT是全局描述符表，存放在内存中，每一个表项包含一个段的信息，包含段基址、段界限、段属性等。LDTR和LDT类似。</p>
+<p>分段机制划分的段和程序编译时的代码、数据、堆栈段是相同的，区别是程序编译的很多段例如bss等会放在CPU的数据段中，不一定完全对应。</p>
+<p>x86中有段寄存器cs、ds、ss、es、fs、gs，这些段寄存器用于分段机制，段寄存器中存的是选择符，选择符用于选中GDT中特定的项，项中有段的起始地址和界限等等。转换过程如下：<br><img src="/img/分段机制.png" alt="分段机制"></p>
+<p>GDTR中存了GDT的基址，段寄存器中存了GDT的索引index，通过GDTR+index*8就得到段描述符的地址，从段描述符中取出基址，基址+偏移地址得到线性地址。</p>
+<p>段寄存器/选择符：<br><img src="/img/段描述符.gif" alt="段寄存器"></p>
+<ul>
+<li>index：GDT中的段描述符</li>
+<li>TI：0表示访问GDT、1表示访问LDT</li>
+<li>RPL：请求特权级，在特权访问中起作用</li>
+</ul>
+<p>对于cs只能通过间接方式来设置，例如jmp、call等指令，其他的段寄存器能够通过mov等指令来设置。</p>
+<p>GDT和LDT：<br><img src="/img/GDT和LDT访问.png" alt="ds"></p>
+<p>段描述符：<br><img src="/img/段描述符.png" alt="段描述符"></p>
+<ul>
+<li>段基地址:规定线性地址空间中段的起始地址。在80386保护模式下,段基地址长32位。<br>因为基地址长度与寻址地址的长度相同,所以任何一个段都可以从32位线性地址空间中<br>的任何一个字节开始,而不象实方式下规定的边界必须被16整除。</li>
+<li>段界限:规定段的大小。<strong>在80386保护模式下,段界限用20位表示,而且段界限可以是以<br>字节为单位或以4K字节为单位</strong>。ucore中使用的是4K，一个段的最大是4G</li>
+<li>段属性:确定段的各种性质。<ul>
+<li>段属性中的粒度位(Granularity),用符号G标记。G=0表示段界限以字节位位单<br>位,20位的界限可表示的范围是1字节至1M字节,增量为1字节;G=1表示段界限以<br>4K字节为单位,于是20位的界限可表示的范围是4K</li>
+<li>段属性中的粒度位(Granularity),用符号G标记。G=0表示段界限以字节位位单<br>位,20位的界限可表示的范围是1字节至1M字节,增量为1字节;G=1表示段界限以<br>4K字节为单位,于是20位的界限可表示的范围是4K字节至4G字节,增量为4K字<br>节。</li>
+<li>类型(TYPE):用于区别不同类型的描述符。可表示所描述的段是代码段还是数据<br>段,所描述的段是否可读/写/执行,段的扩展方向等。</li>
+<li>描述符特权级(Descriptor    Privilege    Level)(DPL):用来实现保护机制。</li>
+<li>段存在位(Segment-Present    bit):如果这一位为0,则此描述符为非法的,不能被<br>用来实现地址转换。如果一个非法描述符被加载进一个段寄存器,处理器会立即产<br>生异常。图5-4显示了当存在位为0时,描述符的格式。操作系统可以任意的使用被<br>标识为可用(AVAILABLE)的位。</li>
+<li>已访问位(Accessed    bit):当处理器访问该段(当一个指向该段描述符的选择子被<br>加载进一个段寄存器)时,将自动设置访问位。操作系统可清除该位。</li>
+</ul>
+</li>
+</ul>
+<p>GDTR是48位寄存器，高32位是GDT/LDT的线性基地址，低16位是段描述符表的大小，以字节为单位。</p>
+<h3 id="LDT"><a href="#LDT" class="headerlink" title="LDT"></a>LDT</h3><p>LDT在ucore lab中没有使用，这里做一个简单介绍。</p>
+<p>LDTR和GDTR不同，LDTR是16位的，和cs等段寄存器的功能相同。当启用了LDT之后，即段寄存器中的TI=1，此时GDT对应表项的基址变成了LDT的起始地址，界限变成了LDT的界限，通过GDT中的LDT基址和LDTR来找到LDT中的段选择符。</p>
+<p>LDT嵌套的GDT中，每一个任务可以有一个LDT，就可以将单个任务的代码、数据、堆栈封装在同一个LDT下。任务切换时，只需要加载LDTR。<br><img src="/img/ldt的使用.png" alt="ldt"></p>
+<p>LDT的访问过程<br>当TI=1时表示段选择符在LDT中。</p>
+<ol>
+<li>从GDTR寄存器获取GDT基址</li>
+<li>从LDTR寄存器高13位索引到GDT中的LDT的选择符</li>
+<li>从得到的LDT选择符中得到LDT段基址</li>
+<li>然后利用段寄存器中的高13位得到LDT中的段描述符。</li>
+<li>从段描述符中读取段基址，基址加上偏移地址得到线性地址。</li>
+</ol>
+<h2 id="分页机制"><a href="#分页机制" class="headerlink" title="分页机制"></a>分页机制</h2><p>分页机制将线性地址转换成物理地址。分页机制提供了基于页的虚拟内存以及页面保护。分页机制是可选的，当且仅当CR0寄存器的PG位设置了以后分页机制才会开启，所以一般在操作系统初始化的时候设置PG位。</p>
+<h3 id="页框"><a href="#页框" class="headerlink" title="页框"></a>页框</h3><p>一个页框是大小位4kb的连续物理地址。</p>
+<h3 id="线性地址"><a href="#线性地址" class="headerlink" title="线性地址"></a>线性地址</h3><p>32位的线性地址在分页机制中分成三个部分，31-22位是DIR，用于索引页目录，21-12位是PAGE，用于索引页表，低12位是偏移，用于索引页框中的线性地址。如下图：<br><img src="/img/线性地址分页.gif" alt="线性地址"></p>
+<h3 id="页表"><a href="#页表" class="headerlink" title="页表"></a>页表</h3><p>页表大小为4KB，页表的每一项的大小是4byte，共有1K页。页目录的大小也为4KB，其中有1K项。所以整个分页机制映射的空间是$2^{10} <em> 2^{10} </em> 2^{12} = 2^{32}$，刚好将4G的线性空间一一映射到每一个页框中的每一项。</p>
+<p>页目录的物理地址存在CR3寄存器中。在操作系统初始化时，如果开启分页机制，就要设置CR3寄存器为<strong>页目录的物理地址</strong>。当MMU处理地址时，会自动使用CR3中的页目录地址来进行分页处理。</p>
+<h3 id="页表项"><a href="#页表项" class="headerlink" title="页表项"></a>页表项</h3><p>页表项的大小为32位，结构如下图：<br><img src="/img/页表项.gif" alt="页表项"></p>
+<p>前20位是页框地址。地址不是32位吗？为什么这里是20位呢？因为页框的大小是4KB，其起始地址肯定4KB对齐，所以低12位都是0，这里就只存了高20位，当用作地址时，CPU会自动将这20位作为地址的高20位而低12位置0。对于页目录而言，这20位就是<strong>页表的起始物理地址</strong>，对于页表而言，就是<strong>页框的起始物理地址</strong>。</p>
+<p>最低位是P，表示Present Bit，如果该位为0，则表示该页表项不能用作地址翻译，CPU在分页处理时，如果遇到P=0的项，则会出现一个页异常，进入页异常的中断处理程序。<strong>该位的设置是实现虚拟内存的关键</strong>。</p>
+<p>A和D为表示Access和Dirty位。在读写任意页表前，会将对应的页表项的Access位设置成1。在写入页表时会自动设置dirty位为1，页目录中dirty是未定义的。</p>
+<p>如上所述，CPU会自动设置对应的位，但是不会自动清除，需要程序来清除，这个工作一般是由操作系统来负责。通过dirty和access位可以用于实现页面调度算法、缓存写回等等策略。</p>
+<p>R/W和U/S位用于特权级的处理，后文说明。</p>
+<h3 id="cache"><a href="#cache" class="headerlink" title="cache"></a>cache</h3><p>在操作系统原理中，为了加速页面映射的速度，会使用TLB，TLB有硬件管理和软件管理。80386使用的是硬件管理，即CPU自动缓存最近使用的页面，自动替换缓存。对于操作系统来说，要做的就是清空缓存，通过<code>MOVL %CR3, %EAX</code>设置CR3会清空缓存。或者任务切换的时候重新设置CR3也会清空缓存。</p>
+<h2 id="组合分段和分页机制"><a href="#组合分段和分页机制" class="headerlink" title="组合分段和分页机制"></a>组合分段和分页机制</h2><p>通过分段和分页机制的结合，可以设计多种内存管理策略。根据系统的需求，可以直接访问物理地址，也可以添加虚拟内存，在硬件的能力上，可以做任何自己想要的内存管理设计。这就是机制和策略的区别。</p>
+<p>80386不能禁用分段机制，但是可以通过设置相同的段寄存器并且不再改变其值来实现类型禁用的效果。</p>
+<p>允许每一个段大于或者小于4KB（一个页面的大小）。对于段大于4KB的时候，段会被分成若干个页面，对于启用了虚拟内存的系统来说，这若干个页面可能在RAM中，也可能在硬盘中。对于段小于4KB的时候，<strong>待说明</strong></p>
+<p>分段和分页机制组合：<br><img src="/img/分段和分页组合.gif" alt="分段和分页机制"></p>
+<h3 id="段页对齐说明"><a href="#段页对齐说明" class="headerlink" title="段页对齐说明"></a>段页对齐说明</h3><p>80386架构并不强制要求段按照4KB对齐，所以可能出现一个页面包含一个段的结束同时也包含另一个段的开始。内存管理软件为了简单，可能会让段的分配按照页对齐，那么这样段页的分配就一致了。</p>
+<h2 id="分段和分页中的保护"><a href="#分段和分页中的保护" class="headerlink" title="分段和分页中的保护"></a>分段和分页中的保护</h2><p>80386提供了内存访问及指令执行的保护，包括下面5个方面的保护：</p>
+<ol>
+<li>类型检查</li>
+<li>界限检查</li>
+<li>可寻址区域的先值</li>
+<li>程序入口的限制</li>
+<li>指令集的限制</li>
+</ol>
+<p>每次内存访问前都会进行保护检查，检查失败时将会触发一个保护异常。特权级时保护的中心概念，上面提到的3、4、5保护都基于特权级。</p>
+<h3 id="分段保护"><a href="#分段保护" class="headerlink" title="分段保护"></a>分段保护</h3><p>上面提到的所有保护都应用于段处理过程中。段描述符中存了RPL，RPL占两个bit，能表示0-3四个特权级。<strong>CPU在段描述符被加载到寄存器中，以及每次段寄存器访问时进行检查</strong>。</p>
+<p>描述表中的每一项中也含有DPL用于特权级的检查。段选择符对应的描述符表项会被加载到CPU中，而不是每次内存访问都去内存中找GDT，不需要担心性能问题。<br><img src="/img/段描述符表项.png" alt="段描述符表项"></p>
+<p>从上图我们可以看到GDT或者LDT中的描述符分为三种，数据段描述符、可执行段、系统段描述符。三个段结构上的主要区别是type和AVL等四位的区别。type中的有可读、可写、可执行等等属性，描述一个段的特性，这些特性将会在type checking时起作用，因为不可能让不可执行的描述符加载到CS中吧？</p>
+<h4 id="类型检查"><a href="#类型检查" class="headerlink" title="类型检查"></a>类型检查</h4><p>描述符中的type用于描述一个段的作用以及段的种类，可以用type来区分数据段、代码段等。type中的各位主要是设置可读、可写等等属性。描述符也可以是门描述符，<strong>此部分待补充。</strong></p>
+<ul>
+<li>只有可写的数据段才能向其中写入数据，例如<code>mov %eax, $123123</code>，如果当前段不是可写的，那么尝试向段中写会触发保护异常</li>
+<li>只有可读的可执行段才能读取其中的指令。通过cs寄存器或者将可执行段描述符加载到ds、es、fs、gs寄存器中可读取指令</li>
+</ul>
+<p>可执行段只可能读而不可能写，防止了篡改代码指令的可能性。也防止程序员错误加载段导致的错误。CPU在下面两种情形下进行类型检查：</p>
+<ul>
+<li>描述符被加载到寄存器中时：<ul>
+<li>CS只能加载可执行段的描述符。同时该段必须可读</li>
+<li>只有可写的数据段能够被加载到ss</li>
+</ul>
+</li>
+<li>指令显式或者隐式的引用段寄存器的时候：<ul>
+<li>可执行段不能写</li>
+<li>不可写的数据段不能写</li>
+<li>不可读的可执行段不能读</li>
+</ul>
+</li>
+</ul>
+<h4 id="界限检查"><a href="#界限检查" class="headerlink" title="界限检查"></a>界限检查</h4><p>界限检查防止访问段以外的内存。界限检查的细节和B、G、E等为的设置有关，这里暂时没有看懂详细的细节，后面用到的时候补充。</p>
+<p>目前只需要知道界限检查用于防止访问段以外的内存即可</p>
+<h4 id="特权级检查"><a href="#特权级检查" class="headerlink" title="特权级检查"></a>特权级检查</h4><p>一共有4个特权级。段中通过下面三个来检查特权级：</p>
+<ul>
+<li>CPL：当前运行的代码段的特权级，是段描述符中的DPL。CS中的DPL不一定等于描述符中的DPL，例如中断处理过程中改变了CS为用户态，这时候CS就和段描述符的DPL不相同了，这时候的控制转移检查在下一小节学习。</li>
+<li>DPL：目标段的特权级，在描述符中</li>
+<li>RPL：请求特权级，在段寄存器中</li>
+</ul>
+<p>只有max(CPL, RPL) &lt;= DPL时，才能访问描述符请求的段。也就是只能访问特权级相同或者更低的段。如图：<br><img src="/img/特权检查.gif" alt="priviledge"></p>
+<h4 id="限制控制转移"><a href="#限制控制转移" class="headerlink" title="限制控制转移"></a>限制控制转移</h4><p>通过JMP、CALL、RET、INT、IRET可以进行控制权的转移。</p>
+<p>JMP和CALL有短调用和长调用两种方式，短调用仅仅只能够进行当前代码段中的转移；长调用可以寻址到其他段，通过使用段描述符或者调用门描述符，长调用仅能够调用相同特权级的可执行段或者C位为1并且优先级更低的段。设置了C位的段一般是共享代码库，能被多种特权级的程序调用，调用这种段是特权级不会改变，这也是唯一的CPL和当前执行段的DPL不同的情况。</p>
+<p>JMP只能调转到优先级相同的段，而CALL通过调用门的方式能够访问优先级更高的段。<strong>门描述符就是系统类型的段描述符（上面有说到三种类型的段描述符：可执行、数据、系统三种类型），门描述符可能放在GDT、LDT中，也可能放在IDT中，例如调用门描述符就放在GDT/LDT中，而中断门、陷阱门、任务门描述符就放在IDT中</strong>。接下来讲调用门描述符：</p>
+<h4 id="门描述符保护程序入口"><a href="#门描述符保护程序入口" class="headerlink" title="门描述符保护程序入口"></a>门描述符保护程序入口</h4><p>为了保护不同特权级之间的可执行段之间的控制权传递，提供了下面四种门描述符：</p>
+<ul>
+<li>调用门</li>
+<li>陷阱门</li>
+<li>中断门</li>
+<li>任务门</li>
+</ul>
+<p>任务门在<a href="#">多任务切换</a>中学习，陷阱门在<img src="#" alt="中断和异常">中学习。这里只介绍调用门。调用门放在LDT/GDT中，有两个作用：</p>
+<ol>
+<li>定义程序的入口</li>
+<li>定义入口的特权级</li>
+</ol>
+<p>调用门在CALL和JMP中也使用段选择符，只不过选择符选中的是调用门描述符。CPU会自动识别调用门描述符。</p>
+<p>调用门的寻址过程是：段选择器的选择符-&gt;GDT中的门描述符-&gt;门描述符中的选择符和偏移-&gt;GDT中的段描述符-&gt;可执行段，如下图：<br><img src="/img/门寻址.gif" alt="门寻址"></p>
+<p>这里就涉及到4个特权级：</p>
+<ul>
+<li>CPL</li>
+<li>RPL</li>
+<li>gate DPL：门的DPL</li>
+<li>target DPL：门的选择符选中的描述的DPL</li>
+</ul>
+<p>如下图：<br><img src="/img/门权限检查.gif" alt="门权限检查"></p>
+<p>对于JMP和CALL，对于门描述符的检查不同：</p>
+<ul>
+<li>JMP需要满足<code>MAX(CPL,RPL) &lt;= gate DPL &amp;&amp; target DPL == CPL</code></li>
+<li>CALL需要满足<code>MAX(CPL,RPL) &lt;= gate DPL &amp;&amp; target DPL &lt;= CPL</code>，call可以访问优先级更高的段。</li>
+</ul>
+<p>这里需要注意gate DPL用于确定当前程序有没有权限访问这个门（例如该门只设计在内核下访问，那么用户态就无法访问），而target DPL确定能不能将控制权传递给目标代码段。</p>
+<h4 id="任务段切换的保护"><a href="#任务段切换的保护" class="headerlink" title="任务段切换的保护"></a>任务段切换的保护</h4><p><strong>这一部分在任务切换时补充</strong></p>
+<h4 id="被操作系统保留的指令"><a href="#被操作系统保留的指令" class="headerlink" title="被操作系统保留的指令"></a>被操作系统保留的指令</h4><p>有一些指令只能在特权及为0时使用，例如lgdt、lidt、ltr等等。还有一些敏感的指令例如IO指令，也只能在特权为0时访问，有关IO相关请看<a href="#">IO指令和常见硬件的访问</a></p>
+<h3 id="分页保护"><a href="#分页保护" class="headerlink" title="分页保护"></a>分页保护</h3><p>分页提供两种类型的保护：</p>
+<ol>
+<li>内存访问的限制</li>
+<li>类型检查</li>
+</ol>
+<h4 id="页表项中的保护位"><a href="#页表项中的保护位" class="headerlink" title="页表项中的保护位"></a>页表项中的保护位</h4><p>PDE和PTE中的页表项提供了了U/S和R/W位用来进行保护。</p>
+<p>U/S=0表示管理员权限，为操作系统和其他的系统软件及相关的数据准备。U/S=1表示应用程序和数据。当CPL等于0、1、2时，认为处理器处于管理员执行模式；CPL=3时在用户态下。这意味着只有CPL=0、1、2时才能访问U/S=0的页（实际上能访问所有页），CPL=3时只能访问U/S=1的页。</p>
+<p>通过R/W来进行类型检查，有两种类型：</p>
+<ol>
+<li>只读（R/W=0）</li>
+<li>读写（R/W=1）</li>
+</ol>
+<p>当处理器处于管理员权限时，所有的页面都是可读的和可写的。在用户态下只有U/S=1并且R/W=1的页面可写。</p>
+<p>当分页启用的时候，80386首先计算分段保护、然后处理分页保护。保护检查未通过时，将停止程序的执行并且触发一个保护异常。</p>
+<p>可以创建一个很大的段，其中含有很多页，一些页是只读的，另一些页是可读可写的。</p>
+
+</article>
+                </article>
+          </main>
+          <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 Bright<br>
+      powered_by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+<script src="/js/script.js"></script>
+    </body>
+
+</html>

@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html>
+
+  <head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+    <title>
+      
+        JavaScript(ES5)核心语法复习指南 |
+          
+            Bright的个人博客
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="/css/reset.css">
+      <link rel="stylesheet" href="/css/style.css">
+        <link rel="stylesheet" href="/css/github-markdown.css">
+          <link rel="stylesheet" href="/css/atom-one-dark.css">
+            
+</head>
+
+    <body>
+      
+        <header id="header" class="card">
+  <span class="logo">B</span>
+  <span class="motto">技术 & 梦想 |&nbsp;学习 & 总结</span>
+  <nav>
+    <ul>
+    
+      <li>
+        <a href="/">首页 </a>
+      </li>
+    
+      <li>
+        <a href="/archives">归档 </a>
+      </li>
+    
+      <li>
+        <a href="/categories">分类 </a>
+      </li>
+    
+      <li>
+        <div class="search-input">
+          <i class="fa search"></i>
+          <input id="search-input" type="text">
+        </div>
+      </li>
+    </ul>
+  </nav>
+</header>
+          <main id="main">
+            
+              
+<aside id="left-sidebar" class="margin-right">
+  <nav class="card sidebar-component">
+  <div class="card-title">文章归档</div>
+  <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a><span class="archive-list-count">18</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a><span class="archive-list-count">17</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a><span class="archive-list-count">30</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a><span class="archive-list-count">15</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a><span class="archive-list-count">17</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a><span class="archive-list-count">18</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a><span class="archive-list-count">2</span></li></ul>
+</nav>
+  <nav class="card sidebar-component">
+  <div class="card-title">文章分类</div>
+  <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/css/">css</a><span class="category-list-count">10</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/css/css基础/">css基础</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/css工具/">css工具</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/less/">less</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/sass/">sass</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/docker/">docker</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/docker/docker-swarm/">docker swarm</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/docker/docker基础/">docker基础</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">git</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html5/">html5</a><span class="category-list-count">8</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/html5/dom/">dom</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html5/html5-API/">html5 API</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html5/html5标签和属性/">html5标签和属性</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html5/svg/">svg</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html5/tips/">tips</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html5/实战/">实战</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/">java</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/java/spring实战/">spring实战</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/js/">js</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/js/js基础/">js基础</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/js/typescript/">typescript</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/js/正则表达式/">正则表达式</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/linux/工具/">工具</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/nginx/">nginx</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node-js/">node.js</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/node-js/npm/">npm</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node-js/命令行工具/">命令行工具</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/php/">php</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/spring-boot/">spring-boot</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/spring-boot/开发工具/">开发工具</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/typescript/">typescript</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/typescript/踩坑指南/">踩坑指南</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/">vue</a><span class="category-list-count">11</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/vue/cli/">cli</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/tips/">tips</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/vue-router/">vue-router</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/vue实战/">vue实战</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/vue组件开发/">vue组件开发</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/基础/">基础</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/webpack/">webpack</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/webpack/webpack基础/">webpack基础</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/xml/">xml</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/xml/基础/">基础</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/学习打卡/">学习打卡</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/安全/">安全</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/安全/密码技术/">密码技术</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/操作系统/">操作系统</a><span class="category-list-count">23</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/操作系统/shell/">shell</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/操作系统/ucore/">ucore</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/操作系统/操作系统原理/">操作系统原理</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据库/">数据库</a><span class="category-list-count">10</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/数据库/mysql/">mysql</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据库/sql语句/">sql语句</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据库/导论/">导论</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据库/数据库编程/">数据库编程</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据库/数据库设计/">数据库设计</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据结构/">数据结构</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/数据结构/图/">图</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/毕设/">毕设</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/">算法</a><span class="category-list-count">20</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/算法/leetcode/">leetcode</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/模式匹配/">模式匹配</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/深度优先搜索/">深度优先搜索</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程语言/">编程语言</a><span class="category-list-count">20</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/编程语言/C/">C</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/编程语言/C/语言/">语言</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程语言/C语言/">C语言</a><span class="category-list-count">17</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程语言/Java/">Java</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程语言/java/">java</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/英语/">英语</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/英语/生词/">生词</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/计算机网络/">计算机网络</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/计算机网络/wireshark/">wireshark</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/计算机网络/问题记录/">问题记录</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/设计模式/">设计模式</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/设计模式/交给子类/">交给子类</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/设计模式/生成实例/">生成实例</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/设计模式/适应设计模式/">适应设计模式</a><span class="category-list-count">2</span></li></ul></li></ul>
+</nav>
+  <nav class="card sidebar-component">
+  <div class="card-title">最近文章</div>
+  <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2020/05/19/algorithm/leetcode/动态规划/interleaving-string/">interleaving string</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/17/algorithm/leetcode/分治/maximum-product-subarray/">maximum product subarray</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/15/algorithm/leetcode/动态规划/triangle/">triangle</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/12/algorithm/leetcode/动态规划/unique-binary-search-trees-ii/">unique binary search trees ii</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/11/algorithm/leetcode/动态规划/decode-ways/">decode-ways</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/09/algorithm/leetcode/动态规划/unique-path-II/">unique path II</a></li></ul>
+</nav>
+</aside>
+
+
+                <!--
+<aside id="right-sidebar">
+  <nav class="card margin-bottom">
+  
+</nav>
+</aside>
+
+-->
+                <article id="article" class="margin-right ofhidn">
+                  <article class="post-article article markdown-body">
+  <h1>
+    JavaScript(ES5)核心语法复习指南
+  </h1>
+  <hr>
+  <p>这篇文章覆盖JavaScript(es5)的所有语法要点，便于日后进行js基础方面的查阅和复习。参考《JavaScript权威指南》，采取编译原理结构的形式进行总结，从词法、类型、表达式、语句等方面来总结。</p>
+<h2 id="要点归纳"><a href="#要点归纳" class="headerlink" title="要点归纳"></a>要点归纳</h2><ul>
+<li>1.词法结构<ul>
+<li>字符集：使用的是Unicode字符集，采用UTF-16编码，标识符区分大小写。</li>
+<li>注释：<code>//</code>或者<code>/**/</code></li>
+<li>直接量：<ul>
+<li>数字：12、1.2、1.2E-8、.33333</li>
+<li>字符串：”Hello”、”\u0212”</li>
+<li>布尔值：true、false</li>
+<li>正则表达式：/javascript/gi</li>
+<li>空：null</li>
+<li>对象：{x:1, y:2}</li>
+<li>数组：[1,2,[2,4],{x:1,y:2}]</li>
+</ul>
+</li>
+<li>标识符：包括字母、数字、下划线(_)和美元符号($)。标识符不能以数字开头。允许使用Unicode全集作为标识符，也就是使用中文变量是可以的。<ul>
+<li>保留字：和java等其他编程语言的关键字类似，特殊的有：delete、function、typeof、var、debugger、default</li>
+</ul>
+</li>
+<li>分号可选：使用分号隔开不同的语句，否则就需要使用换行</li>
+</ul>
+</li>
+<li>2.类型、值和变量<ul>
+<li>6种基本数据类型：5种原始数据类型（字符串、数字、布尔值、null、undefined）和对象。原始数据类型变量存的是值，而对象变量存的是引用。数组和函数都属于特殊的对象。<strong>js中基础类型都是不可变的，包括字符串，只有对象可变</strong></li>
+<li>1.数字：js不区分整数和浮点数，数字全部使用64位IEEE754浮点数（1符号位+52尾数+11指数）来表示。能表示的整数范围是$-2^{53}-2^{53}$。<strong>但是数组索引和位运算采用的是32位。</strong><ul>
+<li>数字的运算：+、-、*、/、%，复杂运算通过Math来实现，例如Math.sin、Math.ceil、Math.floor、Math.round等。</li>
+<li>数字溢出和下溢：溢出包括正溢出和负溢出，溢出的值用Infinity和-Infinity表示。x/0返回Infinity，但是如果x=0则报错。</li>
+<li>NaN：表示不是一个数字（Not a Number），该值与任何值都不相等，包括它自己，通过isNaN()或者x!=x来判断。</li>
+<li>舍入误差：IEEE754浮点数表示法不能精确表示0.1等数字，表示的是近似值，当进行运算时会有误差，因此不能通过.3-.2==.1来判断。ES6新增了Number.EPSILON表示一个即小的数，要使用<code>(.3-.2)-.1 &lt; EPSILON</code>这样判断。</li>
+<li>时间和日期：<code>Date()</code>构造函数用于创建时间日期对象。常用方法有：<ul>
+<li>var then = new Date(2020,2,20,10,27,48);</li>
+<li>var now = new Date(); // 当前时间</li>
+<li>now.getFullYear()</li>
+<li>now.getDate() // 1-31</li>
+<li>now.getDay() // 0-6，0表示周日</li>
+<li>now.getMonth() // 0-11</li>
+<li>now.getHours()</li>
+<li>now.getMinutes()</li>
+<li>now.getSeconds()</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>2.文本<ul>
+<li>字符串是UTF-16序列的数字，注意位于基本平面内的字符是一个16位值，而处于其他平面的字符需要两个16位值来表示。这在字符串遍历字符的时候需要考虑。<strong>字符串是不可变的，所以对字符串的任何操作都是返回新字符串，而不是在原字符串上改变。</strong></li>
+<li>多行字符串可以使用<code>\</code>来分割。</li>
+<li>字符串的使用：<ul>
+<li>通过+连接字符串</li>
+<li>s.length</li>
+<li>s.charAt(0)</li>
+<li>s.substring(start, end)</li>
+<li>s.substr(start, length)</li>
+<li>s.slice(start, end)</li>
+<li>s.indexOf(‘l’)</li>
+<li>s.lastIndexOf(‘l’)</li>
+<li>s.split(‘,’)</li>
+<li>s.replace(‘h’, ‘H’)</li>
+<li>s.toUpperCase()</li>
+</ul>
+</li>
+<li>字符串可以使用正则表达式进行模式匹配<ul>
+<li>pattern.test(text)</li>
+<li>text.search(pattern)</li>
+<li>text.match(pattern)</li>
+<li>text.replace(pattern, ‘#’)</li>
+<li>text.split(/\D+/)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>3.布尔值：只有两个值true和false。布尔值转成字符串会变成’true’和’false’</li>
+<li>4.null和undefined：null表示控制、undefined表示未定义或者未赋值</li>
+<li>5.全局对象：js会创建一个全局对象，未使用var声明的变量、全局属性、全局函数、全局构造函数、全局对象都绑定在全局对象上。<strong>浏览器中的全局对象是window，nodejs中的全局对象是global。</strong></li>
+<li>6.包装对象：类似<code>&quot;123&quot;.charAt(0)</code>是允许的，原因值js会将原始值转换成其包装对象，所以看起来就像原始值也有属性和方法。<strong>创建的包装对象是临时对象，不会保存。</strong></li>
+<li>7.可变和不可变的值：原始类型不可变、引用类型可变。对象称为引用类型，对象的比较是引用的比较。</li>
+<li>8.类型转换：<ul>
+<li>字符串到：<ul>
+<li>数字：数字或者NaN，例如’1.2’=&gt;1.2，’a’=&gt;NaN，区别与C/C++中的char。</li>
+<li>布尔值：””=&gt;false，其他=&gt;true</li>
+<li>对象：new String()</li>
+</ul>
+</li>
+<li>数字到：<ul>
+<li>字符串：直接变成字符串，例如0=&gt;’0’，Infinity=&gt;’Infinity’</li>
+<li>布尔值：0=&gt;false，NaN=&gt;false，其他=&gt;true</li>
+<li>对象：new Number()</li>
+</ul>
+</li>
+<li>布尔值到：<ul>
+<li>字符串：false=&gt;”false”，true=&gt;”true”</li>
+<li>数字：true=&gt;1，false=&gt;0</li>
+<li>对象：new Boolean()</li>
+</ul>
+</li>
+<li>null、undefined到：<ul>
+<li>字符串：’null’、’undefined’</li>
+<li>数字：null=&gt;0、undefined=&gt;NaN</li>
+<li>对象：报错</li>
+</ul>
+</li>
+<li>对象到：<ul>
+<li>字符串：使用对象的toString方法或者valueOf方法</li>
+<li>数字：使用valueOf方法或者toString方法</li>
+<li>布尔值：true</li>
+</ul>
+</li>
+<li>数组到：<ul>
+<li>字符串：[]=&gt;””、[9]=&gt;”9”、[1,2]=&gt;’1,2’，使用join方法</li>
+<li>数字:[]=&gt;0、[9]=&gt;9，其他=&gt;NaN</li>
+<li>布尔值：true</li>
+</ul>
+</li>
+<li>函数到：<ul>
+<li>字符串：使用toString或者valueOf</li>
+<li>数字：NaN</li>
+<li>布尔值：true</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>9.隐式类型转换和显式类型转换：<ul>
+<li>进行运算时，如果操作数的类型不同，那么会进行隐式的类型转换。<code>==</code>会进行类型转换而<code>===</code>不会。<code>==</code>转换时原始值都会转换成数字，所以”0”==false返回true，<strong>尽管”0”转换成布尔值时true。</strong></li>
+<li>显式类型转换：通过Number(‘1’)、String(1)、Boolean(1)等方式进行<ul>
+<li>还有parseInt、parseFloat将字符串转成数字</li>
+<li>num.toFixed、num.toPrecision等将数字格式化成对应的字符串的方法。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>10.变量声明：var name1=1,name2…，var可以重复声明变量<ul>
+<li>变量和函数声明会提前到作用域的最顶部，称为<code>变量提升</code>。</li>
+<li>没有使用var声明的变量将会挂载到全局对象上</li>
+<li>var声明的变量不能用delete删除</li>
+</ul>
+</li>
+<li>11.变量作用域：<ul>
+<li>ES5只有两种作用域，分别是函数作用域和全局作用域</li>
+<li>因为能在函数中定义函数，所以函数作用域能嵌套，嵌套的作用域连接成作用域链，变量查找的时候会查作用域链</li>
+<li>内层函数能访问到外层函数的变量，如果外层函数退出了而内层函数没有，那么外层函数中被内层函数引用的变量不会回收，称为闭包。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>3.表达式和运算符<ul>
+<li>1.原始表达式：表达式的最小单位<ul>
+<li>直接量</li>
+<li>保留字：true、false、null、this等</li>
+<li>变量：i、sum、undefined</li>
+</ul>
+</li>
+<li>2.对象和数组的初始化表达式：<ul>
+<li>[表达式, 表达式, …]，这些表达式会在数组初始化时求值。表达式可以是任意表达式。</li>
+<li>{name:表达式, name2:表达式}，内部的表达式会再对象初始化时求值，表达式可以是任意表达式</li>
+</ul>
+</li>
+<li>3.函数定义表达式：<ul>
+<li>函数定义表达式返回一个值为函数的对象，可视为“函数直接量”</li>
+<li>语法：<code>function name() {}</code></li>
+<li>因为函数定义是表达式，所以可以这样赋值<code>var a = function () {}</code></li>
+</ul>
+</li>
+<li>4.属性访问表达式：<ul>
+<li><code>expression.identifier</code>或者<code>expresstion[expression]</code>，expression可以是任意表达式，<code>[</code>之前的expression的值会先计算。</li>
+</ul>
+</li>
+<li>5.调用表达式：<ul>
+<li>语法：<code>expression(args)</code>，expression是函数表达式，在调用前求值，如果值不是可调用的，则报错。</li>
+</ul>
+</li>
+<li>6.对象创建表达式：<ul>
+<li>语法：<code>new identifier(args)</code></li>
+<li>对象创建过程是，新建一个对象，作为构造函数中的this，如果构造函数没有返回值，那么这个对象作为对象创建表达式的值，否则使用返回的对象作为对象创建表达式的值。</li>
+</ul>
+</li>
+<li>7.运算符：包括算术运算、逻辑运算、赋值运算、还有delete、typeof、instanceof等。<ul>
+<li>优先级：单目运算（++、–最高）高于双目运算、算术运算$\lt$移位运算$\lt$比较运算，逗号最低、赋值倒数第二。</li>
+<li><strong>通过括号可以改变优先级，推荐方式</strong></li>
+<li>按位运算：<code>&amp;,|,^,~,&gt;&gt;,&lt;&lt;,&gt;&gt;&gt;</code>等采用32位整形运算，会忽略超过32位的部分。</li>
+<li>比较运算：<code>==、&gt;=、!=等</code>。对象转为原始值，两个字符串比较的是字母表顺序，至少一个不是字符串则转为数字比较。<strong>比较操作如果包含NaN则总是返回false</strong></li>
+<li>in：左操作数是字符串或者可以转成字符串，右操作数是一个对象。如果右对象包含左属性则返回true。</li>
+<li>instanceof：左操作数是对象，右操作数是构造函数。如果构造函数的prototype在对象的原型链上，则返回true。</li>
+</ul>
+</li>
+<li>8.逻辑表达式：&amp;&amp;、||、!<ul>
+<li>&amp;&amp;和||都是短路运算符，左右两边可以是任意表达式，如果短路了则不会对另一部分的表达式进行计算。</li>
+<li>a &amp;&amp; b，如果a是真值则返回b，否则返回a。常用<code>a = arg &amp;&amp; arg.length</code></li>
+<li>a || b，如果a是真值则返回a，否则返回b。例如<code>a = arg1.len || arg2.len</code></li>
+<li>!a，先将a求值并转为布尔值，再取反。</li>
+</ul>
+</li>
+<li>9.赋值表达式<ul>
+<li>a = b：a一定要是左值，返回赋值后的a的值</li>
+</ul>
+</li>
+<li>10.eval表达式<ul>
+<li>eval可以动态执行代码，也就是可以在运行时构造任何代码并执行。例如eval(‘2+3’)</li>
+<li>eval表达式返回其最后一条语句的值。</li>
+<li>eval的作用域和调用他的作用域一样</li>
+</ul>
+</li>
+<li>11.其他运算符：<ul>
+<li>三目运算符：a?b:c，如果a是真值，则计算b并返回其值，否则c</li>
+<li>typeof运算符，能用typeof区分基础类型、函数和宿主对象：<ul>
+<li>undefined：返回’undefined’</li>
+<li>null：返回’object’</li>
+<li>字符串：返回’string’</li>
+<li>数字：返回’number’</li>
+<li>true或者false：返回’boolean’</li>
+<li>函数：返回’function’</li>
+<li>任意对象和内置对象：返回’object’</li>
+<li>宿主对象：返回编译器实现的字符串，一般也是’object’</li>
+</ul>
+</li>
+<li>delete运算符：delete a.o，删除a对象中的o属性，delete不返回值。</li>
+<li>void运算符：忽略一个表达式的值，例如<code>void window.open()</code></li>
+<li>逗号运算符：i,j=0,k，操作数可以是任意类型，返回最后一个操作数的值。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+</article>
+                </article>
+          </main>
+          <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 Bright<br>
+      powered_by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+<script src="/js/script.js"></script>
+    </body>
+
+</html>

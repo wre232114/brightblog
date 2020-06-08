@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+
+  <head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <title>在centos上搭建git服务器仓库 | Bright的个人博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link rel="stylesheet" href="/css/reset.css">
+  <link rel="stylesheet" href="/css/style.css">
+  
+</head>
+  <body>
+      
+    <header id="header" class="card">
+  <span>Bright的个人博客</span>
+  <nav>
+    <ul>
+    
+      <li>
+        <a href="/">首页 </a>
+      </li>
+    
+      <li>
+        <a href="/archives">归档 </a>
+      </li>
+    
+      <li>
+        <a href="/categories">分类 </a>
+      </li>
+    
+      <li>
+        <i class="fa search">
+      </i></li>
+    </ul>
+  </nav>
+</header>
+    <main id="main">
+    
+    
+<aside id="left-sidebar" class="margin-right">
+  <nav class="card sidebar-component">
+  <div class="card-title">文章归档</div>
+  <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a><span class="archive-list-count">23</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a><span class="archive-list-count">2</span></li></ul>
+</nav>
+  <nav class="card sidebar-component">
+  <div class="card-title">文章分类</div>
+  <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/c-c/">c/c++</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/c-c/gcc/">gcc</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/">css</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/css/less/">less</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/sass/">sass</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">git</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/nginx/">nginx</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/php/">php</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/shell/">shell</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/学习打卡/">学习打卡</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/操作系统/">操作系统</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/操作系统/ucore/">ucore</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/操作系统/ucore-os/">ucore-os</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/操作系统原理和实现/">操作系统原理和实现</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/操作系统原理和实现/ucore-os/">ucore_os</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据结构/">数据结构</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/数据结构/二叉树遍历/">二叉树遍历</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/">算法</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/算法/二叉树遍历/">二叉树遍历</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/深度优先搜索/">深度优先搜索</a><span class="category-list-count">1</span></li></ul></li></ul>
+</nav>
+  <nav class="card sidebar-component">
+  <div class="card-title">最近文章</div>
+  <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/06/23/php/Smarty快速入门/">Smarty块度入门</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/22/leetcode/二叉树的层级遍历/">二叉树的层级遍历</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/21/leetcode/由先序、中序遍历结果构造二叉树/">数据结构基础：根据先序、中序遍历结果构造二叉树</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/19/reading-record/Linux命令行和shell脚本编程/shell-script基本语法/">shell script基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/18/vue/vue基础：官方文档要点/">vue基础：官方文档要点</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/18/math/高数1：函数/">高数1：函数</a></li></ul>
+</nav>
+</aside>
+
+
+    <!--
+<aside id="right-sidebar">
+  <nav class="card margin-bottom">
+  
+</nav>
+</aside>
+
+-->
+    <article id="article" class="card margin-right">
+      
+  <h1>在centos上搭建git服务器仓库</h1>
+  <hr>
+  <h1 id="在centos上搭建git服务器仓库"><a href="#在centos上搭建git服务器仓库" class="headerlink" title="在centos上搭建git服务器仓库"></a>在centos上搭建git服务器仓库</h1><p>git的<a href="https://git-scm.com/book/zh/v1/Git-%E5%9F%BA%E7%A1%80-%E5%8F%96%E5%BE%97%E9%A1%B9%E7%9B%AE%E7%9A%84-Git-%E4%BB%93%E5%BA%93" target="_blank" rel="noopener">官方文档</a>，这里有git命令，git服务器，git配置，git管理等一系列的说明都有。</p>
+<h2 id="1-安装git"><a href="#1-安装git" class="headerlink" title="1. 安装git"></a>1. 安装git</h2><p>首先查看有没有安装git，输入：</p>
+<blockquote>
+<p>git –version</p>
+</blockquote>
+<p>如果没有显示“git is not a command”，则说明已经安装了git，跳过此步。</p>
+<p>如果没有安装git，则需要安装git：</p>
+<blockquote>
+<p>yum install git</p>
+</blockquote>
+<p>如果觉得这样安装的git版本太低，可以再查一下如何升级git。</p>
+<h2 id="2-添加git用户-组"><a href="#2-添加git用户-组" class="headerlink" title="2. 添加git用户/组"></a>2. 添加git用户/组</h2><blockquote>
+<p>groupadd git</p>
+<p>useradd git -g git</p>
+</blockquote>
+<h2 id="3-创建git访问权限文件"><a href="#3-创建git访问权限文件" class="headerlink" title="3. 创建git访问权限文件"></a>3. 创建git访问权限文件</h2><p>git需要在/home/git/.ssh目录下创建authorized-keys文件来管理允许访问的客户端，并配置相关的权限：</p>
+<blockquote>
+<p>cd /home/git</p>
+<p>mkdir .ssh</p>
+<p>touch .ssh/authorized-keys</p>
+<p>chmod 700 .ssh</p>
+<p>chmod 600 .ssh/authorized-keys</p>
+</blockquote>
+<p>authorized-keys用来存放允许连接的客户端的公钥，也就是说如果你想某一个客户端可以在这个仓库上pull或者push，需要将客户端的公钥复制到authorized-keys中，每一个公钥占单独的一行。</p>
+<h2 id="4-创建git仓库"><a href="#4-创建git仓库" class="headerlink" title="4. 创建git仓库"></a>4. 创建git仓库</h2><p>假定git仓库都放在/data/gitrepo目录下：</p>
+<blockquote>
+<p>mkdir /data/gitrepo</p>
+<p>cd /data/gitrepo</p>
+<p>git init –bare test.git</p>
+<p>chown -R git:git test.git</p>
+</blockquote>
+<p>到这里我们就已经完成了创建服务器端的git仓库，如果我们要从这个仓库拉代码下来，使用：</p>
+<blockquote>
+<p>git clone git@ip地址/网址:/data/gitrepo/test.git</p>
+</blockquote>
+<h2 id="5-实现免密pull或者push"><a href="#5-实现免密pull或者push" class="headerlink" title="5. 实现免密pull或者push"></a>5. 实现免密pull或者push</h2><p>这时候我们可能发现git pull或者push的时候仍然需要输入服务器的密码。如何才能实现免密传输呢？我这里先给一个解决方案，如果不行大家可以搜索“如何免密ssh登陆？”。</p>
+<h3 id="5-1-更改ssh配置"><a href="#5-1-更改ssh配置" class="headerlink" title="5.1 更改ssh配置"></a>5.1 更改ssh配置</h3><p>首先更改sshd的配置，这里可以配置服务器的远程登陆方式，可以有密码，公钥等的登陆方式。输入：</p>
+<blockquote>
+<p>sudo vim /etc/ssh/sshd_config</p>
+</blockquote>
+<p>然后更改下列配置：</p>
+<blockquote>
+<p>StrictModes no</p>
+<p>RSAAuthentication yes</p>
+<p>PubkeyAuthentication yes</p>
+<p>AuthorizedKeysFile .ssh/authorized-keys</p>
+</blockquote>
+<p>然后重启：</p>
+<blockquote>
+<p>service sshd restart</p>
+</blockquote>
+<h3 id="5-2-将客户端的公钥添加到git服务器的authorized-keys文件中"><a href="#5-2-将客户端的公钥添加到git服务器的authorized-keys文件中" class="headerlink" title="5.2 将客户端的公钥添加到git服务器的authorized-keys文件中"></a>5.2 将客户端的公钥添加到git服务器的authorized-keys文件中</h3><p>有两种方式</p>
+<ol>
+<li><p>使用ssh-copy-id</p>
+<blockquote>
+<p>ssh-copy-id -i ~/.ssh/id_rsa.pub git@你的域名或者ip地址</p>
+</blockquote>
+</li>
+<li><p>直接将你的客户端的公钥添加到authorized_keys文件中</p>
+</li>
+</ol>
+<h2 id="6-代码自动部署"><a href="#6-代码自动部署" class="headerlink" title="6. 代码自动部署"></a>6. 代码自动部署</h2><p>在服务器上clone另一个仓库：</p>
+<blockquote>
+<p>git clone git@localhost:/data/gitrepo/brightblog.git</p>
+</blockquote>
+<p>编写post-receive shell脚本，需要为脚本文件赋予执行权限：<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cd 服务器clone的仓库目录</span><br><span class="line">unset GIT_DIR</span><br><span class="line">git pull origin master</span><br><span class="line">hexo clean</span><br><span class="line">hexo generate</span><br></pre></td></tr></table></figure></p>
+<p>上面的shell脚本做的事情是：<br>进入目录=》重值GIT_DIR=》获取最新代码=》清空public=》生成静态文件</p>
+
+
+      </article>
+    </main>
+    <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 Bright<br>
+      powered_by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+  </body>
+</html>

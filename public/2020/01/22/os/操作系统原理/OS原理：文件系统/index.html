@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+
+  <head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+    <title>
+      
+        OS原理：文件系统 |
+          
+            Bright的个人博客
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="/css/reset.css">
+      <link rel="stylesheet" href="/css/style.css">
+        <link rel="stylesheet" href="/css/github-markdown.css">
+          <link rel="stylesheet" href="/css/atom-one-dark.css">
+            
+</head>
+
+    <body>
+      
+        <header id="header" class="card">
+  <span class="logo">B</span>
+  <span class="motto">技术 & 梦想 |&nbsp;学习 & 总结</span>
+  <nav>
+    <ul>
+    
+      <li>
+        <a href="/">首页 </a>
+      </li>
+    
+      <li>
+        <a href="/archives">归档 </a>
+      </li>
+    
+      <li>
+        <a href="/categories">分类 </a>
+      </li>
+    
+      <li>
+        <div class="search-input">
+          <i class="fa search"></i>
+          <input id="search-input" type="text">
+        </div>
+      </li>
+    </ul>
+  </nav>
+</header>
+          <main id="main">
+            
+              
+<aside id="left-sidebar" class="margin-right">
+  <nav class="card sidebar-component">
+  <div class="card-title">文章归档</div>
+  <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a><span class="archive-list-count">18</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a><span class="archive-list-count">17</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a><span class="archive-list-count">30</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a><span class="archive-list-count">15</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a><span class="archive-list-count">17</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a><span class="archive-list-count">18</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a><span class="archive-list-count">2</span></li></ul>
+</nav>
+  <nav class="card sidebar-component">
+  <div class="card-title">文章分类</div>
+  <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/css/">css</a><span class="category-list-count">10</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/css/css基础/">css基础</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/css工具/">css工具</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/less/">less</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/sass/">sass</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/docker/">docker</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/docker/docker-swarm/">docker swarm</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/docker/docker基础/">docker基础</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">git</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html5/">html5</a><span class="category-list-count">8</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/html5/dom/">dom</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html5/html5-API/">html5 API</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html5/html5标签和属性/">html5标签和属性</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html5/svg/">svg</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html5/tips/">tips</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html5/实战/">实战</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/">java</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/java/spring实战/">spring实战</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/js/">js</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/js/js基础/">js基础</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/js/typescript/">typescript</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/js/正则表达式/">正则表达式</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/linux/工具/">工具</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/nginx/">nginx</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node-js/">node.js</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/node-js/npm/">npm</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node-js/命令行工具/">命令行工具</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/php/">php</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/spring-boot/">spring-boot</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/spring-boot/开发工具/">开发工具</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/typescript/">typescript</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/typescript/踩坑指南/">踩坑指南</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/">vue</a><span class="category-list-count">11</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/vue/cli/">cli</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/tips/">tips</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/vue-router/">vue-router</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/vue实战/">vue实战</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/vue组件开发/">vue组件开发</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/基础/">基础</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/webpack/">webpack</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/webpack/webpack基础/">webpack基础</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/xml/">xml</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/xml/基础/">基础</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/学习打卡/">学习打卡</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/安全/">安全</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/安全/密码技术/">密码技术</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/操作系统/">操作系统</a><span class="category-list-count">23</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/操作系统/shell/">shell</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/操作系统/ucore/">ucore</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/操作系统/操作系统原理/">操作系统原理</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据库/">数据库</a><span class="category-list-count">10</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/数据库/mysql/">mysql</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据库/sql语句/">sql语句</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据库/导论/">导论</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据库/数据库编程/">数据库编程</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据库/数据库设计/">数据库设计</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据结构/">数据结构</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/数据结构/图/">图</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/毕设/">毕设</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/">算法</a><span class="category-list-count">20</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/算法/leetcode/">leetcode</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/模式匹配/">模式匹配</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/深度优先搜索/">深度优先搜索</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程语言/">编程语言</a><span class="category-list-count">20</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/编程语言/C/">C</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/编程语言/C/语言/">语言</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程语言/C语言/">C语言</a><span class="category-list-count">17</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程语言/Java/">Java</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程语言/java/">java</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/英语/">英语</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/英语/生词/">生词</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/计算机网络/">计算机网络</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/计算机网络/wireshark/">wireshark</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/计算机网络/问题记录/">问题记录</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/设计模式/">设计模式</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/设计模式/交给子类/">交给子类</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/设计模式/生成实例/">生成实例</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/设计模式/适应设计模式/">适应设计模式</a><span class="category-list-count">2</span></li></ul></li></ul>
+</nav>
+  <nav class="card sidebar-component">
+  <div class="card-title">最近文章</div>
+  <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2020/05/19/algorithm/leetcode/动态规划/interleaving-string/">interleaving string</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/17/algorithm/leetcode/分治/maximum-product-subarray/">maximum product subarray</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/15/algorithm/leetcode/动态规划/triangle/">triangle</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/12/algorithm/leetcode/动态规划/unique-binary-search-trees-ii/">unique binary search trees ii</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/11/algorithm/leetcode/动态规划/decode-ways/">decode-ways</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/09/algorithm/leetcode/动态规划/unique-path-II/">unique path II</a></li></ul>
+</nav>
+</aside>
+
+
+                <!--
+<aside id="right-sidebar">
+  <nav class="card margin-bottom">
+  
+</nav>
+</aside>
+
+-->
+                <article id="article" class="margin-right ofhidn">
+                  <article class="post-article article markdown-body">
+  <h1>
+    OS原理：文件系统
+  </h1>
+  <hr>
+  <p>这里文章学习操作系统的原理，主要学习的核心知识点有以下几个：</p>
+<ol>
+<li>文件系统的作用和组成成分？</li>
+<li>对文件和目录有哪些操作？</li>
+<li>文件系统如何实现？包括：<ol>
+<li>空闲磁盘空间如何管理和分配？</li>
+<li>如何实现文件到磁盘块的映射管理？</li>
+<li>文件系统如何在磁盘上存储？</li>
+</ol>
+</li>
+<li>linux和windows是如何实现文件系统的？</li>
+</ol>
+<p>本片文章带着这些问题来复习文件系统的相关的知识，由浅入深。从文件系统解决的问题，到对文件系统的操作，再到文件系统的具体实现方式，再到具体的操作系统的文件系统的设计实现。从原理到实现熟练掌握文件系统。学完原理后，可以分析ucore-os中的文件系统的设计和实现的详细代码（在另一篇文章中，请看<img src="#" alt="ucore-os-lab8：文件系统设计分析">）。本文参考自《现代操作系统》一书，添加了自己的理解。</p>
+<h2 id="文件系统的作用和组成成分"><a href="#文件系统的作用和组成成分" class="headerlink" title="文件系统的作用和组成成分"></a>文件系统的作用和组成成分</h2><p>在计算机运行时，数据基本都是存储在内存（RAM）中的，RAM中的数据具有易失性，当进程退出或者计算机掉电的时候就会丢失数据。磁盘等设备能够长时间存储数据，即使断电，所以一般用磁盘、U盘、光盘等设备来进行长期的数据存储。</p>
+<p>但是磁盘、U盘、光盘等设备的数据储存方式和结构可能完全不一样，操作系统需要能够处理这些不同的设备。文件系统需要解决的第一个问题，就是设备的抽象性，例如，我的电脑上插了硬盘、U盘、SSD三块设备，但是我希望以相同的方式来管理和访问三个不同的设备。例如windows上的文件系统，当新插入一个硬盘/光盘/U盘时，会分配一个新的盘符，该盘符的访问和其他所有盘符的访问方式完全相同。</p>
+<p>这就出现了文件系统的两层抽象，第一层屏蔽不同硬件的差异；第二层屏蔽不同文件系统的差异。第一个问题通过设计适合不同设备的不同文件系统解决。第二个问题通过虚拟文件系统（VFS）解决。后文会详细讨论这两个问题的解决方案。</p>
+<p>文件系统最关键的两个组成元素就是文件和目录。文件和目录都是抽象的概念，一个文件表示一个逻辑上的数据集合；一个目录能够包含其他目录和文件，是一种层级上的抽象。对于操作系统用户来说，直接操作的接口就是文件和目录接口，需要存储的数据以文件为基础单位，通过目录来对文件进行组织和区分。例如希望保存联系人列表，可以创建contact.txt文件、numbers.txt文件；创建短信列表，可以创建message.xml文件；然后通过目录来区分联系人列表或者短信。</p>
+<p>还有其他的元素例如<code>字符特殊文件</code>和<code>块特殊文件</code>，<code>字符特殊设备</code>将特殊的字符流设备例如打印机映射到文件系统，通过对对应的文件进行读写就可以读写对应的设备。这里只讨论普通文件。</p>
+<p>对于文件还有不同的抽象方式，例如可以将文件视做字节序列，或者记录块或者树结构。第一种方式，字节序列方式，是windows和linux都采用的方式，就是对于用户来说，从操作系统读取出来的文件都是字节序列，如何解释这些字节序列由用户程序决定。第二种方式以“记录”的形式，每一个记录拥有特定的结构和大小，这种方式限制了文件能够存储的类型，一般用于专用的文件系统。第三种方式是树形结构，和上一种结构类似，也是采取一种特殊的查找树的方式来组织文件，通过键来快速查找文件，文件的结构也是特殊的，一般用于专用的文件系统。</p>
+<h2 id="文件和目录的信息和操作"><a href="#文件和目录的信息和操作" class="headerlink" title="文件和目录的信息和操作"></a>文件和目录的信息和操作</h2><p>前面提到了文件和目录的概念，文件是逻辑上的数据集合，目录是文件和目录的集合。文件是存储的基本单位，所有信息通过文件来存储，通过目录来组织，文件系统肯定会提供与文件和目录有关的操作，用来管理文件和目录；肯定会提供文件的信息，例如文件大小、文件类型、文件所有者、文件名等等。</p>
+<p>普通文件一般分为二进制文件和文本文件。一般的可执行文件例如ELF文件就是二进制文件。磁盘中存储的都是二进制数据，二进制文件和文本文件只是应用程序对磁盘输入的二进制流的解释方式不同。文本文件一般存的是字符编码后的结果，例如ASCII、UTF-8、GBK等等。</p>
+<h3 id="文件和目录信息"><a href="#文件和目录信息" class="headerlink" title="文件和目录信息"></a>文件和目录信息</h3><p>为了便于区分文件，肯定需要为文件取名字；文件名一般由<code>名字+后缀</code>组成，例如contact.txt，<code>.txt</code>是后缀，一般用于表示文件的类型。windows下在操作系统层面区分后缀。linux后缀只是在用户程序中区分。一个简单的例子，windows下只有<code>.exe</code>文件才可执行，而linux下只要赋予的<code>x</code>（可执行）权限的文件都可以执行（当然如果文件内部不是可执行文件的格式会报错）；用户层面区分的例子比如C编译器只接受输入为<code>.c</code>后缀的文件。</p>
+<p>文件名的长度在不同的操作系统中不同，一些操作系统只支持最大固定长度的文件名和后缀，例如DOS是8+3，最新的操作系统的文件名长度限制会更大，例如256个字符。</p>
+<p>常见的文件属性如下：</p>
+<ul>
+<li>保护：谁能访问文件，文件是否能执行等</li>
+<li>口令：文件访问需要的密码</li>
+<li>创建者</li>
+<li>所有者：拥有该文件的用户、群组等</li>
+<li>只读标识</li>
+<li>隐藏标识</li>
+<li>大小</li>
+<li>创建时间</li>
+<li>最后修改时间</li>
+<li>最后访问时间</li>
+<li>…</li>
+</ul>
+<p>具体的文件系统实现可能不会具有所有的属性，也可能有更多的属性，由具体的操作系统实现来决定。文件属性描述了操作一个文件所需要的信息，任何和文件有关的、用户需要的信息都可以作为文件的属性。</p>
+<p>目录描述了文件和目录的层次结构信息，例如一个目录下的结构可能如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">     user</span><br><span class="line">     /  \</span><br><span class="line">   all   bright.txt</span><br><span class="line">  /  \</span><br><span class="line">1.c  hello.js</span><br></pre></td></tr></table></figure></p>
+<p>如上例，user目录下有一个目录all和一个文件bright.txt，目录all下又有两个文件：1.c和hello.js。那我要在上述文件结构中找到1.c或者bright.txt怎么办呢？在上述的目录树中我们可以很方便的找到一条从根目录到文件的<code>路径</code>，例如<code>/user/all/1.c</code>，可以用路径来表示文件在文件系统中的位置，这也是windows和linux采用的方式，不过windows使用<code>\</code>作为分隔符，而linux使用<code>/</code>。上述这种方式叫做<code>绝对路径</code>，另一种方式是相对路径，例如<code>./user/bright.txt</code>或<code>../hello.js</code>，表示相对于当前位置的路径。</p>
+<p>目录的属性和文件类似，在unix系统中，目录是特殊的文件，属性基本都相同。也包含创建者、所有者、创建时间、修改时间等等信息。</p>
+<h3 id="对文件和目录的操作"><a href="#对文件和目录的操作" class="headerlink" title="对文件和目录的操作"></a>对文件和目录的操作</h3><p>有了文件和目录的概念，那么就需要对文件和目录进行操作，常用的操作有：创建、删除、链接、打开、关闭、读取、写入、重命名、链接等等。对于目录还有切换目录。</p>
+<p>对于文件和目录通常有以下操作：</p>
+<ul>
+<li>create：创建文件或者目录，主要工作是初始化一些文件属性、将文件添加到文件系统中</li>
+<li>delete：删除文件或者目录，从文件系统中删除文件，可能没有彻底从磁盘删除，视具体实现而定</li>
+<li>get attribute：获取文件属性（unix中的stat）</li>
+<li>set attribute：设置文件属性</li>
+<li>rename：重命名文件或者目录</li>
+<li>link：链接文件或者目录，这里的链接是硬链接，两个文件共享一个i节点，只删除其中一个节点不会导致数据从硬盘删除</li>
+<li>unlink：将i节点的链接数减1，当计数值为0时删除文件</li>
+</ul>
+<p>对于文件还有以下操作：</p>
+<ul>
+<li>open：打开文件，文件只有打开后才能读写</li>
+<li>close：关闭文件，一个程序能打开的文件是有限的，文件使用完成后要及时关闭</li>
+<li>read：从文件读取数据</li>
+<li>seek：设置文件读取的位置</li>
+<li>write：向文件写数据</li>
+<li>append：在文件末尾添加数据，可以通过seek来实现</li>
+</ul>
+<p>对于目录还有以下操作：</p>
+<ul>
+<li>opendir：打开目录</li>
+<li>closedir：关闭目录</li>
+<li>readdir：读取目录</li>
+</ul>
+<h2 id="文件系统的实现"><a href="#文件系统的实现" class="headerlink" title="文件系统的实现"></a>文件系统的实现</h2><p>文件系统主要实现上面提到的文件系统的特性，第一个是设备无关性，第二个是文件系统无关性。设备无关性通过文件系统来保证，文件系统无关性虚拟文件系统来保证。最顶层的是文件和目录的抽象，用户能够看到的都是对文件和目录的操作，所以文件系统还需要实现统一的文件目录操作的接口。除此之外，还有整个文件系统的在磁盘的布局，因为文件系统中的所有信息都是需要能够永久保存的，所以文件和目录的属性、结构、包括文件本身都需要存放在磁盘中，以达到永久保存的目的。如何布局这些数据在磁盘中的存储也是一个很重要的问题。文件系统的层级结构如下图：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">                   用户进程--&gt;系统调用-&gt;|             用户空间</span><br><span class="line">-------------------------------------|-----------</span><br><span class="line">                     文件目录操作 &lt;----|   文件目录    内核空间</span><br><span class="line">         file接口 &lt;----|                  抽象层</span><br><span class="line">          |</span><br><span class="line">          |-&gt;虚拟文件系统操作               虚拟文件系统</span><br><span class="line">                |-&gt;inode接口、vfs接口      抽象层（可以有多个具体文件系统层实现并挂载）</span><br><span class="line">                               | </span><br><span class="line">         具体文件系统对磁盘的操作&lt;-|         具体文件系统</span><br><span class="line">          |-&gt;vfs接口的实现                     层       </span><br><span class="line">              |</span><br><span class="line">              |                              </span><br><span class="line">|超级块|空间磁盘空间管理|i节点|根目录|未使用|  磁盘上的文件系统布局</span><br></pre></td></tr></table></figure>
+<p>下面我们会自顶向下讨论文件系统的实现，从用户空间的系统调用，内核的进程结构中的文件，到内核的文件、目录抽象，到内核的虚拟文件系统的实现，再到具体文件系统的实现及磁盘上的布局管理。每一层都会提供一定的抽象，通过下层的不同实现来兼容不同的设备或者文件系统。接下来首先介绍整个文件系统的工作过程，先整体了解，细节放在后面单独的小节中。</p>
+<p>首先是用户空间的使用，在用户空间能够看到的是文件系统提供的最顶层的抽象——文件和目录，对于用户空间来说文件就是一串二进制数据，并不关系这文件在磁盘上是如何存储和读取的。用户空间通过一系列系统调用来实现对文件和目录的操作，也就是用户直接调用的上图中的文件目录抽象层。该层实现了对于抽象文件的所有操作，例如上面提到的打开、关闭、删除文件等等。主要依赖的数据结构是file接口，也就是最顶层的文件抽象结构，其主要的属性是和文件相关的信息，例如可读写、大小、以及与下一层关联的接口等。</p>
+<p>下面是虚拟文件系统层，该层的主要作用是实现文件系统无关性的抽象。虚拟文件系统层定义了一系列对具体文件系统的操作，由具体文件系统来实现以此来实现提供文件目录抽象层使用的统一的底层接口。不同的具体文件系统通过叫做<code>挂载</code>的操作接入虚拟文件系统，<code>挂载</code>到虚拟文件系统后，上层便可以以统一的方式来访问这些具体文件系统，而不关心文件系统的细节。file接口只定义文件的属性，文件的实现和操作的抽象都在虚拟文件系统层定义。</p>
+<p>具体文件系统层是虚拟文件系统层的具体实现，虚拟文件系统层会定义具体文件系统的操作抽象、存储抽象、文件路径抽象，由具体文件系统层来实现。具体文件系统层定义了文件如何在磁盘上存储、如何将文件写入磁盘，如何从磁盘读取文件。</p>
+<h3 id="文件和目录的实现"><a href="#文件和目录的实现" class="headerlink" title="文件和目录的实现"></a>文件和目录的实现</h3><p>前面讲了一个操作系统大概的文件系统层级结构，接下来从原理的角度来分析文件和目录的实现。</p>
+<p>文件的实现有多种，第一种是连续分配，需要分配多个连续的磁盘块来满足文件的需要。这种方式的优点是文件读取块，因为文件存在相邻的磁盘块，减少了寻道时间。缺点是会导致磁盘碎片问题，因为当磁盘不断被分配和回收之后，磁盘空闲空间碎片化，这样会导致几个问题，一个是空闲空间分散，可能没有足够的连续空间来分给一个较大的文件，尽管可能总空闲空间大小远大于需要的磁盘大小；另一个是碎片化导致寻道时间增长，磁盘访问变慢导致系统卡顿。还有一个缺陷就是空洞问题，有时候可能需要增长的文件，文件大小不是预先知道的，碎片分割的空洞严重限制文件的大小增长能力。</p>
+
+</article>
+                </article>
+          </main>
+          <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 Bright<br>
+      powered_by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+<script src="/js/script.js"></script>
+    </body>
+
+</html>

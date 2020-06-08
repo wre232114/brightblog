@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+  <head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <title>ucore-os笔记2：GNU make | Bright的个人博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link rel="stylesheet" href="/css/reset.css">
+  <link rel="stylesheet" href="/css/style.css">
+  
+</head>
+  <body>
+      
+    <header id="header" class="card">
+  <span>Bright的个人博客</span>
+  <nav>
+    <ul>
+    
+      <li>
+        <a href="/">首页 </a>
+      </li>
+    
+      <li>
+        <a href="/archives">归档 </a>
+      </li>
+    
+      <li>
+        <a href="/categories">分类 </a>
+      </li>
+    
+      <li>
+        <i class="fa search">
+      </i></li>
+    </ul>
+  </nav>
+</header>
+    <main id="main">
+    
+    
+<aside id="left-sidebar" class="margin-right">
+  <nav class="card sidebar-component">
+  <div class="card-title">文章归档</div>
+  <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a><span class="archive-list-count">23</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a><span class="archive-list-count">2</span></li></ul>
+</nav>
+  <nav class="card sidebar-component">
+  <div class="card-title">文章分类</div>
+  <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/c-c/">c/c++</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/c-c/gcc/">gcc</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/">css</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/css/less/">less</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/sass/">sass</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">git</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/nginx/">nginx</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/php/">php</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/shell/">shell</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/学习打卡/">学习打卡</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/操作系统/">操作系统</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/操作系统/ucore/">ucore</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/操作系统/ucore-os/">ucore-os</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/操作系统原理和实现/">操作系统原理和实现</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/操作系统原理和实现/ucore-os/">ucore_os</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据结构/">数据结构</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/数据结构/二叉树遍历/">二叉树遍历</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/">算法</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/算法/二叉树遍历/">二叉树遍历</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/深度优先搜索/">深度优先搜索</a><span class="category-list-count">1</span></li></ul></li></ul>
+</nav>
+  <nav class="card sidebar-component">
+  <div class="card-title">最近文章</div>
+  <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/06/23/php/Smarty快速入门/">Smarty块度入门</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/22/leetcode/二叉树的层级遍历/">二叉树的层级遍历</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/21/leetcode/由先序、中序遍历结果构造二叉树/">数据结构基础：根据先序、中序遍历结果构造二叉树</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/19/reading-record/Linux命令行和shell脚本编程/shell-script基本语法/">shell script基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/18/vue/vue基础：官方文档要点/">vue基础：官方文档要点</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/18/math/高数1：函数/">高数1：函数</a></li></ul>
+</nav>
+</aside>
+
+
+    <!--
+<aside id="right-sidebar">
+  <nav class="card margin-bottom">
+  
+</nav>
+</aside>
+
+-->
+    <article id="article" class="card margin-right">
+      
+  <h1>ucore-os笔记2：GNU make</h1>
+  <hr>
+  <p>c/c++程序基本都是使用GNU make来构建的，其基础是位于根目录的Makefiles文件。</p>
+<p>GNU make有什么用呢？我们使用gcc编译器的时候，gcc -o target source，将源文件编译成目标文件，那么如果我们有很多的c/c++文件呢？使用gcc命令就不太合适了把。makefiles就是帮我们做这个事情的，它会管理我们要编译的内容，我们指定构建的依赖和构建目标，然后编写对应的构建脚本，完成之后只需要一个make命令，就可以完成构建。make会判断源文件是否被更新过，如果源文件被更新了，那么被更新的那部分会被重新编译。</p>
+<h2 id="概览"><a href="#概览" class="headerlink" title="概览"></a>概览</h2><p>这一部分说明make的使用、makefiles的基本构成、规则、编译脚本、变量等等，先对整体有一个印象，然后我们在后面再深入一些细节。</p>
+<h3 id="make的使用"><a href="#make的使用" class="headerlink" title="make的使用"></a>make的使用</h3><p>如果我们在某一个目录下使用make命令，那么会自动区查找该目录下的makefiles或Makefils文件，并执行makefiles文件中的第一个规则（可以通过.MAKEFILE_GOAL变量来修改，后面会说明）。</p>
+<h3 id="makefiles的基本构成"><a href="#makefiles的基本构成" class="headerlink" title="makefiles的基本构成"></a>makefiles的基本构成</h3><p>先看一个示例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">edit: test.c</span><br><span class="line">  cc -o edit test.c</span><br><span class="line">.PHONY:clean</span><br><span class="line">clean:</span><br><span class="line">	rm -r -f ./bin/</span><br></pre></td></tr></table></figure></p>
+<p>makefile由三个部分组成: target、prerequisites、recipes，对应到上面的实例中就是，edit是target，test.c是prerequisites、下面的脚本是recipes（每一条语句占一行，前面必须有一个tab）。target可以只是命令，而不生成某个输出文件，比如上面的clean。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">target: prerequisites</span><br><span class="line">	...</span><br></pre></td></tr></table></figure>
+<p>除此之外，makefiles由五个元素构成：显式规则、隐式规则、变量定义、指令（例如include）和注释。</p>
+<p>include可以导入其他的文件，这个过程时阻塞的，导入其他文件的过程会暂停当前makefiles的解析。</p>
+<h3 id="make的运行规则"><a href="#make的运行规则" class="headerlink" title="make的运行规则"></a>make的运行规则</h3><p>当prerequistes被更新时，target会被重新编译。prerequisite有可能也是其他rule的输出，这时候会先更新prerequisites再更新target。make会检测到target所依赖的文件的文件，执行必要的重新编译（未改变的那些不重新编译），在make内部会根据prerequisites来生成依赖图，依据依赖图来决定哪些部分需要重新编译。例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">edit : main.o kbd.o command.o display.o \</span><br><span class="line">       insert.o search.o files.o utils.o</span><br><span class="line">        cc -o edit main.o kbd.o command.o display.o \</span><br><span class="line">                   insert.o search.o files.o utils.o</span><br><span class="line"></span><br><span class="line">main.o : main.c defs.h</span><br><span class="line">        cc -c main.c</span><br><span class="line">kbd.o : kbd.c defs.h command.h</span><br><span class="line">        cc -c kbd.c</span><br><span class="line">command.o : command.c defs.h command.h</span><br><span class="line">        cc -c command.c</span><br><span class="line">display.o : display.c defs.h buffer.h</span><br><span class="line">        cc -c display.c</span><br><span class="line">insert.o : insert.c defs.h buffer.h</span><br><span class="line">        cc -c insert.c</span><br><span class="line">search.o : search.c defs.h buffer.h</span><br><span class="line">        cc -c search.c</span><br><span class="line">files.o : files.c defs.h buffer.h command.h</span><br><span class="line">        cc -c files.c</span><br><span class="line">utils.o : utils.c defs.h</span><br><span class="line">        cc -c utils.c</span><br><span class="line">clean :</span><br><span class="line">        rm edit main.o kbd.o command.o display.o \</span><br><span class="line">           insert.o search.o files.o utils.o</span><br></pre></td></tr></table></figure>
+<p>edit依赖于.o文件，每一个.o文件又依赖于对应的.c和.h文件，当执行make的时候，会根据.c文件判断那些.o文件是要重新生成的并重新生成.o文件，然后再生成edit可执行文件。</p>
+<p>不是第一条rule或者goal指定的rule所以依赖的rule时，该rule不会被执行，例如clean，只能显式使用make clean。</p>
+<h3 id="定义变量"><a href="#定义变量" class="headerlink" title="定义变量"></a>定义变量</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">objects = main.o kbd.o command.o display.o \</span><br><span class="line">          insert.o search.o files.o utils.o</span><br></pre></td></tr></table></figure>
+<p>上面的格式就可以定义变量，可以使用=(递归查找变量的值，意味着可以多层引用变量)，:=(最多只查找一层的变量值，多于的直接当文本处理)，还有其他的定义方式，见变量。</p>
+<h3 id="make推断规则"><a href="#make推断规则" class="headerlink" title="make推断规则"></a>make推断规则</h3><p>make有一个隐式的规则：.o文件会自动去找其名字对应的.c文件执行cc命令。也就是说我们可以仅指定.o文件的依赖，不用每条都写对应的cc语句，在prerequisies中也可以不写.c文件，如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">objects = main.o kbd.o command.o display.o \</span><br><span class="line">          insert.o search.o files.o utils.o</span><br><span class="line"></span><br><span class="line">edit : $(objects)</span><br><span class="line">        cc -o edit $(objects)</span><br><span class="line"></span><br><span class="line">main.o : defs.h</span><br><span class="line">kbd.o : defs.h command.h</span><br><span class="line">command.o : defs.h command.h</span><br><span class="line">display.o : defs.h buffer.h</span><br><span class="line">insert.o : defs.h buffer.h</span><br><span class="line">search.o : defs.h buffer.h</span><br><span class="line">files.o : defs.h buffer.h command.h</span><br><span class="line">utils.o : defs.h</span><br><span class="line"></span><br><span class="line">.PHONY : clean</span><br><span class="line">clean :</span><br><span class="line">        rm edit $(objects)</span><br></pre></td></tr></table></figure>
+<h3 id="编译脚本"><a href="#编译脚本" class="headerlink" title="编译脚本"></a>编译脚本</h3><p>recipes会被shell执行所以recipes用shell语法来编写。make不理解hell语法，它仅仅只做一点点简单的处理，然后将其将给shell执行。</p>
+<p>make中的recipes规则：</p>
+<ul>
+<li>以tab开头的空行不是空的，是一条空的recipes</li>
+<li>在recipes中的comment不是make的comment，它会被传给shell</li>
+<li>在rule中定义，以tab开头的变量不是make变量，它会被传给shell</li>
+</ul>
+
+
+      </article>
+    </main>
+    <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 Bright<br>
+      powered_by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+  </body>
+</html>
