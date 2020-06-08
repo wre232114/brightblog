@@ -22,7 +22,15 @@ category:
 ## 安装server
 > yum install mysql-community-server
 
-安装完成后，启动mysql。
+安装完成后，启动mysql。**如果提示没有找不到安装包，说明默认的git仓库中没有mysql-community-server这个软件包，解决方案有两个，第一个是直接去mysql官网下载安装包，然后用`yum localinstall`来按照；第二个是添加有mysql-community-server的仓库；第三种是参考官方网站上的安装教程，官方给出了包含安装仓库和密钥的rpm包。下面给出官方示例：**
+
+1. 下载仓库rpm：`wget https://dev.mysql.com/get/mysql80-community-release-el7-3.noarch.rpm`
+2. 本地安装rpm：`yum localinstall mysql80-community-release-el7-3.noarch.rpm`
+3. 安装mymsql-server：`yum install -y mysql-community-server`
+
+【官方教程地址】(https://dev.mysql.com/doc/refman/8.0/en/linux-installation-yum-repo.html)
+
+保存后重新执行`yum install mysql-community-server`就可以了。
 
 > service mysqld start
 
@@ -45,3 +53,11 @@ category:
 
 结果如图：
 ![默认密码](/img/mysql默认密码.png)
+
+### 修改默认密码
+使用默认密码登陆mysql：
+> mysql -u root -p
+> # 输入默认密码
+
+然后必须修改默认密码才能进行操作，修改默认密码输入如下指令：
+> alter user 'root'@'localhost' identified by '密码';

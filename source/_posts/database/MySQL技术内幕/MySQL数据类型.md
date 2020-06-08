@@ -12,6 +12,45 @@ category:
 
 这篇文章主要介绍mysql的数据类型，基于《MySQL技术内幕》的第三章，主要内容是mysql中的详细数据类型、类型转换以及如何对数据进行处理。
 
+## 要点总结
+* 数据值类别：mysql数据库中能够存储如下类别的数据
+  * 数值：包括整数、浮点数、和位域值。其中整数和浮点数可以分成精确值和近似值，用科学计数法（例如.158E8）表示的是近似值，4、1.25这样形式表示的精确值。近似值会有舍入误差，精确值的近似结果是精确的。
+  * 字符串值：例如'123ss'，可以值单引号或者双引号（尽量使用单引号）。可以只用\转义（例如\',\t），使用`''`也可以转义单引号
+  * 日期时间值：可以单独日期和时间，例如（'2012-06-17'、'12:30:43），也可以组合在一起（'2008-06-15 10:30:12.5）
+  * 空间值：例如(10,20)这种表示平面中坐标系的
+  * 布尔值：常量TRUE和FALSE，分别表示1和0。表达式中的0表示FALSE，非0、非NULL表示真
+* mysql数据类型
+  * 数字类型：
+    * TINYINT
+    * SMALLINT
+    * MEDIUMINT
+    * INT
+    * BIGINT
+    * DECIMAL
+    * FLOAT
+    * DOUBLE
+    * BIT
+  * 字符串类型：
+    * CHAR
+    * VARCHAR
+    * BINARY
+    * VARBINARY
+    * TYNYBLOB
+    * BLOB
+    * MEDIUMBLOB
+    * LONGBLOB
+    * TINYTEXT
+    * TEXT
+    * MEDIUMTEXT
+    * LONGTEXT
+    * ENUM
+    * SET
+  * 时态类型：
+    * DATE: 'YYYY-MM-DD'
+    * TIME: 'hh:mm:ss'
+    * DATETIME: 'YYYY-MM-DD hh:mm:ss'
+    * TIMESTAMP: 'YYYY-MM-DD hh:mm:ss'
+    * YEAR: YYYY或YY
 ## 数据值类别
 MySQL支持多种常规类别的数据值。其中包括数值、字符串值、日期/时间这样的时态值、空间值，以及NULL值。
 
