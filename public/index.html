@@ -1,1825 +1,462 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8"><meta name="generator" content="Hexo 4.2.1"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>Bright的个人博客</title><meta description="前端开发的技术分享和个人笔记总结"><meta property="og:type" content="blog"><meta property="og:title" content="Bright的个人博客"><meta property="og:url" content="https://www.brightblog.cn/"><meta property="og:site_name" content="Bright的个人博客"><meta property="og:description" content="前端开发的技术分享和个人笔记总结"><meta property="og:image" content="https://www.brightblog.cn/img/og_image.png"><meta property="article:author" content="Bright"><meta property="article:tag" content="前端开发 个人博客"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="/img/og_image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.brightblog.cn"},"headline":"Bright的个人博客","image":["https://www.brightblog.cn/img/og_image.png"],"author":{"@type":"Person","name":"Bright"},"description":"前端开发的技术分享和个人笔记总结"}</script><link rel="icon" href="/img/favicon.svg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css"><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script></head><body class="is-3-column"><nav class="navbar navbar-main"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="Bright的个人博客" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item is-active" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-6-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><time class="level-item" dateTime="2020-06-27T13:07:22.000Z" title="2020-06-27T13:07:22.000Z">2020-06-27</time><span class="level-item"><a class="link-muted" href="/categories/%E6%A0%91%E8%8E%93%E6%B4%BE/">树莓派</a></span><span class="level-item">2 minutes read (About 340 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2020/06/27/%E6%A0%91%E8%8E%93%E6%B4%BE/%E6%A0%91%E8%8E%93%E6%B4%BE3-5%E5%AF%B8%E6%98%BE%E7%A4%BA%E5%99%A8%E5%A5%97%E8%A3%85%E5%AE%89%E8%A3%85%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">树莓派3.5寸显示器套装安装操作系统</a></h1><div class="content"><p>买了一个3.5寸电阻触摸显示屏的树莓派套装（树莓派4B），打算用于操作系统和linux系统的开发，以及计算机组成等方面的学习。新买回来的树莓派没有安装操作系统，不知道能不能用，先装个系统看看。</p>
+<p>因为买的是3.5寸屏的套装，又没有mini HDMI的线，就只能选择带LCD驱动的系统镜像了，这样安装以后就能够直接使用了使用操作系统了。先给出系统镜像的下载地址：<a href="http://www.waveshare.net/wiki/3.5inch_RPi_LCD_(A">带触摸屏驱动镜像下载地址</a>)。</p>
+<p>系统的安装步骤如下：</p>
+<ol>
+<li>下载带有制定驱动的镜像，地址在上面</li>
+<li>将镜像写到U盘里面，各系统的写入方式参考<a href="https://www.raspberrypi.org/documentation/installation/installing-images/">官方安装教程</a>的<code>Writing the image</code>章节。本文章只给出Mac下的写入方式。</li>
+<li>将U盘插到树莓派上，注意是树莓派的SD card口，而不是用读卡器插到usb口，启动树莓派。应该能看到系统正常启动。</li>
+</ol>
+<h2 id="镜像下载和镜像原理"><a href="#镜像下载和镜像原理" class="headerlink" title="镜像下载和镜像原理"></a>镜像下载和镜像原理</h2><h2 id="系统启动和磁盘远离"><a href="#系统启动和磁盘远离" class="headerlink" title="系统启动和磁盘远离"></a>系统启动和磁盘远离</h2><h2 id="Mac下用到的命令详解"><a href="#Mac下用到的命令详解" class="headerlink" title="Mac下用到的命令详解"></a>Mac下用到的命令详解</h2></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><time class="level-item" dateTime="2020-06-15T00:21:47.000Z" title="2020-06-15T00:21:47.000Z">2020-06-15</time><span class="level-item"><a class="link-muted" href="/categories/Open-Source/">Open Source</a><span> / </span><a class="link-muted" href="/categories/Open-Source/Huaxu/">Huaxu</a></span><span class="level-item">2 minutes read (About 352 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2020/06/15/opensource/%E8%B7%A8%E6%A1%86%E6%9E%B6%E3%80%81%E8%87%AA%E5%AE%9A%E4%B9%89%E4%B8%BB%E9%A2%98%E7%9A%84%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2%E7%B3%BB%E7%BB%9F%E5%8E%9F%E5%9E%8B%E6%A6%82%E8%A7%88/">跨框架、自定义主题的静态博客系统原型概览</a></h1><div class="content"><p>现有的热门的静态博客框架是hexo，hexo主题是基于ejs来开发，比较古老，对于2020年的前端开发者来说，更加习惯使用React、Vue等框架来进行静态博客主题的定制，因此想自行开发一套Spa博客系统，主要特性如下：</p>
+<ul>
+<li>支持React和Vue两种框架制作主题，由博客系统提供构建引擎。构建引擎插件化，可以自定义构建引擎，可以编译hexo等已有的主题。</li>
+<li>主题可以任意切换，相同的博客源文件无需任何修改就可以使用到任意的主题。博客输入形式插件化，可以是markdown或者其他。</li>
+<li>提供多种部署形式：<ul>
+<li>nginx部署方式：直接生成html等静态资源用于部署到nginx上</li>
+<li>自有静态服务器部署方式：框架自带静态服务器，编译后启动服务器即可</li>
+<li>提供docker镜像：自动生成适配上述两种方式的docker镜像，并提供docker镜像的可配置能力</li>
+<li>提供cli工具用于主题发布、项目初始化、资源生成、部署等工程化能力</li>
+</ul>
+</li>
+</ul>
+<p>目前设想的系统输入输出模型如下：<br><img src="/img/static-blog-lifecycle.png" alt="lifecycle"></p>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><time class="level-item" dateTime="2020-06-15T00:18:37.000Z" title="2020-06-15T00:18:37.000Z">2020-06-15</time><span class="level-item"><a class="link-muted" href="/categories/Webpack/">Webpack</a><span> / </span><a class="link-muted" href="/categories/Webpack/Webpack%E5%AE%9E%E6%88%98/">Webpack实战</a></span><span class="level-item">a minute read (About 168 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2020/06/15/webpack/webpack%E5%AE%9E%E6%88%98%EF%BC%9A%E6%89%93%E9%80%A0%E5%90%8C%E6%97%B6%E7%BC%96%E8%AF%91react%E5%92%8Cvue%E7%9A%84%E6%9E%84%E5%BB%BA%E5%BC%95%E6%93%8E/">webpack实战：打造同时编译react和vue的构建引擎</a></h1><div class="content"><p>vue-cli-service和create-react-app都是单独针对vue或者react的初始化、开发和构建工具，现在想开发一套系统，既可以编译Vue的项目，又可以编译React的项目，提供插件化的机制控制构建过程。不同框架经过引擎后编译得到类似的静态资源结果，引擎提供多种内置的配置，例如sass等，可以通过配置项覆盖默认或者关闭默认配置或者在初始化的时候选择需要的能力和内置主题。</p>
+<p>整个系统的构建模型如下：</p>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><time class="level-item" dateTime="2020-06-14T03:08:34.142Z" title="2020-06-14T03:08:34.142Z">2020-06-14</time><span class="level-item"><a class="link-muted" href="/categories/php/">php</a></span><span class="level-item">11 minutes read (About 1593 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2020/06/14/php/Smarty%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/">Smarty块度入门</a></h1><div class="content"><h1 id="Smarty快速入门"><a href="#Smarty快速入门" class="headerlink" title="Smarty快速入门"></a>Smarty快速入门</h1><p>smarty官方中文文档：<a href="https://www.smarty.net/docs/zh_CN/what.is.smarty.tpl">https://www.smarty.net/docs/zh_CN/what.is.smarty.tpl</a></p>
+<h2 id="1-Smarty是什么？"><a href="#1-Smarty是什么？" class="headerlink" title="1. Smarty是什么？"></a>1. Smarty是什么？</h2><p>Smarty是一个PHP的模板引擎。类似于java的jsp，javascript使用的ejs等。可以向模板文件中嵌入变量，条件控制，循环，模板继承等，帮助html文档的生成。</p>
+<p>主要功能将显示逻辑和业务逻辑分开：</p>
+<ul>
+<li>这意味着模板可以包含部分仅作为显示用的逻辑代码。 这些显示逻辑如：<a href="https://www.smarty.net/docs/zh_CN/language.function.include.tpl">包含</a> 其他模板，<a href="https://www.smarty.net/docs/zh_CN/language.function.cycle.tpl">交替</a>设置表格每行的颜色， 把变量转为 <a href="https://www.smarty.net/docs/zh_CN/language.modifier.upper.tpl">大写</a>字母， <a href="https://www.smarty.net/docs/zh_CN/language.function.foreach.tpl">循环</a>遍历数组并 <a href="https://www.smarty.net/docs/zh_CN/api.display.tpl">显示</a>出来。</li>
+<li>Smarty也不是无论如何也强制分离业务和显示逻辑。毕竟Smarty 无法知道谁是谁，所以，会不会把业务逻辑放到模板也是看你怎么处理。</li>
+<li>同时，如果你希望在你的模板里<em>没有</em>任何的逻辑代码，你也可以 把模板写成仅剩下文字和变量。</li>
+</ul>
+<p>模板文件中可以创建自己的函数和变量修饰器。</p>
+<p>条件判断语句会直接使用php解析，所以if后面可以是简单或者较复杂的表达式。</p>
+<h2 id="2-Smarty的基本语法"><a href="#2-Smarty的基本语法" class="headerlink" title="2. Smarty的基本语法"></a>2. Smarty的基本语法</h2><p>smarty的标签都是使用定界符括起来，默认是{}，但是定界符可以被改变。</p>
+<p><strong>任何在定界符之外的内容都是静态的</strong></p>
+<p>当Smarty读取到这些标签时（{}），会试图解析他们，并且在对应的位置输出结果。（这意味着，smarty会对标签中的逻辑进行处理，然后在标签所在的位置输出处理结果到文档中，比如输出一个变量，会把变量的值输出到文档中的对应位置）</p>
+<h3 id="2-1-注释"><a href="#2-1-注释" class="headerlink" title="2.1 注释"></a>2.1 注释</h3><p>注释时定界符+’*’：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;* 这时一个注释 *&#125;</span><br></pre></td></tr></table></figure>
+<p>多行注释：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;*****************</span><br><span class="line">    注释内容</span><br><span class="line">******************&#125;</span><br></pre></td></tr></table></figure>
+<p>注释不能嵌套。</p>
+<h3 id="2-2-变量"><a href="#2-2-变量" class="headerlink" title="2.2 变量"></a>2.2 变量</h3><p>模板变量有美元符号$开头，由字母、数组和下划线组成，类似于php的变量。变量可以引用数组索引（数字和非数字均可）、对象的属性和方法等。</p>
+<p>配置变量放在两个井号中间（#marks#），或者使用$smarty.config使用。</p>
+<p>双大括号中可以执行执行php函数。<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#123;$foo&#125;        &lt;-- 显示简单的变量 (非数组/对象)</span><br><span class="line">&#123;$foo[<span class="number">4</span>]&#125;     &lt;-- 在<span class="number">0</span>开始索引的数组中显示第五个元素</span><br><span class="line">&#123;$foo.bar&#125;    &lt;-- 显示<span class="string">"bar"</span>下标指向的数组值，等同于PHP的$foo[<span class="string">'bar'</span>]</span><br><span class="line">&#123;$foo.$bar&#125;   &lt;-- 显示以变量$bar值作为下标指向的数组值，等同于PHP的$foo[$bar]</span><br><span class="line">&#123;$foo-&gt;bar&#125;   &lt;-- 显示对象属性 <span class="string">"bar"</span></span><br><span class="line">&#123;$foo-&gt;bar()&#125; &lt;-- 显示对象成员方法<span class="string">"bar"</span>的返回</span><br><span class="line">&#123;<span class="comment">#foo#&#125;       &lt;-- 显示变量配置文件内的变量"foo"</span></span><br><span class="line">&#123;$smarty.config.foo&#125; &lt;-- 等同于&#123;<span class="comment">#foo#&#125;</span></span><br><span class="line">&#123;$foo[bar]&#125;   &lt;-- 仅在循环的语法内可用，见&#123;section&#125;</span><br><span class="line">&#123;assign <span class="keyword">var</span>=foo value=<span class="string">'baa'</span>&#125;&#123;$foo&#125; &lt;--  显示<span class="string">"baa"</span>, 见&#123;assign&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="2-3-函数"><a href="#2-3-函数" class="headerlink" title="2.3 函数"></a>2.3 函数</h3><p>每个smarty标签都可以是显示一个变量或者调用某种类型的函数。</p>
+<p>函数调用：</p>
+<blockquote>
+<p>{funcname attr1=”val1” attr2=”val2”}</p>
+</blockquote>
+<p>在定界符内包含函数和其属性。</p>
+<ul>
+<li>函数包括<a href="https://www.smarty.net/docs/zh_CN/language.builtin.functions.tpl">内置函数</a> 和<a href="https://www.smarty.net/docs/zh_CN/language.custom.functions.tpl">自定义函数</a> 都是用同样的语法调用。</li>
+<li>内置函数是工作在Smarty <strong>内部</strong>的函数, 类似 <a href="https://www.smarty.net/docs/zh_CN/language.function.if.tpl"><code>{if}</code></a>, <a href="https://www.smarty.net/docs/zh_CN/language.function.section.tpl"><code>{section}</code></a>和 <a href="https://www.smarty.net/docs/zh_CN/language.function.strip.tpl"><code>{strip}</code></a>等等。 它们不需要进行修改或者改变。</li>
+<li>自定义函数是通过<a href="https://www.smarty.net/docs/zh_CN/plugins.tpl">插件</a>定义的 <strong>额外的</strong>函数。 你可以任意修改自定义函数，或者创建一个新的函数。 <a href="https://www.smarty.net/docs/zh_CN/language.function.html.options.tpl"><code>{html_options}</code></a>就是一个自定义函数的例子。</li>
+</ul>
+<h3 id="2-4-属性"><a href="#2-4-属性" class="headerlink" title="2.4 属性"></a>2.4 属性</h3><p>函数通过属性来定义或者修改他们的行为。属性类似于HTML中的属性。</p>
+<p>属性使用：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&#123;<span class="keyword">include</span> file=<span class="string">"header.tpl"</span>&#125;</span><br><span class="line"></span><br><span class="line">&#123;<span class="keyword">include</span> file=<span class="string">"header.tpl"</span> nocache&#125;  <span class="comment">// 等同于 nocache=true</span></span><br><span class="line"></span><br><span class="line">&#123;<span class="keyword">include</span> file=<span class="string">"header.tpl"</span> attrib_name=<span class="string">"attrib value"</span>&#125;</span><br><span class="line"></span><br><span class="line">&#123;<span class="keyword">include</span> file=$includeFile&#125;</span><br><span class="line"></span><br><span class="line">&#123;<span class="keyword">include</span> file=<span class="comment">#includeFile# title="My Title"&#125;</span></span><br><span class="line"></span><br><span class="line">&#123;assign <span class="keyword">var</span>=foo value=&#123;counter&#125;&#125;  <span class="comment">// 插件结果</span></span><br><span class="line"></span><br><span class="line">&#123;assign <span class="keyword">var</span>=foo value=substr($bar,<span class="number">2</span>,<span class="number">5</span>)&#125;  <span class="comment">// PHP函数结果</span></span><br><span class="line"></span><br><span class="line">&#123;assign <span class="keyword">var</span>=foo value=$bar|strlen&#125;  <span class="comment">// 使用修饰器</span></span><br><span class="line"></span><br><span class="line">&#123;assign <span class="keyword">var</span>=foo value=$buh+$bar|strlen&#125;  <span class="comment">// 复杂的表达式</span></span><br><span class="line"></span><br><span class="line">&#123;html_select_date display_days=<span class="keyword">true</span>&#125;</span><br><span class="line"></span><br><span class="line">&#123;mailto address=<span class="string">"smarty@example.com"</span>&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="2-5-双引号中嵌入变量"><a href="#2-5-双引号中嵌入变量" class="headerlink" title="2.5 双引号中嵌入变量"></a>2.5 双引号中嵌入变量</h3><ul>
+<li>Smarty可以识别出在双引号中嵌套的 <a href="https://www.smarty.net/docs/zh_CN/language.syntax.variables.tpl">变量</a><a href="https://www.smarty.net/docs/zh_CN/api.assign.tpl">值</a>，这些变量名称必须只包括 字母、数字和下划线。 参见<a href="http://php.net/language.variables">命名规则</a>。</li>
+<li>另外，带有其他字符的，如点号（.）或者 <code>$object-&gt;reference</code>形式的变量， 必须用<code>单引号</code>括起来。</li>
+<li>Smarty3中允许在双引号中嵌入Smarty的标签并运行。 如果你需要在双引号的变量上使用修饰器、插件或者PHP函数等，这是非常有用的。</li>
+</ul>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&#123;func <span class="keyword">var</span>=<span class="string">"test $foo test"</span>&#125;              <span class="comment">// 识别变量 $foo</span></span><br><span class="line">&#123;func <span class="keyword">var</span>=<span class="string">"test $foo_bar test"</span>&#125;          <span class="comment">// 识别变量 $foo_bar</span></span><br><span class="line">&#123;func <span class="keyword">var</span>=<span class="string">"test `$foo[0]` test"</span>&#125;         <span class="comment">// 识别变量 $foo[0]</span></span><br><span class="line">&#123;func <span class="keyword">var</span>=<span class="string">"test `$foo[bar]` test"</span>&#125;       <span class="comment">// 识别变量 $foo[bar]</span></span><br><span class="line">&#123;func <span class="keyword">var</span>=<span class="string">"test $foo.bar test"</span>&#125;          <span class="comment">// 识别变量 $foo (不是 $foo.bar)</span></span><br><span class="line">&#123;func <span class="keyword">var</span>=<span class="string">"test `$foo.bar` test"</span>&#125;        <span class="comment">// 识别变量 $foo.bar</span></span><br><span class="line">&#123;func <span class="keyword">var</span>=<span class="string">"test `$foo.bar` test"</span>|escape&#125; <span class="comment">// 引号外的修饰器!</span></span><br><span class="line">&#123;func <span class="keyword">var</span>=<span class="string">"test &#123;$foo|escape&#125; test"</span>&#125;     <span class="comment">// 引号内的修饰器!</span></span><br><span class="line">&#123;func <span class="keyword">var</span>=<span class="string">"test &#123;time()&#125; test"</span>&#125;          <span class="comment">// PHP函数结果</span></span><br><span class="line">&#123;func <span class="keyword">var</span>=<span class="string">"test &#123;counter&#125; test"</span>&#125;         <span class="comment">// 插件的结果</span></span><br><span class="line">&#123;func <span class="keyword">var</span>=<span class="string">"variable foo is &#123;if !$foo&#125;not &#123;/if&#125; defined"</span>&#125; <span class="comment">// Smarty区块函数</span></span><br></pre></td></tr></table></figure>
+<h3 id="2-6-数学计算"><a href="#2-6-数学计算" class="headerlink" title="2.6 数学计算"></a>2.6 数学计算</h3><p>变量值内可以直接进行数学计算</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&#123;$foo+<span class="number">1</span>&#125;</span><br><span class="line"></span><br><span class="line">&#123;$foo*$bar&#125;</span><br><span class="line"></span><br><span class="line">&#123;* 更复杂的例子 *&#125;</span><br><span class="line"></span><br><span class="line">&#123;$foo-&gt;bar-$bar[<span class="number">1</span>]*$baz-&gt;foo-&gt;bar()<span class="number">-3</span>*<span class="number">7</span>&#125;</span><br><span class="line"></span><br><span class="line">&#123;<span class="keyword">if</span> ($foo+$bar.test%$baz*<span class="number">134232</span>+<span class="number">10</span>+$b+<span class="number">10</span>)&#125;</span><br><span class="line"></span><br><span class="line">&#123;$foo|truncate:<span class="string">"`$fooTruncCount/$barTruncFactor-1`"</span>&#125;</span><br><span class="line"></span><br><span class="line">&#123;assign <span class="keyword">var</span>=<span class="string">"foo"</span> value=<span class="string">"`$foo+$bar`"</span>&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="2-7-避免smarty解析"><a href="#2-7-避免smarty解析" class="headerlink" title="2.7 避免smarty解析"></a>2.7 避免smarty解析</h3><ol>
+<li>当{}左右两边都是空格的时候，将会被自动忽略解析。</li>
+<li>使用{literal}…{/literal}可以让块中间的内容忽略解析。</li>
+</ol>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><time class="level-item" dateTime="2020-06-14T03:08:34.122Z" title="2020-06-14T03:08:34.122Z">2020-06-14</time><span class="level-item"><a class="link-muted" href="/categories/git/">git</a></span><span class="level-item">5 minutes read (About 713 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2020/06/14/git/%E5%9C%A8centos%E4%B8%8A%E6%90%AD%E5%BB%BAgit%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%BB%93%E5%BA%93/">在centos上搭建git服务器仓库</a></h1><div class="content"><h1 id="在centos上搭建git服务器仓库"><a href="#在centos上搭建git服务器仓库" class="headerlink" title="在centos上搭建git服务器仓库"></a>在centos上搭建git服务器仓库</h1><p>git的<a href="https://git-scm.com/book/zh/v1/Git-%E5%9F%BA%E7%A1%80-%E5%8F%96%E5%BE%97%E9%A1%B9%E7%9B%AE%E7%9A%84-Git-%E4%BB%93%E5%BA%93">官方文档</a>，这里有git命令，git服务器，git配置，git管理等一系列的说明都有。</p>
+<h2 id="1-安装git"><a href="#1-安装git" class="headerlink" title="1. 安装git"></a>1. 安装git</h2><p>首先查看有没有安装git，输入：</p>
+<blockquote>
+<p>git –version</p>
+</blockquote>
+<p>如果没有显示“git is not a command”，则说明已经安装了git，跳过此步。</p>
+<p>如果没有安装git，则需要安装git：</p>
+<blockquote>
+<p>yum install git</p>
+</blockquote>
+<p>如果觉得这样安装的git版本太低，可以再查一下如何升级git。</p>
+<h2 id="2-添加git用户-组"><a href="#2-添加git用户-组" class="headerlink" title="2. 添加git用户/组"></a>2. 添加git用户/组</h2><blockquote>
+<p>groupadd git</p>
+<p>useradd git -g git</p>
+</blockquote>
+<h2 id="3-创建git访问权限文件"><a href="#3-创建git访问权限文件" class="headerlink" title="3. 创建git访问权限文件"></a>3. 创建git访问权限文件</h2><p>git需要在/home/git/.ssh目录下创建authorized-keys文件来管理允许访问的客户端，并配置相关的权限：</p>
+<blockquote>
+<p>cd /home/git</p>
+<p>mkdir .ssh</p>
+<p>touch .ssh/authorized-keys</p>
+<p>chmod 700 .ssh</p>
+<p>chmod 600 .ssh/authorized-keys</p>
+</blockquote>
+<p>authorized-keys用来存放允许连接的客户端的公钥，也就是说如果你想某一个客户端可以在这个仓库上pull或者push，需要将客户端的公钥复制到authorized-keys中，每一个公钥占单独的一行。</p>
+<h2 id="4-创建git仓库"><a href="#4-创建git仓库" class="headerlink" title="4. 创建git仓库"></a>4. 创建git仓库</h2><p>假定git仓库都放在/data/gitrepo目录下：</p>
+<blockquote>
+<p>mkdir /data/gitrepo</p>
+<p>cd /data/gitrepo</p>
+<p>git init –bare test.git</p>
+<p>chown -R git:git test.git</p>
+</blockquote>
+<p>到这里我们就已经完成了创建服务器端的git仓库，如果我们要从这个仓库拉代码下来，使用：</p>
+<blockquote>
+<p>git clone git@ip地址/网址:/data/gitrepo/test.git</p>
+</blockquote>
+<h2 id="5-实现免密pull或者push"><a href="#5-实现免密pull或者push" class="headerlink" title="5. 实现免密pull或者push"></a>5. 实现免密pull或者push</h2><p>这时候我们可能发现git pull或者push的时候仍然需要输入服务器的密码。如何才能实现免密传输呢？这里先给一个解决方案，如果不行可以搜索“如何免密ssh登陆？”。</p>
+<h3 id="5-1-更改ssh配置"><a href="#5-1-更改ssh配置" class="headerlink" title="5.1 更改ssh配置"></a>5.1 更改ssh配置</h3><p>首先更改sshd的配置，这里可以配置服务器的远程登陆方式，可以有密码，公钥等的登陆方式。输入：</p>
+<blockquote>
+<p>sudo vim /etc/ssh/sshd_config</p>
+</blockquote>
+<p>然后更改下列配置：</p>
+<blockquote>
+<p>StrictModes no</p>
+<p>RSAAuthentication yes</p>
+<p>PubkeyAuthentication yes</p>
+<p>AuthorizedKeysFile .ssh/authorized-keys</p>
+</blockquote>
+<p>然后重启：</p>
+<blockquote>
+<p>service sshd restart</p>
+</blockquote>
+<h3 id="5-2-将客户端的公钥添加到git服务器的authorized-keys文件中"><a href="#5-2-将客户端的公钥添加到git服务器的authorized-keys文件中" class="headerlink" title="5.2 将客户端的公钥添加到git服务器的authorized-keys文件中"></a>5.2 将客户端的公钥添加到git服务器的authorized-keys文件中</h3><p>有两种方式</p>
+<ol>
+<li><p>使用ssh-copy-id</p>
+<blockquote>
+<p>ssh-copy-id -i ~/.ssh/id_rsa.pub git@你的域名或者ip地址</p>
+</blockquote>
+</li>
+<li><p>直接将你的客户端的公钥添加到authorized_keys文件中</p>
+</li>
+</ol>
+<h2 id="6-代码自动部署"><a href="#6-代码自动部署" class="headerlink" title="6. 代码自动部署"></a>6. 代码自动部署</h2><p>在服务器上clone另一个仓库：</p>
+<blockquote>
+<p>git clone git@localhost:/data/gitrepo/brightblog.git</p>
+</blockquote>
+<p>编写post-receive shell脚本，需要为脚本文件赋予执行权限：<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cd 服务器clone的仓库目录</span><br><span class="line">unset GIT_DIR</span><br><span class="line">git pull origin master</span><br><span class="line">hexo clean</span><br><span class="line">hexo generate</span><br></pre></td></tr></table></figure><br>上面的shell脚本做的事情是：<br>进入目录=》重值GIT_DIR=》获取最新代码=》清空public=》生成静态文件</p>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><time class="level-item" dateTime="2020-06-14T03:08:34.122Z" title="2020-06-14T03:08:34.122Z">2020-06-14</time><span class="level-item"><a class="link-muted" href="/categories/hexo/">hexo</a></span><span class="level-item">2 minutes read (About 233 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2020/06/14/hexo/%E5%9F%BA%E4%BA%8EHexo%E6%90%AD%E5%BB%BA%E8%87%AA%E5%AE%9A%E4%B9%89%E5%8D%9A%E5%AE%A2%E7%BD%91%E7%AB%99/">基于Hexo搭建自定义博客网站</a></h1><div class="content"><p>这篇博客主要内容是如何基于Hexo搭建自定义的静态博客网站，我们将从网站布局设计、实现、部署等各个方面来详细介绍，如何实现自己的个人主页和博客。</p>
+<h2 id="基本结构"><a href="#基本结构" class="headerlink" title="基本结构"></a>基本结构</h2><p>网站目前暂定包含两个部分：个人主页和博客。</p>
+<ul>
+<li>个人主页：主要内容是个人简介，学习经历，项目经历，项目介绍，技术路线等的说明。类似于个人简历，但是效果更加的炫酷。要有明显的链接到博客和github的入口。</li>
+<li>博客系统：主要内容是个人学习的总结，笔记，技术分享等，需要要有归档和分类功能，分类要能够细分。拥有完整的博客内容导航功能。</li>
+</ul>
+<h2 id="自定义主题"><a href="#自定义主题" class="headerlink" title="自定义主题"></a>自定义主题</h2></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><time class="level-item" dateTime="2020-06-14T03:08:34.119Z" title="2020-06-14T03:08:34.119Z">2020-06-14</time><span class="level-item"><a class="link-muted" href="/categories/%E5%AD%A6%E4%B9%A0%E6%89%93%E5%8D%A1/">学习打卡</a></span><span class="level-item">11 minutes read (About 1635 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2020/06/14/daily-note/%E6%AF%8F%E6%97%A5%E6%89%93%E5%8D%A1/">每日学习打卡记录</a></h1><div class="content"><h1 id="每日打卡"><a href="#每日打卡" class="headerlink" title="每日打卡"></a>每日打卡</h1><p>这篇文档记录了每日学习到了什么新知识，干了一些什么事情，持续记录。</p>
+<p>每周学习计划（markdown不支持合并单元格，使用table来实现）</p>
+<table><br>  <thead><br>    <tr><br>      <th>日期</th><br>      <th>时间段</th><br>      <th>任务</th><br>    </tr><br>  </thead><br>  <tbody><br>    <tr><br>      <td rowspan="5">周一</td><br>      <td>7:00-8:30</td><br>      <td>操作系统原理和实现</td><br>    </tr><br>    <tr><br>      <td>9:00-19:30</td><br>      <td>上班，有时间空余的话看看开源框架的文档</td><br>    </tr><br>    <tr><br>      <td>20:30-21:30</td><br>      <td>读书，程序设计原理，写读书笔记</td><br>    </tr><br>    <tr><br>      <td>21:50-22:50</td><br>      <td>读书linux基础&amp;命令行和shell脚本</td><br>    </tr><br>    <tr><br>      <td>23:00-23:30</td><br>      <td>个人博客网站完善</td><br>    </tr><br>    <tr><br>      <td rowspan="5">周二</td><br>      <td>7:00-8:30</td><br>      <td>数学基础</td><br>    </tr><br>    <tr><br>      <td>9:00-19:30</td><br>      <td>上班，有时间空余的话看看开源框架的官网</td><br>    </tr><br>    <tr><br>      <td>20:30-21:30</td><br>      <td>读书，《深入浅出Vue.js》，写读书笔记</td><br>    </tr><br>    <tr><br>      <td>21:50-22:50</td><br>      <td>C/C++语言 GCC和汇编</td><br>    </tr><br>    <tr><br>      <td>23:00-23:30</td><br>      <td>个人博客网站完善</td><br>    </tr><br>    <tr><br>      <td rowspan="5">周三</td><br>      <td>7:00-8:30</td><br>      <td>操作系统原理和实现</td><br>    </tr><br>    <tr><br>      <td>9:00-19:30</td><br>      <td>上班，有时间空余的话看看开源框架的官网</td><br>    </tr><br>    <tr><br>      <td>20:30-21:30</td><br>      <td>读书，《鸟哥的linux私房菜》，写读书笔记</td><br>    </tr><br>    <tr><br>      <td>21:50-22:50</td><br>      <td>leetcode算法刷题</td><br>    </tr><br>    <tr><br>      <td>23:00-23:30</td><br>      <td>个人博客网站完善</td><br>    </tr><br>    <tr><br>      <td rowspan="5">周四</td><br>      <td>7:30-8:30</td><br>      <td>leetcode刷题</td><br>    </tr><br>    <tr><br>      <td>9:00-19:30</td><br>      <td>上班，有时间看开源框架的官网</td><br>    </tr><br>    <tr><br>      <td>20:30-21:30</td><br>      <td>《程序设计原理》</td><br>    </tr><br>    <tr><br>      <td>21:50-22:50</td><br>      <td>《linux脚本和命令行基础》</td><br>    </tr><br>    <tr><br>      <td>23:00-23:30</td><br>      <td>个人博客网站</td><br>    </tr><br>    <tr><br>      <td rowspan="3">周五</td><br>      <td>7:30-8:30</td><br>      <td>数学基础</td><br>    </tr><br>    <tr><br>      <td>9:00-19:30</td><br>      <td>上班，有时间看开源框架的官网</td><br>    </tr><br>    <tr><br>      <td>20:30-23:30</td><br>      <td>休息，打打游戏，或者学习</td><br>    </tr><br>    <tr><br>      <td rowspan="2">周六日</td><br>      <td>0:00-24:00</td><br>      <td>最多打半天游戏，时间主要给操作系统和前端基础，其他再自行安排</td><br>    </tr><br>  </tbody><br></table>
 
-  <head><meta name="generator" content="Hexo 3.8.0">
-  <meta charset="utf-8">
-  
-    <title>
-      
-            Bright的个人博客
-    </title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link rel="stylesheet" href="/css/reset.css">
-      <link rel="stylesheet" href="/css/style.css">
-        <link rel="stylesheet" href="/css/github-markdown.css">
-          <link rel="stylesheet" href="/css/atom-one-dark.css">
-            
-</head>
-
-    <body>
-      
-        <header id="header" class="card">
-  <span class="logo">B</span>
-  <span class="motto">技术 & 梦想 |&nbsp;学习 & 总结</span>
-  <nav>
-    <ul>
-    
-      <li>
-        <a href="/">首页 </a>
-      </li>
-    
-      <li>
-        <a href="/archives">归档 </a>
-      </li>
-    
-      <li>
-        <a href="/categories">分类 </a>
-      </li>
-    
-      <li>
-        <div class="search-input">
-          <i class="fa search"></i>
-          <input id="search-input" type="text">
-        </div>
-      </li>
-    </ul>
-  </nav>
-</header>
-          <main id="main">
-            
-              
-<aside id="left-sidebar" class="margin-right">
-  <nav class="card sidebar-component">
-  <div class="card-title">文章归档</div>
-  <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a><span class="archive-list-count">18</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a><span class="archive-list-count">17</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a><span class="archive-list-count">30</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a><span class="archive-list-count">15</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a><span class="archive-list-count">17</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a><span class="archive-list-count">18</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a><span class="archive-list-count">2</span></li></ul>
-</nav>
-  <nav class="card sidebar-component">
-  <div class="card-title">文章分类</div>
-  <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/css/">css</a><span class="category-list-count">10</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/css/css基础/">css基础</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/css工具/">css工具</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/less/">less</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/sass/">sass</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/docker/">docker</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/docker/docker-swarm/">docker swarm</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/docker/docker基础/">docker基础</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">git</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html5/">html5</a><span class="category-list-count">8</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/html5/dom/">dom</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html5/html5-API/">html5 API</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html5/html5标签和属性/">html5标签和属性</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html5/svg/">svg</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html5/tips/">tips</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html5/实战/">实战</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/">java</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/java/spring实战/">spring实战</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/js/">js</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/js/js基础/">js基础</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/js/typescript/">typescript</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/js/正则表达式/">正则表达式</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/linux/工具/">工具</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/nginx/">nginx</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node-js/">node.js</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/node-js/npm/">npm</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node-js/命令行工具/">命令行工具</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/php/">php</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/spring-boot/">spring-boot</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/spring-boot/开发工具/">开发工具</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/typescript/">typescript</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/typescript/踩坑指南/">踩坑指南</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/">vue</a><span class="category-list-count">11</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/vue/cli/">cli</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/tips/">tips</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/vue-router/">vue-router</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/vue实战/">vue实战</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/vue组件开发/">vue组件开发</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/基础/">基础</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/webpack/">webpack</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/webpack/webpack基础/">webpack基础</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/xml/">xml</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/xml/基础/">基础</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/学习打卡/">学习打卡</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/安全/">安全</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/安全/密码技术/">密码技术</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/操作系统/">操作系统</a><span class="category-list-count">23</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/操作系统/shell/">shell</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/操作系统/ucore/">ucore</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/操作系统/操作系统原理/">操作系统原理</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据库/">数据库</a><span class="category-list-count">10</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/数据库/mysql/">mysql</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据库/sql语句/">sql语句</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据库/导论/">导论</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据库/数据库编程/">数据库编程</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据库/数据库设计/">数据库设计</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据结构/">数据结构</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/数据结构/图/">图</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/毕设/">毕设</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/">算法</a><span class="category-list-count">20</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/算法/leetcode/">leetcode</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/模式匹配/">模式匹配</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/深度优先搜索/">深度优先搜索</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程语言/">编程语言</a><span class="category-list-count">20</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/编程语言/C/">C</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/编程语言/C/语言/">语言</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程语言/C语言/">C语言</a><span class="category-list-count">17</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程语言/Java/">Java</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程语言/java/">java</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/英语/">英语</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/英语/生词/">生词</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/计算机网络/">计算机网络</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/计算机网络/wireshark/">wireshark</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/计算机网络/问题记录/">问题记录</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/设计模式/">设计模式</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/设计模式/交给子类/">交给子类</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/设计模式/生成实例/">生成实例</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/设计模式/适应设计模式/">适应设计模式</a><span class="category-list-count">2</span></li></ul></li></ul>
-</nav>
-  <nav class="card sidebar-component">
-  <div class="card-title">最近文章</div>
-  <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2020/05/19/algorithm/leetcode/动态规划/interleaving-string/">interleaving string</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/17/algorithm/leetcode/分治/maximum-product-subarray/">maximum product subarray</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/15/algorithm/leetcode/动态规划/triangle/">triangle</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/12/algorithm/leetcode/动态规划/unique-binary-search-trees-ii/">unique binary search trees ii</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/11/algorithm/leetcode/动态规划/decode-ways/">decode-ways</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/09/algorithm/leetcode/动态规划/unique-path-II/">unique path II</a></li></ul>
-</nav>
-</aside>
-
-
-                <!--
-<aside id="right-sidebar">
-  <nav class="card margin-bottom">
-  
-</nav>
-</aside>
-
--->
-                <article id="article" class="margin-right ofhidn">
-                  <section class="ofhidn">
-  
-    <div class="post-entry card">
-  <a href="/2019/06/11/css/less/less快速入门/">
-    <h3>less快速入门
-      <span class="title-right">css</span>
-    </h3>
-    <div class="content">less是一门css预处理语言，添加了变量，mixin，函数等特性，使得css更易维护和扩展。less可以运行于node服务器或者浏览器端。
-less完全支持css语法，并在此基础上进行的扩展
-变量变</div>
-    <div class="post-time">2019-06-11</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/08/31/阅读中遇到的不熟悉的单词/">
-    <h3>阅读中遇到的不熟悉的单词
-      <span class="title-right">英语</span>
-    </h3>
-    <div class="content">这篇文章记录了在读书、文档中遇到的英语生词，用于提升英语能力以及定期的单词复习
-123456789101112131415161718192021222324252627282930313233343</div>
-    <div class="post-time">2019-08-31</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/11/23/c-c++/GCC常用选项/">
-    <h3>GCC常用选项
-      <span class="title-right">编程语言</span>
-    </h3>
-    <div class="content">这篇文章学习GCC中的常用选项。
--I dir将dir目录添加到预处理过程中搜索include头文件的目录中。通过-isyatem和-idirafter可以指定include &amp;lt;file&amp;gt;</div>
-    <div class="post-time">2019-11-23</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/11/11/c-c++/centos7-下升级gcc编译器/">
-    <h3>centos7 下升级gcc编译器
-      <span class="title-right">编程语言</span>
-    </h3>
-    <div class="content">只支持64位程序。
-12yum -y install centos-release-sclyum -y install devtoolset-8-gcc devtoolset-8-gcc-c++ de</div>
-    <div class="post-time">2019-11-11</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/06/11/c-c++/gcc编译器初步/">
-    <h3>gcc编译器初步
-      <span class="title-right">编程语言</span>
-    </h3>
-    <div class="content">gcc编译器入门最近重新复习c/c++，操作系统等等计算机的基础知识，直接从gcc开始，这一篇文章记录gcc编译器命令行的基本使用。
-使用gcc编译器编译第一个程序编写一个HelloWord.c文件，</div>
-    <div class="post-time">2019-06-11</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/10/02/computer-network/centos-7下安装wireshark/">
-    <h3>centos 7下安装wireshark
-      <span class="title-right">计算机网络</span>
-    </h3>
-    <div class="content">wireshark是一款可以对网卡进行抓包的软件，能获取到网卡上收到的二进制数据，可以分析到达主机的网络包，分析其使用的协议，内容等等。这篇文章我们介绍如何在centos 7下安装wireshark。</div>
-    <div class="post-time">2019-10-02</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2020/02/04/computer-network/计算机网络复习问题记录/">
-    <h3>计算机网络复习问题记录
-      <span class="title-right">计算机网络</span>
-    </h3>
-    <div class="content">
-如何组建一个完整的计算机网络？如何设置核心路由器、组建局域网、接入无线路由器？如何选择网络传输介质？在思科的模拟软件上模拟一个完整的网络。
-
-无线路由器和核心路由器是不是一样的？如何将无线路由器接入</div>
-    <div class="post-time">2020-02-04</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2020/02/04/computer-network/计算机网络概述/">
-    <h3>计算机网络概述
-      <span class="title-right">计算机网络</span>
-    </h3>
-    <div class="content">这里文章从总体上复习计算机网络涉及的基本概念，主要包括计算机网络的组成成分、时延、协议栈分层、安全等知识点，从总体上概览计算机网络的方方面面。其中知识点的细节会分布到后面的每一个章节中复习，最终的复习</div>
-    <div class="post-time">2020-02-04</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/08/14/css/browserlist文档学习/">
-    <h3>browserlist文档学习
-      <span class="title-right">css</span>
-    </h3>
-    <div class="content">browserslist用于在不同的前端工具，比如autoprefixer、stylelint、babel-preset-env间共享相同的目标浏览器和nodejs环境。使用该配置的工具如下：
-
-au</div>
-    <div class="post-time">2019-08-14</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/07/14/css/css中各种百分比的指向/">
-    <h3>css中各种百分比的指向
-      <span class="title-right">css</span>
-    </h3>
-    <div class="content">在日常的开发中，我们会接触到各种各样的百分比单位，那这些百分比到底是参照于谁呢？查了一些资料，下面做一个总结：
-相对于父元素的宽度max-width、min-width、width、left、righ</div>
-    <div class="post-time">2019-07-14</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/07/24/css/css容易弄错的小细节/">
-    <h3>css容易弄错的小细节
-      <span class="title-right">css</span>
-    </h3>
-    <div class="content">有很多容易被我们忽略的小细节，所以理所当然的认为的错误的细节，这里做一个汇总，遇到了就到这里添加。
-多类选择器在class属性中我们可以指定多个class，例如：12345678910&amp;lt;styl</div>
-    <div class="post-time">2019-07-24</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/08/13/css/css布局：Grid/">
-    <h3>css布局：Grid
-      <span class="title-right">css</span>
-    </h3>
-    <div class="content">参考资料：mdn css grid
-css grid布局是一个web上二维布局系统，它可以让你把内容放置在数行和数列中，而且可以通过一系列的特性，实现复杂的布局。
-什么是Grid布局？一个grid只是</div>
-    <div class="post-time">2019-08-13</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/12/13/css/css布局：flex/">
-    <h3>css布局：flex
-      <span class="title-right">css</span>
-    </h3>
-    <div class="content"></div>
-    <div class="post-time">2019-12-13</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/08/04/daily-note/每日打卡/">
-    <h3>每日学习打卡记录
-      <span class="title-right">学习打卡</span>
-    </h3>
-    <div class="content">每日打卡这篇文档记录了每日学习到了什么新知识，干了一些什么事情，持续记录。
-每周学习计划（markdown不支持合并单元格，使用table来实现）
-            日期      时间段   </div>
-    <div class="post-time">2019-08-04</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2020/03/26/docker/docker-swarm基础/">
-    <h3>docker swarm基础
-      <span class="title-right">docker</span>
-    </h3>
-    <div class="content">Docker的基础知识在另一系列文章中，。这一篇文章主要介绍docker swarm的基础知识，包括docker swarm的基础概念，如何使用docker swarm进行集群部署。
-概览当前版本（1</div>
-    <div class="post-time">2020-03-26</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2020/03/26/docker/docker基础/">
-    <h3>docker基础
-      <span class="title-right">docker</span>
-    </h3>
-    <div class="content">常见问题最后一节收录了docker在开发，运行，部署中的常见问题。
-解决镜像下载慢的问题默认是使用国外的源，所以可能会出现提示找不到服务器或者下载很慢的问题，该问题可以通过将源配置成国内的镜像来解决。</div>
-    <div class="post-time">2020-03-26</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/08/28/datastructure/图的基本概念/">
-    <h3>图的基本概念
-      <span class="title-right">数据结构</span>
-    </h3>
-    <div class="content">图中最核心的概念是顶点和边，当我们的问题可以抽象为多个点以及这些点之间的相互联系时，我们就可以考虑用图来建模。每一个图中都包括一个顶点集合V和一个边集合E，用G=(V,E)来表示，E中的每一条边都是E</div>
-    <div class="post-time">2019-08-28</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/11/11/git/centos7-下升级git/">
-    <h3>centos7 下升级git
-      <span class="title-right">git</span>
-    </h3>
-    <div class="content">安装所需要的依赖包12yum install curl-devel expat-devel gettext-devel openssl-devel zlib-devel yum install gcc</div>
-    <div class="post-time">2019-11-11</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/07/18/git/git命令tips/">
-    <h3>git命令tips
-      <span class="title-right">git</span>
-    </h3>
-    <div class="content">下面对一些常用的git命令/特性做一些总结
-分支管理相关新建分支git checkout -b [branchname]：该命令是下面两条命令的简写：12git branch [branchname]</div>
-    <div class="post-time">2019-07-18</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/06/08/git/深入git生命周期/">
-    <h3>深入git生命周期
-      <span class="title-right">git</span>
-    </h3>
-    <div class="content">深入git生命周期这篇文章适用于了解git基本的命令，会使用git add，git commit，git pull，git push进行版本管理，希望能深入了解git的版本控制细节的开发者。如果还没有</div>
-    <div class="post-time">2019-06-08</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/06/09/hexo/hexo中使用mathjax/">
-    <h3>hexo中使用mathjax
-      <span class="title-right">hexo</span>
-    </h3>
-    <div class="content">网上给的很多使用hexo插件或者修改各种配置的教程都太过繁琐，而且在我这里不管用，所以我自己上mathjax的官网看了以下，直接使用mathjax，不搞那么多花里胡哨的东西。当然这里方式是通过dom动</div>
-    <div class="post-time">2019-06-09</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/11/11/git/在centos上搭建git服务器仓库/">
-    <h3>在centos上搭建git服务器仓库
-      <span class="title-right">git</span>
-    </h3>
-    <div class="content">在centos上搭建git服务器仓库git的官方文档，这里有git命令，git服务器，git配置，git管理等一系列的说明都有。
-1. 安装git首先查看有没有安装git，输入：
-
-git –vers</div>
-    <div class="post-time">2019-11-11</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/08/04/hexo/基于Hexo搭建自定义博客网站/">
-    <h3>基于Hexo搭建自定义博客网站
-      <span class="title-right">hexo</span>
-    </h3>
-    <div class="content">这篇博客主要内容是如何基于Hexo搭建自定义的静态博客网站，我们将从网站布局设计、实现、部署等各个方面来详细介绍，如何实现自己的个人主页和博客。
-基本结构网站目前暂定包含两个部分：个人主页和博客。
-
-</div>
-    <div class="post-time">2019-08-04</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/07/22/html/html5新标签-属性总结/">
-    <h3>html5新标签/属性总结
-      <span class="title-right">html5</span>
-    </h3>
-    <div class="content">结构型的标签html5新增了很多结构型的标签，这些标签没有默认样式，只设置了display:block，是块级元素，其作用主要是语义化，标签名就指示了这个标签所起的作用（除此之外，id、class都可</div>
-    <div class="post-time">2019-07-22</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/09/08/html/html-tips/">
-    <h3>html tips
-      <span class="title-right">html5</span>
-    </h3>
-    <div class="content">这篇文章的主要内容是记录开发中遇到的一些html小知识。
-textContent和innerTEXT的区别
-textContenttextContent的值取决于以下情况：
-
-如果节点是documne</div>
-    <div class="post-time">2019-09-08</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/07/26/html/svg基础/">
-    <h3>svg基础
-      <span class="title-right">html5</span>
-    </h3>
-    <div class="content">Scalable Vector Graphics(SVG)是一种基于XML的标记语言，用于描述基于二维的向量图形。SVG对于如何用text文本来描述图形是非常重要的。
-SVG是一个基于文本的开放Web</div>
-    <div class="post-time">2019-07-26</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/08/19/html/svg基础：path/">
-    <h3>svg基础：path
-      <span class="title-right"></span>
-    </h3>
-    <div class="content"></div>
-    <div class="post-time">2019-08-19</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/07/27/html/svg基础：定位&基础图形/">
-    <h3>svg基础：定位&基础图形
-      <span class="title-right">html5</span>
-    </h3>
-    <div class="content">在这篇文章中，我们检验SVG怎么样在一个绘制上下文中呈现对象的位置和大小，包括坐标系统以及’pixel’度量在可伸缩上下文中意味着什么。
-网格对于所有的元素，SVG使用一个坐标系统或者grid系统，和</div>
-    <div class="post-time">2019-07-27</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/10/04/html/xml：基础/">
-    <h3>xml：基础
-      <span class="title-right">xml</span>
-    </h3>
-    <div class="content"></div>
-    <div class="post-time">2019-10-04</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2020/02/21/js/JavaScript-ES5-正则表达式复习/">
-    <h3>JavaScript-ES5-正则表达式复习
-      <span class="title-right">js</span>
-    </h3>
-    <div class="content">正则表达式是一种描述字符模式的对象。也就是一个正则表达式是描述了一类字符的模式，用一个正则表达式可以来匹配一类字符。
-使用正则匹配字符串的时候，从前到后遍历字符串匹配，默认贪婪匹配（即一个模型尽可能多</div>
-    <div class="post-time">2020-02-21</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2020/05/03/js/javasript异步编程/">
-    <h3>javasript异步编程
-      <span class="title-right"></span>
-    </h3>
-    <div class="content">javascript的异步编程的核心是事件循环，js的运行环境有浏览器和nodejs，两者的异步模型有相似之处，也有不同。这篇文章主要总结javascript在浏览器和nodejs中的事件循环的细节，</div>
-    <div class="post-time">2020-05-03</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/11/08/java/centos7-下安装jdk/">
-    <h3>centos7 下安装jdk
-      <span class="title-right">编程语言</span>
-    </h3>
-    <div class="content">首先查看是否安装了jdk，输入命令：1java -version
-如果输出了版本号，说明安装了java。
-再输入命令：1javac
-如果没有提示错误，曾说明java已正确安装。如果没有安装java，或</div>
-    <div class="post-time">2019-11-08</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/09/19/html/浏览器中的权限和Permission-API/">
-    <h3>浏览器中的权限和Permission API
-      <span class="title-right">html5</span>
-    </h3>
-    <div class="content">浏览器提供各种各样的能力，如访问摄像头，访问地理位置，访问剪切板，Notification等等，许多API都是需要用户授权才能使用的。但是以前的API授权方式不具有一致性，每个API都有自己的不一样的</div>
-    <div class="post-time">2019-09-19</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/11/19/java/centos7下修改maven仓库设置/">
-    <h3>centos7下安装maven以及修改maven仓库设置
-      <span class="title-right">编程语言</span>
-    </h3>
-    <div class="content">默认的Maven仓库因为镜像在国外，下载是在是太慢，这篇文章介绍一下如何修改maven仓库为国内的镜像，适用于centos7。
-安装maven1sudo yum install -y maven
-配置</div>
-    <div class="post-time">2019-11-19</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/07/11/js/js基础：es6对象-数组遍历的多种方法/">
-    <h3>js基础：es6对象/数组遍历的多种方法
-      <span class="title-right">js</span>
-    </h3>
-    <div class="content">对象属性的遍历ES6一共有5种方法可以遍历对象的属性。
-(1) for…infor…in循环遍历对象自身的和继承的可枚举属性（不包含Symbol属性）。
-(2) Object.keys(obj)Obj</div>
-    <div class="post-time">2019-07-11</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/07/14/js/js基础：判断对象类型的多种方法/">
-    <h3>js基础：判断对象类型的多种方法
-      <span class="title-right">js</span>
-    </h3>
-    <div class="content">概述js中有多种方式可以判断对象的类型，每种判断类型的方式都有自己的优缺点。这篇文章文章中我们一共总结了4种方法：
-
-instanceof
-typeof
-Object.prototype.toStri</div>
-    <div class="post-time">2019-07-14</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/07/25/js/js基础：防抖、节流、once/">
-    <h3>js基础：防抖、节流、once
-      <span class="title-right">js</span>
-    </h3>
-    <div class="content">12345678910111213141516171819202122232425262728293031323334353637383940414243// 实现方式1function once(e</div>
-    <div class="post-time">2019-07-25</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/09/01/js/tslint基础知识/">
-    <h3>tslint基础知识
-      <span class="title-right">js</span>
-    </h3>
-    <div class="content">tslint是一个可扩展的静态分析工具，它检查typescript的可读性、可维护性以及功能性错误。
-安装CLI
-npm install tslint typescript –save-devnpm </div>
-    <div class="post-time">2019-09-01</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/06/18/math/高数1：函数/">
-    <h3>高数1：函数
-      <span class="title-right"></span>
-    </h3>
-    <div class="content">下面是复习高数时的一些核心笔记：
-函数概念
-函数三要素：定义域、值域、对应关系。
-一个自变量对应一个因变量。
-函数的参数表示：$$\begin{cases} x = x(t),\ y = y(t), </div>
-    <div class="post-time">2019-06-18</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/11/20/nginx/centos7下安装nginx/">
-    <h3>centos7下安装nginx
-      <span class="title-right">nginx</span>
-    </h3>
-    <div class="content">这篇文章学习如何再centos 7下安装nignx，并分析安装后nginx目录中的各配置文件及作用。
-安装nginx1sudo yum install -y nginx
-如果找不到，那么就是设置的re</div>
-    <div class="post-time">2019-11-20</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/05/24/nginx/nginx-beginner-s-guide/">
-    <h3>nginx入门教程
-      <span class="title-right">nginx</span>
-    </h3>
-    <div class="content">这篇教程给出了一个nginx的基本介绍以及描述了nginx可以完成的一些基本任务。这里假定读者的设备中已经安装了nginx。如果没有，请查看安装nginx。这篇教程描述了怎样启动和停止nginx，以及</div>
-    <div class="post-time">2019-05-24</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/06/09/nginx/nginx启用gzip和缓存优化/">
-    <h3>nginx启用gzip和缓存优化
-      <span class="title-right">nginx</span>
-    </h3>
-    <div class="content">这篇文章给出了如何在nginx中配置gzip和开启缓存，利用缓存对网站进行优化。gzip压缩能将文件压缩到原大小的30%。
-开启nginx中开启gzip直接上配置文件片段：12345678910111</div>
-    <div class="post-time">2019-06-09</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/07/04/node.js/package-json详解/">
-    <h3>package.json详解
-      <span class="title-right">node.js</span>
-    </h3>
-    <div class="content">package.json是nodejs的包管理工具npm的配置文件，package.json文件的内容必须是json格式，而不是一个javascript对象。这篇文章详解package.json里面的</div>
-    <div class="post-time">2019-07-04</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/07/04/node.js/基于node-js的命令行工具/">
-    <h3>基于node.js的命令行工具
-      <span class="title-right">node.js</span>
-    </h3>
-    <div class="content">
-基于node.js编写命令行工具是非常方便的，有很多现有的工具和库能够帮助我们实现。接下来我们着手编写一个自己的命令行工具。
-依赖分析我们首先要分析我们可以利用哪些第三方的工具。先看看其他的cli工</div>
-    <div class="post-time">2019-07-04</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/11/19/os/centos7客户端下远程连接linux服务器/">
-    <h3>centos7客户端下远程连接linux服务器
-      <span class="title-right">linux</span>
-    </h3>
-    <div class="content">在windows常用putty等工具远程连接服务器，那么在linux下用什么工具呢？还有linux下如何远程连接另一台linux服务器上的myql呢？这篇文章学习这两个知识点。
-最简单的就是使用ssh</div>
-    <div class="post-time">2019-11-19</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/08/04/php/Smarty快速入门/">
-    <h3>Smarty块度入门
-      <span class="title-right">php</span>
-    </h3>
-    <div class="content">Smarty快速入门smarty官方中文文档：https://www.smarty.net/docs/zh_CN/what.is.smarty.tpl
-1. Smarty是什么？Smarty是一个PH</div>
-    <div class="post-time">2019-08-04</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/09/03/vue/Vue基础：typescript支持/">
-    <h3>Vue基础：typescript支持
-      <span class="title-right">vue</span>
-    </h3>
-    <div class="content">这篇文章介绍了如何在vue项目使用typescript。vue官方为Vue core、Vue Router、Vuex提供了相应的声明文件。Vue项目的根目录可以使用tsconfig.json来配置ty</div>
-    <div class="post-time">2019-09-03</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/07/06/vue/vue基础：tips/">
-    <h3>vue基础：tips
-      <span class="title-right">vue</span>
-    </h3>
-    <div class="content">下面都是使用vue的时候记录下来的小细节
-直接操作dom
-如果直接删除或者替换dom（文本内容也是），响应式绑定会失效，应该虚拟dom对应的真实dom已经不存在了，当重新使用数据渲染组件时（重新渲染会</div>
-    <div class="post-time">2019-07-06</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/07/03/vue/vue基础：vue-cli/">
-    <h3>vue基础：vue-cli
-      <span class="title-right">vue</span>
-    </h3>
-    <div class="content">这篇文章是vue-cli文档阅读的笔记，是一个总结加上自己的理解，vue-cli的详情请看官方文档
-Vue CLI是一个用于Vue.js快速开发的完整系统，提供了：
-
-通过@vue/cli提供交互式的</div>
-    <div class="post-time">2019-07-03</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/07/10/vue/vue基础：vue-router使用/">
-    <h3>vue基础：vue-router使用
-      <span class="title-right">vue</span>
-    </h3>
-    <div class="content">简介vue-router时vue.js的官方路由，与vue核心深度集成，提供了特性：
-
-嵌套路由/视图匹配
-模块化、基于组件的路由配置
-路由参数、query、通配符
-vue过渡系统驱动的视图过渡效果
-</div>
-    <div class="post-time">2019-07-10</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/07/06/vue/vue实战：popover组件/">
-    <h3>vue实战：popover组件
-      <span class="title-right">vue</span>
-    </h3>
-    <div class="content">业务需要，我们需要一个vue的弹出类组件容器，能够自动根据给定的元素定位到视口的固定位置。popper.js的功能比较多，我们需要的功能比较少，这里实现了popper.js的简化版本popsim.js</div>
-    <div class="post-time">2019-07-06</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/06/18/vue/vue基础：官方文档要点/">
-    <h3>vue基础：官方文档要点
-      <span class="title-right">vue</span>
-    </h3>
-    <div class="content">最近实习中又用到了Vue，过了一遍官方文档复习一下，感觉又有很多收获。记录一下要点。
-vue实例每一个Vue应用都是通过用Vue函数创建一个新的Vue示例开始的：1234// vm代表（ViewMod</div>
-    <div class="post-time">2019-06-18</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/09/06/vue/vue实战：ts踩坑记录/">
-    <h3>vue实战：ts踩坑记录
-      <span class="title-right">vue</span>
-    </h3>
-    <div class="content">这篇文章记录了使用ts开发vue时遇到的一些问题和解决方案。内容包括如何使用ts开发vue，用到了哪些库以及在开发时遇到的一些问题。
-踩坑记录@Component@Component是vue-clas</div>
-    <div class="post-time">2019-09-06</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/08/12/vue/vue实战：博客后台——简介/">
-    <h3>vue实战：博客后台——简介
-      <span class="title-right">vue</span>
-    </h3>
-    <div class="content">预期成果这一系列文章中，我们使用vue+typescript+postcss+scss+browserlist+ssr+unit test等技术搭建一个简单的博客后台网站。主要目的是为了练手，熟悉前端</div>
-    <div class="post-time">2019-08-12</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/08/30/vue/vue进阶：vue-router懒加载的实现原理/">
-    <h3>vue进阶：vue-router懒加载的实现原理
-      <span class="title-right">vue</span>
-    </h3>
-    <div class="content">这篇文章主要分析vue-router懒加载的实现原理。vue-router的懒加载基于vue的异步组件和webpack的splitCode来实现。接下来首先介绍vue的异步组件和webpack的Spl</div>
-    <div class="post-time">2019-08-30</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/07/14/webpack/webpack系列1：webpack概念/">
-    <h3>webpack系列1：webpack概念
-      <span class="title-right">webpack</span>
-    </h3>
-    <div class="content"></div>
-    <div class="post-time">2019-07-14</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2020/02/18/毕业设计/1-系统整体功能和模块设计/">
-    <h3>1.系统整体功能和模块设计
-      <span class="title-right">毕设</span>
-    </h3>
-    <div class="content">这一部分主要是系统设计，主要是设计整个系统包含哪些功能，应该划分成哪些模块。先从整体功能开始，然后到每个模块的具体功能。
-总体功能如下图：
-系统总体包括前台和后台两个部分，前台主要是信息的展示，首页展</div>
-    <div class="post-time">2020-02-18</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2020/02/19/毕业设计/2-数据库设计/">
-    <h3>2.数据库设计
-      <span class="title-right">毕设</span>
-    </h3>
-    <div class="content">数据库设计要根据前面设计的功能，对系统需要的数据进行建模。重点是要确定数据库要存储哪些信息，这些信息之间的关联。步骤是：
-
-E/R建模，根据功能描述建立起E/R联系图，确定实体属性及实体之间的关系。
-</div>
-    <div class="post-time">2020-02-19</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2020/03/29/毕业设计/后端权限设计——基于集群/">
-    <h3>后端权限设计——基于集群
-      <span class="title-right">毕设</span>
-    </h3>
-    <div class="content">exploit系统的登陆和权限认证基于apache shiro实现，shiro提供了认证、授权、拦截等多种用户管理能力。本文基于shiro的基础能力，设计开发支持后端服务器集群、redis集群的服务器</div>
-    <div class="post-time">2020-03-29</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2020/02/18/毕业设计/毕设概述/">
-    <h3>毕设概述
-      <span class="title-right">毕设</span>
-    </h3>
-    <div class="content">马上毕业了，开始做毕设。本科没怎么努力，但是还是学到了很多东西的，也找了一份还过得去的工作，人生接下来的时间不能浪费了，要更加努力才行。
-毕设的内容是做一个漏洞管理系统网站。核心功能是漏洞的管理，包括</div>
-    <div class="post-time">2020-02-18</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/06/15/css/css中的基本框模型/">
-    <h3>css中的基本框模型
-      <span class="title-right">css</span>
-    </h3>
-    <div class="content">概述这是一篇css基础的文章，主要讲css中的各类框模型的细节，比如inline-block，table，flex，grid。这里会解答一些开发中常见的问题，例如：为什么有时候我设了外边距、内边距没有</div>
-    <div class="post-time">2019-06-15</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/09/22/html/DOM：基础/">
-    <h3>DOM：基础
-      <span class="title-right">html5</span>
-    </h3>
-    <div class="content">这篇文章主要介绍dom的基础知识，基于最新的DOM标准，和历史dom标准：DOM 4/3/2/1，包括dom的层级结构、dom事件、dom的遍历、dom层级中的接口和API等。
-dom简介dom是Do</div>
-    <div class="post-time">2019-09-22</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/07/23/html/html5-API/">
-    <h3>html5 API
-      <span class="title-right">html5</span>
-    </h3>
-    <div class="content">在HTML5中，提供了很多的api，例如访问文件的File API，通过使用这个api，从web页面上访问本地文件系统会变得十分简单。还有websocket、localStorage、canvas、跨</div>
-    <div class="post-time">2019-07-23</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/09/08/html/html实现选中、复制、粘贴/">
-    <h3>html实现选中、获取设置光标、复制、粘贴，并实现一个markdown编辑器
-      <span class="title-right">html5</span>
-    </h3>
-    <div class="content">这篇文章记录了如何在html中选中、复制、粘贴内容，以及如何操作可编辑区域中的光标位置，并基于这些基础知识实现了一个简单的markdown编辑器。
-基础概念首先我们要介绍一些要用到的基础概念和相关AP</div>
-    <div class="post-time">2019-09-08</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2020/02/21/js/JavaScript-ES5-核心语法复习指南/">
-    <h3>JavaScript(ES5)核心语法复习指南
-      <span class="title-right">js</span>
-    </h3>
-    <div class="content">这篇文章覆盖JavaScript(es5)的所有语法要点，便于日后进行js基础方面的查阅和复习。参考《JavaScript权威指南》，采取编译原理结构的形式进行总结，从词法、类型、表达式、语句等方面来</div>
-    <div class="post-time">2020-02-21</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/09/03/vue/Vue基础：vue-class-component/">
-    <h3>Vue基础：vue-class-component
-      <span class="title-right">vue</span>
-    </h3>
-    <div class="content">vue-class-component是为Vue组件提供的注解支持，能够通过注解的方式来来声明组件以及组件的选项等。这篇文章主要学习如何使用vue-class-component，以及vue-clas</div>
-    <div class="post-time">2019-09-03</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2020/03/22/毕业设计/服务器部署/">
-    <h3>服务器部署
-      <span class="title-right">毕设</span>
-    </h3>
-    <div class="content">毕设终于开发完成了大部分的基础功能，接下来就是进行部署了。计划使用三台服务器进行部署，一台用作静态资源服务器和反向代理服务器，另外两台作为后端服务集群，采用容器化方式部署。
-主要解决的问题是：
-
-后端</div>
-    <div class="post-time">2020-03-22</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/06/05/algorithm/深度优先搜索/排列、组合和子集及题解/">
-    <h3>排列、组合和子集算法及题解
-      <span class="title-right">算法</span>
-    </h3>
-    <div class="content">1. 排列、组合以及子集问题1.1 什么是排列、组合和子集？排列分为全排列和普通排列，全排列表示方法：$A{^n_n}$，表示1到n的阶乘（$\prod_{i=1}^ni$），普通排列$A{^m_n}</div>
-    <div class="post-time">2019-06-05</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/11/04/c-c++/C Primer/C-Primer-Chapter-1-Getting-Ready/">
-    <h3>C Primer Chapter 1: Getting Ready
-      <span class="title-right">编程语言</span>
-    </h3>
-    <div class="content">C Primer第一章的读书笔记。在这一张将学到：
-
-C的历史和特性
-写程序的步骤
-编译器和链接器的一些知识
-C标准
-
-要点记录1. C 1972年出现，设计给专业的程序员编程2. C语言的优势：
-对</div>
-    <div class="post-time">2019-11-04</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/06/11/c-c++/C语言编程魔法书/1.C语言中的基本元素/">
-    <h3>1.C语言中的基本元素
-      <span class="title-right">编程语言</span>
-    </h3>
-    <div class="content">一个基本C语言程序包含如下几个部分：
-
-注释，有单行注释和多行注释。注释部分在预编译处理后就不存在了
-预处理器
-入口函数main
-自定义的函数
-
-C语言的头文件用.h结尾，源文件用.c结尾。
-C语言中</div>
-    <div class="post-time">2019-06-11</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/11/13/c-c++/C语言编程魔法书/3.C语言的基本运算操作符/">
-    <h3>3.C语言的基本运算操作符
-      <span class="title-right">编程语言</span>
-    </h3>
-    <div class="content">算术运算+、-、*、/、%以及+=、-=等
-按位运算&amp;amp;、|、^、~以及&amp;amp;=、|=等。分别表示按位与、按位或、按位异或和按位取反
-自增自减++、–
-逻辑运算&amp;amp;&amp;amp;、||、!</div>
-    <div class="post-time">2019-11-13</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/11/17/c-c++/C语言编程魔法书/5.C语言的字节对齐和字节填充/">
-    <h3>5.C语言的字节对齐和字节填充
-      <span class="title-right">编程语言</span>
-    </h3>
-    <div class="content">前面已经涉及到了一些字节对齐的知识。这里更加详细的学习C语言中的字节对齐和字节填充。
-对于32/64位系统环境，通常编译器会默认对指令和数据进行4字节对齐。也就是说，一个函数的起始地址以及一个数据对象</div>
-    <div class="post-time">2019-11-17</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/11/19/c-c++/C语言编程魔法书/7.C语言中的控制流语句/">
-    <h3>7.C语言中的控制流语句
-      <span class="title-right">编程语言</span>
-    </h3>
-    <div class="content">逗号表达式用于将若干表达式按序执行，并返回最后一个表达式的结果。
-,是一个双目运算符。
-条件表达式结构：布尔表达式?表达式1:表达式2
-分支语句if-else形式：123456789101112131</div>
-    <div class="post-time">2019-11-19</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/11/20/c-c++/C语言编程魔法书/C语言深入篇1：指向数组和函数的指针/">
-    <h3>C语言深入篇1：指向数组和函数的指针
-      <span class="title-right">编程语言</span>
-    </h3>
-    <div class="content">前面我们学习过指针、数组、函数的概念，也了解了指向数组和函数的指针。这里深入理解和学习指向数组和函数的指针。
-首先我们从类型的概念入手，每一种指针都有自己的类型，要了解指向数组和函数的指针，首先需要理</div>
-    <div class="post-time">2019-11-20</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/11/18/c-c++/C语言编程魔法书/C语言标准库/">
-    <h3>C语言标准库
-      <span class="title-right">编程语言</span>
-    </h3>
-    <div class="content">这篇文章学习C语言标准库，包括基本数据类型对应的标准库例如stdbool以及数据结构算法、线程进程、网络等等的库。综合对这些库的介绍和使用示例。
-stddef.h定义了以下常用的宏：
-
-offseto</div>
-    <div class="post-time">2019-11-18</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/12/01/c-c++/GCC内联汇编/">
-    <h3>GCC内联汇编
-      <span class="title-right">编程语言</span>
-    </h3>
-    <div class="content">GCC提供了在C语言中嵌入汇编语言的能力。在C语言中嵌入汇编，在操作系统和嵌入式软件中开发很有用，编写底层软件时能够直接访问硬件。但是编写客户端软件时有些汇编指令是不可用的，所以编写windows或者</div>
-    <div class="post-time">2019-12-01</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/09/25/database/MySQL技术内幕/MySQL数据类型/">
-    <h3>MySQL数据类型
-      <span class="title-right">数据库</span>
-    </h3>
-    <div class="content">这篇文章主要介绍mysql的数据类型，基于《MySQL技术内幕》的第三章，主要内容是mysql中的详细数据类型、类型转换以及如何对数据进行处理。
-要点总结
-数据值类别：mysql数据库中能够存储如下类</div>
-    <div class="post-time">2019-09-25</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/08/12/css/postcss/postcss基础/">
-    <h3>postcss基础
-      <span class="title-right">css</span>
-    </h3>
-    <div class="content">postcss是一个用js插件改变css样式的工具。这个插件可以对css进行语法检查、转义最新的css、添加前缀、内联图片等等。postcss将css文件转成抽象语法树，并且提供了API取访问他们，这</div>
-    <div class="post-time">2019-08-12</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/08/15/css/postcss/postcss插件-autoprefixer/">
-    <h3>postcss插件:autoprefixer
-      <span class="title-right">css</span>
-    </h3>
-    <div class="content">autoprefixer用于css添加浏览器厂商前缀，以兼容比较老的浏览器。其数据来源是caniuse。
-下面看一个实例：
-我们在写代码的时候不用考虑浏览器前缀的问题了，直接写成下面这样：123456</div>
-    <div class="post-time">2019-08-15</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2020/02/25/database/MySQL技术内幕/mysql安全性和访问控制/">
-    <h3>mysql安全性和访问控制
-      <span class="title-right"></span>
-    </h3>
-    <div class="content"></div>
-    <div class="post-time">2020-02-25</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/12/14/css/sass/sass 快速入门/">
-    <h3>Sass快速入门
-      <span class="title-right">css</span>
-    </h3>
-    <div class="content">1. 使用变量1.1 声明变量
-$highlight-color: #F90;
-
-
-$highlight-color就是一个变量，变量的值可以是任何CSS属性值。即可以赋值给css属性的值都可以赋值给</div>
-    <div class="post-time">2019-12-14</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2020/02/20/database/MySQL技术内幕/mysql语法1：建立数据库和表/">
-    <h3>mysql语法1：建立数据库和表
-      <span class="title-right">数据库</span>
-    </h3>
-    <div class="content">这篇文章给出mysql中建立数据库和表的详细语法。如果不记得详细语法，在mysql客户端中可以通过help create database或者help create table来获取语法参考，如下例：</div>
-    <div class="post-time">2020-02-20</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/11/28/database/mysql/MySql-Workbench-生成表关系图/">
-    <h3>MySql Workbench 生成表关系图
-      <span class="title-right">数据库</span>
-    </h3>
-    <div class="content">这篇文章学习如何在mysql workbench上，根据已有的表生成关系图。当刚刚上手一个数据库的时候，如果能有该数据库的关系图的话，能够更好更快的掌握数据库各部分的功能及其相互关系。
-反向工程已有数</div>
-    <div class="post-time">2019-11-28</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/05/24/database/mysql/centos-下安装mysql/">
-    <h3>centos 下安装mysql
-      <span class="title-right">数据库</span>
-    </h3>
-    <div class="content">安装client
-yum install mysql
-
-这会安装client，这时如果输入mysql，会显示：
-
-ERROR 2002 (HY000): Can’t connect to local </div>
-    <div class="post-time">2019-05-24</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2020/02/25/database/mysql/mysql添加新账户并设置远程可访问/">
-    <h3>mysql添加新账户并设置远程可访问
-      <span class="title-right">数据库</span>
-    </h3>
-    <div class="content">这篇文章学习mysql中的用户创建和权限管理，最终的成果是创建一个新的只拥有某一个数据库访问权限的账户，同时开启这个账户的远程访问权限。参考资料是《mysql技术内幕》的第十三章。
-MySQL账户管理</div>
-    <div class="post-time">2020-02-25</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2020/02/11/database/数据库系统全书/4-关系代数/">
-    <h3>4.关系代数
-      <span class="title-right">数据库</span>
-    </h3>
-    <div class="content">前面复习的是数据库设计，包括如何建模（E/R模型），如何转化为实际的数据库模型（关系模型）以及设计消除冗余等异常的关系（BCNF，四范式、散范式）。这里开始复习数据库编程的设计，即用户如何查询和修改数</div>
-    <div class="post-time">2020-02-11</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/08/25/datastructure/String/模式匹配：KMP算法/">
-    <h3>模式匹配：KMP算法
-      <span class="title-right">算法</span>
-    </h3>
-    <div class="content"></div>
-    <div class="post-time">2019-08-25</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2020/02/28/java/spring实战/idea添加热重载支持/">
-    <h3>idea添加热重载支持
-      <span class="title-right">spring-boot</span>
-    </h3>
-    <div class="content">spring-boot提供了dev-tools工具用于热重载，在vscode中直接保存就能自动热重载，但是在idea中不行，因为idea会自动保存。在idea中实现自动热重载的步骤如下：1234567</div>
-    <div class="post-time">2020-02-28</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2020/02/27/java/spring实战/spring-boot添加shiro的支持/">
-    <h3>spring-boot添加shiro的支持
-      <span class="title-right">java</span>
-    </h3>
-    <div class="content">shiro是Apache公司开源的Java授权认证包。提供了登陆认证、授权验证、Session管理等多种功能，能够方便的用于用户登陆态维护、授权管理等等方面。
-这篇文章主要记录如何在spring-bo</div>
-    <div class="post-time">2020-02-27</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/08/05/os/Linux命令行和shell脚本编程/Linux下的基本命令/">
-    <h3>Linux下的基本命令
-      <span class="title-right">操作系统</span>
-    </h3>
-    <div class="content">这篇文章总结了linux下常用的命令，包括文件处理、进程处理、网络通信等等。主要基于《linux shell和脚本编程》的第三章和第四章。
-文件系统linux系统下提供了完整的文件操作的命令，包括新建</div>
-    <div class="post-time">2019-08-05</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/10/13/js/深入typescript/typescript踩坑指南/">
-    <h3>typescript踩坑指南
-      <span class="title-right">typescript</span>
-    </h3>
-    <div class="content">typescript中继承的属性和方法只有public或者protected的方法可以通过super来访问，不能使用super来访问父类中的属性；
-</div>
-    <div class="post-time">2019-10-13</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/06/19/os/Linux命令行和shell脚本编程/shell-script基本语法/">
-    <h3>shell script基础
-      <span class="title-right">操作系统</span>
-    </h3>
-    <div class="content">这里总结shell的基本语法，包括了shell中的一些基本元素/变量，shell脚本语法。
-使用多个命令之前在命令行中都是输入一个命令，那么如果输入多个命令呢？很简单，将多个命令用分号“;”隔开就可以</div>
-    <div class="post-time">2019-06-19</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2020/02/15/os/操作系统原理/OS原理：进程管理/">
-    <h3>OS原理：进程管理
-      <span class="title-right">操作系统</span>
-    </h3>
-    <div class="content">这篇笔记复习进程管理相关的操作系统原理。包括进程和线程的定义，进程和线程的内存空间、进程实现、进程调度、进程同步等知识点。
-</div>
-    <div class="post-time">2020-02-15</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/06/16/os/ucore_os/ucore-os-lab1：安装并启动ucore-os/">
-    <h3>ucore-os实验1：安装并启动ucore-os
-      <span class="title-right">操作系统</span>
-    </h3>
-    <div class="content">我们需要了解很多的预备知识，可以先简略的过一遍基础知识，留个印象，很多东西比较抽象也记不下来，后面用到的时候再回过来看，并进一步查找资料，会有更好的学习效果。
-本次实验的预备知识实验1的目的是完全掌握</div>
-    <div class="post-time">2019-06-16</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2020/02/15/os/操作系统原理/OS原理：内存管理/">
-    <h3>OS原理：内存管理
-      <span class="title-right">操作系统</span>
-    </h3>
-    <div class="content">这篇笔记复习进程内存管理相关的操作系统知识。包括内存空间的定义、分段和分页、安全和权限、虚拟内存等等知识点。
-</div>
-    <div class="post-time">2020-02-15</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/12/22/os/ucore_os/ucore-os-lab1：练习3、练习4/">
-    <h3>ucore-os-lab1：练习3、练习4
-      <span class="title-right">操作系统</span>
-    </h3>
-    <div class="content">练习三需要分析如何从实模式进入保护模式，重点是：
-
-为何开启A20以及如何开启A20？
-如何初始化GDT表？
-如何使能和进入保护模式？
-
-详细的解释请看ucore-os笔记4：bois和bootloa</div>
-    <div class="post-time">2019-12-22</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/12/30/os/ucore_os/ucore-os-lab2：实验准备/">
-    <h3>ucore-os-lab2：实验准备
-      <span class="title-right">操作系统</span>
-    </h3>
-    <div class="content">经过实验1的学习和练习，我们应该能熟练掌握下面的知识：
-
-操作系统的基本硬件知识：分段、中断、计算机加电后的执行过程、IO设备初始化过程（选学）
-软件知识：函数堆栈、x86常用汇编指令、bootloa</div>
-    <div class="post-time">2019-12-30</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/11/30/os/ucore_os/ucore-os-lab1：练习2/">
-    <h3>ucore-os实验1：lab1练习2
-      <span class="title-right">操作系统</span>
-    </h3>
-    <div class="content">练习1我们已经学习了make的基本语法，ucore-os是如何编译生成的。这个练习我们我们来学习ucore-os是如何启动的。包括内核如何被加载到内存中，内核加载后执行了哪些操作。重点详细学习启动过程</div>
-    <div class="post-time">2019-11-30</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2020/01/23/os/ucore_os/ucore-os-lab8：SFS文件系统设计和实现/">
-    <h3>ucore-os-lab8：SFS文件系统设计和实现
-      <span class="title-right">操作系统</span>
-    </h3>
-    <div class="content"></div>
-    <div class="post-time">2020-01-23</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/06/12/os/ucore_os/ucore-os笔记1：GCC基础和linux命令/">
-    <h3>ucore_os笔记1：GCC基础和linux命令
-      <span class="title-right">操作系统</span>
-    </h3>
-    <div class="content">GCC的基本用法参考这篇博客gcc基础命令
-GCC内联汇编利用gcc提供的内联汇编的特性，我们可以在C语言程序中写汇编代码。gcc内联汇编有两种方式，一种是基本内联汇编语句，另一种是扩展内联汇编语句。</div>
-    <div class="post-time">2019-06-12</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/12/02/os/ucore_os/ucore-os学习前言/">
-    <h3>ucore-os学习前言
-      <span class="title-right">操作系统</span>
-    </h3>
-    <div class="content">大四了，复习大学四年所学过的专业基础知识。操作系统是复习的第一门课，希望通过操作系统的学习，深入掌握计算机底层的工作原理、串联其他课程（计算机组成原理、计算机接口技术）、学习linux下C/C++的开</div>
-    <div class="post-time">2019-12-02</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/06/24/os/ucore_os/ucore-os思考与总结/">
-    <h3>ucore-os思考与总结
-      <span class="title-right">操作系统</span>
-    </h3>
-    <div class="content">2019.6.24开始着手操作系统的学习和开发，需要了解的知识有很多很多，需要了解linux开发环境，包括linux命令、shell脚本、linux下的编译器gcc的使用（包括gcc的编译选项、mak</div>
-    <div class="post-time">2019-06-24</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/12/03/os/ucore_os/ucore-os笔记3：qemu和gdb调试/">
-    <h3>ucore-os笔记4：qemu和gdb调试
-      <span class="title-right">操作系统</span>
-    </h3>
-    <div class="content">本篇笔记我们学习qemu和gdb调试，这是调试操作系统内核代码必备的技能。
-qemu是通用开源的硬件模拟器，可以模拟完整计算机系统，包括多种CPU架构（x86、x86_61、MIPS、ARM等）、系统</div>
-    <div class="post-time">2019-12-03</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/12/26/os/ucore_os/ucore-os笔记8：汇编指令总结/">
-    <h3>ucore-os笔记8：汇编指令总结
-      <span class="title-right">操作系统</span>
-    </h3>
-    <div class="content">这篇文章总结了ucore-os中使用的汇编语言伪指令，便于更好的理解ucore-os的源码。
-汇编程序中的伪指令汇编程序中伪指令以 “.”开头，例如.section，.globl等。下面是linux内</div>
-    <div class="post-time">2019-12-26</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2020/01/05/os/ucore_os/ucore-os笔记9：TSS和进程抽象设计/">
-    <h3>ucore-os笔记9：TSS以及机制和策略的关系
-      <span class="title-right">操作系统</span>
-    </h3>
-    <div class="content">这篇文章主要介绍硬件提供的机制与操作系统设计的策略的联系，解决类似80386提供了LDT，ucore-os为什么没有使用呢？为什么不用TSS实现多进程呢？这类问题。同时也简要介绍的TSS相关的cpu硬</div>
-    <div class="post-time">2020-01-05</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/12/18/vue/组件库开发/vue组件库开发：简介/">
-    <h3>vue组件库开发：简介
-      <span class="title-right">vue</span>
-    </h3>
-    <div class="content">这一系列文章将会学习如何开发一个自己的vue ui组件库，参考现有的组件库例如element-design-vue、element-ui等等，实现大部分常用的组件，以此来深入学习html、css的实战</div>
-    <div class="post-time">2019-12-18</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/11/08/密码技术/图解密码技术/图解密码技术1：环游密码世界/">
-    <h3>图解密码技术1：环游密码世界
-      <span class="title-right">安全</span>
-    </h3>
-    <div class="content">本章是《图解密码技术》的第一章，将会在整体上了解一下密码世界究竟是个什么样子。
-密码世界中的角色密码世界中有很多角色，有发送者、接收者、窃听者、主动攻击者等等。因为发送的信息在网络上传播，中间要经过很</div>
-    <div class="post-time">2019-11-08</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/11/08/密码技术/图解密码技术/图解密码技术2：历史上的密码/">
-    <h3>图解密码技术2：历史上的密码
-      <span class="title-right">安全</span>
-    </h3>
-    <div class="content">本章将学习三种历史上著名的密码：
-
-恺撒密码
-简单替换密码
-Enigma
-
-还有两种破译密码的方法：
-
-暴力攻击
-频率攻击
-
-恺撒密码恺撒密码将字母表平移若干个字母后得到密文，例如平移三个，A变成D，</div>
-    <div class="post-time">2019-11-08</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/11/09/密码技术/图解密码技术/图解密码技术3：对称密钥/">
-    <h3>图解密码技术3：对称密钥
-      <span class="title-right">安全</span>
-    </h3>
-    <div class="content">对称密码（共享密钥密码）——使用相同的密钥进行加密和解密。这章学习以下内容：
-
-比特序列运算和XOR运算
-一次性密码本
-几种常用的对称密码算法：DES、三重DES、AES等
-
-比特序列密码计算机操作的</div>
-    <div class="post-time">2019-11-09</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/12/02/os/ucore_os/ucore-os笔记5：实模式与保护模式/">
-    <h3>ucore-os笔记5：实模式与保护模式
-      <span class="title-right">操作系统</span>
-    </h3>
-    <div class="content">这一次笔记学习X86的实模式和保护模式，主要内容是实模式和保护模式的介绍，相关硬件机制的介绍（GDTR寄存器，GDT等），保护模式在内核中的作用，以及如何从实模式切换到保护模式。
-实模式与保护模式接下</div>
-    <div class="post-time">2019-12-02</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/11/20/c-c++/C语言编程魔法书/10.C语言程序的编译上下文/">
-    <h3>10.C语言程序的编译上下文
-      <span class="title-right">编程语言</span>
-    </h3>
-    <div class="content">这篇文章学习C语言编译上下文相关话题。包括对象、函数以及类型标识符的作用域和名字空间，对象和函数的连接以及对象的生命周期。
-作用域和名字空间标识符可以表示一个对象、函数、自定义类型及其成员、typde</div>
-    <div class="post-time">2019-11-20</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/11/13/c-c++/C语言编程魔法书/4.C语言中的自定义类型/">
-    <h3>4.C语言中的自定义类型
-      <span class="title-right">编程语言</span>
-    </h3>
-    <div class="content">这篇文章学习C语言中的自定义类型。自定义类型能够将一些数据抽象化，将信息组织成我们更容易理解的模型。
-枚举类型枚举类型用于表示离散有限个数据对象。通过枚举来表示一系列状态的集合。声明方式如下：1234</div>
-    <div class="post-time">2019-11-13</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/11/19/c-c++/C语言编程魔法书/8.C语言中的函数/">
-    <h3>8.C语言中的函数
-      <span class="title-right">编程语言</span>
-    </h3>
-    <div class="content">借助函数可以写出更良好的结构化、模块化代码。
-函数调用者传递参数给被调用函数，控制权交给被调用函数（入栈），被调用函数执行完成以后（出栈），返回到函数调用者。
-函数的声明和定义
-声明：1返回类型 函数</div>
-    <div class="post-time">2019-11-19</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2020/02/05/database/数据库系统全书/1-数据库系统导论/">
-    <h3>1.数据库系统导论
-      <span class="title-right">数据库</span>
-    </h3>
-    <div class="content">顾名思义，数据库就是存储数据的仓库，是信息的集合。这些数据一定是能够长期存储的，不会因断电而丢失，所以数据库中的数据一般存储在磁盘等永久存储器材中，而不是RAM（随机访问内存，或者运行内存，断电会丢失</div>
-    <div class="post-time">2020-02-05</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2020/02/06/database/数据库系统全书/2-实体-联系数据模型/">
-    <h3>2.实体-联系数据模型
-      <span class="title-right">数据库</span>
-    </h3>
-    <div class="content">复习要点大全本篇复习笔记的要点，分成大概下面几个部分：
-
-1.E/R图的基础知识：E/R的组成、表示及其细节等
-数据库建模的步骤：构思-&amp;gt;E/R模型-&amp;gt;关系模型-&amp;gt;关系DBMS
-E/</div>
-    <div class="post-time">2020-02-06</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2020/02/07/database/数据库系统全书/3-关系数据模型/">
-    <h3>3.关系数据模型
-      <span class="title-right">数据库</span>
-    </h3>
-    <div class="content">前面学的E/R模型是对于现实世界进行建模的一种很好的方式，但是其不好实现。现今的数据库实现通常使用关系数据模型。关系模型只有一个概念：“关系”，即组织数据的一种二维表。E/R符号用于设计数据库并阐述数</div>
-    <div class="post-time">2020-02-07</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/08/17/database/数据库系统全书/5-数据库语言sql/">
-    <h3>5.数据库语言sql
-      <span class="title-right">数据库</span>
-    </h3>
-    <div class="content">《数据库系统全书》读书笔记，主要包括书中有关sql部分，主要是的第六章和第七章。这里记录了最常用的sql语法及其详细的语法规则。这一系列读书笔记作为数据库系统原理课程同步复习笔记，综合了课程所学和书中</div>
-    <div class="post-time">2019-08-17</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2020/01/22/os/操作系统原理/OS原理：文件系统/">
-    <h3>OS原理：文件系统
-      <span class="title-right">操作系统</span>
-    </h3>
-    <div class="content">这里文章学习操作系统的原理，主要学习的核心知识点有以下几个：
-
-文件系统的作用和组成成分？
-对文件和目录有哪些操作？
-文件系统如何实现？包括：
-空闲磁盘空间如何管理和分配？
-如何实现文件到磁盘块的映射</div>
-    <div class="post-time">2020-01-22</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/06/17/os/ucore_os/ucore-os-lab1：练习1/">
-    <h3>ucore-os实验1：lab1练习1
-      <span class="title-right">操作系统</span>
-    </h3>
-    <div class="content">练习1：理解通过make生成执行文件的过程要求如下：
-
-操作系统镜像文件ucore.img是如何一步一步生成的？（需要详细解释Makefile中每一条相关命令和命令参数的含义，以及说明命令参数导致的结</div>
-    <div class="post-time">2019-06-17</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/12/22/os/ucore_os/ucore-os-lab1：练习5、6、挑战练习/">
-    <h3>ucore-os-lab1：练习5、6、挑战练习
-      <span class="title-right">操作系统</span>
-    </h3>
-    <div class="content">练习5 函数堆栈调用实验5需要实现函数调用堆栈，请参考ucore-os-lab的要求。
-这里我们需要了解函数调用的堆栈变化原理才能完成该练习。函数调用的堆栈变化与两个寄存器相关，ESP和EBP：
-
-E</div>
-    <div class="post-time">2019-12-22</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/12/19/os/ucore_os/ucore-os笔记6：中断和异常、IDT和IDTR/">
-    <h3>ucore-os笔记6：中断和异常、IDT和IDTR
-      <span class="title-right">操作系统</span>
-    </h3>
-    <div class="content">外部设备与CPU通信需要通过中断机制。例如，当按下键盘上的一个键的时候，必然要通知CPU该键被按下，一种方式是CPU一直监视键盘上有没有键按下，但是这种方式性能太低。另一种方式由设备主动通知CPU有事</div>
-    <div class="post-time">2019-12-19</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/11/04/c-c++/C Primer/C-Primer-Chapter-2-Introducing-C/">
-    <h3>C Primer Chapter 2: Introducing C
-      <span class="title-right">编程语言</span>
-    </h3>
-    <div class="content">本章将会学到以下内容：
-
-操作符=
-函数main、printf
-简单的C程序
-创建整数值的变量、给其赋值并且在屏幕上展示他们
-换行符
-如何在程序中包含注释，创建多个函数以及查找错误
-什么是关键字
-
-一</div>
-    <div class="post-time">2019-11-04</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/11/15/c-c++/C语言编程魔法书/9.C语言预处理器/">
-    <h3>9.C语言预处理器
-      <span class="title-right">编程语言</span>
-    </h3>
-    <div class="content">C语言编译器前端还分为预处理阶段和编译阶段。预处理阶段是通过C语言的各类预处理器将指定的一些字符符号直接替换到即将编译的源代码。通过预处理器可以在不同的平台上插入不同的代码，还可以将某些代码抽象成宏定</div>
-    <div class="post-time">2019-11-15</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/11/18/c-c++/C语言编程魔法书/6.C语言中的指针和数组/">
-    <h3>6.C语言中的指针和数组
-      <span class="title-right">编程语言</span>
-    </h3>
-    <div class="content">本文首先学习C语言中的数组，再学习指针以及指针和数组的关系，再学习字符串字面量，最后学习C语言的完整类型和不完整类型。
-数组和结构体一样，属于聚合类型。
-一维数组形式：1&amp;lt;类型名&amp;gt; &amp;lt</div>
-    <div class="post-time">2019-11-18</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/12/03/os/ucore_os/ucore-os笔记4：bios和bootloader的启动过程/">
-    <h3>ucore-os笔记4：bios和bootloader的启动过程
-      <span class="title-right">操作系统</span>
-    </h3>
-    <div class="content">这篇笔记学习BIOS和bootloader的执行过程，将详细分析机器加电后执行的第一条指令到操作系统的第一行代码中间经历的过程。
-BOIS的启动过程计算机开机后并不是直接启动操作系统，而是先要执行一小</div>
-    <div class="post-time">2019-12-03</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/06/16/os/ucore_os/ucore-os笔记2：GNU-make/">
-    <h3>ucore-os笔记2：GNU make
-      <span class="title-right">操作系统</span>
-    </h3>
-    <div class="content">c/c++程序基本都是使用GNU make来构建的，其基础是位于根目录的Makefiles文件。
-GNU make有什么用呢？我们使用gcc编译器的时候，gcc -o target source，将源</div>
-    <div class="post-time">2019-06-16</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/12/20/os/ucore_os/ucore-os笔记7：分段和分页机制/">
-    <h3>ucore-os笔记7：分段和分页机制
-      <span class="title-right">操作系统</span>
-    </h3>
-    <div class="content">前面我们讨论了x86的保护模式和实模式的区别，最新的处理器架构都运行在保护模式下，但是为了向下兼容都也支持实模式。这里学习的分段和分页机制都是保护模式提供的机制，通过CPU为内存提供了抽象。这篇文章详</div>
-    <div class="post-time">2019-12-20</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/06/22/algorithm/leetcode/二叉树/二叉树的层级遍历/">
-    <h3>二叉树的层级遍历
-      <span class="title-right">算法</span>
-    </h3>
-    <div class="content">要求给定一颗二叉树，给出其节点值的每一层的结果。示例：12345  3 / \9  20  /  \ 15   7
-可以得到：12345[  [3],  [9,20],  [15,7]]
-思路二叉树的</div>
-    <div class="post-time">2019-06-22</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/11/07/algorithm/leetcode/二叉树/二叉树的非递归遍历/">
-    <h3>二叉树的非递归遍历
-      <span class="title-right">算法</span>
-    </h3>
-    <div class="content">二叉树有两种遍历方式，一种是深度优先，一种是广度优先。深度优先一般采用递归，广度优先一般采用队列来实现。但是深度优先也可以使用非递归算法来遍历，这篇文章分析二叉树的非递归遍历算法，包括前序、中序、后序</div>
-    <div class="post-time">2019-11-07</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/12/13/algorithm/leetcode/二叉树/leetcode题解：Merge-Two-Binary-Trees/">
-    <h3>leetcode题解：Merge Two Binary Trees
-      <span class="title-right">算法</span>
-    </h3>
-    <div class="content">问题描述Given two binary trees and imagine that when you put one of them to cover the other, some nodes </div>
-    <div class="post-time">2019-12-13</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2020/05/17/algorithm/leetcode/分治/maximum-product-subarray/">
-    <h3>maximum product subarray
-      <span class="title-right">算法</span>
-    </h3>
-    <div class="content">问题描述给定一个整数数组nums，找到数组内有最大乘积的最大连续子数组。
-例如：123输入：[2,3,-2,4]输出：62*3 = 6
-题解这道题是典型的分治问题。类似的问题还有最大连续子数组的最大和</div>
-    <div class="post-time">2020-05-17</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2020/05/11/algorithm/leetcode/动态规划/decode-ways/">
-    <h3>decode-ways
-      <span class="title-right">算法</span>
-    </h3>
-    <div class="content">问题描述假设字符到数字的匹配是：1234A =&amp;gt; 1B =&amp;gt; 2...Z =&amp;gt; 26
-问题：给定一个数字序列，由字符串编码得到该数字序列的方法的个数。
-例如：1234输入： &amp;quo</div>
-    <div class="post-time">2020-05-11</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2020/05/09/algorithm/leetcode/动态规划/Wildcard-Matching/">
-    <h3>Wildcard Matching
-      <span class="title-right">算法</span>
-    </h3>
-    <div class="content">问题描述通配符模式匹配问题，给定一个字符串s和模式字符串p，判断s是否匹配p。其中s由s-z之间的任意小写字符组成，p由s-z之间的任意小写字符以及*和？组成。
-*表示匹配任意长度的字符串，长度为0；</div>
-    <div class="post-time">2020-05-09</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2020/05/19/algorithm/leetcode/动态规划/interleaving-string/">
-    <h3>interleaving string
-      <span class="title-right">算法</span>
-    </h3>
-    <div class="content">问题描述给定三个字符串，判断第三个是不是有前两个交错构成。
-例如：12输入：s1=&amp;quot;aabcc&amp;apos;, s2=&amp;quot;dbbca&amp;quot;, s3=&amp;quot;aadbbcbca</div>
-    <div class="post-time">2020-05-19</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2020/05/15/algorithm/leetcode/动态规划/triangle/">
-    <h3>triangle
-      <span class="title-right">算法</span>
-    </h3>
-    <div class="content">问题描述给定一个三角形数字矩阵，找到该矩阵从上到下的最小路径和。每一步只能找相邻的路径。例如12345678910输入：[  [2],  [3,4],  [6,5,7],  [4,1,8,3]]输出：</div>
-    <div class="post-time">2020-05-15</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2020/05/12/algorithm/leetcode/动态规划/unique-binary-search-trees-ii/">
-    <h3>unique binary search trees ii
-      <span class="title-right">算法</span>
-    </h3>
-    <div class="content">问题描述给一个整数n，生成所有包含值1…n的可能的独特的BST。例如：1234567891011121314输入：3输出：[  [1,null,3,2],  [3,2,null,1],  ...]解释</div>
-    <div class="post-time">2020-05-12</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2020/05/09/algorithm/leetcode/动态规划/unique-path-II/">
-    <h3>unique path II
-      <span class="title-right">算法</span>
-    </h3>
-    <div class="content">问题描述给定一个二维格子矩阵，一个机器人初始位于最左上角，每次只能向右或者向下移动一个格子，格子有两种，有障碍物的和没有障碍物的，没有障碍物的可以走。求机器人的最大路线数。
-例如：1234567891</div>
-    <div class="post-time">2020-05-09</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/11/30/algorithm/leetcode/链表/leetcode题解：Intersection-of-Two-Linked-List/">
-    <h3>leetcode题解：Intersection of Two Linked List
-      <span class="title-right">算法</span>
-    </h3>
-    <div class="content">问题Write a program to find the node at which the intersection of two singly linked lists begins.
-For </div>
-    <div class="post-time">2019-11-30</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2020/05/06/algorithm/leetcode/链表/Copy-List-with-Random-Pointer/">
-    <h3>Copy List with Random Pointer
-      <span class="title-right">算法</span>
-    </h3>
-    <div class="content">问题描述给定一个链表，给出该链表的深克隆结果。链表的结构如下：12345struct Node &amp;#123;  int val;  Node* next;  Node* random;&amp;#125;
-r</div>
-    <div class="post-time">2020-05-06</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/11/06/algorithm/leetcode/链表/Link-List-II/">
-    <h3>Link List II
-      <span class="title-right">算法</span>
-    </h3>
-    <div class="content">问题给定一个链表，找出链表中循环的位置开始的地方，如果没有，返回null。使用整数pos表示循环开始的位置（0开始），如果没有环，pos为-1.
-
-注意：不要修改链表
-
-示例</div>
-    <div class="post-time">2019-11-06</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/06/21/algorithm/leetcode/二叉树/由先序、中序遍历结果构造二叉树/">
-    <h3>数据结构基础：根据先序、中序遍历结果构造二叉树
-      <span class="title-right">算法</span>
-    </h3>
-    <div class="content">要求给定一个二叉树的前序遍历和中序遍历结果，构造出这颗二叉树：
-例如：输入：
-
-preorder = [3,9,20,15,7]inorder = [9,3,15,20,7]
-
-输出：12345  3</div>
-    <div class="post-time">2019-06-21</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/12/12/algorithm/leetcode/链表/leetcode题解：Palindrome-Lined-List/">
-    <h3>leetcode题解：Palindrome Lined List
-      <span class="title-right">算法</span>
-    </h3>
-    <div class="content">问题描述Given a singly linked list, determine if it is a palindrome.
-Example 1:12Input: 1-&amp;gt;2Output: f</div>
-    <div class="post-time">2019-12-12</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/12/13/algorithm/leetcode/数组/leetcode题解：Shortest-Unsorted-Continuous-Subarray/">
-    <h3>leetcode题解：Shortest Unsorted Continuous Subarray
-      <span class="title-right">算法</span>
-    </h3>
-    <div class="content">问题描述Given an integer array, you need to find one continuous subarray that if you only sort this suba</div>
-    <div class="post-time">2019-12-13</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/11/06/algorithm/leetcode/链表/sort-list/">
-    <h3>sort list
-      <span class="title-right">算法</span>
-    </h3>
-    <div class="content">问题给定一个数组，在O(nlogn)的时间复杂度和常量空间复杂度内对该链表排序。
-12345678Example 1:Input: 4-&amp;gt;2-&amp;gt;1-&amp;gt;3Output: 1-&amp;gt;2</div>
-    <div class="post-time">2019-11-06</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/10/17/设计模式/图解设计模式/交给子类/Factory-Method模式/">
-    <h3>Factory Method模式
-      <span class="title-right">设计模式</span>
-    </h3>
-    <div class="content">在Template Method模式中，我们在父类中规定处理的流程，在子类中实现具体的处理。如果我们将该模式用于生成实例，就变成了Factory Method模式。用Template method 模</div>
-    <div class="post-time">2019-10-17</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/10/11/设计模式/图解设计模式/适应设计模式/Adapter模式/">
-    <h3>Adapter模式
-      <span class="title-right">设计模式</span>
-    </h3>
-    <div class="content">Adapter模式用于解决现有程序无法直接使用的问题，通过进行一定的适配，就能够在不修改源程序的基础上，使用现有程序的功能。宏观来说，只要两个接口不一样，而且有一定的练习，就可以考虑用适配器来进行适配</div>
-    <div class="post-time">2019-10-11</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/10/16/设计模式/图解设计模式/交给子类/Template-Method模式/">
-    <h3>Template Method模式
-      <span class="title-right">设计模式</span>
-    </h3>
-    <div class="content">在父类中定义处理流程框架，在子类中实现具体处理的模式就称为Template Method模式。这样可以将流程处理和其实现分开，举个例子，我们使用字帖来描字，无论使用什么笔来描，描出来的字形都是一样的；</div>
-    <div class="post-time">2019-10-16</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/10/21/设计模式/图解设计模式/生成实例/Singleton-模式/">
-    <h3>Singleton 模式
-      <span class="title-right">设计模式</span>
-    </h3>
-    <div class="content">在我们的程序中，我们可能只希望某一个类始终只有一个实例，例如可视化程序中的一个窗口，或者表示程序设置的类。Singleton模式（单例模式）要达到下面两个目的：
-
-确保任何情况下都只生成一个实例
-在程</div>
-    <div class="post-time">2019-10-21</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/10/09/设计模式/图解设计模式/适应设计模式/Iterator模式/">
-    <h3>Iterator模式
-      <span class="title-right">设计模式</span>
-    </h3>
-    <div class="content">Iterator模式也翻译成“迭代器模式”，主要作用是对某一个集合的逐个遍历进行抽象。例如，我们常常写：123for (let i = 0;i &amp;lt; arr.length;i++) &amp;#123; </div>
-    <div class="post-time">2019-10-09</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/11/11/c-c++/C语言编程魔法书/2.C语言中的基本数据类型/">
-    <h3>2.C语言中的基本数据类型
-      <span class="title-right">编程语言</span>
-    </h3>
-    <div class="content">C语言中的基本数据类型分成两个大类，一类是整数类型（包括整数、布尔值、字符），另一类是浮点数类型。
-基础数据类型都能进行+、-、*、/。整数还能按位和移位运算、浮点数不支持。
-整数类型C语言中的整数类</div>
-    <div class="post-time">2019-11-11</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2020/05/07/algorithm/leetcode/动态规划/Longest-Valid-Parentheses/">
-    <h3>Longest Valid Parentheses
-      <span class="title-right">算法</span>
-    </h3>
-    <div class="content">问题描述给定一个包含”(“和”)”的字符串，找到最长的合法括号子串，例如：12345输入：&amp;quot;(()&amp;quot;输出：2输入：&amp;quot;)()())&amp;quot;输出：4
-题解这个问题需要找到</div>
-    <div class="post-time">2020-05-07</div>
-  </a>
-</div>
-      
-</section>
-                </article>
-          </main>
-          <footer id="footer">
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2020 Bright<br>
-      powered_by <a href="http://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
-</footer>
-<script src="/js/script.js"></script>
-    </body>
-
-</html>
+<h2 id="2019-5-28-星期二"><a href="#2019-5-28-星期二" class="headerlink" title="2019.5.28 星期二"></a>2019.5.28 星期二</h2><ul>
+<li>学习sass，参阅博客《sass快速入门》</li>
+<li>完成博客内容页的基本布局，三列宽度自适应，利用左右浮动和margin实现。</li>
+<li>添加markdown编译后的html样式</li>
+</ul>
+<h2 id="2019-5-29-星期三"><a href="#2019-5-29-星期三" class="headerlink" title="2019.5.29 星期三"></a>2019.5.29 星期三</h2><ul>
+<li>进行个人博客网站的开发<ul>
+<li>完成card样式</li>
+<li>调整样式</li>
+</ul>
+</li>
+</ul>
+<h2 id="2019-5-30-星期四"><a href="#2019-5-30-星期四" class="headerlink" title="2019.5.30 星期四"></a>2019.5.30 星期四</h2><ul>
+<li>学习table框模型<ul>
+<li>table没有padding、table-cell没有margin</li>
+<li>table的列宽度是按照第一列（设定宽度型）或者该列所有行中宽度最大的那一列（自动）来设置</li>
+<li>table-layout有两种取值:auto和fixed，fixed是设定宽度型，auto是默认值。</li>
+</ul>
+</li>
+<li>学习解决外边框合并<ul>
+<li>父子元素的外边距合并可以通过设置父元素的边框或者padding解决</li>
+<li>子元素之间的外边距无法取消，可以通过透明边框或者padding来实现效果</li>
+</ul>
+</li>
+<li>开发个人博客网站<ul>
+<li>调整文章的样式，标题、p的line-height、text-indent、margin</li>
+<li>调整hr（分隔线的样式），添加透明度</li>
+<li>调整card，添加font-awesome（实际上就是导入字体，设置字体，然后将字符的值设置成指定的值比如’\f002’，一般用::before+content来实现）</li>
+<li>添加分类</li>
+</ul>
+</li>
+</ul>
+<h2 id="2019-6-3-周一"><a href="#2019-6-3-周一" class="headerlink" title="2019.6.3 周一"></a>2019.6.3 周一</h2><ul>
+<li>配置自动化git部署<ul>
+<li>创建git服务器仓库，ssh连接需要使用~/.ssh/authorized-keys</li>
+<li>使用git钩子——post-receive，需要赋予执行权限，写shell脚本在这个里面实现服务器上的代码仓库pull</li>
+<li>服务器仓库是空的，所以在服务器上另外clone一个源代码仓库，然后每次提交对这个仓库进行pull和hexo generate</li>
+<li>在hexo generate前需要先清理所有的静态文件，解决scss不编译的问题</li>
+</ul>
+</li>
+<li>nginx http转https<ul>
+<li>https监听的是443端口，http监听的是80端口，所以我们需要监听80端口，然后将请求重定向到https的url</li>
+</ul>
+</li>
+</ul>
+<h2 id="2019-6-4-周二"><a href="#2019-6-4-周二" class="headerlink" title="2019.6.4 周二"></a>2019.6.4 周二</h2><ul>
+<li>完善个人博客网站<ul>
+<li>弄清楚了分类、归档首页如何实现：归档有一级路由，分类没有一级路由（到时候需要添加hover实现多级路由的跳转）。</li>
+<li>todo：弄清楚分类跳转的实现；完成分类和跳转的页面样式。</li>
+</ul>
+</li>
+<li>学习php语法基础<ul>
+<li>php有八种数据类型：boolean、string、integer、float、array、object、resource、null</li>
+<li>…</li>
+</ul>
+</li>
+</ul>
+<h2 id="2019-6-5-周三"><a href="#2019-6-5-周三" class="headerlink" title="2019.6.5 周三"></a>2019.6.5 周三</h2><ul>
+<li>背6级单词</li>
+<li>leetcode刷题：子集问题<ul>
+<li>todo：总结排列、组合、子集问题用到的算法和题解</li>
+</ul>
+</li>
+<li>看书：程序设计——抽象思维</li>
+</ul>
+<h2 id="2019-6-6-周四"><a href="#2019-6-6-周四" class="headerlink" title="2019.6.6 周四"></a>2019.6.6 周四</h2><ul>
+<li>看书：pro git，深入了解git</li>
+</ul>
+<h2 id="2019-6-8-周六"><a href="#2019-6-8-周六" class="headerlink" title="2019.6.8 周六"></a>2019.6.8 周六</h2><ul>
+<li><p>写博客，总结</p>
+<ul>
+<li>排列组合子集问题的解决算法</li>
+<li>深度优先搜索题解——Leetcode单词匹配</li>
+</ul>
+</li>
+<li><p>学习markdown中嵌入latex数学表达式</p>
+<ul>
+<li><a href="https://www.zybuluo.com/codeep/note/163962#cmd-markdown-%E5%85%AC%E5%BC%8F%E6%8C%87%E5%AF%BC%E6%89%8B%E5%86%8C">博客地址</a></li>
+</ul>
+</li>
+<li><p>学习git</p>
+<ul>
+<li>总结三区四态的概念，以及对三区四态进行操作的基本命令</li>
+</ul>
+</li>
+<li><p>学linux命令行和脚本编程</p>
+</li>
+</ul>
+<h2 id="2019-6-9-周日"><a href="#2019-6-9-周日" class="headerlink" title="2019.6.9 周日"></a>2019.6.9 周日</h2><ul>
+<li><p>读书：linux命令行和shell脚本</p>
+<ul>
+<li>了解了文件/进程操作的基本命令</li>
+<li>了解bash</li>
+</ul>
+</li>
+<li><p>读书：鸟哥的linux私房菜</p>
+<ul>
+<li>了解的用户、群组权限</li>
+<li>了解sudo，sudo可以让当前用户以其他用户的身份执行命令，需要在/etc/sudoers文件中添加，使用visudo命令添加</li>
+</ul>
+</li>
+<li><p>为hexo添加mathjax数学公式的支持</p>
+</li>
+<li>nginx服务器开启gzip压缩和配置缓存</li>
+<li>了解hexo归档和分类界面的实现细节<ul>
+<li>在大类page中，使用page.posts可以拿到当前分类/归档下的所有文章</li>
+</ul>
+</li>
+</ul>
+<h2 id="2019-6-10-周一"><a href="#2019-6-10-周一" class="headerlink" title="2019.6.10 周一"></a>2019.6.10 周一</h2><ul>
+<li>读书《鸟哥linux私房菜》，了解计算机硬盘的分区。</li>
+<li>开始编写ucore操作系统，从预备知识看起，了解gcc，c语言内联汇编</li>
+</ul>
+<h2 id="2019-6-11-周二"><a href="#2019-6-11-周二" class="headerlink" title="2019.6.11 周二"></a>2019.6.11 周二</h2><ul>
+<li>less入门，看文档写博客</li>
+<li>gcc编译器，看《c语言编程魔法书》，初步复习gcc编译器和c语言</li>
+</ul>
+<h2 id="2019-6-12-周三"><a href="#2019-6-12-周三" class="headerlink" title="2019.6.12 周三"></a>2019.6.12 周三</h2><ul>
+<li>操作系统开发基础知识，gcc编译器内联汇编</li>
+<li>《鸟哥的linux私房菜》</li>
+</ul>
+<h2 id="2019-6-13-周四"><a href="#2019-6-13-周四" class="headerlink" title="2019.6.13 周四"></a>2019.6.13 周四</h2><ul>
+<li>leetcode算法</li>
+<li>《深入浅处Vue.js》</li>
+</ul>
+<h2 id="2019-6-14-周五"><a href="#2019-6-14-周五" class="headerlink" title="2019.6.14 周五"></a>2019.6.14 周五</h2><ul>
+<li>《深入浅出Vue.js》</li>
+</ul>
+<h2 id="2019-6-15-周六"><a href="#2019-6-15-周六" class="headerlink" title="2019.6.15 周六"></a>2019.6.15 周六</h2><ul>
+<li>《深入浅出Vue.js》</li>
+<li>《鸟哥的linux私房菜》<ul>
+<li>文件系统命令</li>
+<li>文件权限，更改所有人、群组、权限</li>
+</ul>
+</li>
+<li>css框模型，表格框模型</li>
+</ul>
+<h2 id="2019-6-15-周日"><a href="#2019-6-15-周日" class="headerlink" title="2019.6.15 周日"></a>2019.6.15 周日</h2><ul>
+<li>css框模型，表格框模型完成</li>
+<li>GNU make，makefile基本入门</li>
+<li>ucore-os<ul>
+<li>安装qemu</li>
+<li>调试源码</li>
+<li>了解源码，<strong>builtin_va_list</strong>等gcc内置变量</li>
+</ul>
+</li>
+<li>todo<ul>
+<li>makefile细节，如规则编写、变量等等</li>
+<li>ucore-os lab1完成</li>
+<li>了解gcc编译器，如内联汇编语句、内置变量</li>
+<li>更多的css框模型，grid、multi-column、flex、-webkit-box、contents等等。</li>
+</ul>
+</li>
+</ul>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><time class="level-item" dateTime="2020-06-14T03:08:34.119Z" title="2020-06-14T03:08:34.119Z">2020-06-14</time><span class="level-item"><a class="link-muted" href="/categories/css/">css</a><span> / </span><a class="link-muted" href="/categories/css/sass/">sass</a></span><span class="level-item">9 minutes read (About 1286 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2020/06/14/css/sass/sass%20%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/">Sass快速入门</a></h1><div class="content"><h2 id="1-使用变量"><a href="#1-使用变量" class="headerlink" title="1. 使用变量"></a>1. 使用变量</h2><h3 id="1-1-声明变量"><a href="#1-1-声明变量" class="headerlink" title="1.1 声明变量"></a>1.1 声明变量</h3><blockquote>
+<p>$highlight-color: #F90;</p>
+</blockquote>
+<ul>
+<li>$highlight-color就是一个变量，变量的值可以是任何CSS属性值。即可以赋值给css属性的值都可以赋值给变量。</li>
+<li>在规则块中定义的变量只能在规则块中使用。</li>
+</ul>
+<h3 id="1-2-变量引用"><a href="#1-2-变量引用" class="headerlink" title="1.2 变量引用"></a>1.2 变量引用</h3><p>凡是css属性可以使用的地方，变量就可以使用：</p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$highlight-color</span>: <span class="number">#F90</span>;</span><br><span class="line"><span class="selector-class">.selected</span> &#123;</span><br><span class="line">    <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="variable">$highlight-color</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在声明变量时，变量值可以引用其他变量：</p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$highlight-color</span>: <span class="number">#F90</span>;</span><br><span class="line"><span class="variable">$highlight-border</span>: <span class="number">1px</span> solid <span class="variable">$highlight-color</span>;</span><br><span class="line"><span class="selector-class">.selected</span> &#123;</span><br><span class="line">	<span class="attribute">border</span> <span class="variable">$highlight-border</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上例说明变量的值可以是复合值。</p>
+<h3 id="1-3-一般使用中划线来分隔变量中的多个词"><a href="#1-3-一般使用中划线来分隔变量中的多个词" class="headerlink" title="1.3 一般使用中划线来分隔变量中的多个词"></a>1.3 一般使用中划线来分隔变量中的多个词</h3><h2 id="2-嵌套CSS规则"><a href="#2-嵌套CSS规则" class="headerlink" title="2. 嵌套CSS规则"></a>2. 嵌套CSS规则</h2><p>如下例：</p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-id">#content</span> &#123;</span><br><span class="line">    <span class="selector-tag">article</span> &#123;</span><br><span class="line">        <span class="selector-tag">h1</span> &#123; <span class="attribute">color</span>: <span class="number">#333</span>; &#125;</span><br><span class="line">        <span class="selector-tag">p</span> &#123; <span class="attribute">margin-bottom</span>: <span class="number">1.4em</span>; &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="selector-tag">aside</span> &#123; <span class="attribute">background-color</span>: <span class="number">#EEE</span>; &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>会使用后代选择器编译，编译后：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment">/* 编译后 */</span></span><br><span class="line"><span class="selector-id">#content</span> <span class="selector-tag">article</span> <span class="selector-tag">h1</span> &#123; <span class="attribute">color</span>: <span class="number">#333</span> &#125;</span><br><span class="line"><span class="selector-id">#content</span> <span class="selector-tag">article</span> <span class="selector-tag">p</span> &#123; <span class="attribute">margin-bottom</span>: <span class="number">1.4em</span> &#125;</span><br><span class="line"><span class="selector-id">#content</span> <span class="selector-tag">aside</span> &#123; <span class="attribute">background-color</span>: <span class="number">#EEE</span> &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="2-1-父选择器的标识符-amp"><a href="#2-1-父选择器的标识符-amp" class="headerlink" title="2.1 父选择器的标识符&amp;"></a>2.1 父选择器的标识符&amp;</h3><p>使用&amp;能够在嵌套选择器中指代父元素。</p>
+<p>例如：</p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">article</span> <span class="selector-tag">a</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: blue;</span><br><span class="line">    &amp;<span class="selector-pseudo">:hover</span> &#123; <span class="attribute">color</span>: red; &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>会编译成：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">article</span> <span class="selector-tag">a</span> &#123; <span class="attribute">color</span>: blue; &#125;</span><br><span class="line"><span class="selector-tag">article</span> <span class="selector-tag">a</span><span class="selector-pseudo">:hover</span> &#123; <span class="attribute">color</span>: red &#125;</span><br></pre></td></tr></table></figure>
+<p><strong>注意：&amp;指代当前嵌套的选择器的父选择器，例如</strong></p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-id">#content</span> <span class="selector-tag">aside</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: red;</span><br><span class="line">  <span class="selector-tag">body</span><span class="selector-class">.ie</span> &amp; &#123; <span class="attribute">color</span>: green &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>会变成:</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*编译后*/</span></span><br><span class="line"><span class="selector-id">#content</span> <span class="selector-tag">aside</span> &#123;<span class="attribute">color</span>: red&#125;;</span><br><span class="line"><span class="selector-tag">body</span><span class="selector-class">.ie</span> <span class="selector-id">#content</span> <span class="selector-tag">aside</span> &#123; <span class="attribute">color</span>: green &#125;</span><br></pre></td></tr></table></figure>
+<p>而不是只有aside是父元素。</p>
+<h3 id="2-2-群组选择器的嵌套"><a href="#2-2-群组选择器的嵌套" class="headerlink" title="2.2 群组选择器的嵌套"></a>2.2 群组选择器的嵌套</h3><figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">    <span class="selector-tag">h1</span>, <span class="selector-tag">h2</span>, <span class="selector-tag">h3</span> &#123; <span class="attribute">margin-bottom</span>: .<span class="number">8em</span> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>会变成：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.container</span> <span class="selector-tag">h1</span>, <span class="selector-class">.container</span> <span class="selector-tag">h2</span>, <span class="selector-class">.container</span> <span class="selector-tag">h3</span> &#123; <span class="attribute">margin-bottom</span>: .<span class="number">8em</span>; &#125;</span><br></pre></td></tr></table></figure>
+<p>同理可知：</p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">nav</span>, <span class="selector-tag">aside</span> &#123; </span><br><span class="line">    <span class="selector-tag">a</span> &#123; <span class="attribute">color</span>: blue; &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="2-3-gt-、-、"><a href="#2-3-gt-、-、" class="headerlink" title="2.3 &gt;、+、~"></a>2.3 &gt;、+、~</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">header</span> + <span class="selector-tag">p</span> &#123; <span class="attribute">font-size</span>: <span class="number">1.1em</span>; &#125;</span><br></pre></td></tr></table></figure>
+<p>+选择紧跟在header后面的p</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">article</span> ~ <span class="selector-tag">article</span> &#123; <span class="attribute">border-top</span>: <span class="number">1px</span> dashed <span class="number">#ccc</span>; &#125;</span><br></pre></td></tr></table></figure>
+<p>~选择所有article元素后的同层article元素，不管他们中间有多少元素。</p>
+<p>可以在嵌套规则中使用：</p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">article</span> &#123;</span><br><span class="line">    ~ <span class="selector-tag">article</span> &#123; <span class="attribute">border-top</span>: <span class="number">1px</span> dashed <span class="number">#ccc</span> &#125;</span><br><span class="line">    &gt; section &#123;background: <span class="number">#eee</span> &#125;</span><br><span class="line">    dl &gt; &#123;</span><br><span class="line">        dt &#123; color: <span class="number">#333</span> &#125;</span><br><span class="line">        dd &#123; color: <span class="number">#555</span> &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    nav + &amp; &#123; margin-top: <span class="number">0</span> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="2-4-嵌套属性"><a href="#2-4-嵌套属性" class="headerlink" title="2.4 嵌套属性"></a>2.4 嵌套属性</h3><p>规则可以嵌套，属性也可以嵌套：</p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">nav</span> &#123;</span><br><span class="line">    <span class="attribute">border</span>: &#123;</span><br><span class="line">        style: solid;</span><br><span class="line">        <span class="attribute">width</span>: <span class="number">1px</span>;</span><br><span class="line">        <span class="attribute">color</span>: <span class="number">#ccc</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>嵌套属性的规则：把属性名从中划线-的地方断开，在根属性后面添加一个冒号：，紧跟一个{}块，子属性写在{}中。</p>
+<p>得到的结果如下：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">nav</span> &#123;</span><br><span class="line">    <span class="attribute">border-style</span>: solid;</span><br><span class="line">    <span class="attribute">border-width</span>: <span class="number">1px</span>;</span><br><span class="line">    <span class="attribute">border-color</span>: <span class="number">#ccc</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="3-导入SASS文件"><a href="#3-导入SASS文件" class="headerlink" title="3. 导入SASS文件"></a>3. 导入SASS文件</h2><ul>
+<li><p>css的@import规则会在执行到@import时浏览器才会去下载。</p>
+</li>
+<li><p>sass的@import规则在生成css文件时就将相关文件导入进来。<strong>在被导入文件中定义的变量和混合器均可在导入文件中使用。</strong></p>
+</li>
+<li><p>可以省略文件后缀（.sass,.scss）。</p>
+</li>
+</ul>
+<h3 id="3-1-部分sass文件"><a href="#3-1-部分sass文件" class="headerlink" title="3.1 部分sass文件"></a>3.1 部分sass文件</h3><p>这些文件一般只用于导入到其他文件中，比如常用的组件sidebar。</p>
+<ul>
+<li><p>sass局部文件的文件名以下划线开头。这样，sass就不会在编译时单独编译这个文件输出css，而只把这个文件用作导入。</p>
+<blockquote>
+<p>themes/_night-sky.scss =&gt; @import “themes/night-sky”;</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="3-2-默认变量值"><a href="#3-2-默认变量值" class="headerlink" title="3.2 默认变量值"></a>3.2 默认变量值</h3><ol>
+<li>反复声明一个变量，只有最后一处有效且它会覆盖前边的值。</li>
+</ol>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$link-color</span>: blue;</span><br><span class="line"><span class="variable">$link-color</span>: red;</span><br><span class="line"><span class="selector-tag">a</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: <span class="variable">$link-color</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li><p>使用!default实现默认值</p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$fancybox-width</span>: <span class="number">400px</span> !default;</span><br><span class="line"><span class="selector-class">.fancybox</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="variable">$fancybox-width</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>声明后面接!default说明该值是默认值，如果还有其他的赋值，那会使用赋值，如果没有则使用默认值。</p>
+</li>
+</ol>
+<h3 id="3-3-嵌套导入"><a href="#3-3-嵌套导入" class="headerlink" title="3.3 嵌套导入"></a>3.3 嵌套导入</h3><p>sass运行@import命令写在css规则内（原生css不允许）。这种导入方式下，生成对应的css文件时，局部文件会被直接插入到css规则内导入它的地方。</p>
+<h3 id="3-4-原生的CSS导入"><a href="#3-4-原生的CSS导入" class="headerlink" title="3.4 原生的CSS导入"></a>3.4 原生的CSS导入</h3><p>由于sass兼容原生的css，所以它也支持原生的CSS@import。在下列三种情况下会生成原生的CSS@import：</p>
+<ul>
+<li>被导入文件的名字以.css结尾</li>
+<li>被导入文件的名字是一个URL地址</li>
+<li>被导入文件的名字时css的url值</li>
+</ul>
+<h2 id="4-静默注释"><a href="#4-静默注释" class="headerlink" title="4. 静默注释"></a>4. 静默注释</h2><p>“//” 开头的是静默注释，这种注释不会和出现在生成的css文件中。</p>
+<h2 id="5-混合器"><a href="#5-混合器" class="headerlink" title="5. 混合器"></a>5. 混合器</h2><p>通过sass的混合器实现大段样式的重用。</p>
+<ul>
+<li><p>混合器使用@mixin标识符定义。这个标识符给一大段样式赋予一个名字，可以通过这个名字来重用这段样式。</p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@minin</span> rounded-corners &#123;</span><br><span class="line">    -moz-<span class="attribute">border-radius</span>: <span class="number">5px</span>;</span><br><span class="line">    -webkit-<span class="attribute">border-radius</span>: <span class="number">5px</span>;</span><br><span class="line">    <span class="attribute">border-radius</span>: <span class="number">5px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>通过@include来使用这个混合器：</p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">notice &#123;</span><br><span class="line">    <span class="attribute">background-color</span>: green;</span><br><span class="line">    <span class="attribute">border</span>: <span class="number">2px</span> solid <span class="number">#00aa00</span>;</span><br><span class="line">    <span class="keyword">@include</span> rounded-corners;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>相当于在@include的位置将名字代表的那一段代码粘贴进来。</p>
+</li>
+</ul>
+<h3 id="5-1-何时使用混合器"><a href="#5-1-何时使用混合器" class="headerlink" title="5.1 何时使用混合器"></a>5.1 何时使用混合器</h3><ul>
+<li>如果发现一直在复制粘贴某一段css代码，这时候需要混合器</li>
+<li>如果能为这个混合器想出一个简短的好名字，这时往往能够构造一个合适的混合器。</li>
+</ul>
+<h3 id="5-2-混合器中的css规则"><a href="#5-2-混合器中的css规则" class="headerlink" title="5.2 混合器中的css规则"></a>5.2 混合器中的css规则</h3><p>混合器中不仅可以包含属性，也可以包含css规则，包含选择器和选择器中的属性：</p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@minin</span> no-bullets &#123;</span><br><span class="line">    <span class="attribute">list-style</span>: none;</span><br><span class="line">    <span class="selector-tag">li</span> &#123;</span><br><span class="line">        <span class="attribute">list-style-image</span>: none;</span><br><span class="line">        <span class="attribute">list-style-type</span>: none;</span><br><span class="line">        <span class="attribute">margin-left</span>: <span class="number">0px</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><time class="level-item" dateTime="2020-05-19T02:04:25.000Z" title="2020-05-19T02:04:25.000Z">2020-05-19</time><span class="level-item"><a class="link-muted" href="/categories/%E7%AE%97%E6%B3%95/">算法</a><span> / </span><a class="link-muted" href="/categories/%E7%AE%97%E6%B3%95/leetcode/">leetcode</a></span><span class="level-item">2 minutes read (About 238 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2020/05/19/algorithm/leetcode/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/interleaving-string/">interleaving string</a></h1><div class="content"><h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>给定三个字符串，判断第三个是不是有前两个交错构成。</p>
+<p>例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：s1&#x3D;&quot;aabcc&#39;, s2&#x3D;&quot;dbbca&quot;, s3&#x3D;&quot;aadbbcbcac&quot;</span><br><span class="line">输出：true</span><br></pre></td></tr></table></figure></p>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><h3 id="回溯法"><a href="#回溯法" class="headerlink" title="回溯法"></a>回溯法</h3><p>使用两个指针，指向s1，s2的当前字符位置。每次前移一个指针，如果移动s1的指针，那么将s1指向的字符与s3对应的位置的字符比较，如果相同，则继续，如果不相同，回溯到s1指针移动前，移动s2的指针比较。</p>
+<p>最差情况下的时间复杂度为O(2^n)。</p>
+<h3 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a>动态规划</h3><p>定义dp[i][j]为s1[0…i-1]和s2[0…j-1]能否构成s3[0…i+j-1]。</p>
+<p>dp[i][j] = (dp[i-1][j]&amp;&amp;(s1[i-1]==s3[i+j-1])) || (dp[i][j-1]&amp;&amp;(s2[j-1]==s3[i+j-1]))</p>
+<p>代码就是两个循环加状态转移方程，注意边界处理，dp[0][0]=true表示字符串长度为0的情况。</p>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><time class="level-item" dateTime="2020-05-17T01:52:12.000Z" title="2020-05-17T01:52:12.000Z">2020-05-17</time><span class="level-item"><a class="link-muted" href="/categories/%E7%AE%97%E6%B3%95/">算法</a><span> / </span><a class="link-muted" href="/categories/%E7%AE%97%E6%B3%95/leetcode/">leetcode</a></span><span class="level-item">6 minutes read (About 955 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2020/05/17/algorithm/leetcode/%E5%88%86%E6%B2%BB/maximum-product-subarray/">maximum product subarray</a></h1><div class="content"><h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>给定一个整数数组nums，找到数组内有最大乘积的最大连续子数组。</p>
+<p>例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：[2,3,-2,4]</span><br><span class="line">输出：6</span><br><span class="line">2*3 &#x3D; 6</span><br></pre></td></tr></table></figure></p>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>这道题是典型的分治问题。类似的问题还有最大连续子数组的最大和。思路就是将数组分成左右两个部分，对左右分别求出最大值，然后求出合并之后的最大值，取三者之中的最大值。</p>
+<p>分治问题的难点在于如何“合”，如果“分”的时间复杂度和“合”的时间复杂度均为O(n)及以下，那么分治算法的总时间复杂度为O(nlogn)。在这道题里面，积的特点是负数乘负数能够得到正数，与求和的问题不同。所以“合”的时候要注意两个要点：</p>
+<ol>
+<li>分成左右两部分，对左边从右到左求乘积，记录最大值和最小值；对右边从左到右求乘积，记录最大值和最小值</li>
+<li>最大积就是左右最大值最小值组合相乘的四种情况中的最大值，因为可能有“负负得正”的情况，就把可能的情况都算了一下</li>
+</ol>
+<p>代码：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">recursive</span>(<span class="params">left, right, nums</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (right - left === <span class="number">1</span>) <span class="keyword">return</span> nums[left];</span><br><span class="line"></span><br><span class="line">  <span class="comment">// +1是为了统一数组项奇数个数和偶数个数的情况（不加1也可以，个人习惯），例如(4+1)/2=2，(3+1)/2=2，</span></span><br><span class="line">  <span class="keyword">var</span> center = <span class="built_in">Math</span>.floor((left+right+<span class="number">1</span>)/<span class="number">2</span>);</span><br><span class="line">  <span class="keyword">var</span> lv = recursive(left, center, nums);</span><br><span class="line">  <span class="keyword">var</span> rv = recursive(center, right, nums);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">var</span> min = <span class="built_in">Number</span>.MAX_VALUE, max = <span class="built_in">Number</span>.MIN_VALUE, prod = nums[center<span class="number">-1</span>];</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> i = center - <span class="number">2</span>;i &gt;= left;i--) &#123;</span><br><span class="line">    prod *= nums[i];</span><br><span class="line">    <span class="keyword">if</span> (prod &gt; max) max = prod;</span><br><span class="line">    <span class="keyword">if</span> (prod &lt; min) min = prod;</span><br><span class="line">    <span class="keyword">if</span> (prod === <span class="number">0</span>) <span class="keyword">break</span>; <span class="comment">// 0 * any = 0</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">var</span> rmin = <span class="built_in">Number</span>.MAX_VALUE, rmax = <span class="built_in">Number</span>.MIN_VALUE, rprod = nums[center];</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> i = center + <span class="number">1</span>;i &lt; right;i++) &#123;</span><br><span class="line">    prod *= nums[i];</span><br><span class="line">    <span class="keyword">if</span> (prod &gt; max) max = prod;</span><br><span class="line">    <span class="keyword">if</span> (prod &lt; min) min = prod;</span><br><span class="line">    <span class="keyword">if</span> (prod === <span class="number">0</span>) <span class="keyword">break</span>; <span class="comment">// 0 * any = 0</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">var</span> tmax = min * rmin;</span><br><span class="line">  <span class="keyword">if</span> (min * rmax &gt; tmax) tmax = min * rmax;</span><br><span class="line">  <span class="keyword">if</span> (max * rmin &gt; tmax) tmax = max * rmin;</span><br><span class="line">  <span class="keyword">if</span> (max * rmax &gt; tmax) tmax = max * rmax;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">Math</span>.max(lv, rv, tmax);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="动态规划解法"><a href="#动态规划解法" class="headerlink" title="动态规划解法"></a>动态规划解法</h3><p>这道题除了能使用分治之外，还可以使用动态规划来解。假定状态dp[i]表示[0…i]的最大连续子数组积的最大值，dp[i]如何和dp[i-1]或者其他已知的状态联系起来呢？这样其实不太好联系起来。</p>
+<p>可以将状态dp[i]定义成以乘积包含nums[i]的子数组的积的最大值，那状态转移方程为<code>dp[i]=max(nums[i], dp[i-1]*nums[i], min[i-1]*nums[i]</code>，注意到还有min，因为可能存在负数的情况，所以要还要定义最小值状态。所以最终状态转移方程就是：</p>
+<ol>
+<li><code>dpmax[i]=max(nums[i], dpmax[i-1]*nums[i], dpmin[i-1]*nums[i])</code></li>
+<li><code>dpmin[i]=min(nums[i], dpmax[i-1]*nums[i], dpmin[i-1]*nums[i])</code></li>
+</ol>
+<p>涵盖的情况有两种：</p>
+<ol>
+<li>nums[i]符号和前一个结果异号，那么最大或最小值其实就是该值自身</li>
+<li>如果同号，可能是正也可能是负，都计算一下然后取最大值/最小值</li>
+</ol>
+<p>代码：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> maxProduct = <span class="function"><span class="keyword">function</span>(<span class="params">nums</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> n = nums.length;</span><br><span class="line">  <span class="keyword">var</span> pmin = nums[<span class="number">0</span>], pmax = nums[<span class="number">0</span>], max = nums[<span class="number">0</span>];</span><br><span class="line">  <span class="keyword">var</span> max = nums[<span class="number">0</span>];</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>;i &lt; n;i++) &#123;</span><br><span class="line">    <span class="keyword">var</span> tm = pmax * nums[i], tmin = pmin * nums[i];</span><br><span class="line">    pmax = <span class="built_in">Math</span>.max(nums[i], tm, tmin);</span><br><span class="line">    pmin = <span class="built_in">Math</span>.max(nums[i], tm, tmin);</span><br><span class="line">    max = <span class="built_in">Math</span>.max(max, pmax);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> max;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>因为只需要前一个状态，所以可以只前一个状态的值，而不需要一个数组了。时间复杂度O(n)，空间复杂度O(1)。神奇的是，leetcode上，执行时间比O(nlogn)的分治算法长，不知道为什么。</p>
+<h4 id="扩展思考"><a href="#扩展思考" class="headerlink" title="扩展思考"></a>扩展思考</h4><p>那如果是求最大和，动态规划怎么解呢？<code>dp[i]=max(dp[i-1]+nums[i], nums[i])</code></p>
+</div></article></div><nav class="pagination is-centered mt-4" role="navigation" aria-label="pagination"><div class="pagination-previous is-invisible is-hidden-mobile"><a href="/page/0/">Previous</a></div><div class="pagination-next"><a href="/page/2/">Next</a></div><ul class="pagination-list is-hidden-mobile"><li><a class="pagination-link is-current" href="/">1</a></li><li><a class="pagination-link" href="/page/2/">2</a></li><li><span class="pagination-ellipsis">&hellip;</span></li><li><a class="pagination-link" href="/page/16/">16</a></li></ul></nav></div><div class="column column-left is-4-tablet is-4-desktop is-3-widescreen  order-1"><div class="card widget"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="/img/avatar.png" alt="Bright Wu"></figure><p class="title is-size-4 is-block line-height-inherit">Bright Wu</p><p class="is-size-6 is-block">working harder to be better</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>Beijing Chaoyang</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="/archives"><p class="title">154</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="/categories"><p class="title">84</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="/tags"><p class="title">115</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/wre232114" target="_blank" rel="noopener">Follow</a></div><div class="level is-mobile"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/wre232114"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Facebook" href="https://facebook.com"><i class="fab fa-facebook"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Twitter" href="https://twitter.com"><i class="fab fa-twitter"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Dribbble" href="https://dribbble.com"><i class="fab fa-dribbble"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="RSS" href="/"><i class="fas fa-rss"></i></a></div></div></div><!--!--><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">Links</h3><ul class="menu-list"><li><a class="level is-mobile is-mobile" href="https://hexo.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Hexo</span></span><span class="level-right"><span class="level-item tag">hexo.io</span></span></a></li><li><a class="level is-mobile is-mobile" href="https://brightblog.cn" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Bulma</span></span><span class="level-right"><span class="level-item tag">brightblog.cn</span></span></a></li></ul></div></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">Categories</h3><ul class="menu-list"><li><a class="level is-mobile is-marginless" href="/categories/Java/"><span class="level-start"><span class="level-item">Java</span></span><span class="level-end"><span class="level-item tag">1</span></span></a><ul class="mr-0"><li><a class="level is-mobile is-marginless" href="/categories/Java/spring%E5%AE%9E%E6%88%98/"><span class="level-start"><span class="level-item">spring实战</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile is-marginless" href="/categories/Open-Source/"><span class="level-start"><span class="level-item">Open Source</span></span><span class="level-end"><span class="level-item tag">1</span></span></a><ul class="mr-0"><li><a class="level is-mobile is-marginless" href="/categories/Open-Source/Huaxu/"><span class="level-start"><span class="level-item">Huaxu</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile is-marginless" href="/categories/Webpack/"><span class="level-start"><span class="level-item">Webpack</span></span><span class="level-end"><span class="level-item tag">2</span></span></a><ul class="mr-0"><li><a class="level is-mobile is-marginless" href="/categories/Webpack/Webpack%E5%9F%BA%E7%A1%80/"><span class="level-start"><span class="level-item">Webpack基础</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/Webpack/Webpack%E5%AE%9E%E6%88%98/"><span class="level-start"><span class="level-item">Webpack实战</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile is-marginless" href="/categories/css/"><span class="level-start"><span class="level-item">css</span></span><span class="level-end"><span class="level-item tag">10</span></span></a><ul class="mr-0"><li><a class="level is-mobile is-marginless" href="/categories/css/css%E5%9F%BA%E7%A1%80/"><span class="level-start"><span class="level-item">css基础</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/css/css%E5%B7%A5%E5%85%B7/"><span class="level-start"><span class="level-item">css工具</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/css/less/"><span class="level-start"><span class="level-item">less</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/css/sass/"><span class="level-start"><span class="level-item">sass</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile is-marginless" href="/categories/docker/"><span class="level-start"><span class="level-item">docker</span></span><span class="level-end"><span class="level-item tag">2</span></span></a><ul class="mr-0"><li><a class="level is-mobile is-marginless" href="/categories/docker/docker-swarm/"><span class="level-start"><span class="level-item">docker swarm</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/docker/docker%E5%9F%BA%E7%A1%80/"><span class="level-start"><span class="level-item">docker基础</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile is-marginless" href="/categories/git/"><span class="level-start"><span class="level-item">git</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/hexo/"><span class="level-start"><span class="level-item">hexo</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/html5/"><span class="level-start"><span class="level-item">html5</span></span><span class="level-end"><span class="level-item tag">8</span></span></a><ul class="mr-0"><li><a class="level is-mobile is-marginless" href="/categories/html5/dom/"><span class="level-start"><span class="level-item">dom</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/html5/html5-API/"><span class="level-start"><span class="level-item">html5 API</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/html5/html5%E6%A0%87%E7%AD%BE%E5%92%8C%E5%B1%9E%E6%80%A7/"><span class="level-start"><span class="level-item">html5标签和属性</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/html5/svg/"><span class="level-start"><span class="level-item">svg</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/html5/tips/"><span class="level-start"><span class="level-item">tips</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/html5/%E5%AE%9E%E6%88%98/"><span class="level-start"><span class="level-item">实战</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile is-marginless" href="/categories/js/"><span class="level-start"><span class="level-item">js</span></span><span class="level-end"><span class="level-item tag">6</span></span></a><ul class="mr-0"><li><a class="level is-mobile is-marginless" href="/categories/js/js%E5%9F%BA%E7%A1%80/"><span class="level-start"><span class="level-item">js基础</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/js/typescript/"><span class="level-start"><span class="level-item">typescript</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/js/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"><span class="level-start"><span class="level-item">正则表达式</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile is-marginless" href="/categories/linux/"><span class="level-start"><span class="level-item">linux</span></span><span class="level-end"><span class="level-item tag">1</span></span></a><ul class="mr-0"><li><a class="level is-mobile is-marginless" href="/categories/linux/%E5%B7%A5%E5%85%B7/"><span class="level-start"><span class="level-item">工具</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile is-marginless" href="/categories/nginx/"><span class="level-start"><span class="level-item">nginx</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/node-js/"><span class="level-start"><span class="level-item">node.js</span></span><span class="level-end"><span class="level-item tag">2</span></span></a><ul class="mr-0"><li><a class="level is-mobile is-marginless" href="/categories/node-js/npm/"><span class="level-start"><span class="level-item">npm</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/node-js/%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%B7%A5%E5%85%B7/"><span class="level-start"><span class="level-item">命令行工具</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile is-marginless" href="/categories/php/"><span class="level-start"><span class="level-item">php</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/spring-boot/"><span class="level-start"><span class="level-item">spring-boot</span></span><span class="level-end"><span class="level-item tag">1</span></span></a><ul class="mr-0"><li><a class="level is-mobile is-marginless" href="/categories/spring-boot/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/"><span class="level-start"><span class="level-item">开发工具</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile is-marginless" href="/categories/typescript/"><span class="level-start"><span class="level-item">typescript</span></span><span class="level-end"><span class="level-item tag">1</span></span></a><ul class="mr-0"><li><a class="level is-mobile is-marginless" href="/categories/typescript/%E8%B8%A9%E5%9D%91%E6%8C%87%E5%8D%97/"><span class="level-start"><span class="level-item">踩坑指南</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile is-marginless" href="/categories/vue/"><span class="level-start"><span class="level-item">vue</span></span><span class="level-end"><span class="level-item tag">11</span></span></a><ul class="mr-0"><li><a class="level is-mobile is-marginless" href="/categories/vue/cli/"><span class="level-start"><span class="level-item">cli</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/vue/tips/"><span class="level-start"><span class="level-item">tips</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/vue/vue-router/"><span class="level-start"><span class="level-item">vue-router</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/vue/vue%E5%AE%9E%E6%88%98/"><span class="level-start"><span class="level-item">vue实战</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/vue/vue%E7%BB%84%E4%BB%B6%E5%BC%80%E5%8F%91/"><span class="level-start"><span class="level-item">vue组件开发</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/vue/%E5%9F%BA%E7%A1%80/"><span class="level-start"><span class="level-item">基础</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li></ul></li><li><a class="level is-mobile is-marginless" href="/categories/xml/"><span class="level-start"><span class="level-item">xml</span></span><span class="level-end"><span class="level-item tag">1</span></span></a><ul class="mr-0"><li><a class="level is-mobile is-marginless" href="/categories/xml/%E5%9F%BA%E7%A1%80/"><span class="level-start"><span class="level-item">基础</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile is-marginless" href="/categories/%E5%AD%A6%E4%B9%A0%E6%89%93%E5%8D%A1/"><span class="level-start"><span class="level-item">学习打卡</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E5%AE%89%E5%85%A8/"><span class="level-start"><span class="level-item">安全</span></span><span class="level-end"><span class="level-item tag">3</span></span></a><ul class="mr-0"><li><a class="level is-mobile is-marginless" href="/categories/%E5%AE%89%E5%85%A8/%E5%AF%86%E7%A0%81%E6%8A%80%E6%9C%AF/"><span class="level-start"><span class="level-item">密码技术</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li></ul></li><li><a class="level is-mobile is-marginless" href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"><span class="level-start"><span class="level-item">操作系统</span></span><span class="level-end"><span class="level-item tag">23</span></span></a><ul class="mr-0"><li><a class="level is-mobile is-marginless" href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/shell/"><span class="level-start"><span class="level-item">shell</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/ucore/"><span class="level-start"><span class="level-item">ucore</span></span><span class="level-end"><span class="level-item tag">18</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/"><span class="level-start"><span class="level-item">操作系统原理</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li></ul></li><li><a class="level is-mobile is-marginless" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"><span class="level-start"><span class="level-item">数据库</span></span><span class="level-end"><span class="level-item tag">10</span></span></a><ul class="mr-0"><li><a class="level is-mobile is-marginless" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/mysql/"><span class="level-start"><span class="level-item">mysql</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/sql%E8%AF%AD%E5%8F%A5/"><span class="level-start"><span class="level-item">sql语句</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/%E5%AF%BC%E8%AE%BA/"><span class="level-start"><span class="level-item">导论</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%BC%96%E7%A8%8B/"><span class="level-start"><span class="level-item">数据库编程</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AE%BE%E8%AE%A1/"><span class="level-start"><span class="level-item">数据库设计</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li></ul></li><li><a class="level is-mobile is-marginless" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"><span class="level-start"><span class="level-item">数据结构</span></span><span class="level-end"><span class="level-item tag">1</span></span></a><ul class="mr-0"><li><a class="level is-mobile is-marginless" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%9B%BE/"><span class="level-start"><span class="level-item">图</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile is-marginless" href="/categories/%E6%A0%91%E8%8E%93%E6%B4%BE/"><span class="level-start"><span class="level-item">树莓派</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E6%AF%95%E8%AE%BE/"><span class="level-start"><span class="level-item">毕设</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E7%AE%97%E6%B3%95/"><span class="level-start"><span class="level-item">算法</span></span><span class="level-end"><span class="level-item tag">20</span></span></a><ul class="mr-0"><li><a class="level is-mobile is-marginless" href="/categories/%E7%AE%97%E6%B3%95/leetcode/"><span class="level-start"><span class="level-item">leetcode</span></span><span class="level-end"><span class="level-item tag">18</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E7%AE%97%E6%B3%95/%E6%A8%A1%E5%BC%8F%E5%8C%B9%E9%85%8D/"><span class="level-start"><span class="level-item">模式匹配</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E7%AE%97%E6%B3%95/%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2/"><span class="level-start"><span class="level-item">深度优先搜索</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile is-marginless" href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/"><span class="level-start"><span class="level-item">编程语言</span></span><span class="level-end"><span class="level-item tag">20</span></span></a><ul class="mr-0"><li><a class="level is-mobile is-marginless" href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C/"><span class="level-start"><span class="level-item">C</span></span><span class="level-end"><span class="level-item tag">1</span></span></a><ul class="mr-0"><li><a class="level is-mobile is-marginless" href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C/%E8%AF%AD%E8%A8%80/"><span class="level-start"><span class="level-item">语言</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile is-marginless" href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C%E8%AF%AD%E8%A8%80/"><span class="level-start"><span class="level-item">C语言</span></span><span class="level-end"><span class="level-item tag">17</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/"><span class="level-start"><span class="level-item">Java</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/java/"><span class="level-start"><span class="level-item">java</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile is-marginless" href="/categories/%E8%8B%B1%E8%AF%AD/"><span class="level-start"><span class="level-item">英语</span></span><span class="level-end"><span class="level-item tag">1</span></span></a><ul class="mr-0"><li><a class="level is-mobile is-marginless" href="/categories/%E8%8B%B1%E8%AF%AD/%E7%94%9F%E8%AF%8D/"><span class="level-start"><span class="level-item">生词</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile is-marginless" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"><span class="level-start"><span class="level-item">计算机网络</span></span><span class="level-end"><span class="level-item tag">3</span></span></a><ul class="mr-0"><li><a class="level is-mobile is-marginless" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/wireshark/"><span class="level-start"><span class="level-item">wireshark</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/"><span class="level-start"><span class="level-item">问题记录</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile is-marginless" href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"><span class="level-start"><span class="level-item">设计模式</span></span><span class="level-end"><span class="level-item tag">5</span></span></a><ul class="mr-0"><li><a class="level is-mobile is-marginless" href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E4%BA%A4%E7%BB%99%E5%AD%90%E7%B1%BB/"><span class="level-start"><span class="level-item">交给子类</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E7%94%9F%E6%88%90%E5%AE%9E%E4%BE%8B/"><span class="level-start"><span class="level-item">生成实例</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E9%80%82%E5%BA%94%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"><span class="level-start"><span class="level-item">适应设计模式</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li></ul></li></ul></div></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">Archives</h3><ul class="menu-list"><li><a class="level is-mobile is-marginless" href="/archives/2020/06/"><span class="level-start"><span class="level-item">June 2020</span></span><span class="level-end"><span class="level-item tag">8</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2020/05/"><span class="level-start"><span class="level-item">May 2020</span></span><span class="level-end"><span class="level-item tag">10</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2020/03/"><span class="level-start"><span class="level-item">March 2020</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2020/02/"><span class="level-start"><span class="level-item">February 2020</span></span><span class="level-end"><span class="level-item tag">18</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2020/01/"><span class="level-start"><span class="level-item">January 2020</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2019/12/"><span class="level-start"><span class="level-item">December 2019</span></span><span class="level-end"><span class="level-item tag">16</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2019/11/"><span class="level-start"><span class="level-item">November 2019</span></span><span class="level-end"><span class="level-item tag">29</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2019/10/"><span class="level-start"><span class="level-item">October 2019</span></span><span class="level-end"><span class="level-item tag">8</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2019/09/"><span class="level-start"><span class="level-item">September 2019</span></span><span class="level-end"><span class="level-item tag">9</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2019/08/"><span class="level-start"><span class="level-item">August 2019</span></span><span class="level-end"><span class="level-item tag">12</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2019/07/"><span class="level-start"><span class="level-item">July 2019</span></span><span class="level-end"><span class="level-item tag">17</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2019/06/"><span class="level-start"><span class="level-item">June 2019</span></span><span class="level-end"><span class="level-item tag">18</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2019/05/"><span class="level-start"><span class="level-item">May 2019</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li></ul></div></div></div><div class="column-right-shadow is-hidden-widescreen"></div></div><div class="column column-right is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only order-3"><div class="card widget"><div class="card-content"><h3 class="menu-label">Recent</h3><article class="media"><div class="media-content size-small"><p><time dateTime="2020-06-27T13:07:22.000Z">2020-06-27</time></p><p class="title is-6"><a class="link-muted" href="/2020/06/27/%E6%A0%91%E8%8E%93%E6%B4%BE/%E6%A0%91%E8%8E%93%E6%B4%BE3-5%E5%AF%B8%E6%98%BE%E7%A4%BA%E5%99%A8%E5%A5%97%E8%A3%85%E5%AE%89%E8%A3%85%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">树莓派3.5寸显示器套装安装操作系统</a></p><p class="is-uppercase"><a class="link-muted" href="/categories/%E6%A0%91%E8%8E%93%E6%B4%BE/">树莓派</a></p></div></article><article class="media"><div class="media-content size-small"><p><time dateTime="2020-06-15T00:21:47.000Z">2020-06-15</time></p><p class="title is-6"><a class="link-muted" href="/2020/06/15/opensource/%E8%B7%A8%E6%A1%86%E6%9E%B6%E3%80%81%E8%87%AA%E5%AE%9A%E4%B9%89%E4%B8%BB%E9%A2%98%E7%9A%84%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2%E7%B3%BB%E7%BB%9F%E5%8E%9F%E5%9E%8B%E6%A6%82%E8%A7%88/">跨框架、自定义主题的静态博客系统原型概览</a></p><p class="is-uppercase"><a class="link-muted" href="/categories/Open-Source/">Open Source</a> / <a class="link-muted" href="/categories/Open-Source/Huaxu/">Huaxu</a></p></div></article><article class="media"><div class="media-content size-small"><p><time dateTime="2020-06-15T00:18:37.000Z">2020-06-15</time></p><p class="title is-6"><a class="link-muted" href="/2020/06/15/webpack/webpack%E5%AE%9E%E6%88%98%EF%BC%9A%E6%89%93%E9%80%A0%E5%90%8C%E6%97%B6%E7%BC%96%E8%AF%91react%E5%92%8Cvue%E7%9A%84%E6%9E%84%E5%BB%BA%E5%BC%95%E6%93%8E/">webpack实战：打造同时编译react和vue的构建引擎</a></p><p class="is-uppercase"><a class="link-muted" href="/categories/Webpack/">Webpack</a> / <a class="link-muted" href="/categories/Webpack/Webpack%E5%AE%9E%E6%88%98/">Webpack实战</a></p></div></article><article class="media"><div class="media-content size-small"><p><time dateTime="2020-06-14T03:08:34.142Z">2020-06-14</time></p><p class="title is-6"><a class="link-muted" href="/2020/06/14/php/Smarty%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/">Smarty块度入门</a></p><p class="is-uppercase"><a class="link-muted" href="/categories/php/">php</a></p></div></article><article class="media"><div class="media-content size-small"><p><time dateTime="2020-06-14T03:08:34.122Z">2020-06-14</time></p><p class="title is-6"><a class="link-muted" href="/2020/06/14/git/%E5%9C%A8centos%E4%B8%8A%E6%90%AD%E5%BB%BAgit%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%BB%93%E5%BA%93/">在centos上搭建git服务器仓库</a></p><p class="is-uppercase"><a class="link-muted" href="/categories/git/">git</a></p></div></article></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">Tags</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/tags/Adapter%E6%A8%A1%E5%BC%8F/"><span class="tag">Adapter模式</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/C%E8%AF%AD%E8%A8%80/"><span class="tag">C语言</span><span class="tag is-grey-lightest">18</span></a></div><div class="control"><a class="tags has-addons" href="/tags/GCC/"><span class="tag">GCC</span><span class="tag is-grey-lightest">4</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Huaxu/"><span class="tag">Huaxu</span><span class="tag is-grey-lightest">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Iterator%E6%A8%A1%E5%BC%8F/"><span class="tag">Iterator模式</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Java/"><span class="tag">Java</span><span class="tag is-grey-lightest">3</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Linux%E5%91%BD%E4%BB%A4%E8%A1%8C%E4%B8%8Eshell%E8%84%9A%E6%9C%AC%E7%BC%96%E7%A8%8B/"><span class="tag">Linux命令行与shell脚本编程</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Maven/"><span class="tag">Maven</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Open-Source/"><span class="tag">Open Source</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/String/"><span class="tag">String</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Template-Method%E6%A8%A1%E5%BC%8F/"><span class="tag">Template Method模式</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Webpack/"><span class="tag">Webpack</span><span class="tag is-grey-lightest">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Webpack%E5%9F%BA%E7%A1%80/"><span class="tag">Webpack基础</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Webpack%E5%AE%9E%E6%88%98/"><span class="tag">Webpack实战</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/autoprefixer/"><span class="tag">autoprefixer</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/browserslist/"><span class="tag">browserslist</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/centos7%E5%B7%A5%E5%85%B7/"><span class="tag">centos7工具</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/css/"><span class="tag">css</span><span class="tag is-grey-lightest">7</span></a></div><div class="control"><a class="tags has-addons" href="/tags/css%E5%8D%95%E4%BD%8D/"><span class="tag">css单位</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/css%E5%9F%BA%E7%A1%80/"><span class="tag">css基础</span><span class="tag is-grey-lightest">5</span></a></div><div class="control"><a class="tags has-addons" href="/tags/css%E5%B7%A5%E5%85%B7/"><span class="tag">css工具</span><span class="tag is-grey-lightest">3</span></a></div><div class="control"><a class="tags has-addons" href="/tags/css%E5%B8%83%E5%B1%80/"><span class="tag">css布局</span><span class="tag is-grey-lightest">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/docker/"><span class="tag">docker</span><span class="tag is-grey-lightest">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/docker-swarm/"><span class="tag">docker swarm</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/docker%E5%9F%BA%E7%A1%80/"><span class="tag">docker基础</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/dom/"><span class="tag">dom</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/dom%E5%9F%BA%E7%A1%80/"><span class="tag">dom基础</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/git/"><span class="tag">git</span><span class="tag is-grey-lightest">4</span></a></div><div class="control"><a class="tags has-addons" href="/tags/hexo/"><span class="tag">hexo</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/html-Permission-API/"><span class="tag">html Permission API</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/html5/"><span class="tag">html5</span><span class="tag is-grey-lightest">8</span></a></div><div class="control"><a class="tags has-addons" href="/tags/html5-API/"><span class="tag">html5 API</span><span class="tag is-grey-lightest">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/html5%E6%A0%87%E7%AD%BE%E5%92%8C%E5%B1%9E%E6%80%A7/"><span class="tag">html5标签和属性</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/js/"><span class="tag">js</span><span class="tag is-grey-lightest">6</span></a></div><div class="control"><a class="tags has-addons" href="/tags/js%E5%9F%BA%E7%A1%80/"><span class="tag">js基础</span><span class="tag is-grey-lightest">4</span></a></div><div class="control"><a class="tags has-addons" href="/tags/js%E5%AF%B9%E8%B1%A1/"><span class="tag">js对象</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/js%E5%AF%B9%E8%B1%A1%E7%B1%BB%E5%9E%8B%E5%88%A4%E6%96%AD/"><span class="tag">js对象类型判断</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/js%E6%95%B0%E7%BB%84/"><span class="tag">js数组</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/leetcode/"><span class="tag">leetcode</span><span class="tag is-grey-lightest">18</span></a></div><div class="control"><a class="tags has-addons" href="/tags/less/"><span class="tag">less</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/linux%E5%91%BD%E4%BB%A4/"><span class="tag">linux命令</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/linux%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5/"><span class="tag">linux远程连接</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/mysql/"><span class="tag">mysql</span><span class="tag is-grey-lightest">5</span></a></div><div class="control"><a class="tags has-addons" href="/tags/nginx/"><span class="tag">nginx</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/node-js/"><span class="tag">node.js</span><span class="tag is-grey-lightest">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/npm/"><span class="tag">npm</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/postcss/"><span class="tag">postcss</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/spring/"><span class="tag">spring</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/spring-boot/"><span class="tag">spring-boot</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/spring%E5%AE%9E%E6%88%98/"><span class="tag">spring实战</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/sql%E8%AF%AD%E5%8F%A5/"><span class="tag">sql语句</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/ssh/"><span class="tag">ssh</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/svg/"><span class="tag">svg</span><span class="tag is-grey-lightest">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/svg%E5%9F%BA%E7%A1%80/"><span class="tag">svg基础</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/svg%E5%AE%9A%E4%BD%8D/"><span class="tag">svg定位</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/tips/"><span class="tag">tips</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/tslint%E5%9F%BA%E7%A1%80/"><span class="tag">tslint基础</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/typescript/"><span class="tag">typescript</span><span class="tag is-grey-lightest">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/ucore/"><span class="tag">ucore</span><span class="tag is-grey-lightest">18</span></a></div><div class="control"><a class="tags has-addons" href="/tags/ucore-os/"><span class="tag">ucore-os</span><span class="tag is-grey-lightest">3</span></a></div><div class="control"><a class="tags has-addons" href="/tags/vue/"><span class="tag">vue</span><span class="tag is-grey-lightest">11</span></a></div><div class="control"><a class="tags has-addons" href="/tags/vue-cli/"><span class="tag">vue-cli</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/vue-router/"><span class="tag">vue-router</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/vue-tips/"><span class="tag">vue-tips</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/vue%E5%8D%9A%E5%AE%A2%E5%90%8E%E5%8F%B0%E5%BC%80%E5%8F%91/"><span class="tag">vue博客后台开发</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/vue%E5%9F%BA%E7%A1%80/"><span class="tag">vue基础</span><span class="tag is-grey-lightest">3</span></a></div><div class="control"><a class="tags has-addons" href="/tags/vue%E5%AE%9E%E6%88%98/"><span class="tag">vue实战</span><span class="tag is-grey-lightest">3</span></a></div><div class="control"><a class="tags has-addons" href="/tags/vue%E7%BB%84%E4%BB%B6%E5%BC%80%E5%8F%91/"><span class="tag">vue组件开发</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/vue%E8%BF%9B%E9%98%B6/"><span class="tag">vue进阶</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/wireshark/"><span class="tag">wireshark</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/xml/"><span class="tag">xml</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E3%80%8AC-Primer%E3%80%8B/"><span class="tag">《C Primer》</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E3%80%8AC%E8%AF%AD%E8%A8%80%E7%BC%96%E7%A8%8B%E9%AD%94%E6%B3%95%E4%B9%A6%E3%80%8B/"><span class="tag">《C语言编程魔法书》</span><span class="tag is-grey-lightest">12</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E3%80%8ALinux%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%92%8CShell%E8%84%9A%E6%9C%AC%E7%BC%96%E7%A8%8B%E3%80%8B/"><span class="tag">《Linux命令行和Shell脚本编程》</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E3%80%8A%E5%9B%BE%E8%A7%A3%E5%AF%86%E7%A0%81%E6%8A%80%E6%9C%AF%E3%80%8B/"><span class="tag">《图解密码技术》</span><span class="tag is-grey-lightest">3</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/"><span class="tag">二叉树</span><span class="tag is-grey-lightest">5</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E4%BA%A4%E7%BB%99%E5%AD%90%E7%B1%BB/"><span class="tag">交给子类</span><span class="tag is-grey-lightest">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%88%86%E6%B2%BB/"><span class="tag">分治</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"><span class="tag">动态规划</span><span class="tag is-grey-lightest">8</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%8D%95%E8%AF%8D/"><span class="tag">单词</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%B7%A5%E5%85%B7/"><span class="tag">命令行工具</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%9B%BE/"><span class="tag">图</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%9F%BA%E7%A1%80/"><span class="tag">基础</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%AE%89%E5%85%A8/"><span class="tag">安全</span><span class="tag is-grey-lightest">3</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%AE%9E%E6%88%98/"><span class="tag">实战</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%AF%86%E7%A0%81%E6%8A%80%E6%9C%AF/"><span class="tag">密码技术</span><span class="tag is-grey-lightest">3</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%AF%BC%E8%AE%BA/"><span class="tag">导论</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/"><span class="tag">开发工具</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8B/"><span class="tag">异步编程</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"><span class="tag">操作系统</span><span class="tag is-grey-lightest">22</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/"><span class="tag">操作系统原理</span><span class="tag is-grey-lightest">3</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%95%B0%E5%AD%A6/"><span class="tag">数学</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"><span class="tag">数据库</span><span class="tag is-grey-lightest">10</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%BC%96%E7%A8%8B/"><span class="tag">数据库编程</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AE%BE%E8%AE%A1/"><span class="tag">数据库设计</span><span class="tag is-grey-lightest">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"><span class="tag">数据结构</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%95%B0%E7%BB%84/"><span class="tag">数组</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%9D%83%E9%99%90/"><span class="tag">权限</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/"><span class="tag">树莓派</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%A8%A1%E5%BC%8F%E5%8C%B9%E9%85%8D/"><span class="tag">模式匹配</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"><span class="tag">正则表达式</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%AF%95%E8%AE%BE/"><span class="tag">毕设</span><span class="tag is-grey-lightest">5</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2/"><span class="tag">深度优先搜索</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E7%94%9F%E6%88%90%E5%AE%9E%E4%BE%8B/"><span class="tag">生成实例</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E7%AE%97%E6%B3%95/"><span class="tag">算法</span><span class="tag is-grey-lightest">20</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/"><span class="tag">编程语言</span><span class="tag is-grey-lightest">20</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E8%8B%B1%E8%AF%AD/"><span class="tag">英语</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"><span class="tag">计算机网络</span><span class="tag is-grey-lightest">3</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"><span class="tag">设计模式</span><span class="tag is-grey-lightest">5</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"><span class="tag">读书笔记</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E8%B8%A9%E5%9D%91%E6%8C%87%E5%8D%97/"><span class="tag">踩坑指南</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E9%80%82%E5%BA%94%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"><span class="tag">适应设计模式</span><span class="tag is-grey-lightest">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E9%93%BE%E8%A1%A8/"><span class="tag">链表</span><span class="tag is-grey-lightest">5</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/"><span class="tag">问题记录</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E9%AB%98%E6%95%B01/"><span class="tag">高数1</span><span class="tag is-grey-lightest">1</span></a></div></div></div></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">Subscribe to Updates</h3><form action="https://feedburner.google.com/fb/a/mailverify" method="post" target="popupwindow" onsubmit="window.open(&#039;https://feedburner.google.com/fb/a/mailverify?uri=&#039;,&#039;popupwindow&#039;,&#039;scrollbars=yes,width=550,height=520&#039;);return true"><input type="hidden" value="" name="uri"><input type="hidden" name="loc" value="en_US"><div class="field has-addons"><div class="control has-icons-left is-expanded"><input class="input" name="email" type="email" placeholder="Email"><span class="icon is-small is-left"><i class="fas fa-envelope"></i></span></div><div class="control"><input class="button is-primary" type="submit" value="Subscribe"></div></div></form></div></div></div></div></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/img/logo.svg" alt="Bright的个人博客" height="28"></a><p class="size-small"><span>&copy; 2020 Bright</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script>moment.locale("default");</script><script>var IcarusThemeSettings = {
+            site: {
+                url: 'https://www.brightblog.cn',
+                external_link: {"enable":true,"exclude":[]}
+            },
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script src="/js/animation.js"></script><a id="back-to-top" title="Back to Top" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><script type="text/x-mathjax-config">MathJax.Hub.Config({
+            'HTML-CSS': {
+                matchFontHeight: false
+            },
+            SVG: {
+                matchFontHeight: false
+            },
+            CommonHTML: {
+                matchFontHeight: false
+            },
+            tex2jax: {
+                inlineMath: [
+                    ['$','$'],
+                    ['\\(','\\)']
+                ]
+            }
+        });</script><script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="Type something..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"Type something...","untitled":"(Untitled)","posts":"Posts","pages":"Pages","categories":"Categories","tags":"Tags"});
+        });</script></body></html>

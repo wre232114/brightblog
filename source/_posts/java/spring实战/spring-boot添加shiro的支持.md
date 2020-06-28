@@ -2,12 +2,12 @@
 title: spring-boot添加shiro的支持
 date: 2020-02-27 17:18:18
 tags:
-- java
+- Java
 - spring
 - spring实战
 
 category:
-- java
+- Java
 - spring实战
 ---
 shiro是Apache公司开源的Java授权认证包。提供了登陆认证、授权验证、Session管理等多种功能，能够方便的用于用户登陆态维护、授权管理等等方面。

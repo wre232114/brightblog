@@ -1,1825 +1,426 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8"><meta name="generator" content="Hexo 4.2.1"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>Bright的个人博客</title><meta description="前端开发的技术分享和个人笔记总结"><meta property="og:type" content="blog"><meta property="og:title" content="Bright的个人博客"><meta property="og:url" content="https://www.brightblog.cn/"><meta property="og:site_name" content="Bright的个人博客"><meta property="og:description" content="前端开发的技术分享和个人笔记总结"><meta property="og:image" content="https://www.brightblog.cn/img/og_image.png"><meta property="article:author" content="Bright"><meta property="article:tag" content="前端开发 个人博客"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="/img/og_image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.brightblog.cn"},"headline":"Bright的个人博客","image":["https://www.brightblog.cn/img/og_image.png"],"author":{"@type":"Person","name":"Bright"},"description":"前端开发的技术分享和个人笔记总结"}</script><link rel="icon" href="/img/favicon.svg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css"><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script></head><body class="is-3-column"><nav class="navbar navbar-main"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="Bright的个人博客" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-6-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><time class="level-item" dateTime="2019-07-06T00:40:46.000Z" title="2019-07-06T00:40:46.000Z">2019-07-06</time><span class="level-item"><a class="link-muted" href="/categories/vue/">vue</a><span> / </span><a class="link-muted" href="/categories/vue/tips/">tips</a></span><span class="level-item">a minute read (About 168 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2019/07/06/vue/vue%E5%9F%BA%E7%A1%80%EF%BC%9Atips/">vue基础：tips</a></h1><div class="content"><p>下面都是使用vue的时候记录下来的小细节</p>
+<h2 id="直接操作dom"><a href="#直接操作dom" class="headerlink" title="直接操作dom"></a>直接操作dom</h2><ol>
+<li>如果直接删除或者替换dom（文本内容也是），响应式绑定会失效，应该虚拟dom对应的真实dom已经不存在了，当重新使用数据渲染组件时（重新渲染会根据数据创建新的dom并绑定）才恢复响应式（例如v-if切换）。</li>
+<li>操作属性，例如class、style，会直接对dom生效，但是当数据改变时，dom会被会被数据修改，直接通过dom设置的属性将会丢失</li>
+</ol>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><time class="level-item" dateTime="2019-07-04T00:07:01.000Z" title="2019-07-04T00:07:01.000Z">2019-07-04</time><span class="level-item"><a class="link-muted" href="/categories/node-js/">node.js</a><span> / </span><a class="link-muted" href="/categories/node-js/%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%B7%A5%E5%85%B7/">命令行工具</a></span><span class="level-item">4 minutes read (About 623 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2019/07/04/node.js/%E5%9F%BA%E4%BA%8Enode-js%E7%9A%84%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%B7%A5%E5%85%B7/">基于node.js的命令行工具</a></h1><div class="content"><!-- webpack-dev-server、cli-service、vue相关的依赖等，可以提取到共用目录的，不放在每一个项目的package.json中，每一个项目的package.json只放与改项目相关的，特有的依赖，分模块打包，按需引入，每一个项目只加载需要的全局依赖，自定义的依赖放在自己目录下的node modules下 -->
+<p>基于node.js编写命令行工具是非常方便的，有很多现有的工具和库能够帮助我们实现。接下来我们着手编写一个自己的命令行工具。</p>
+<h2 id="依赖分析"><a href="#依赖分析" class="headerlink" title="依赖分析"></a>依赖分析</h2><p>我们首先要分析我们可以利用哪些第三方的工具。先看看其他的cli工具用了哪些工具，比如vue-cli：<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">"dependencies": &#123;</span><br><span class="line">    "@vue/cli-shared-utils": "^4.0.0-alpha.2",</span><br><span class="line">    "@vue/cli-ui": "^4.0.0-alpha.2",</span><br><span class="line">    "@vue/cli-ui-addon-webpack": "^4.0.0-alpha.2",</span><br><span class="line">    "@vue/cli-ui-addon-widgets": "^4.0.0-alpha.2",</span><br><span class="line">    "chalk": "^2.4.1",</span><br><span class="line">    "cmd-shim": "^2.0.2",</span><br><span class="line">    "commander": "^2.20.0",</span><br><span class="line">    "debug": "^4.1.0",</span><br><span class="line">    "deepmerge": "^3.2.0",</span><br><span class="line">    "didyoumean": "^1.2.1",</span><br><span class="line">    "download-git-repo": "^1.0.2",</span><br><span class="line">    "ejs": "^2.6.1",</span><br><span class="line">    "envinfo": "^7.2.0",</span><br><span class="line">    "execa": "^1.0.0",</span><br><span class="line">    "fs-extra": "^7.0.1",</span><br><span class="line">    "globby": "^9.2.0",</span><br><span class="line">    "import-global": "^0.1.0",</span><br><span class="line">    "inquirer": "^6.3.1",</span><br><span class="line">    "isbinaryfile": "^4.0.0",</span><br><span class="line">    "javascript-stringify": "^1.6.0",</span><br><span class="line">    "js-yaml": "^3.13.1",</span><br><span class="line">    "jscodeshift": "^0.6.4",</span><br><span class="line">    "lodash.clonedeep": "^4.5.0",</span><br><span class="line">    "lru-cache": "^5.1.1",</span><br><span class="line">    "minimist": "^1.2.0",</span><br><span class="line">    "recast": "^0.18.1",</span><br><span class="line">    "request": "^2.87.0",</span><br><span class="line">    "request-promise-native": "^1.0.7",</span><br><span class="line">    "resolve": "^1.10.1",</span><br><span class="line">    "semver": "^6.1.0",</span><br><span class="line">    "shortid": "^2.2.11",</span><br><span class="line">    "slash": "^3.0.0",</span><br><span class="line">    "validate-npm-package-name": "^3.0.0",</span><br><span class="line">    "vue-jscodeshift-adapter": "^2.0.2",</span><br><span class="line">    "yaml-front-matter": "^3.4.1"</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure><br>查了一下各种依赖的文档，总结一下我们需要的依赖，下面列出是必须的，其他的根据需要添加：</p>
+<ul>
+<li>chalk：终端文字样式，我们在命令行中看到的各种颜色的文字可以用这个工具来实现</li>
+<li>commander：命令行工具包，可以帮助我们解析命令行参数，输出帮助信息等等</li>
+<li>Inquirer.js：交互式的命令行用户接口，主要用于和用户交互</li>
+</ul>
+<p>上面的工具可以帮助我们快速的创建命令行工具，但是要让程序能够在命令行中执行，被安装到path中，我们还需要npm提供的bin字段，它能非常简单的帮我们执行命令行脚本，全局安装时，它会将命令安装到PATH中，局部安装时，它会将命令安装到.nodemodules/.bin/下面。<br><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123; <span class="attr">"name"</span>: <span class="string">"my-program"</span></span><br><span class="line">, <span class="attr">"version"</span>: <span class="string">"1.2.5"</span></span><br><span class="line">, <span class="attr">"bin"</span>: <span class="string">"./path/to/program"</span> &#125;</span><br></pre></td></tr></table></figure><br>注意：bin指定的程序需要使用第一行必须是’#!/usr/bin/env node’，否则node不会正常执行</p>
+<h2 id="模块分析"><a href="#模块分析" class="headerlink" title="模块分析"></a>模块分析</h2><p>我们完成了依赖分析之后，知道了我们可以用哪些工具来开发命令行程序，接下面我们分析我们的程序模块。</p>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><time class="level-item" dateTime="2019-07-03T22:45:56.000Z" title="2019-07-03T22:45:56.000Z">2019-07-04</time><span class="level-item"><a class="link-muted" href="/categories/node-js/">node.js</a><span> / </span><a class="link-muted" href="/categories/node-js/npm/">npm</a></span><span class="level-item">5 minutes read (About 800 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2019/07/04/node.js/package-json%E8%AF%A6%E8%A7%A3/">package.json详解</a></h1><div class="content"><p>package.json是nodejs的包管理工具npm的配置文件，package.json文件的内容必须是json格式，而不是一个javascript对象。这篇文章详解package.json里面的所有配置属性。</p>
+<h2 id="创建package-json文件"><a href="#创建package-json文件" class="headerlink" title="创建package.json文件"></a>创建package.json文件</h2><blockquote>
+<p>npm init</p>
+</blockquote>
+<p>执行上面的命令会出现命令行交互问卷，让你逐个填入各个字段的值。也可以使用下面的命令，使用默认的package.json文件</p>
+<blockquote>
+<p>npm init –yes</p>
+</blockquote>
+<h2 id="定制package-json问卷（！命令行工具常用）"><a href="#定制package-json问卷（！命令行工具常用）" class="headerlink" title="定制package.json问卷（！命令行工具常用）"></a>定制package.json问卷（！命令行工具常用）</h2><p>如果你希望创建多个package.json文件，定制自己的init问题和域，生成定制的package.json文件，使用下面的步骤：</p>
+<ol>
+<li>在home目录添加.npminit.js文件</li>
+<li>如果要添加自定义的问题，使用<blockquote>
+<p> module.exports = prompt(“what’s your favorite flavor of ice cream, buddy?”, “I LIKE THEM ALL”);</p>
+</blockquote>
+</li>
+<li>如果要添加自定义的域，使用：<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line"> customField: <span class="string">'Example custom field'</span>,</span><br><span class="line"> otherCustomField: <span class="string">'This example field is really cool'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="package-json中的字段"><a href="#package-json中的字段" class="headerlink" title="package.json中的字段"></a>package.json中的字段</h2><h3 id="必须的name和version字段"><a href="#必须的name和version字段" class="headerlink" title="必须的name和version字段"></a>必须的name和version字段</h3><p>name是npm包的名字，install的时候使用的是name，version是包的版本，这两者是必须的。</p>
+<h3 id="默认package-json中的全部字段"><a href="#默认package-json中的全部字段" class="headerlink" title="默认package.json中的全部字段"></a>默认package.json中的全部字段</h3><ul>
+<li>name: 当前目录/项目的名字</li>
+<li>version: 版本号，always 1.0.0</li>
+<li>description: info from the README, or an empty string “”</li>
+<li>main: 包的入口，always index.js</li>
+<li>scripts: npm run命令的脚本，by default creates an empty test script</li>
+<li>keywords: 关键词，empty</li>
+<li>author: 作者，empty</li>
+<li>license: ISC</li>
+<li>bugs: information from the current directory, if present</li>
+<li>homepage: information from the current directory, if present</li>
+</ul>
+<h2 id="package-json中的所有字段"><a href="#package-json中的所有字段" class="headerlink" title="package.json中的所有字段"></a>package.json中的所有字段</h2><p>没有特殊说明的字段取值都是字符串<br>字段名|描述|备注<br>:—:|:—:|:—:<br>name|项目名称|小于等于214个字符，不要和node核心模块重名，不要使用node或者js<br>version|项目版本|使用语义化版本，和name一起决定某一个包的特定版本<br>description|项目描述|<br>keywords|关键字|<br>homepage|项目主页|一个url链接<br>bugs|报告bug的url或者email|可以是github的issue<br>license|授权协议|选择的开源协议名称<br>author|作者|值可以是一个对象，这个对象包含name、url、email<br>contributors|贡献者|一个数组，包含多个作者的信息<br><strong>files</strong>|包含的文件|可以是文件、目录或者glob（<em>\</em>/*,    *），默认是*（包含所有文件），当你的包作为依赖时，这个属性决定哪些文件被安装<br><strong>main</strong>|项目的入口文件|直接的说，就是其他的用户require你的包的时候，加载哪一个文件，例如require(‘foo’)，那么加载的是foo项目下main字段指定的文件<br>browser|用于浏览器端???|???不太懂有什么用<br><strong>bin</strong>|将npm包作为可执行的命令行程序|bin字段可以填入一个对象{‘name’:’path’}或者字符串’./example/program.js’，只有一个字符串的时候命令行程序的名字和项目的name一致；有多个可执行的命令时，使用对象语法。<br>man|使用man命令查看文档时的文档|可以是一个文件或者数组文件。</p>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><time class="level-item" dateTime="2019-07-03T13:32:13.000Z" title="2019-07-03T13:32:13.000Z">2019-07-03</time><span class="level-item"><a class="link-muted" href="/categories/vue/">vue</a><span> / </span><a class="link-muted" href="/categories/vue/cli/">cli</a></span><span class="level-item">6 minutes read (About 919 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2019/07/03/vue/vue%E5%9F%BA%E7%A1%80%EF%BC%9Avue-cli/">vue基础：vue-cli</a></h1><div class="content"><p>这篇文章是vue-cli文档阅读的笔记，是一个总结加上自己的理解，vue-cli的详情请看<a href="https://cli.vuejs.org/guide/prototyping.html">官方文档</a></p>
+<p>Vue CLI是一个用于Vue.js快速开发的完整系统，提供了：</p>
+<ul>
+<li>通过@vue/cli提供交互式的项目脚手架</li>
+<li>通过@vue/cli+@vue/cli-service-global的零配置快速原型</li>
+<li>一个运行时依赖（@vue/cli-service）：<ul>
+<li>可升级</li>
+<li>在webpack之上构建，有合理的默认值</li>
+<li>通过项目内的配置文件实现可配置</li>
+<li>通过插件扩展</li>
+</ul>
+</li>
+<li>大量的官方插件，集成了前端生态中最好的工具</li>
+<li>可视化的用户界面创建和管理Vue.js项目</li>
+</ul>
+<p><strong>vue cli保证了各种各样的构建工具平滑地一起工作，通过合理的默认值，你可以专注于书写业务代码而不是花费数天在项目的配置上。</strong></p>
+<h2 id="系统中的组件"><a href="#系统中的组件" class="headerlink" title="系统中的组件"></a>系统中的组件</h2><p>Vue cli主要分成下面三个部分：</p>
+<h3 id="CLI"><a href="#CLI" class="headerlink" title="CLI"></a>CLI</h3><p>CLI（@vue/cli）是一个全局安装的npm包，在终端中提供了vue命令。它提供了通过vue create快速搭建项目的能力，或者通过vue serve立即原型化新的idea。通过vue ui可以使用可视化的界面管理项目。</p>
+<h3 id="CLI-Service"><a href="#CLI-Service" class="headerlink" title="CLI Service"></a>CLI Service</h3><p>@vue/cli-service是一个开发环境依赖。其安装在每一个通过@vue/cli创建的项目中。</p>
+<p>CLI Service在webpack和webpack-dev-server之上构建。包括了：</p>
+<ul>
+<li>加载其他CLI插件的核心服务</li>
+<li>为大部分apps优化的内部webpack配置</li>
+</ul>
+<h3 id="CLI-插件"><a href="#CLI-插件" class="headerlink" title="CLI 插件"></a>CLI 插件</h3><p>CLI插件是提供了可选特性的npm包，比如Babel/TypeScript编译，ESLint集成，单元测试，以及端到端测试。@vue/cli-plugin-(内置插件)；@vue/vue-cli-plugin(社区插件)；</p>
+<p>在项目中运行vue-cli-service时，它会自动解析和加载package.json中的CLI插件</p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><blockquote>
+<p>npm install -g @vue/cli</p>
+</blockquote>
+<h2 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h2><p>这一部分总结了总结了vue-cli的基础，主要内容包括快速原型开发、创建项目、插件和预设以及CLI Service</p>
+<h3 id="快速原型开发"><a href="#快速原型开发" class="headerlink" title="快速原型开发"></a>快速原型开发</h3><p>有时候我们只想运行和调试单个vue文件，这时候要起一个单独的vue项目吗？为了跑一个文件起一个项目也太麻烦了，所以vue-cli提供了<code>快速原型开发</code>，作用是快速运行单个vue文件。通过<code>vue serve</code>和<code>vue build</code>命令就可以做到这一点。</p>
+<p>使用该功能需要额外的依赖：<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g @vue/cli-service-global</span><br></pre></td></tr></table></figure></p>
+<p>使用<code>vue serve --help</code>或者<code>vue build --help</code>获取参数帮助。</p>
+<p>通过：<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vue serve myvue.vue # 开发环境</span><br><span class="line">vue build myvue.vue # 构建</span><br></pre></td></tr></table></figure><br>就可以运行单个文件。</p>
+<blockquote>
+<p>快速原型开发中也可以使用index.html、postcss等额外的功能，只要给出正确的配置文件</p>
+</blockquote>
+<h3 id="创建项目"><a href="#创建项目" class="headerlink" title="创建项目"></a>创建项目</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vue create hello-world</span><br></pre></td></tr></table></figure>
+<p>输入之后会弹出一些选项，选择后cli即可正确生成项目。</p>
+<blockquote>
+<p>初始化的参数（是否选择postcss等）以json格式存在~/.vuerc文件中</p>
+</blockquote>
+<h4 id="使用GUI创建项目"><a href="#使用GUI创建项目" class="headerlink" title="使用GUI创建项目"></a>使用GUI创建项目</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vue ui</span><br></pre></td></tr></table></figure>
+<p>会起一个本地网站服务，进入该网站可对当前项目进行可视化的管理。可以新建项目，管理配置、依赖等等。</p>
+<h4 id="vue-init"><a href="#vue-init" class="headerlink" title="vue init"></a>vue init</h4><p>vue cli 3已经废弃了vue init，使用<code>vue create</code>，如果要使用<code>vue init</code>的功能，执行：<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install -g @vue/cli-init</span><br><span class="line">vue init webpack myproject</span><br></pre></td></tr></table></figure></p>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><time class="level-item" dateTime="2019-06-24T00:19:36.000Z" title="2019-06-24T00:19:36.000Z">2019-06-24</time><span class="level-item"><a class="link-muted" href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统</a><span> / </span><a class="link-muted" href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/ucore/">ucore</a></span><span class="level-item">12 minutes read (About 1836 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2019/06/24/os/ucore_os/ucore-os%E6%80%9D%E8%80%83%E4%B8%8E%E6%80%BB%E7%BB%93/">ucore-os思考与总结</a></h1><div class="content"><h2 id="2019-6-24"><a href="#2019-6-24" class="headerlink" title="2019.6.24"></a>2019.6.24</h2><p>开始着手操作系统的学习和开发，需要了解的知识有很多很多，需要了解linux开发环境，包括linux命令、shell脚本、linux下的编译器gcc的使用（包括gcc的编译选项、makefile的使用、gcc混合编译——内联汇编——c和汇编），还有C语言的细节，结构、函数指针，还有算法、数据结构，还有硬件底层的知识，x86下CPU的工作模式，实模式和保护模式，mmu内存管理硬件单元，分段分页，特殊寄存器，中断处理。操作系统一般都是一个较大型的项目，能够锻炼大型项目的编程能力。一定要坚持下来，可能知识会多一点，但是学到的东西一定会更多！</p>
+<p>接下来要一步一步来，首先要把基础学好，linux命令行和shell脚本编程以及gcc、makefile的使用，第一步首先弄清楚ucore整体的编译过程，它用到了linux和gcc makefile的细节都要搞清楚，并做好笔记。</p>
+<p>然后开始进行操作系统内核的开发，了解操作系统的硬件基础、内核的工作原理。</p>
+<p>然后在进行操作系统顶层的开发。</p>
+<p>完成了这些之后，综合内核和已有的库进行扩展，进行网络协议实现等基础设施的建设，希望最终能做出一个带图形界面的完整移动操作系统！</p>
+<h2 id="问题记录"><a href="#问题记录" class="headerlink" title="问题记录"></a>问题记录</h2><h3 id="gnu-ld链接器的工作原理？"><a href="#gnu-ld链接器的工作原理？" class="headerlink" title="gnu ld链接器的工作原理？"></a>gnu ld链接器的工作原理？</h3><ol>
+<li>如何进行链接？</li>
+<li>链接后的地址如何分配？链接指定的地址有什么用，例如0x7c00？</li>
+<li>链接后生成的文件的格式？格式各部分和操作系统的关系？</li>
+<li>linux上的可执行文件和生成的在硬件上的可执行文件（例如bootloader和操作系统内核）的区别？</li>
+</ol>
+<h3 id="如何使用objdump、objcopy等工具？"><a href="#如何使用objdump、objcopy等工具？" class="headerlink" title="如何使用objdump、objcopy等工具？"></a>如何使用objdump、objcopy等工具？</h3><ol>
+<li>objdump等工具用于什么对象？</li>
+<li>这些工具有哪些作用？</li>
+</ol>
+<h3 id="汇编语言的知识？"><a href="#汇编语言的知识？" class="headerlink" title="汇编语言的知识？"></a>汇编语言的知识？</h3><ol>
+<li>代码段？数据段？和操作系统还有硬件的关系？</li>
+<li>.code16和.code32的细节？</li>
+<li>lgdtr的细节？</li>
+<li>.long .word的细节？</li>
+</ol>
+<h3 id="GCC下如何编译-s文件？"><a href="#GCC下如何编译-s文件？" class="headerlink" title="GCC下如何编译.s文件？"></a>GCC下如何编译.s文件？</h3><p>和编译.o文件一样，直接使用gcc命令，编译得到.o文件。将汇编得到的.o文件和c得到的.o文件进行链接，可以生成可执行文件。这样就能将C和汇编混合编译。在汇编中能够直接使用C函数名作为标签名，链接后会找到C文件中对应的函数。</p>
+<h3 id="BIOS提供的功能和作用？"><a href="#BIOS提供的功能和作用？" class="headerlink" title="BIOS提供的功能和作用？"></a>BIOS提供的功能和作用？</h3><ol>
+<li>它会被加载到内存中吗？<br>会被加载到内容中，计算机加电以后会将BIOS的内容加载到内存中。CPU调转到内存中BOIS开始的位置执行。</li>
+<li>操作系统对硬件的控制和访问与BIOS有关吗？还是BIOS仅用于系统初始化阶段？<br>有关，BIOS是一系列程序的集合，系统初始化的BIOS程序只是其中一个，对于不同的硬件，都有与其对应的BIOS程序。<strong>这里还是不太懂</strong></li>
+</ol>
+<h3 id="操作系统如何提供对硬件的保护？"><a href="#操作系统如何提供对硬件的保护？" class="headerlink" title="操作系统如何提供对硬件的保护？"></a>操作系统如何提供对硬件的保护？</h3><ol>
+<li>是通过分段机制对特定指令的保护吗？<br>是的，IO地址的访问也有优先级，称为IOPL，只有当前代码的优先级高于IO地址优先级时（CPL&lt;=IOPL）才能访问。</li>
+<li>如何避免应用层程序直接访问硬件？<br>应用层程序运行在特权级为3的情况下，IOPL一般是0，只有内核能访问。通过分段的优先级控制就能够防止应用层程序访问硬件。</li>
+</ol>
+<h3 id="ELF格式的细节？"><a href="#ELF格式的细节？" class="headerlink" title="ELF格式的细节？"></a>ELF格式的细节？</h3><ol>
+<li>elf文件结构？如何解析？</li>
+<li>elf内各段（segment）各节（section）的区别和联系？<br>segment是将多个section放在相同的段中，便于内存管理。section是指.data、.text、.bss等不同的程序节。</li>
+</ol>
+<h3 id="如何编写自己的bootloader程序？"><a href="#如何编写自己的bootloader程序？" class="headerlink" title="如何编写自己的bootloader程序？"></a>如何编写自己的bootloader程序？</h3><ol>
+<li>相关指令、相关IO端口的作用？</li>
+<li>intel 80386指令、AT&amp;T语法汇编知识？</li>
+<li>实模式到保护模式的切换实现？</li>
+<li>操作系统的加载实现？</li>
+</ol>
+<h3 id="如何初始化中断、键盘、显示器等等设备？"><a href="#如何初始化中断、键盘、显示器等等设备？" class="headerlink" title="如何初始化中断、键盘、显示器等等设备？"></a>如何初始化中断、键盘、显示器等等设备？</h3><ol>
+<li>总线如何处理？</li>
+<li>IO端口如何处理？</li>
+<li>中断如何处理？</li>
+<li>在i386模拟上实现并总结其原理。</li>
+</ol>
+<h3 id="分段模式如何识别不同的段？"><a href="#分段模式如何识别不同的段？" class="headerlink" title="分段模式如何识别不同的段？"></a>分段模式如何识别不同的段？</h3><ol>
+<li>如何识别段栈段和数据段，指令一条指令，怎么判断指令中的寻址使用的是哪一个段选择符？<br>在访问内存的时候才涉及到段选择器的问题。intel 80386有默认的使用段寄存器的方式（在intel 80386参考文档的2.5节），当只指定的偏移，没有指定段寄存器的时候，按照下面的规则使用段寄存器：<ul>
+<li>指令预获取、指令调转等等指令，使用CS</li>
+<li>使用ESP、EBP作为基址寄存器访问内存的时候，使用SS</li>
+<li>栈操作命令push、pop等，使用SS</li>
+<li>字符串指令，使用ES</li>
+<li>不在上面情况中的，使用DS</li>
+</ul>
+</li>
+<li>不同的段是不是有不同多地址空间？<br>是的，一个段就是一个独立的地址空间。GDTR存储了GDT的基址，段寄存器*8+GDTR就是选择符的地址，选择符中有段的基址和偏移。段的基址是线形地址，就是说，这个基址不需要在经过分段基址的转换，直接由基址+偏移得到线形地址。</li>
+<li>段和编译器得到的.text和.data等是不是有什么关系？<br>是等价的，不过.text和.data肯定分别放在CS和DS中，但是DS中不仅仅有.data。</li>
+</ol>
+<h3 id="如何实现不同的进程之间的内存隔离？"><a href="#如何实现不同的进程之间的内存隔离？" class="headerlink" title="如何实现不同的进程之间的内存隔离？"></a>如何实现不同的进程之间的内存隔离？</h3><ol>
+<li>分段基址的物理空间重叠怎么处理？</li>
+</ol>
+<h2 id="milestone"><a href="#milestone" class="headerlink" title="milestone"></a>milestone</h2><ul>
+<li>2019.11.04 开始进行ucore-os的开发和学习</li>
+<li>2019.11.21 完成对C语言基础知识的复习，也学习了更多的计算机基础相关的知识，例如字节对齐、大端小端、字节序、字符编码等知识。<ul>
+<li>未完成1：C语言高级语法总结、GCC扩展（内联汇编等等特性）</li>
+<li>未完成2：标准库的使用，包括文件io、并发编程、内存分配等等</li>
+</ul>
+</li>
+<li>2019.11.26 完成对Makefile的分析<ul>
+<li>了解了make的基本语法，ld、gcc选项。</li>
+<li>了解了ucore.img镜像的构建过程。主要学习make语法、如何编写makefile、以及gcc、ld编译的一些选项等。</li>
+<li>了解了bootloader的结构</li>
+</ul>
+</li>
+</ul>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><time class="level-item" dateTime="2019-06-22T00:34:54.000Z" title="2019-06-22T00:34:54.000Z">2019-06-22</time><span class="level-item"><a class="link-muted" href="/categories/%E7%AE%97%E6%B3%95/">算法</a><span> / </span><a class="link-muted" href="/categories/%E7%AE%97%E6%B3%95/leetcode/">leetcode</a></span><span class="level-item">3 minutes read (About 410 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2019/06/22/algorithm/leetcode/%E4%BA%8C%E5%8F%89%E6%A0%91/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%B1%82%E7%BA%A7%E9%81%8D%E5%8E%86/">二叉树的层级遍历</a></h1><div class="content"><h2 id="要求"><a href="#要求" class="headerlink" title="要求"></a>要求</h2><p>给定一颗二叉树，给出其节点值的每一层的结果。示例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">  3</span><br><span class="line"> &#x2F; \</span><br><span class="line">9  20</span><br><span class="line">  &#x2F;  \</span><br><span class="line"> 15   7</span><br></pre></td></tr></table></figure><br>可以得到：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[</span><br><span class="line">  [3],</span><br><span class="line">  [9,20],</span><br><span class="line">  [15,7]</span><br><span class="line">]</span><br></pre></td></tr></table></figure></p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>二叉树的遍历有两种，一种是深度优先（先序，中序，后序），另一种是广度优先。在层级遍历的场景下，我们肯定是使用广度优先遍历，因为这样才能保证在处理下级的节点时，所有上级的节点已被被遍历。</p>
+<p>广度优先遍历是利用队列来实现的，具体思路是，先将根结点入队；然后将根结点出队，将根结点的所有子节点入队。然后依次取出子节点，做相同的处理。</p>
+<p>我们要实现层级遍历取出每一层的结果，核心问题就是要记录每一层有多少节点数。具体的方法是：利用两个变量，一个记录当前层的剩余节点数，另一个统计下一层的子节点的总数。每处理一个当前层的节点，将当前剩余节点数减1，如果减到了0，则说明当前层处理完毕，将子节点总数赋值给当前层，然后将子节点总数置0，一切从头开始。</p>
+<h2 id="javascript代码实现"><a href="#javascript代码实现" class="headerlink" title="javascript代码实现"></a>javascript代码实现</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> levelOrder = <span class="function"><span class="keyword">function</span>(<span class="params">root</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> queue = [];</span><br><span class="line">    <span class="keyword">if</span>(root == <span class="literal">null</span>) <span class="keyword">return</span> [];</span><br><span class="line">    queue.push(root);</span><br><span class="line">    <span class="keyword">var</span> tempLevel = [],tempRest = <span class="number">1</span>, childNums = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">var</span> res = [];</span><br><span class="line">    <span class="keyword">while</span>(!queue.length==<span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">var</span> node = queue.shift();</span><br><span class="line">        tempLevel.push(node.val);</span><br><span class="line">        tempRest--;</span><br><span class="line">        <span class="keyword">if</span>(node.left) &#123;</span><br><span class="line">            queue.push(node.left);</span><br><span class="line">            childNums++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(node.right) &#123;</span><br><span class="line">            queue.push(node.right);</span><br><span class="line">            childNums++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(tempRest == <span class="number">0</span>) &#123;</span><br><span class="line">            tempRest = childNums;</span><br><span class="line">            childNums = <span class="number">0</span>;</span><br><span class="line">            res.push([].concat(tempLevel));</span><br><span class="line">            tempLevel = [];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><time class="level-item" dateTime="2019-06-20T22:57:29.000Z" title="2019-06-20T22:57:29.000Z">2019-06-21</time><span class="level-item"><a class="link-muted" href="/categories/%E7%AE%97%E6%B3%95/">算法</a><span> / </span><a class="link-muted" href="/categories/%E7%AE%97%E6%B3%95/leetcode/">leetcode</a></span><span class="level-item">9 minutes read (About 1315 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2019/06/21/algorithm/leetcode/%E4%BA%8C%E5%8F%89%E6%A0%91/%E7%94%B1%E5%85%88%E5%BA%8F%E3%80%81%E4%B8%AD%E5%BA%8F%E9%81%8D%E5%8E%86%E7%BB%93%E6%9E%9C%E6%9E%84%E9%80%A0%E4%BA%8C%E5%8F%89%E6%A0%91/">数据结构基础：根据先序、中序遍历结果构造二叉树</a></h1><div class="content"><h2 id="要求"><a href="#要求" class="headerlink" title="要求"></a>要求</h2><p>给定一个二叉树的前序遍历和中序遍历结果，构造出这颗二叉树：</p>
+<p>例如：<br>输入：</p>
+<blockquote>
+<p>preorder = [3,9,20,15,7]<br>inorder = [9,3,15,20,7]</p>
+</blockquote>
+<p>输出：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">  3</span><br><span class="line"> &#x2F; \</span><br><span class="line">9  20</span><br><span class="line">  &#x2F;  \</span><br><span class="line"> 15   7</span><br></pre></td></tr></table></figure></p>
+<h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><p>由先序遍历，我们可以确定树根。在上例中，3是先序遍历的第一个结果，所以3肯定是树根；然后再中序遍历的结果中找到3，在3的左边的肯定是根的左子树，在3的右边的肯定是根的右子树。</p>
+<p>这样我们就将中序遍历的结果分成三个部分，3的左边（左子树）、3（根）、3的右边（右子树），然后对左右递归处理，递归的结果返回左右子树的根，然后根结点连接左右节点的根就得到结果了。</p>
+<p>大致的思路有了，接下来我们深入细节。当我们向左右递归的时候，怎么知道左右子树的根呢？还是要回到先序遍历，我们已经知道左子树和右子树了，我们根据先序遍历的特点——在前面的结果在树中的位置肯定是靠左的——也就是说左子树的先序遍历结果肯定在右子树先序遍历结果的前面。</p>
+<p>通过上面的分析，我们的思路就清楚的了，构造步骤如下：</p>
+<ol>
+<li>取出先序遍历的结果中未使用的第一个节点作为根</li>
+<li>在中序遍历的结果中查找上一步得到的根，然后以改根为支点，将中序遍历的结果分成左右两部分，分别对应左子树和右子树</li>
+<li>用上一步得到的结果，将先序遍历的结果分成左右两部分，具体操作是：得到上一步左边部分的长度，在先序遍历的结果中截取相同的长度——左子树的先序遍历结果，然后右边做相同的操作</li>
+<li>将左右递归处理，回到第一步</li>
+</ol>
+<p>以上面的例子来执行该算法：</p>
+<ol>
+<li>拿先序遍历的第一个结果，得到根：3</li>
+<li>在中序遍历的结果中搜索3，将中序遍历的结果：[9,3,15,20,7]，分成左右两个部分：[9]，[15,20,7]</li>
+<li>将先序遍历的结果：[3,9,20,15,7]，也分成左右两个部分（不包括3了，已经处理过的就不再处理）：[9]，[20,15,7]。现在我们得到的结果看起来向下面这样：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">  3</span><br><span class="line"> &#x2F; \</span><br><span class="line">9   20,15,7</span><br></pre></td></tr></table></figure></li>
+<li>然后我们对左右分别递归，先拿到左递归的根——取先序遍历中的左边的结果：[9]中的第一个节点9，所有左子树的根就是9，处理中序遍历的左边结果：[9]，发现只有一个节点，直接返回该节点。</li>
+<li>然后递归右子树，先拿到右递归的根——取先序比阿尼中有边的结果：[20,15,7]中的第一个节点20，所有右子树的根就是20，现在得到的结果看起来向下面这样：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">  3</span><br><span class="line"> &#x2F; \</span><br><span class="line">9   20</span><br><span class="line">    |</span><br><span class="line">  15，7 (15，7是20的左右子树，但是现在还不确定谁是左谁是右，需要下一步来确定)</span><br></pre></td></tr></table></figure></li>
+<li>回到第二步，在中序遍历的结果中搜索20，得到左右子树[15]、[7]，此时我们就得到了完整的二叉树：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">  3</span><br><span class="line"> &#x2F; \</span><br><span class="line">9   20</span><br><span class="line">   &#x2F;  \</span><br><span class="line">  15   7</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="javascript代码实现"><a href="#javascript代码实现" class="headerlink" title="javascript代码实现"></a>javascript代码实现</h2><p>看到这里应该完整的理解了构造过程了吧～接下来上代码，使用javascript：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* preleft，preright是preorder的左右边界，left和right是inorder的左右边界，因为左右子树在两个遍历结果中的位置不同，所以要区分</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">construct</span>(<span class="params">preorderResult,inorderResult,preleft,preright,left,right</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(right-left &lt;= <span class="number">1</span>) <span class="keyword">return</span> &#123;</span><br><span class="line">    val: preorderResult[preleft],</span><br><span class="line">    left: <span class="literal">null</span>,</span><br><span class="line">    right: <span class="literal">null</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 取根结点</span></span><br><span class="line">  <span class="keyword">var</span> troot = preorderResult[preleft];</span><br><span class="line">  <span class="comment">// 找到根结点在中序遍历结果中的位置</span></span><br><span class="line">  <span class="keyword">var</span> trootIndexInorder = inorderResult.indexOf(troot);</span><br><span class="line">  <span class="keyword">var</span> lchild=<span class="literal">null</span>,rchild=<span class="literal">null</span>;</span><br><span class="line">  <span class="comment">// 确定左子树的节点数量</span></span><br><span class="line">  <span class="keyword">var</span> llength = trootIndexInorder-left;</span><br><span class="line">  <span class="comment">// 确定先序遍历结果中左右子树的边界</span></span><br><span class="line">  <span class="keyword">var</span> tpreright = preleft+<span class="number">1</span>+llength;</span><br><span class="line">  <span class="comment">// 下面的两个if处理边界条件，至少有一个节点时才递归处理</span></span><br><span class="line">  <span class="keyword">if</span>(trootIndexInorder &gt; left) &#123;</span><br><span class="line">    lchild = construct(preorderResult,inorderResult,preleft+<span class="number">1</span>,tpreright,left,trootIndexInorder);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span>(trootIndexInorder+<span class="number">1</span> &lt; right) &#123;</span><br><span class="line">    rchild = construct(preorderResult,inorderResult,tpreright,preorderResult.length,trootIndexInorder+<span class="number">1</span>,right);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 返回根结点和左右子树</span></span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    val: troot,</span><br><span class="line">    left: lchild,</span><br><span class="line">    right: rchild</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="扩展思考"><a href="#扩展思考" class="headerlink" title="扩展思考"></a>扩展思考</h2><p>那现在假如已知中序遍历和后续遍历的结果，要构造二叉树怎么办呢？是不是也可以用类似的思路解决这个问题呢呢？其实思路和前面的是一样，只是要结合后序遍历的特点（与前序相反，根结点在结果的最后面），我这里就只给代码了，如果前面的理解了，这个so easy了。<br>javascript:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">construct</span>(<span class="params">inorder, postorder, inleft,inright,postleft,postright</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(inright - inleft &lt;= <span class="number">1</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">      val: postorder[postright<span class="number">-1</span>],</span><br><span class="line">      left: <span class="literal">null</span>,</span><br><span class="line">      right: <span class="literal">null</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">var</span> troot = postorder[postright<span class="number">-1</span>];</span><br><span class="line">  <span class="keyword">var</span> trootInorderIndex = inorder.indexOf(troot);</span><br><span class="line">  <span class="keyword">var</span> lchild = <span class="literal">null</span>, rchild = <span class="literal">null</span>;</span><br><span class="line">  <span class="keyword">var</span> rlength = inright<span class="number">-1</span>-trootInorderIndex;</span><br><span class="line">  <span class="keyword">var</span> tpostright = postright<span class="number">-1</span>-rlength;</span><br><span class="line">  <span class="keyword">if</span>(trootInorderIndex &gt; inleft) &#123;</span><br><span class="line">    lchild = construct(inorder,postorder,inleft,trootInorderIndex,<span class="number">0</span>,tpostright)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span>(trootInorderIndex+<span class="number">1</span> &lt; inright) &#123;</span><br><span class="line">    rchild = construct(inorder,postorder,trootInorderIndex+<span class="number">1</span>,inright,tpostright,postright<span class="number">-1</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    val: troot,</span><br><span class="line">    left: lchild,</span><br><span class="line">    right: rchild</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><time class="level-item" dateTime="2019-06-18T23:19:08.000Z" title="2019-06-18T23:19:08.000Z">2019-06-19</time><span class="level-item"><a class="link-muted" href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统</a><span> / </span><a class="link-muted" href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/shell/">shell</a></span><span class="level-item">11 minutes read (About 1659 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2019/06/19/os/Linux%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%92%8Cshell%E8%84%9A%E6%9C%AC%E7%BC%96%E7%A8%8B/shell-script%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/">shell script基础</a></h1><div class="content"><p>这里总结shell的基本语法，包括了shell中的一些基本元素/变量，shell脚本语法。</p>
+<h2 id="使用多个命令"><a href="#使用多个命令" class="headerlink" title="使用多个命令"></a>使用多个命令</h2><p>之前在命令行中都是输入一个命令，那么如果输入多个命令呢？很简单，将多个命令用分号“;”隔开就可以了，例如：</p>
+<blockquote>
+<p>date; who</p>
+</blockquote>
+<h2 id="创建shell文件"><a href="#创建shell文件" class="headerlink" title="创建shell文件"></a>创建shell文件</h2><p>通过分号的方式，我们可以一次性执行多条命令，但是如果下一次我还想执行相同的命令序列怎么办呢？这时候我们可以将命令存到一个文本文件中，然后赋予该包含了shell脚本的文件可执行的权限。</p>
+<p>创建shell文件的步骤如下：</p>
+<ol>
+<li>创建一个文本文件，输入shell命令，例如<blockquote>
+<p>touch test.sh<br>vim test.sh<br>然后输入:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#!bin&#x2F;bash</span><br><span class="line"> date</span><br><span class="line"> who</span><br></pre></td></tr></table></figure></blockquote>
+</li>
+<li>赋予该文本文件可执行的权限<blockquote>
+<p>chmod u+x test.sh</p>
+</blockquote>
+</li>
+<li>执行该文件<blockquote>
+<p>./test.sh</p>
+</blockquote>
+</li>
+</ol>
+<p>注意shell脚本文件的第一行用于指定脚本使用的shell程序，在示例中是<code>#!bin/bash</code>，这一行是必须的。</p>
+<h2 id="显示消息"><a href="#显示消息" class="headerlink" title="显示消息"></a>显示消息</h2><p>在shell中输出消息，使用echo命令，例如：</p>
+<blockquote>
+<p>echo $PATH</p>
+</blockquote>
+<p>输出当前系统环境变量，当第三方命令需要被配置到path中才能够只能从命令行或者shell脚本中执行。</p>
+<h2 id="使用变量"><a href="#使用变量" class="headerlink" title="使用变量"></a>使用变量</h2><p>变量可以存储临时性的信息，在shell中我们也可以使用变量，变量有自定义变量和环境变量，环境变量是系统定义的，通过环境变量我们可以访问到特定的系统信息，例如$HOME可以访问当前用户的目录，$USER是当前已登陆的用户名，$PATH是shell查找程序的搜索路径。</p>
+<p>在shell中可以自定义变量，语法是:varname=value，这三者之间不允许出现空格，例如：</p>
+<blockquote>
+<p>var1=10;echo $var1;</p>
+</blockquote>
+<p>注意，在定义var1的时候没有$，使用变量的时候才有$。</p>
+<p>如果我想在一条命令中引用另一条命令的输出怎么办呢？有两种方式：</p>
+<ol>
+<li>使用反引号<code></code></li>
+<li>使用$()</li>
+</ol>
+<p>例如，我想定位到当前工作目录下子目录bin下，可以这样写：</p>
+<blockquote>
+<p>cd $(pwd)/bin #或者是 cd <code>pwd</code>/bin</p>
+</blockquote>
+<h2 id="重定向输入和输出"><a href="#重定向输入和输出" class="headerlink" title="重定向输入和输出"></a>重定向输入和输出</h2><p>使用&gt;、&gt;&gt;、&lt;、&lt;&lt;可以重定向输入和输出。原来我们的输出例如，echo $PATH，直接将path输出到了屏幕上，我们要向将它重定向到文件中怎么办呢？使用echo $PATH &gt; path.log，”&gt;”创建一个新的文件path.log，如果该文件已存在，则会擦去该文件的所有内容而填充新的内容。如果希望能够将输出添加到文件的尾部，使用&gt;&gt;。下面对四种重定向进行一下总结：</p>
+<ol>
+<li>>重定义输出到文件，覆盖文件</li>
+<li>>&gt;重定向输出到文件，添加到文件尾部</li>
+<li>&lt;将输出重定向到文件。原来我们输入内容可能是从键盘输出，使用重定向可以将输入定位到文件，例如，我想统计某一段文字中的字数，该怎么处理呢？wc &lt; _config.yml</li>
+<li>&lt;&lt;是内联重定向符，不是从文件读入，而是从命令行读入，可以执行结束的标志位，例如：<blockquote>
+<p>wc &lt;&lt; EOF<br>string1<br>strgin2<br>EOF</p>
+</blockquote>
+</li>
+</ol>
+<h2 id="管道"><a href="#管道" class="headerlink" title="管道"></a>管道</h2><p>一个命令的输出可以作为另一个命令的输入，这种叫做管道，使用|，例如netstat -anp|grep :8080，将netstat的结果——网络端口情况的输出，作为grep的输入，从中查找”:8080”。</p>
+<h2 id="执行数学表达式"><a href="#执行数学表达式" class="headerlink" title="执行数学表达式"></a>执行数学表达式</h2><p>shell中不能直接写数学运算表达式，要进行数学运算有下面两种方式。</p>
+<h3 id="expr命令"><a href="#expr命令" class="headerlink" title="expr命令"></a>expr命令</h3><blockquote>
+<p>expr 1 + 5</p>
+</blockquote>
+<p>expr只能执行一些简单的运算，例如：+,-,*,/,%,&gt;,&lt;,&gt;=,&lt;=,!,|,&amp;。如果要在shell脚本文件中使用：</p>
+<blockquote>
+<p>result=$(expr 1 + 5)</p>
+</blockquote>
+<p>需要把expr命令执行的结果赋值给result。</p>
+<h3 id="使用方括号"><a href="#使用方括号" class="headerlink" title="使用方括号"></a>使用方括号</h3><p>bash shell中可以使用$+方括号将数学表达式包裹起来。</p>
+<blockquote>
+<p>result=$[1+5]</p>
+</blockquote>
+<h3 id="浮点运算"><a href="#浮点运算" class="headerlink" title="浮点运算"></a>浮点运算</h3><p>上面的两种方式只适用与整数运算，如果要进行浮点运算，需要考虑下面的解决方案，使用bc：</p>
+<ol>
+<li>bc基本用法<br>bc是内建的bash计算器，允许在命令行中输入浮点表达式，然后解释并计算该表达式，最后返回结果。能够识别数字（整数和浮点数）、变量、注释、表达式、结构语句（比如if else）、函数。<br>输入bc访问bash计算器：<blockquote>
+<p>bc</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">bc 1.06.95</span><br><span class="line">Copyright 1991-1994, 1997, 1998, 2000, 2004, 2006 Free Software Foundation, Inc.</span><br><span class="line">This is free software with ABSOLUTELY NO WARRANTY.</span><br><span class="line">For details type &#96;warranty&#39;. </span><br><span class="line">12*5.4 #输入的表达式</span><br><span class="line">64.8 #计算结果</span><br><span class="line">3.1456*(3 + 5)</span><br><span class="line">25.1648</span><br><span class="line">quit #quit命令退出</span><br></pre></td></tr></table></figure>
+<p>浮点运算是由内建变量scale控制的。必须将这个值设置为你希望在计算结果中保留的小数位数。print语句允许你打印变量和数字。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">3.44 &#x2F; 5</span><br><span class="line">0</span><br><span class="line">scale&#x3D;4</span><br><span class="line">var1&#x3D;3.44 &#x2F;5</span><br><span class="line">print var1</span><br><span class="line">.6880</span><br></pre></td></tr></table></figure></blockquote>
+</li>
+<li><p>在脚本中使用bc<br>可以使用变量替换，将某一个命令的输出赋值给其他变量:</p>
+<blockquote>
+<p>variable=$(echo “options; expression” | bc)</p>
+</blockquote>
+<p>options部分允许设置变量，expression参数定义通过bc执行的数学表达式。也可以使用脚本中定义好的变量。</p>
+<p>如果计算表达式比较长的话上面这种写法就不太好了，可以使用内联输入重定向：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">varible&#x3D;$(bc &lt;&lt; EOF</span><br><span class="line">options</span><br><span class="line">statements</span><br><span class="line">expresstions</span><br><span class="line">EOF</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<p>这样可以让表达式放在不同的行中，增加可读性。</p>
+</li>
+</ol>
+<h2 id="退出脚本"><a href="#退出脚本" class="headerlink" title="退出脚本"></a>退出脚本</h2><p>如果我们想要在脚本中中途退出怎么办呢？有时候由于一些特殊的情况，我们不希望继续执行下面的脚本了，这时候我们可以使用exit命令，exit命令后面可以接一个数字，表示退出状态码，正常退出为0，使用$?可以常看上一次的退出状态码。</p>
+<h2 id="综合演练"><a href="#综合演练" class="headerlink" title="综合演练"></a>综合演练</h2><p>接下来我们用到这一篇里面的所有知识，来创建一个能够从文件读取计算表达式，然后将计算结果输出到文件的shell脚本。</p>
+<ol>
+<li>创建shell.sh，并赋予执行权限</li>
+<li>编辑shell.sh<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">result&#x3D;$(bc &lt; input)</span><br><span class="line">echo $result &gt;&gt; output</span><br></pre></td></tr></table></figure></li>
+<li>编辑input<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">scale&#x3D;4</span><br><span class="line">var1&#x3D;3.14*2</span><br><span class="line">scale&#x3D;0</span><br><span class="line">var2&#x3D;11%10</span><br><span class="line">var1+var2</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><time class="level-item" dateTime="2019-06-18T13:12:54.000Z" title="2019-06-18T13:12:54.000Z">2019-06-18</time><span class="level-item"><a class="link-muted" href="/categories/vue/">vue</a><span> / </span><a class="link-muted" href="/categories/vue/%E5%9F%BA%E7%A1%80/">基础</a></span><span class="level-item">13 minutes read (About 1889 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2019/06/18/vue/vue%E5%9F%BA%E7%A1%80%EF%BC%9A%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3%E8%A6%81%E7%82%B9/">vue基础：官方文档要点</a></h1><div class="content"><p>最近实习中又用到了Vue，过了一遍官方文档复习一下，感觉又有很多收获。记录一下要点。</p>
+<h2 id="vue实例"><a href="#vue实例" class="headerlink" title="vue实例"></a>vue实例</h2><p>每一个Vue应用都是通过用Vue函数创建一个新的Vue示例开始的：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// vm代表（ViewModel）</span></span><br><span class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  <span class="comment">// 选项</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure><br>一个Vue应用由一个通过new Vue创建的根Vue实例，以及可选的嵌套的、可复用的组件树组成。<strong>所有的Vue组件都是Vue实例，并且接受相同的选项对象（根实例特有的选项除外）</strong></p>
+<h4 id="数据与方法"><a href="#数据与方法" class="headerlink" title="数据与方法"></a>数据与方法</h4><p>Vue实例创建的时候会将选项中的<strong>data对象的所有属性</strong>加入到Vue的响应式系统中。<em>选项中data对象会被浅拷贝到Vue实例（后文用vm表示Vue实例）的_data属性上，会拦截vm和data上对应属性的访问，所以改变vm属性对应的值会影响到data，改data也会影响到vm。细节请参考另一篇博客<a href="">从Vue源码解读Vue实例的初始化过程</a></em></p>
+<p>实例被创建时传的data参数中的属性的才是响应式的，新增的属性不是。</p>
+<h3 id="实例生命周期钩子"><a href="#实例生命周期钩子" class="headerlink" title="实例生命周期钩子"></a>实例生命周期钩子</h3><ol>
+<li><p>Vue实例初始化过程中会调用的一些钩子函数。</p>
+</li>
+<li><p>钩子函数不要用箭头函数，因为this的问题。</p>
+</li>
+<li><p>在单文件组件中，模板编译会被提前。</p>
+</li>
+</ol>
+<h2 id="模板语法"><a href="#模板语法" class="headerlink" title="模板语法"></a>模板语法</h2><p>Vue.js的模板允许开发者声明式地将DOM绑定至底层Vue实例的数据。</p>
+<p>底层模板会被编译成渲染函数。</p>
+<h3 id="插值"><a href="#插值" class="headerlink" title="插值"></a>插值</h3>
+数据绑定语法:{{}}（Mustache)，绑定的数据变化时，DOM会自动更新。
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">span</span>&gt;</span>Message: &#123;&#123; msg &#125;&#125; <span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br></pre></td></tr></table></figure>
+1. v-once指令可以一次性插值，数据改变不会更新DOM。
 
-  <head><meta name="generator" content="Hexo 3.8.0">
-  <meta charset="utf-8">
-  
-    <title>
-      
-            Bright的个人博客
-    </title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link rel="stylesheet" href="/css/reset.css">
-      <link rel="stylesheet" href="/css/style.css">
-        <link rel="stylesheet" href="/css/github-markdown.css">
-          <link rel="stylesheet" href="/css/atom-one-dark.css">
-            
-</head>
+2. {{}}会将数据解释成文本，要插入html，使用v-html="html code"。v-html不能复合局部模板，只能是html。
 
-    <body>
-      
-        <header id="header" class="card">
-  <span class="logo">B</span>
-  <span class="motto">技术 & 梦想 |&nbsp;学习 & 总结</span>
-  <nav>
-    <ul>
-    
-      <li>
-        <a href="/">首页 </a>
-      </li>
-    
-      <li>
-        <a href="/archives">归档 </a>
-      </li>
-    
-      <li>
-        <a href="/categories">分类 </a>
-      </li>
-    
-      <li>
-        <div class="search-input">
-          <i class="fa search"></i>
-          <input id="search-input" type="text">
-        </div>
-      </li>
-    </ul>
-  </nav>
-</header>
-          <main id="main">
-            
-              
-<aside id="left-sidebar" class="margin-right">
-  <nav class="card sidebar-component">
-  <div class="card-title">文章归档</div>
-  <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a><span class="archive-list-count">18</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a><span class="archive-list-count">17</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a><span class="archive-list-count">30</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a><span class="archive-list-count">15</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a><span class="archive-list-count">17</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a><span class="archive-list-count">18</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a><span class="archive-list-count">2</span></li></ul>
-</nav>
-  <nav class="card sidebar-component">
-  <div class="card-title">文章分类</div>
-  <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/css/">css</a><span class="category-list-count">10</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/css/css基础/">css基础</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/css工具/">css工具</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/less/">less</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/sass/">sass</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/docker/">docker</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/docker/docker-swarm/">docker swarm</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/docker/docker基础/">docker基础</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">git</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html5/">html5</a><span class="category-list-count">8</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/html5/dom/">dom</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html5/html5-API/">html5 API</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html5/html5标签和属性/">html5标签和属性</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html5/svg/">svg</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html5/tips/">tips</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html5/实战/">实战</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/">java</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/java/spring实战/">spring实战</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/js/">js</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/js/js基础/">js基础</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/js/typescript/">typescript</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/js/正则表达式/">正则表达式</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/linux/工具/">工具</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/nginx/">nginx</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node-js/">node.js</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/node-js/npm/">npm</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node-js/命令行工具/">命令行工具</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/php/">php</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/spring-boot/">spring-boot</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/spring-boot/开发工具/">开发工具</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/typescript/">typescript</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/typescript/踩坑指南/">踩坑指南</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/">vue</a><span class="category-list-count">11</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/vue/cli/">cli</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/tips/">tips</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/vue-router/">vue-router</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/vue实战/">vue实战</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/vue组件开发/">vue组件开发</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/基础/">基础</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/webpack/">webpack</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/webpack/webpack基础/">webpack基础</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/xml/">xml</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/xml/基础/">基础</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/学习打卡/">学习打卡</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/安全/">安全</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/安全/密码技术/">密码技术</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/操作系统/">操作系统</a><span class="category-list-count">23</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/操作系统/shell/">shell</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/操作系统/ucore/">ucore</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/操作系统/操作系统原理/">操作系统原理</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据库/">数据库</a><span class="category-list-count">10</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/数据库/mysql/">mysql</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据库/sql语句/">sql语句</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据库/导论/">导论</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据库/数据库编程/">数据库编程</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据库/数据库设计/">数据库设计</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据结构/">数据结构</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/数据结构/图/">图</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/毕设/">毕设</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/">算法</a><span class="category-list-count">20</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/算法/leetcode/">leetcode</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/模式匹配/">模式匹配</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/深度优先搜索/">深度优先搜索</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程语言/">编程语言</a><span class="category-list-count">20</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/编程语言/C/">C</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/编程语言/C/语言/">语言</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程语言/C语言/">C语言</a><span class="category-list-count">17</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程语言/Java/">Java</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程语言/java/">java</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/英语/">英语</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/英语/生词/">生词</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/计算机网络/">计算机网络</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/计算机网络/wireshark/">wireshark</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/计算机网络/问题记录/">问题记录</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/设计模式/">设计模式</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/设计模式/交给子类/">交给子类</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/设计模式/生成实例/">生成实例</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/设计模式/适应设计模式/">适应设计模式</a><span class="category-list-count">2</span></li></ul></li></ul>
-</nav>
-  <nav class="card sidebar-component">
-  <div class="card-title">最近文章</div>
-  <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2020/05/19/algorithm/leetcode/动态规划/interleaving-string/">interleaving string</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/17/algorithm/leetcode/分治/maximum-product-subarray/">maximum product subarray</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/15/algorithm/leetcode/动态规划/triangle/">triangle</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/12/algorithm/leetcode/动态规划/unique-binary-search-trees-ii/">unique binary search trees ii</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/11/algorithm/leetcode/动态规划/decode-ways/">decode-ways</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/09/algorithm/leetcode/动态规划/unique-path-II/">unique path II</a></li></ul>
-</nav>
-</aside>
+3. {{}}不能作用再HTML属性上，需要用v-bind指令:
+    <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-bind:id</span>=<span class="string">"dynamicId"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
+4. {{}}支持支持完整的javascript表达式（只能是单个表达式）。
+5. 插值中用到的**单个**表达式（如{{}}插值，指令参数，指令值），**这些表达式会在Vue实例的数据作用域下作为javascript被解析，意思就是说，表达式中使用的变量，会被解析成对应vm实例的属性。全局变量只能访问Math、Date等，不应该访问自定义的全局变量。**
 
-                <!--
-<aside id="right-sidebar">
-  <nav class="card margin-bottom">
-  
-</nav>
-</aside>
-
--->
-                <article id="article" class="margin-right ofhidn">
-                  <section class="ofhidn">
-  
-    <div class="post-entry card">
-  <a href="/2019/06/11/css/less/less快速入门/">
-    <h3>less快速入门
-      <span class="title-right">css</span>
-    </h3>
-    <div class="content">less是一门css预处理语言，添加了变量，mixin，函数等特性，使得css更易维护和扩展。less可以运行于node服务器或者浏览器端。
-less完全支持css语法，并在此基础上进行的扩展
-变量变</div>
-    <div class="post-time">2019-06-11</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/08/31/阅读中遇到的不熟悉的单词/">
-    <h3>阅读中遇到的不熟悉的单词
-      <span class="title-right">英语</span>
-    </h3>
-    <div class="content">这篇文章记录了在读书、文档中遇到的英语生词，用于提升英语能力以及定期的单词复习
-123456789101112131415161718192021222324252627282930313233343</div>
-    <div class="post-time">2019-08-31</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/11/23/c-c++/GCC常用选项/">
-    <h3>GCC常用选项
-      <span class="title-right">编程语言</span>
-    </h3>
-    <div class="content">这篇文章学习GCC中的常用选项。
--I dir将dir目录添加到预处理过程中搜索include头文件的目录中。通过-isyatem和-idirafter可以指定include &amp;lt;file&amp;gt;</div>
-    <div class="post-time">2019-11-23</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/11/11/c-c++/centos7-下升级gcc编译器/">
-    <h3>centos7 下升级gcc编译器
-      <span class="title-right">编程语言</span>
-    </h3>
-    <div class="content">只支持64位程序。
-12yum -y install centos-release-sclyum -y install devtoolset-8-gcc devtoolset-8-gcc-c++ de</div>
-    <div class="post-time">2019-11-11</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/06/11/c-c++/gcc编译器初步/">
-    <h3>gcc编译器初步
-      <span class="title-right">编程语言</span>
-    </h3>
-    <div class="content">gcc编译器入门最近重新复习c/c++，操作系统等等计算机的基础知识，直接从gcc开始，这一篇文章记录gcc编译器命令行的基本使用。
-使用gcc编译器编译第一个程序编写一个HelloWord.c文件，</div>
-    <div class="post-time">2019-06-11</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/10/02/computer-network/centos-7下安装wireshark/">
-    <h3>centos 7下安装wireshark
-      <span class="title-right">计算机网络</span>
-    </h3>
-    <div class="content">wireshark是一款可以对网卡进行抓包的软件，能获取到网卡上收到的二进制数据，可以分析到达主机的网络包，分析其使用的协议，内容等等。这篇文章我们介绍如何在centos 7下安装wireshark。</div>
-    <div class="post-time">2019-10-02</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2020/02/04/computer-network/计算机网络复习问题记录/">
-    <h3>计算机网络复习问题记录
-      <span class="title-right">计算机网络</span>
-    </h3>
-    <div class="content">
-如何组建一个完整的计算机网络？如何设置核心路由器、组建局域网、接入无线路由器？如何选择网络传输介质？在思科的模拟软件上模拟一个完整的网络。
-
-无线路由器和核心路由器是不是一样的？如何将无线路由器接入</div>
-    <div class="post-time">2020-02-04</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2020/02/04/computer-network/计算机网络概述/">
-    <h3>计算机网络概述
-      <span class="title-right">计算机网络</span>
-    </h3>
-    <div class="content">这里文章从总体上复习计算机网络涉及的基本概念，主要包括计算机网络的组成成分、时延、协议栈分层、安全等知识点，从总体上概览计算机网络的方方面面。其中知识点的细节会分布到后面的每一个章节中复习，最终的复习</div>
-    <div class="post-time">2020-02-04</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/08/14/css/browserlist文档学习/">
-    <h3>browserlist文档学习
-      <span class="title-right">css</span>
-    </h3>
-    <div class="content">browserslist用于在不同的前端工具，比如autoprefixer、stylelint、babel-preset-env间共享相同的目标浏览器和nodejs环境。使用该配置的工具如下：
-
-au</div>
-    <div class="post-time">2019-08-14</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/07/14/css/css中各种百分比的指向/">
-    <h3>css中各种百分比的指向
-      <span class="title-right">css</span>
-    </h3>
-    <div class="content">在日常的开发中，我们会接触到各种各样的百分比单位，那这些百分比到底是参照于谁呢？查了一些资料，下面做一个总结：
-相对于父元素的宽度max-width、min-width、width、left、righ</div>
-    <div class="post-time">2019-07-14</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/07/24/css/css容易弄错的小细节/">
-    <h3>css容易弄错的小细节
-      <span class="title-right">css</span>
-    </h3>
-    <div class="content">有很多容易被我们忽略的小细节，所以理所当然的认为的错误的细节，这里做一个汇总，遇到了就到这里添加。
-多类选择器在class属性中我们可以指定多个class，例如：12345678910&amp;lt;styl</div>
-    <div class="post-time">2019-07-24</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/08/13/css/css布局：Grid/">
-    <h3>css布局：Grid
-      <span class="title-right">css</span>
-    </h3>
-    <div class="content">参考资料：mdn css grid
-css grid布局是一个web上二维布局系统，它可以让你把内容放置在数行和数列中，而且可以通过一系列的特性，实现复杂的布局。
-什么是Grid布局？一个grid只是</div>
-    <div class="post-time">2019-08-13</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/12/13/css/css布局：flex/">
-    <h3>css布局：flex
-      <span class="title-right">css</span>
-    </h3>
-    <div class="content"></div>
-    <div class="post-time">2019-12-13</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/08/04/daily-note/每日打卡/">
-    <h3>每日学习打卡记录
-      <span class="title-right">学习打卡</span>
-    </h3>
-    <div class="content">每日打卡这篇文档记录了每日学习到了什么新知识，干了一些什么事情，持续记录。
-每周学习计划（markdown不支持合并单元格，使用table来实现）
-            日期      时间段   </div>
-    <div class="post-time">2019-08-04</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2020/03/26/docker/docker-swarm基础/">
-    <h3>docker swarm基础
-      <span class="title-right">docker</span>
-    </h3>
-    <div class="content">Docker的基础知识在另一系列文章中，。这一篇文章主要介绍docker swarm的基础知识，包括docker swarm的基础概念，如何使用docker swarm进行集群部署。
-概览当前版本（1</div>
-    <div class="post-time">2020-03-26</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2020/03/26/docker/docker基础/">
-    <h3>docker基础
-      <span class="title-right">docker</span>
-    </h3>
-    <div class="content">常见问题最后一节收录了docker在开发，运行，部署中的常见问题。
-解决镜像下载慢的问题默认是使用国外的源，所以可能会出现提示找不到服务器或者下载很慢的问题，该问题可以通过将源配置成国内的镜像来解决。</div>
-    <div class="post-time">2020-03-26</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/08/28/datastructure/图的基本概念/">
-    <h3>图的基本概念
-      <span class="title-right">数据结构</span>
-    </h3>
-    <div class="content">图中最核心的概念是顶点和边，当我们的问题可以抽象为多个点以及这些点之间的相互联系时，我们就可以考虑用图来建模。每一个图中都包括一个顶点集合V和一个边集合E，用G=(V,E)来表示，E中的每一条边都是E</div>
-    <div class="post-time">2019-08-28</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/11/11/git/centos7-下升级git/">
-    <h3>centos7 下升级git
-      <span class="title-right">git</span>
-    </h3>
-    <div class="content">安装所需要的依赖包12yum install curl-devel expat-devel gettext-devel openssl-devel zlib-devel yum install gcc</div>
-    <div class="post-time">2019-11-11</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/07/18/git/git命令tips/">
-    <h3>git命令tips
-      <span class="title-right">git</span>
-    </h3>
-    <div class="content">下面对一些常用的git命令/特性做一些总结
-分支管理相关新建分支git checkout -b [branchname]：该命令是下面两条命令的简写：12git branch [branchname]</div>
-    <div class="post-time">2019-07-18</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/06/08/git/深入git生命周期/">
-    <h3>深入git生命周期
-      <span class="title-right">git</span>
-    </h3>
-    <div class="content">深入git生命周期这篇文章适用于了解git基本的命令，会使用git add，git commit，git pull，git push进行版本管理，希望能深入了解git的版本控制细节的开发者。如果还没有</div>
-    <div class="post-time">2019-06-08</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/06/09/hexo/hexo中使用mathjax/">
-    <h3>hexo中使用mathjax
-      <span class="title-right">hexo</span>
-    </h3>
-    <div class="content">网上给的很多使用hexo插件或者修改各种配置的教程都太过繁琐，而且在我这里不管用，所以我自己上mathjax的官网看了以下，直接使用mathjax，不搞那么多花里胡哨的东西。当然这里方式是通过dom动</div>
-    <div class="post-time">2019-06-09</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/11/11/git/在centos上搭建git服务器仓库/">
-    <h3>在centos上搭建git服务器仓库
-      <span class="title-right">git</span>
-    </h3>
-    <div class="content">在centos上搭建git服务器仓库git的官方文档，这里有git命令，git服务器，git配置，git管理等一系列的说明都有。
-1. 安装git首先查看有没有安装git，输入：
-
-git –vers</div>
-    <div class="post-time">2019-11-11</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/08/04/hexo/基于Hexo搭建自定义博客网站/">
-    <h3>基于Hexo搭建自定义博客网站
-      <span class="title-right">hexo</span>
-    </h3>
-    <div class="content">这篇博客主要内容是如何基于Hexo搭建自定义的静态博客网站，我们将从网站布局设计、实现、部署等各个方面来详细介绍，如何实现自己的个人主页和博客。
-基本结构网站目前暂定包含两个部分：个人主页和博客。
-
-</div>
-    <div class="post-time">2019-08-04</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/07/22/html/html5新标签-属性总结/">
-    <h3>html5新标签/属性总结
-      <span class="title-right">html5</span>
-    </h3>
-    <div class="content">结构型的标签html5新增了很多结构型的标签，这些标签没有默认样式，只设置了display:block，是块级元素，其作用主要是语义化，标签名就指示了这个标签所起的作用（除此之外，id、class都可</div>
-    <div class="post-time">2019-07-22</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/09/08/html/html-tips/">
-    <h3>html tips
-      <span class="title-right">html5</span>
-    </h3>
-    <div class="content">这篇文章的主要内容是记录开发中遇到的一些html小知识。
-textContent和innerTEXT的区别
-textContenttextContent的值取决于以下情况：
-
-如果节点是documne</div>
-    <div class="post-time">2019-09-08</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/07/26/html/svg基础/">
-    <h3>svg基础
-      <span class="title-right">html5</span>
-    </h3>
-    <div class="content">Scalable Vector Graphics(SVG)是一种基于XML的标记语言，用于描述基于二维的向量图形。SVG对于如何用text文本来描述图形是非常重要的。
-SVG是一个基于文本的开放Web</div>
-    <div class="post-time">2019-07-26</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/08/19/html/svg基础：path/">
-    <h3>svg基础：path
-      <span class="title-right"></span>
-    </h3>
-    <div class="content"></div>
-    <div class="post-time">2019-08-19</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/07/27/html/svg基础：定位&基础图形/">
-    <h3>svg基础：定位&基础图形
-      <span class="title-right">html5</span>
-    </h3>
-    <div class="content">在这篇文章中，我们检验SVG怎么样在一个绘制上下文中呈现对象的位置和大小，包括坐标系统以及’pixel’度量在可伸缩上下文中意味着什么。
-网格对于所有的元素，SVG使用一个坐标系统或者grid系统，和</div>
-    <div class="post-time">2019-07-27</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/10/04/html/xml：基础/">
-    <h3>xml：基础
-      <span class="title-right">xml</span>
-    </h3>
-    <div class="content"></div>
-    <div class="post-time">2019-10-04</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2020/02/21/js/JavaScript-ES5-正则表达式复习/">
-    <h3>JavaScript-ES5-正则表达式复习
-      <span class="title-right">js</span>
-    </h3>
-    <div class="content">正则表达式是一种描述字符模式的对象。也就是一个正则表达式是描述了一类字符的模式，用一个正则表达式可以来匹配一类字符。
-使用正则匹配字符串的时候，从前到后遍历字符串匹配，默认贪婪匹配（即一个模型尽可能多</div>
-    <div class="post-time">2020-02-21</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2020/05/03/js/javasript异步编程/">
-    <h3>javasript异步编程
-      <span class="title-right"></span>
-    </h3>
-    <div class="content">javascript的异步编程的核心是事件循环，js的运行环境有浏览器和nodejs，两者的异步模型有相似之处，也有不同。这篇文章主要总结javascript在浏览器和nodejs中的事件循环的细节，</div>
-    <div class="post-time">2020-05-03</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/11/08/java/centos7-下安装jdk/">
-    <h3>centos7 下安装jdk
-      <span class="title-right">编程语言</span>
-    </h3>
-    <div class="content">首先查看是否安装了jdk，输入命令：1java -version
-如果输出了版本号，说明安装了java。
-再输入命令：1javac
-如果没有提示错误，曾说明java已正确安装。如果没有安装java，或</div>
-    <div class="post-time">2019-11-08</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/09/19/html/浏览器中的权限和Permission-API/">
-    <h3>浏览器中的权限和Permission API
-      <span class="title-right">html5</span>
-    </h3>
-    <div class="content">浏览器提供各种各样的能力，如访问摄像头，访问地理位置，访问剪切板，Notification等等，许多API都是需要用户授权才能使用的。但是以前的API授权方式不具有一致性，每个API都有自己的不一样的</div>
-    <div class="post-time">2019-09-19</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/11/19/java/centos7下修改maven仓库设置/">
-    <h3>centos7下安装maven以及修改maven仓库设置
-      <span class="title-right">编程语言</span>
-    </h3>
-    <div class="content">默认的Maven仓库因为镜像在国外，下载是在是太慢，这篇文章介绍一下如何修改maven仓库为国内的镜像，适用于centos7。
-安装maven1sudo yum install -y maven
-配置</div>
-    <div class="post-time">2019-11-19</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/07/11/js/js基础：es6对象-数组遍历的多种方法/">
-    <h3>js基础：es6对象/数组遍历的多种方法
-      <span class="title-right">js</span>
-    </h3>
-    <div class="content">对象属性的遍历ES6一共有5种方法可以遍历对象的属性。
-(1) for…infor…in循环遍历对象自身的和继承的可枚举属性（不包含Symbol属性）。
-(2) Object.keys(obj)Obj</div>
-    <div class="post-time">2019-07-11</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/07/14/js/js基础：判断对象类型的多种方法/">
-    <h3>js基础：判断对象类型的多种方法
-      <span class="title-right">js</span>
-    </h3>
-    <div class="content">概述js中有多种方式可以判断对象的类型，每种判断类型的方式都有自己的优缺点。这篇文章文章中我们一共总结了4种方法：
-
-instanceof
-typeof
-Object.prototype.toStri</div>
-    <div class="post-time">2019-07-14</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/07/25/js/js基础：防抖、节流、once/">
-    <h3>js基础：防抖、节流、once
-      <span class="title-right">js</span>
-    </h3>
-    <div class="content">12345678910111213141516171819202122232425262728293031323334353637383940414243// 实现方式1function once(e</div>
-    <div class="post-time">2019-07-25</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/09/01/js/tslint基础知识/">
-    <h3>tslint基础知识
-      <span class="title-right">js</span>
-    </h3>
-    <div class="content">tslint是一个可扩展的静态分析工具，它检查typescript的可读性、可维护性以及功能性错误。
-安装CLI
-npm install tslint typescript –save-devnpm </div>
-    <div class="post-time">2019-09-01</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/06/18/math/高数1：函数/">
-    <h3>高数1：函数
-      <span class="title-right"></span>
-    </h3>
-    <div class="content">下面是复习高数时的一些核心笔记：
-函数概念
-函数三要素：定义域、值域、对应关系。
-一个自变量对应一个因变量。
-函数的参数表示：$$\begin{cases} x = x(t),\ y = y(t), </div>
-    <div class="post-time">2019-06-18</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/11/20/nginx/centos7下安装nginx/">
-    <h3>centos7下安装nginx
-      <span class="title-right">nginx</span>
-    </h3>
-    <div class="content">这篇文章学习如何再centos 7下安装nignx，并分析安装后nginx目录中的各配置文件及作用。
-安装nginx1sudo yum install -y nginx
-如果找不到，那么就是设置的re</div>
-    <div class="post-time">2019-11-20</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/05/24/nginx/nginx-beginner-s-guide/">
-    <h3>nginx入门教程
-      <span class="title-right">nginx</span>
-    </h3>
-    <div class="content">这篇教程给出了一个nginx的基本介绍以及描述了nginx可以完成的一些基本任务。这里假定读者的设备中已经安装了nginx。如果没有，请查看安装nginx。这篇教程描述了怎样启动和停止nginx，以及</div>
-    <div class="post-time">2019-05-24</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/06/09/nginx/nginx启用gzip和缓存优化/">
-    <h3>nginx启用gzip和缓存优化
-      <span class="title-right">nginx</span>
-    </h3>
-    <div class="content">这篇文章给出了如何在nginx中配置gzip和开启缓存，利用缓存对网站进行优化。gzip压缩能将文件压缩到原大小的30%。
-开启nginx中开启gzip直接上配置文件片段：12345678910111</div>
-    <div class="post-time">2019-06-09</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/07/04/node.js/package-json详解/">
-    <h3>package.json详解
-      <span class="title-right">node.js</span>
-    </h3>
-    <div class="content">package.json是nodejs的包管理工具npm的配置文件，package.json文件的内容必须是json格式，而不是一个javascript对象。这篇文章详解package.json里面的</div>
-    <div class="post-time">2019-07-04</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/07/04/node.js/基于node-js的命令行工具/">
-    <h3>基于node.js的命令行工具
-      <span class="title-right">node.js</span>
-    </h3>
-    <div class="content">
-基于node.js编写命令行工具是非常方便的，有很多现有的工具和库能够帮助我们实现。接下来我们着手编写一个自己的命令行工具。
-依赖分析我们首先要分析我们可以利用哪些第三方的工具。先看看其他的cli工</div>
-    <div class="post-time">2019-07-04</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/11/19/os/centos7客户端下远程连接linux服务器/">
-    <h3>centos7客户端下远程连接linux服务器
-      <span class="title-right">linux</span>
-    </h3>
-    <div class="content">在windows常用putty等工具远程连接服务器，那么在linux下用什么工具呢？还有linux下如何远程连接另一台linux服务器上的myql呢？这篇文章学习这两个知识点。
-最简单的就是使用ssh</div>
-    <div class="post-time">2019-11-19</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/08/04/php/Smarty快速入门/">
-    <h3>Smarty块度入门
-      <span class="title-right">php</span>
-    </h3>
-    <div class="content">Smarty快速入门smarty官方中文文档：https://www.smarty.net/docs/zh_CN/what.is.smarty.tpl
-1. Smarty是什么？Smarty是一个PH</div>
-    <div class="post-time">2019-08-04</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/09/03/vue/Vue基础：typescript支持/">
-    <h3>Vue基础：typescript支持
-      <span class="title-right">vue</span>
-    </h3>
-    <div class="content">这篇文章介绍了如何在vue项目使用typescript。vue官方为Vue core、Vue Router、Vuex提供了相应的声明文件。Vue项目的根目录可以使用tsconfig.json来配置ty</div>
-    <div class="post-time">2019-09-03</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/07/06/vue/vue基础：tips/">
-    <h3>vue基础：tips
-      <span class="title-right">vue</span>
-    </h3>
-    <div class="content">下面都是使用vue的时候记录下来的小细节
-直接操作dom
-如果直接删除或者替换dom（文本内容也是），响应式绑定会失效，应该虚拟dom对应的真实dom已经不存在了，当重新使用数据渲染组件时（重新渲染会</div>
-    <div class="post-time">2019-07-06</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/07/03/vue/vue基础：vue-cli/">
-    <h3>vue基础：vue-cli
-      <span class="title-right">vue</span>
-    </h3>
-    <div class="content">这篇文章是vue-cli文档阅读的笔记，是一个总结加上自己的理解，vue-cli的详情请看官方文档
-Vue CLI是一个用于Vue.js快速开发的完整系统，提供了：
-
-通过@vue/cli提供交互式的</div>
-    <div class="post-time">2019-07-03</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/07/10/vue/vue基础：vue-router使用/">
-    <h3>vue基础：vue-router使用
-      <span class="title-right">vue</span>
-    </h3>
-    <div class="content">简介vue-router时vue.js的官方路由，与vue核心深度集成，提供了特性：
-
-嵌套路由/视图匹配
-模块化、基于组件的路由配置
-路由参数、query、通配符
-vue过渡系统驱动的视图过渡效果
-</div>
-    <div class="post-time">2019-07-10</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/07/06/vue/vue实战：popover组件/">
-    <h3>vue实战：popover组件
-      <span class="title-right">vue</span>
-    </h3>
-    <div class="content">业务需要，我们需要一个vue的弹出类组件容器，能够自动根据给定的元素定位到视口的固定位置。popper.js的功能比较多，我们需要的功能比较少，这里实现了popper.js的简化版本popsim.js</div>
-    <div class="post-time">2019-07-06</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/06/18/vue/vue基础：官方文档要点/">
-    <h3>vue基础：官方文档要点
-      <span class="title-right">vue</span>
-    </h3>
-    <div class="content">最近实习中又用到了Vue，过了一遍官方文档复习一下，感觉又有很多收获。记录一下要点。
-vue实例每一个Vue应用都是通过用Vue函数创建一个新的Vue示例开始的：1234// vm代表（ViewMod</div>
-    <div class="post-time">2019-06-18</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/09/06/vue/vue实战：ts踩坑记录/">
-    <h3>vue实战：ts踩坑记录
-      <span class="title-right">vue</span>
-    </h3>
-    <div class="content">这篇文章记录了使用ts开发vue时遇到的一些问题和解决方案。内容包括如何使用ts开发vue，用到了哪些库以及在开发时遇到的一些问题。
-踩坑记录@Component@Component是vue-clas</div>
-    <div class="post-time">2019-09-06</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/08/12/vue/vue实战：博客后台——简介/">
-    <h3>vue实战：博客后台——简介
-      <span class="title-right">vue</span>
-    </h3>
-    <div class="content">预期成果这一系列文章中，我们使用vue+typescript+postcss+scss+browserlist+ssr+unit test等技术搭建一个简单的博客后台网站。主要目的是为了练手，熟悉前端</div>
-    <div class="post-time">2019-08-12</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/08/30/vue/vue进阶：vue-router懒加载的实现原理/">
-    <h3>vue进阶：vue-router懒加载的实现原理
-      <span class="title-right">vue</span>
-    </h3>
-    <div class="content">这篇文章主要分析vue-router懒加载的实现原理。vue-router的懒加载基于vue的异步组件和webpack的splitCode来实现。接下来首先介绍vue的异步组件和webpack的Spl</div>
-    <div class="post-time">2019-08-30</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/07/14/webpack/webpack系列1：webpack概念/">
-    <h3>webpack系列1：webpack概念
-      <span class="title-right">webpack</span>
-    </h3>
-    <div class="content"></div>
-    <div class="post-time">2019-07-14</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2020/02/18/毕业设计/1-系统整体功能和模块设计/">
-    <h3>1.系统整体功能和模块设计
-      <span class="title-right">毕设</span>
-    </h3>
-    <div class="content">这一部分主要是系统设计，主要是设计整个系统包含哪些功能，应该划分成哪些模块。先从整体功能开始，然后到每个模块的具体功能。
-总体功能如下图：
-系统总体包括前台和后台两个部分，前台主要是信息的展示，首页展</div>
-    <div class="post-time">2020-02-18</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2020/02/19/毕业设计/2-数据库设计/">
-    <h3>2.数据库设计
-      <span class="title-right">毕设</span>
-    </h3>
-    <div class="content">数据库设计要根据前面设计的功能，对系统需要的数据进行建模。重点是要确定数据库要存储哪些信息，这些信息之间的关联。步骤是：
-
-E/R建模，根据功能描述建立起E/R联系图，确定实体属性及实体之间的关系。
-</div>
-    <div class="post-time">2020-02-19</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2020/03/29/毕业设计/后端权限设计——基于集群/">
-    <h3>后端权限设计——基于集群
-      <span class="title-right">毕设</span>
-    </h3>
-    <div class="content">exploit系统的登陆和权限认证基于apache shiro实现，shiro提供了认证、授权、拦截等多种用户管理能力。本文基于shiro的基础能力，设计开发支持后端服务器集群、redis集群的服务器</div>
-    <div class="post-time">2020-03-29</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2020/02/18/毕业设计/毕设概述/">
-    <h3>毕设概述
-      <span class="title-right">毕设</span>
-    </h3>
-    <div class="content">马上毕业了，开始做毕设。本科没怎么努力，但是还是学到了很多东西的，也找了一份还过得去的工作，人生接下来的时间不能浪费了，要更加努力才行。
-毕设的内容是做一个漏洞管理系统网站。核心功能是漏洞的管理，包括</div>
-    <div class="post-time">2020-02-18</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/06/15/css/css中的基本框模型/">
-    <h3>css中的基本框模型
-      <span class="title-right">css</span>
-    </h3>
-    <div class="content">概述这是一篇css基础的文章，主要讲css中的各类框模型的细节，比如inline-block，table，flex，grid。这里会解答一些开发中常见的问题，例如：为什么有时候我设了外边距、内边距没有</div>
-    <div class="post-time">2019-06-15</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/09/22/html/DOM：基础/">
-    <h3>DOM：基础
-      <span class="title-right">html5</span>
-    </h3>
-    <div class="content">这篇文章主要介绍dom的基础知识，基于最新的DOM标准，和历史dom标准：DOM 4/3/2/1，包括dom的层级结构、dom事件、dom的遍历、dom层级中的接口和API等。
-dom简介dom是Do</div>
-    <div class="post-time">2019-09-22</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/07/23/html/html5-API/">
-    <h3>html5 API
-      <span class="title-right">html5</span>
-    </h3>
-    <div class="content">在HTML5中，提供了很多的api，例如访问文件的File API，通过使用这个api，从web页面上访问本地文件系统会变得十分简单。还有websocket、localStorage、canvas、跨</div>
-    <div class="post-time">2019-07-23</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/09/08/html/html实现选中、复制、粘贴/">
-    <h3>html实现选中、获取设置光标、复制、粘贴，并实现一个markdown编辑器
-      <span class="title-right">html5</span>
-    </h3>
-    <div class="content">这篇文章记录了如何在html中选中、复制、粘贴内容，以及如何操作可编辑区域中的光标位置，并基于这些基础知识实现了一个简单的markdown编辑器。
-基础概念首先我们要介绍一些要用到的基础概念和相关AP</div>
-    <div class="post-time">2019-09-08</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2020/02/21/js/JavaScript-ES5-核心语法复习指南/">
-    <h3>JavaScript(ES5)核心语法复习指南
-      <span class="title-right">js</span>
-    </h3>
-    <div class="content">这篇文章覆盖JavaScript(es5)的所有语法要点，便于日后进行js基础方面的查阅和复习。参考《JavaScript权威指南》，采取编译原理结构的形式进行总结，从词法、类型、表达式、语句等方面来</div>
-    <div class="post-time">2020-02-21</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/09/03/vue/Vue基础：vue-class-component/">
-    <h3>Vue基础：vue-class-component
-      <span class="title-right">vue</span>
-    </h3>
-    <div class="content">vue-class-component是为Vue组件提供的注解支持，能够通过注解的方式来来声明组件以及组件的选项等。这篇文章主要学习如何使用vue-class-component，以及vue-clas</div>
-    <div class="post-time">2019-09-03</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2020/03/22/毕业设计/服务器部署/">
-    <h3>服务器部署
-      <span class="title-right">毕设</span>
-    </h3>
-    <div class="content">毕设终于开发完成了大部分的基础功能，接下来就是进行部署了。计划使用三台服务器进行部署，一台用作静态资源服务器和反向代理服务器，另外两台作为后端服务集群，采用容器化方式部署。
-主要解决的问题是：
-
-后端</div>
-    <div class="post-time">2020-03-22</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/06/05/algorithm/深度优先搜索/排列、组合和子集及题解/">
-    <h3>排列、组合和子集算法及题解
-      <span class="title-right">算法</span>
-    </h3>
-    <div class="content">1. 排列、组合以及子集问题1.1 什么是排列、组合和子集？排列分为全排列和普通排列，全排列表示方法：$A{^n_n}$，表示1到n的阶乘（$\prod_{i=1}^ni$），普通排列$A{^m_n}</div>
-    <div class="post-time">2019-06-05</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/11/04/c-c++/C Primer/C-Primer-Chapter-1-Getting-Ready/">
-    <h3>C Primer Chapter 1: Getting Ready
-      <span class="title-right">编程语言</span>
-    </h3>
-    <div class="content">C Primer第一章的读书笔记。在这一张将学到：
-
-C的历史和特性
-写程序的步骤
-编译器和链接器的一些知识
-C标准
-
-要点记录1. C 1972年出现，设计给专业的程序员编程2. C语言的优势：
-对</div>
-    <div class="post-time">2019-11-04</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/06/11/c-c++/C语言编程魔法书/1.C语言中的基本元素/">
-    <h3>1.C语言中的基本元素
-      <span class="title-right">编程语言</span>
-    </h3>
-    <div class="content">一个基本C语言程序包含如下几个部分：
-
-注释，有单行注释和多行注释。注释部分在预编译处理后就不存在了
-预处理器
-入口函数main
-自定义的函数
-
-C语言的头文件用.h结尾，源文件用.c结尾。
-C语言中</div>
-    <div class="post-time">2019-06-11</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/11/13/c-c++/C语言编程魔法书/3.C语言的基本运算操作符/">
-    <h3>3.C语言的基本运算操作符
-      <span class="title-right">编程语言</span>
-    </h3>
-    <div class="content">算术运算+、-、*、/、%以及+=、-=等
-按位运算&amp;amp;、|、^、~以及&amp;amp;=、|=等。分别表示按位与、按位或、按位异或和按位取反
-自增自减++、–
-逻辑运算&amp;amp;&amp;amp;、||、!</div>
-    <div class="post-time">2019-11-13</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/11/17/c-c++/C语言编程魔法书/5.C语言的字节对齐和字节填充/">
-    <h3>5.C语言的字节对齐和字节填充
-      <span class="title-right">编程语言</span>
-    </h3>
-    <div class="content">前面已经涉及到了一些字节对齐的知识。这里更加详细的学习C语言中的字节对齐和字节填充。
-对于32/64位系统环境，通常编译器会默认对指令和数据进行4字节对齐。也就是说，一个函数的起始地址以及一个数据对象</div>
-    <div class="post-time">2019-11-17</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/11/19/c-c++/C语言编程魔法书/7.C语言中的控制流语句/">
-    <h3>7.C语言中的控制流语句
-      <span class="title-right">编程语言</span>
-    </h3>
-    <div class="content">逗号表达式用于将若干表达式按序执行，并返回最后一个表达式的结果。
-,是一个双目运算符。
-条件表达式结构：布尔表达式?表达式1:表达式2
-分支语句if-else形式：123456789101112131</div>
-    <div class="post-time">2019-11-19</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/11/20/c-c++/C语言编程魔法书/C语言深入篇1：指向数组和函数的指针/">
-    <h3>C语言深入篇1：指向数组和函数的指针
-      <span class="title-right">编程语言</span>
-    </h3>
-    <div class="content">前面我们学习过指针、数组、函数的概念，也了解了指向数组和函数的指针。这里深入理解和学习指向数组和函数的指针。
-首先我们从类型的概念入手，每一种指针都有自己的类型，要了解指向数组和函数的指针，首先需要理</div>
-    <div class="post-time">2019-11-20</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/11/18/c-c++/C语言编程魔法书/C语言标准库/">
-    <h3>C语言标准库
-      <span class="title-right">编程语言</span>
-    </h3>
-    <div class="content">这篇文章学习C语言标准库，包括基本数据类型对应的标准库例如stdbool以及数据结构算法、线程进程、网络等等的库。综合对这些库的介绍和使用示例。
-stddef.h定义了以下常用的宏：
-
-offseto</div>
-    <div class="post-time">2019-11-18</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/12/01/c-c++/GCC内联汇编/">
-    <h3>GCC内联汇编
-      <span class="title-right">编程语言</span>
-    </h3>
-    <div class="content">GCC提供了在C语言中嵌入汇编语言的能力。在C语言中嵌入汇编，在操作系统和嵌入式软件中开发很有用，编写底层软件时能够直接访问硬件。但是编写客户端软件时有些汇编指令是不可用的，所以编写windows或者</div>
-    <div class="post-time">2019-12-01</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/09/25/database/MySQL技术内幕/MySQL数据类型/">
-    <h3>MySQL数据类型
-      <span class="title-right">数据库</span>
-    </h3>
-    <div class="content">这篇文章主要介绍mysql的数据类型，基于《MySQL技术内幕》的第三章，主要内容是mysql中的详细数据类型、类型转换以及如何对数据进行处理。
-要点总结
-数据值类别：mysql数据库中能够存储如下类</div>
-    <div class="post-time">2019-09-25</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/08/12/css/postcss/postcss基础/">
-    <h3>postcss基础
-      <span class="title-right">css</span>
-    </h3>
-    <div class="content">postcss是一个用js插件改变css样式的工具。这个插件可以对css进行语法检查、转义最新的css、添加前缀、内联图片等等。postcss将css文件转成抽象语法树，并且提供了API取访问他们，这</div>
-    <div class="post-time">2019-08-12</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/08/15/css/postcss/postcss插件-autoprefixer/">
-    <h3>postcss插件:autoprefixer
-      <span class="title-right">css</span>
-    </h3>
-    <div class="content">autoprefixer用于css添加浏览器厂商前缀，以兼容比较老的浏览器。其数据来源是caniuse。
-下面看一个实例：
-我们在写代码的时候不用考虑浏览器前缀的问题了，直接写成下面这样：123456</div>
-    <div class="post-time">2019-08-15</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2020/02/25/database/MySQL技术内幕/mysql安全性和访问控制/">
-    <h3>mysql安全性和访问控制
-      <span class="title-right"></span>
-    </h3>
-    <div class="content"></div>
-    <div class="post-time">2020-02-25</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/12/14/css/sass/sass 快速入门/">
-    <h3>Sass快速入门
-      <span class="title-right">css</span>
-    </h3>
-    <div class="content">1. 使用变量1.1 声明变量
-$highlight-color: #F90;
-
-
-$highlight-color就是一个变量，变量的值可以是任何CSS属性值。即可以赋值给css属性的值都可以赋值给</div>
-    <div class="post-time">2019-12-14</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2020/02/20/database/MySQL技术内幕/mysql语法1：建立数据库和表/">
-    <h3>mysql语法1：建立数据库和表
-      <span class="title-right">数据库</span>
-    </h3>
-    <div class="content">这篇文章给出mysql中建立数据库和表的详细语法。如果不记得详细语法，在mysql客户端中可以通过help create database或者help create table来获取语法参考，如下例：</div>
-    <div class="post-time">2020-02-20</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/11/28/database/mysql/MySql-Workbench-生成表关系图/">
-    <h3>MySql Workbench 生成表关系图
-      <span class="title-right">数据库</span>
-    </h3>
-    <div class="content">这篇文章学习如何在mysql workbench上，根据已有的表生成关系图。当刚刚上手一个数据库的时候，如果能有该数据库的关系图的话，能够更好更快的掌握数据库各部分的功能及其相互关系。
-反向工程已有数</div>
-    <div class="post-time">2019-11-28</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/05/24/database/mysql/centos-下安装mysql/">
-    <h3>centos 下安装mysql
-      <span class="title-right">数据库</span>
-    </h3>
-    <div class="content">安装client
-yum install mysql
-
-这会安装client，这时如果输入mysql，会显示：
-
-ERROR 2002 (HY000): Can’t connect to local </div>
-    <div class="post-time">2019-05-24</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2020/02/25/database/mysql/mysql添加新账户并设置远程可访问/">
-    <h3>mysql添加新账户并设置远程可访问
-      <span class="title-right">数据库</span>
-    </h3>
-    <div class="content">这篇文章学习mysql中的用户创建和权限管理，最终的成果是创建一个新的只拥有某一个数据库访问权限的账户，同时开启这个账户的远程访问权限。参考资料是《mysql技术内幕》的第十三章。
-MySQL账户管理</div>
-    <div class="post-time">2020-02-25</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2020/02/11/database/数据库系统全书/4-关系代数/">
-    <h3>4.关系代数
-      <span class="title-right">数据库</span>
-    </h3>
-    <div class="content">前面复习的是数据库设计，包括如何建模（E/R模型），如何转化为实际的数据库模型（关系模型）以及设计消除冗余等异常的关系（BCNF，四范式、散范式）。这里开始复习数据库编程的设计，即用户如何查询和修改数</div>
-    <div class="post-time">2020-02-11</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/08/25/datastructure/String/模式匹配：KMP算法/">
-    <h3>模式匹配：KMP算法
-      <span class="title-right">算法</span>
-    </h3>
-    <div class="content"></div>
-    <div class="post-time">2019-08-25</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2020/02/28/java/spring实战/idea添加热重载支持/">
-    <h3>idea添加热重载支持
-      <span class="title-right">spring-boot</span>
-    </h3>
-    <div class="content">spring-boot提供了dev-tools工具用于热重载，在vscode中直接保存就能自动热重载，但是在idea中不行，因为idea会自动保存。在idea中实现自动热重载的步骤如下：1234567</div>
-    <div class="post-time">2020-02-28</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2020/02/27/java/spring实战/spring-boot添加shiro的支持/">
-    <h3>spring-boot添加shiro的支持
-      <span class="title-right">java</span>
-    </h3>
-    <div class="content">shiro是Apache公司开源的Java授权认证包。提供了登陆认证、授权验证、Session管理等多种功能，能够方便的用于用户登陆态维护、授权管理等等方面。
-这篇文章主要记录如何在spring-bo</div>
-    <div class="post-time">2020-02-27</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/08/05/os/Linux命令行和shell脚本编程/Linux下的基本命令/">
-    <h3>Linux下的基本命令
-      <span class="title-right">操作系统</span>
-    </h3>
-    <div class="content">这篇文章总结了linux下常用的命令，包括文件处理、进程处理、网络通信等等。主要基于《linux shell和脚本编程》的第三章和第四章。
-文件系统linux系统下提供了完整的文件操作的命令，包括新建</div>
-    <div class="post-time">2019-08-05</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/10/13/js/深入typescript/typescript踩坑指南/">
-    <h3>typescript踩坑指南
-      <span class="title-right">typescript</span>
-    </h3>
-    <div class="content">typescript中继承的属性和方法只有public或者protected的方法可以通过super来访问，不能使用super来访问父类中的属性；
-</div>
-    <div class="post-time">2019-10-13</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/06/19/os/Linux命令行和shell脚本编程/shell-script基本语法/">
-    <h3>shell script基础
-      <span class="title-right">操作系统</span>
-    </h3>
-    <div class="content">这里总结shell的基本语法，包括了shell中的一些基本元素/变量，shell脚本语法。
-使用多个命令之前在命令行中都是输入一个命令，那么如果输入多个命令呢？很简单，将多个命令用分号“;”隔开就可以</div>
-    <div class="post-time">2019-06-19</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2020/02/15/os/操作系统原理/OS原理：进程管理/">
-    <h3>OS原理：进程管理
-      <span class="title-right">操作系统</span>
-    </h3>
-    <div class="content">这篇笔记复习进程管理相关的操作系统原理。包括进程和线程的定义，进程和线程的内存空间、进程实现、进程调度、进程同步等知识点。
-</div>
-    <div class="post-time">2020-02-15</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/06/16/os/ucore_os/ucore-os-lab1：安装并启动ucore-os/">
-    <h3>ucore-os实验1：安装并启动ucore-os
-      <span class="title-right">操作系统</span>
-    </h3>
-    <div class="content">我们需要了解很多的预备知识，可以先简略的过一遍基础知识，留个印象，很多东西比较抽象也记不下来，后面用到的时候再回过来看，并进一步查找资料，会有更好的学习效果。
-本次实验的预备知识实验1的目的是完全掌握</div>
-    <div class="post-time">2019-06-16</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2020/02/15/os/操作系统原理/OS原理：内存管理/">
-    <h3>OS原理：内存管理
-      <span class="title-right">操作系统</span>
-    </h3>
-    <div class="content">这篇笔记复习进程内存管理相关的操作系统知识。包括内存空间的定义、分段和分页、安全和权限、虚拟内存等等知识点。
-</div>
-    <div class="post-time">2020-02-15</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/12/22/os/ucore_os/ucore-os-lab1：练习3、练习4/">
-    <h3>ucore-os-lab1：练习3、练习4
-      <span class="title-right">操作系统</span>
-    </h3>
-    <div class="content">练习三需要分析如何从实模式进入保护模式，重点是：
-
-为何开启A20以及如何开启A20？
-如何初始化GDT表？
-如何使能和进入保护模式？
-
-详细的解释请看ucore-os笔记4：bois和bootloa</div>
-    <div class="post-time">2019-12-22</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/12/30/os/ucore_os/ucore-os-lab2：实验准备/">
-    <h3>ucore-os-lab2：实验准备
-      <span class="title-right">操作系统</span>
-    </h3>
-    <div class="content">经过实验1的学习和练习，我们应该能熟练掌握下面的知识：
-
-操作系统的基本硬件知识：分段、中断、计算机加电后的执行过程、IO设备初始化过程（选学）
-软件知识：函数堆栈、x86常用汇编指令、bootloa</div>
-    <div class="post-time">2019-12-30</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/11/30/os/ucore_os/ucore-os-lab1：练习2/">
-    <h3>ucore-os实验1：lab1练习2
-      <span class="title-right">操作系统</span>
-    </h3>
-    <div class="content">练习1我们已经学习了make的基本语法，ucore-os是如何编译生成的。这个练习我们我们来学习ucore-os是如何启动的。包括内核如何被加载到内存中，内核加载后执行了哪些操作。重点详细学习启动过程</div>
-    <div class="post-time">2019-11-30</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2020/01/23/os/ucore_os/ucore-os-lab8：SFS文件系统设计和实现/">
-    <h3>ucore-os-lab8：SFS文件系统设计和实现
-      <span class="title-right">操作系统</span>
-    </h3>
-    <div class="content"></div>
-    <div class="post-time">2020-01-23</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/06/12/os/ucore_os/ucore-os笔记1：GCC基础和linux命令/">
-    <h3>ucore_os笔记1：GCC基础和linux命令
-      <span class="title-right">操作系统</span>
-    </h3>
-    <div class="content">GCC的基本用法参考这篇博客gcc基础命令
-GCC内联汇编利用gcc提供的内联汇编的特性，我们可以在C语言程序中写汇编代码。gcc内联汇编有两种方式，一种是基本内联汇编语句，另一种是扩展内联汇编语句。</div>
-    <div class="post-time">2019-06-12</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/12/02/os/ucore_os/ucore-os学习前言/">
-    <h3>ucore-os学习前言
-      <span class="title-right">操作系统</span>
-    </h3>
-    <div class="content">大四了，复习大学四年所学过的专业基础知识。操作系统是复习的第一门课，希望通过操作系统的学习，深入掌握计算机底层的工作原理、串联其他课程（计算机组成原理、计算机接口技术）、学习linux下C/C++的开</div>
-    <div class="post-time">2019-12-02</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/06/24/os/ucore_os/ucore-os思考与总结/">
-    <h3>ucore-os思考与总结
-      <span class="title-right">操作系统</span>
-    </h3>
-    <div class="content">2019.6.24开始着手操作系统的学习和开发，需要了解的知识有很多很多，需要了解linux开发环境，包括linux命令、shell脚本、linux下的编译器gcc的使用（包括gcc的编译选项、mak</div>
-    <div class="post-time">2019-06-24</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/12/03/os/ucore_os/ucore-os笔记3：qemu和gdb调试/">
-    <h3>ucore-os笔记4：qemu和gdb调试
-      <span class="title-right">操作系统</span>
-    </h3>
-    <div class="content">本篇笔记我们学习qemu和gdb调试，这是调试操作系统内核代码必备的技能。
-qemu是通用开源的硬件模拟器，可以模拟完整计算机系统，包括多种CPU架构（x86、x86_61、MIPS、ARM等）、系统</div>
-    <div class="post-time">2019-12-03</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/12/26/os/ucore_os/ucore-os笔记8：汇编指令总结/">
-    <h3>ucore-os笔记8：汇编指令总结
-      <span class="title-right">操作系统</span>
-    </h3>
-    <div class="content">这篇文章总结了ucore-os中使用的汇编语言伪指令，便于更好的理解ucore-os的源码。
-汇编程序中的伪指令汇编程序中伪指令以 “.”开头，例如.section，.globl等。下面是linux内</div>
-    <div class="post-time">2019-12-26</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2020/01/05/os/ucore_os/ucore-os笔记9：TSS和进程抽象设计/">
-    <h3>ucore-os笔记9：TSS以及机制和策略的关系
-      <span class="title-right">操作系统</span>
-    </h3>
-    <div class="content">这篇文章主要介绍硬件提供的机制与操作系统设计的策略的联系，解决类似80386提供了LDT，ucore-os为什么没有使用呢？为什么不用TSS实现多进程呢？这类问题。同时也简要介绍的TSS相关的cpu硬</div>
-    <div class="post-time">2020-01-05</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/12/18/vue/组件库开发/vue组件库开发：简介/">
-    <h3>vue组件库开发：简介
-      <span class="title-right">vue</span>
-    </h3>
-    <div class="content">这一系列文章将会学习如何开发一个自己的vue ui组件库，参考现有的组件库例如element-design-vue、element-ui等等，实现大部分常用的组件，以此来深入学习html、css的实战</div>
-    <div class="post-time">2019-12-18</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/11/08/密码技术/图解密码技术/图解密码技术1：环游密码世界/">
-    <h3>图解密码技术1：环游密码世界
-      <span class="title-right">安全</span>
-    </h3>
-    <div class="content">本章是《图解密码技术》的第一章，将会在整体上了解一下密码世界究竟是个什么样子。
-密码世界中的角色密码世界中有很多角色，有发送者、接收者、窃听者、主动攻击者等等。因为发送的信息在网络上传播，中间要经过很</div>
-    <div class="post-time">2019-11-08</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/11/08/密码技术/图解密码技术/图解密码技术2：历史上的密码/">
-    <h3>图解密码技术2：历史上的密码
-      <span class="title-right">安全</span>
-    </h3>
-    <div class="content">本章将学习三种历史上著名的密码：
-
-恺撒密码
-简单替换密码
-Enigma
-
-还有两种破译密码的方法：
-
-暴力攻击
-频率攻击
-
-恺撒密码恺撒密码将字母表平移若干个字母后得到密文，例如平移三个，A变成D，</div>
-    <div class="post-time">2019-11-08</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/11/09/密码技术/图解密码技术/图解密码技术3：对称密钥/">
-    <h3>图解密码技术3：对称密钥
-      <span class="title-right">安全</span>
-    </h3>
-    <div class="content">对称密码（共享密钥密码）——使用相同的密钥进行加密和解密。这章学习以下内容：
-
-比特序列运算和XOR运算
-一次性密码本
-几种常用的对称密码算法：DES、三重DES、AES等
-
-比特序列密码计算机操作的</div>
-    <div class="post-time">2019-11-09</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/12/02/os/ucore_os/ucore-os笔记5：实模式与保护模式/">
-    <h3>ucore-os笔记5：实模式与保护模式
-      <span class="title-right">操作系统</span>
-    </h3>
-    <div class="content">这一次笔记学习X86的实模式和保护模式，主要内容是实模式和保护模式的介绍，相关硬件机制的介绍（GDTR寄存器，GDT等），保护模式在内核中的作用，以及如何从实模式切换到保护模式。
-实模式与保护模式接下</div>
-    <div class="post-time">2019-12-02</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/11/20/c-c++/C语言编程魔法书/10.C语言程序的编译上下文/">
-    <h3>10.C语言程序的编译上下文
-      <span class="title-right">编程语言</span>
-    </h3>
-    <div class="content">这篇文章学习C语言编译上下文相关话题。包括对象、函数以及类型标识符的作用域和名字空间，对象和函数的连接以及对象的生命周期。
-作用域和名字空间标识符可以表示一个对象、函数、自定义类型及其成员、typde</div>
-    <div class="post-time">2019-11-20</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/11/13/c-c++/C语言编程魔法书/4.C语言中的自定义类型/">
-    <h3>4.C语言中的自定义类型
-      <span class="title-right">编程语言</span>
-    </h3>
-    <div class="content">这篇文章学习C语言中的自定义类型。自定义类型能够将一些数据抽象化，将信息组织成我们更容易理解的模型。
-枚举类型枚举类型用于表示离散有限个数据对象。通过枚举来表示一系列状态的集合。声明方式如下：1234</div>
-    <div class="post-time">2019-11-13</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/11/19/c-c++/C语言编程魔法书/8.C语言中的函数/">
-    <h3>8.C语言中的函数
-      <span class="title-right">编程语言</span>
-    </h3>
-    <div class="content">借助函数可以写出更良好的结构化、模块化代码。
-函数调用者传递参数给被调用函数，控制权交给被调用函数（入栈），被调用函数执行完成以后（出栈），返回到函数调用者。
-函数的声明和定义
-声明：1返回类型 函数</div>
-    <div class="post-time">2019-11-19</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2020/02/05/database/数据库系统全书/1-数据库系统导论/">
-    <h3>1.数据库系统导论
-      <span class="title-right">数据库</span>
-    </h3>
-    <div class="content">顾名思义，数据库就是存储数据的仓库，是信息的集合。这些数据一定是能够长期存储的，不会因断电而丢失，所以数据库中的数据一般存储在磁盘等永久存储器材中，而不是RAM（随机访问内存，或者运行内存，断电会丢失</div>
-    <div class="post-time">2020-02-05</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2020/02/06/database/数据库系统全书/2-实体-联系数据模型/">
-    <h3>2.实体-联系数据模型
-      <span class="title-right">数据库</span>
-    </h3>
-    <div class="content">复习要点大全本篇复习笔记的要点，分成大概下面几个部分：
-
-1.E/R图的基础知识：E/R的组成、表示及其细节等
-数据库建模的步骤：构思-&amp;gt;E/R模型-&amp;gt;关系模型-&amp;gt;关系DBMS
-E/</div>
-    <div class="post-time">2020-02-06</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2020/02/07/database/数据库系统全书/3-关系数据模型/">
-    <h3>3.关系数据模型
-      <span class="title-right">数据库</span>
-    </h3>
-    <div class="content">前面学的E/R模型是对于现实世界进行建模的一种很好的方式，但是其不好实现。现今的数据库实现通常使用关系数据模型。关系模型只有一个概念：“关系”，即组织数据的一种二维表。E/R符号用于设计数据库并阐述数</div>
-    <div class="post-time">2020-02-07</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/08/17/database/数据库系统全书/5-数据库语言sql/">
-    <h3>5.数据库语言sql
-      <span class="title-right">数据库</span>
-    </h3>
-    <div class="content">《数据库系统全书》读书笔记，主要包括书中有关sql部分，主要是的第六章和第七章。这里记录了最常用的sql语法及其详细的语法规则。这一系列读书笔记作为数据库系统原理课程同步复习笔记，综合了课程所学和书中</div>
-    <div class="post-time">2019-08-17</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2020/01/22/os/操作系统原理/OS原理：文件系统/">
-    <h3>OS原理：文件系统
-      <span class="title-right">操作系统</span>
-    </h3>
-    <div class="content">这里文章学习操作系统的原理，主要学习的核心知识点有以下几个：
-
-文件系统的作用和组成成分？
-对文件和目录有哪些操作？
-文件系统如何实现？包括：
-空闲磁盘空间如何管理和分配？
-如何实现文件到磁盘块的映射</div>
-    <div class="post-time">2020-01-22</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/06/17/os/ucore_os/ucore-os-lab1：练习1/">
-    <h3>ucore-os实验1：lab1练习1
-      <span class="title-right">操作系统</span>
-    </h3>
-    <div class="content">练习1：理解通过make生成执行文件的过程要求如下：
-
-操作系统镜像文件ucore.img是如何一步一步生成的？（需要详细解释Makefile中每一条相关命令和命令参数的含义，以及说明命令参数导致的结</div>
-    <div class="post-time">2019-06-17</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/12/22/os/ucore_os/ucore-os-lab1：练习5、6、挑战练习/">
-    <h3>ucore-os-lab1：练习5、6、挑战练习
-      <span class="title-right">操作系统</span>
-    </h3>
-    <div class="content">练习5 函数堆栈调用实验5需要实现函数调用堆栈，请参考ucore-os-lab的要求。
-这里我们需要了解函数调用的堆栈变化原理才能完成该练习。函数调用的堆栈变化与两个寄存器相关，ESP和EBP：
-
-E</div>
-    <div class="post-time">2019-12-22</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/12/19/os/ucore_os/ucore-os笔记6：中断和异常、IDT和IDTR/">
-    <h3>ucore-os笔记6：中断和异常、IDT和IDTR
-      <span class="title-right">操作系统</span>
-    </h3>
-    <div class="content">外部设备与CPU通信需要通过中断机制。例如，当按下键盘上的一个键的时候，必然要通知CPU该键被按下，一种方式是CPU一直监视键盘上有没有键按下，但是这种方式性能太低。另一种方式由设备主动通知CPU有事</div>
-    <div class="post-time">2019-12-19</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/11/04/c-c++/C Primer/C-Primer-Chapter-2-Introducing-C/">
-    <h3>C Primer Chapter 2: Introducing C
-      <span class="title-right">编程语言</span>
-    </h3>
-    <div class="content">本章将会学到以下内容：
-
-操作符=
-函数main、printf
-简单的C程序
-创建整数值的变量、给其赋值并且在屏幕上展示他们
-换行符
-如何在程序中包含注释，创建多个函数以及查找错误
-什么是关键字
-
-一</div>
-    <div class="post-time">2019-11-04</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/11/15/c-c++/C语言编程魔法书/9.C语言预处理器/">
-    <h3>9.C语言预处理器
-      <span class="title-right">编程语言</span>
-    </h3>
-    <div class="content">C语言编译器前端还分为预处理阶段和编译阶段。预处理阶段是通过C语言的各类预处理器将指定的一些字符符号直接替换到即将编译的源代码。通过预处理器可以在不同的平台上插入不同的代码，还可以将某些代码抽象成宏定</div>
-    <div class="post-time">2019-11-15</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/11/18/c-c++/C语言编程魔法书/6.C语言中的指针和数组/">
-    <h3>6.C语言中的指针和数组
-      <span class="title-right">编程语言</span>
-    </h3>
-    <div class="content">本文首先学习C语言中的数组，再学习指针以及指针和数组的关系，再学习字符串字面量，最后学习C语言的完整类型和不完整类型。
-数组和结构体一样，属于聚合类型。
-一维数组形式：1&amp;lt;类型名&amp;gt; &amp;lt</div>
-    <div class="post-time">2019-11-18</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/12/03/os/ucore_os/ucore-os笔记4：bios和bootloader的启动过程/">
-    <h3>ucore-os笔记4：bios和bootloader的启动过程
-      <span class="title-right">操作系统</span>
-    </h3>
-    <div class="content">这篇笔记学习BIOS和bootloader的执行过程，将详细分析机器加电后执行的第一条指令到操作系统的第一行代码中间经历的过程。
-BOIS的启动过程计算机开机后并不是直接启动操作系统，而是先要执行一小</div>
-    <div class="post-time">2019-12-03</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/06/16/os/ucore_os/ucore-os笔记2：GNU-make/">
-    <h3>ucore-os笔记2：GNU make
-      <span class="title-right">操作系统</span>
-    </h3>
-    <div class="content">c/c++程序基本都是使用GNU make来构建的，其基础是位于根目录的Makefiles文件。
-GNU make有什么用呢？我们使用gcc编译器的时候，gcc -o target source，将源</div>
-    <div class="post-time">2019-06-16</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/12/20/os/ucore_os/ucore-os笔记7：分段和分页机制/">
-    <h3>ucore-os笔记7：分段和分页机制
-      <span class="title-right">操作系统</span>
-    </h3>
-    <div class="content">前面我们讨论了x86的保护模式和实模式的区别，最新的处理器架构都运行在保护模式下，但是为了向下兼容都也支持实模式。这里学习的分段和分页机制都是保护模式提供的机制，通过CPU为内存提供了抽象。这篇文章详</div>
-    <div class="post-time">2019-12-20</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/06/22/algorithm/leetcode/二叉树/二叉树的层级遍历/">
-    <h3>二叉树的层级遍历
-      <span class="title-right">算法</span>
-    </h3>
-    <div class="content">要求给定一颗二叉树，给出其节点值的每一层的结果。示例：12345  3 / \9  20  /  \ 15   7
-可以得到：12345[  [3],  [9,20],  [15,7]]
-思路二叉树的</div>
-    <div class="post-time">2019-06-22</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/11/07/algorithm/leetcode/二叉树/二叉树的非递归遍历/">
-    <h3>二叉树的非递归遍历
-      <span class="title-right">算法</span>
-    </h3>
-    <div class="content">二叉树有两种遍历方式，一种是深度优先，一种是广度优先。深度优先一般采用递归，广度优先一般采用队列来实现。但是深度优先也可以使用非递归算法来遍历，这篇文章分析二叉树的非递归遍历算法，包括前序、中序、后序</div>
-    <div class="post-time">2019-11-07</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/12/13/algorithm/leetcode/二叉树/leetcode题解：Merge-Two-Binary-Trees/">
-    <h3>leetcode题解：Merge Two Binary Trees
-      <span class="title-right">算法</span>
-    </h3>
-    <div class="content">问题描述Given two binary trees and imagine that when you put one of them to cover the other, some nodes </div>
-    <div class="post-time">2019-12-13</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2020/05/17/algorithm/leetcode/分治/maximum-product-subarray/">
-    <h3>maximum product subarray
-      <span class="title-right">算法</span>
-    </h3>
-    <div class="content">问题描述给定一个整数数组nums，找到数组内有最大乘积的最大连续子数组。
-例如：123输入：[2,3,-2,4]输出：62*3 = 6
-题解这道题是典型的分治问题。类似的问题还有最大连续子数组的最大和</div>
-    <div class="post-time">2020-05-17</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2020/05/11/algorithm/leetcode/动态规划/decode-ways/">
-    <h3>decode-ways
-      <span class="title-right">算法</span>
-    </h3>
-    <div class="content">问题描述假设字符到数字的匹配是：1234A =&amp;gt; 1B =&amp;gt; 2...Z =&amp;gt; 26
-问题：给定一个数字序列，由字符串编码得到该数字序列的方法的个数。
-例如：1234输入： &amp;quo</div>
-    <div class="post-time">2020-05-11</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2020/05/09/algorithm/leetcode/动态规划/Wildcard-Matching/">
-    <h3>Wildcard Matching
-      <span class="title-right">算法</span>
-    </h3>
-    <div class="content">问题描述通配符模式匹配问题，给定一个字符串s和模式字符串p，判断s是否匹配p。其中s由s-z之间的任意小写字符组成，p由s-z之间的任意小写字符以及*和？组成。
-*表示匹配任意长度的字符串，长度为0；</div>
-    <div class="post-time">2020-05-09</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2020/05/19/algorithm/leetcode/动态规划/interleaving-string/">
-    <h3>interleaving string
-      <span class="title-right">算法</span>
-    </h3>
-    <div class="content">问题描述给定三个字符串，判断第三个是不是有前两个交错构成。
-例如：12输入：s1=&amp;quot;aabcc&amp;apos;, s2=&amp;quot;dbbca&amp;quot;, s3=&amp;quot;aadbbcbca</div>
-    <div class="post-time">2020-05-19</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2020/05/15/algorithm/leetcode/动态规划/triangle/">
-    <h3>triangle
-      <span class="title-right">算法</span>
-    </h3>
-    <div class="content">问题描述给定一个三角形数字矩阵，找到该矩阵从上到下的最小路径和。每一步只能找相邻的路径。例如12345678910输入：[  [2],  [3,4],  [6,5,7],  [4,1,8,3]]输出：</div>
-    <div class="post-time">2020-05-15</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2020/05/12/algorithm/leetcode/动态规划/unique-binary-search-trees-ii/">
-    <h3>unique binary search trees ii
-      <span class="title-right">算法</span>
-    </h3>
-    <div class="content">问题描述给一个整数n，生成所有包含值1…n的可能的独特的BST。例如：1234567891011121314输入：3输出：[  [1,null,3,2],  [3,2,null,1],  ...]解释</div>
-    <div class="post-time">2020-05-12</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2020/05/09/algorithm/leetcode/动态规划/unique-path-II/">
-    <h3>unique path II
-      <span class="title-right">算法</span>
-    </h3>
-    <div class="content">问题描述给定一个二维格子矩阵，一个机器人初始位于最左上角，每次只能向右或者向下移动一个格子，格子有两种，有障碍物的和没有障碍物的，没有障碍物的可以走。求机器人的最大路线数。
-例如：1234567891</div>
-    <div class="post-time">2020-05-09</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/11/30/algorithm/leetcode/链表/leetcode题解：Intersection-of-Two-Linked-List/">
-    <h3>leetcode题解：Intersection of Two Linked List
-      <span class="title-right">算法</span>
-    </h3>
-    <div class="content">问题Write a program to find the node at which the intersection of two singly linked lists begins.
-For </div>
-    <div class="post-time">2019-11-30</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2020/05/06/algorithm/leetcode/链表/Copy-List-with-Random-Pointer/">
-    <h3>Copy List with Random Pointer
-      <span class="title-right">算法</span>
-    </h3>
-    <div class="content">问题描述给定一个链表，给出该链表的深克隆结果。链表的结构如下：12345struct Node &amp;#123;  int val;  Node* next;  Node* random;&amp;#125;
-r</div>
-    <div class="post-time">2020-05-06</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/11/06/algorithm/leetcode/链表/Link-List-II/">
-    <h3>Link List II
-      <span class="title-right">算法</span>
-    </h3>
-    <div class="content">问题给定一个链表，找出链表中循环的位置开始的地方，如果没有，返回null。使用整数pos表示循环开始的位置（0开始），如果没有环，pos为-1.
-
-注意：不要修改链表
-
-示例</div>
-    <div class="post-time">2019-11-06</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/06/21/algorithm/leetcode/二叉树/由先序、中序遍历结果构造二叉树/">
-    <h3>数据结构基础：根据先序、中序遍历结果构造二叉树
-      <span class="title-right">算法</span>
-    </h3>
-    <div class="content">要求给定一个二叉树的前序遍历和中序遍历结果，构造出这颗二叉树：
-例如：输入：
-
-preorder = [3,9,20,15,7]inorder = [9,3,15,20,7]
-
-输出：12345  3</div>
-    <div class="post-time">2019-06-21</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/12/12/algorithm/leetcode/链表/leetcode题解：Palindrome-Lined-List/">
-    <h3>leetcode题解：Palindrome Lined List
-      <span class="title-right">算法</span>
-    </h3>
-    <div class="content">问题描述Given a singly linked list, determine if it is a palindrome.
-Example 1:12Input: 1-&amp;gt;2Output: f</div>
-    <div class="post-time">2019-12-12</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/12/13/algorithm/leetcode/数组/leetcode题解：Shortest-Unsorted-Continuous-Subarray/">
-    <h3>leetcode题解：Shortest Unsorted Continuous Subarray
-      <span class="title-right">算法</span>
-    </h3>
-    <div class="content">问题描述Given an integer array, you need to find one continuous subarray that if you only sort this suba</div>
-    <div class="post-time">2019-12-13</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/11/06/algorithm/leetcode/链表/sort-list/">
-    <h3>sort list
-      <span class="title-right">算法</span>
-    </h3>
-    <div class="content">问题给定一个数组，在O(nlogn)的时间复杂度和常量空间复杂度内对该链表排序。
-12345678Example 1:Input: 4-&amp;gt;2-&amp;gt;1-&amp;gt;3Output: 1-&amp;gt;2</div>
-    <div class="post-time">2019-11-06</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/10/17/设计模式/图解设计模式/交给子类/Factory-Method模式/">
-    <h3>Factory Method模式
-      <span class="title-right">设计模式</span>
-    </h3>
-    <div class="content">在Template Method模式中，我们在父类中规定处理的流程，在子类中实现具体的处理。如果我们将该模式用于生成实例，就变成了Factory Method模式。用Template method 模</div>
-    <div class="post-time">2019-10-17</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/10/11/设计模式/图解设计模式/适应设计模式/Adapter模式/">
-    <h3>Adapter模式
-      <span class="title-right">设计模式</span>
-    </h3>
-    <div class="content">Adapter模式用于解决现有程序无法直接使用的问题，通过进行一定的适配，就能够在不修改源程序的基础上，使用现有程序的功能。宏观来说，只要两个接口不一样，而且有一定的练习，就可以考虑用适配器来进行适配</div>
-    <div class="post-time">2019-10-11</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/10/16/设计模式/图解设计模式/交给子类/Template-Method模式/">
-    <h3>Template Method模式
-      <span class="title-right">设计模式</span>
-    </h3>
-    <div class="content">在父类中定义处理流程框架，在子类中实现具体处理的模式就称为Template Method模式。这样可以将流程处理和其实现分开，举个例子，我们使用字帖来描字，无论使用什么笔来描，描出来的字形都是一样的；</div>
-    <div class="post-time">2019-10-16</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/10/21/设计模式/图解设计模式/生成实例/Singleton-模式/">
-    <h3>Singleton 模式
-      <span class="title-right">设计模式</span>
-    </h3>
-    <div class="content">在我们的程序中，我们可能只希望某一个类始终只有一个实例，例如可视化程序中的一个窗口，或者表示程序设置的类。Singleton模式（单例模式）要达到下面两个目的：
-
-确保任何情况下都只生成一个实例
-在程</div>
-    <div class="post-time">2019-10-21</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/10/09/设计模式/图解设计模式/适应设计模式/Iterator模式/">
-    <h3>Iterator模式
-      <span class="title-right">设计模式</span>
-    </h3>
-    <div class="content">Iterator模式也翻译成“迭代器模式”，主要作用是对某一个集合的逐个遍历进行抽象。例如，我们常常写：123for (let i = 0;i &amp;lt; arr.length;i++) &amp;#123; </div>
-    <div class="post-time">2019-10-09</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2019/11/11/c-c++/C语言编程魔法书/2.C语言中的基本数据类型/">
-    <h3>2.C语言中的基本数据类型
-      <span class="title-right">编程语言</span>
-    </h3>
-    <div class="content">C语言中的基本数据类型分成两个大类，一类是整数类型（包括整数、布尔值、字符），另一类是浮点数类型。
-基础数据类型都能进行+、-、*、/。整数还能按位和移位运算、浮点数不支持。
-整数类型C语言中的整数类</div>
-    <div class="post-time">2019-11-11</div>
-  </a>
-</div>
-      
-    <div class="post-entry card">
-  <a href="/2020/05/07/algorithm/leetcode/动态规划/Longest-Valid-Parentheses/">
-    <h3>Longest Valid Parentheses
-      <span class="title-right">算法</span>
-    </h3>
-    <div class="content">问题描述给定一个包含”(“和”)”的字符串，找到最长的合法括号子串，例如：12345输入：&amp;quot;(()&amp;quot;输出：2输入：&amp;quot;)()())&amp;quot;输出：4
-题解这个问题需要找到</div>
-    <div class="post-time">2020-05-07</div>
-  </a>
-</div>
-      
-</section>
-                </article>
-          </main>
-          <footer id="footer">
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2020 Bright<br>
-      powered_by <a href="http://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
-</footer>
-<script src="/js/script.js"></script>
-    </body>
-
-</html>
+<h3 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h3><p>指令是带有v-前缀的特殊特性。指令特性的值是<strong>单个javascript表达式（v-for是例外情况）。指令的职责是，当表达式的值改变时，将其连带影响，响应式地作用于DOM。</strong></p>
+<ol>
+<li>参数：能够接受一个参数，在指令名称后面以冒号表示，然后再接等于号表示指令特性的值。语法如下：<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">v-bind:href</span>=<span class="string">"url"</span>&gt;</span>...<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">v-on:click</span>=<span class="string">"doSomething"</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+<li><p>动态参数：从2.6.0起，可以用[]括起来的javascript表达式作为一个指令的参数，下面的例子会对attributeName求值，结果作为指令的参数：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">v-bind:</span>[<span class="attr">attributeName</span>]=<span class="string">"url"</span>&gt;</span>...<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">v-on:</span>[<span class="attr">eventName</span>]=<span class="string">"doSomething"</span>&gt;</span>...<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>约束：</p>
+<ul>
+<li>动态参数的求值结果期望是一个字符串，特殊结果可以是null，null可以被显性用于溢出绑定。非字符串结果会触发警告。</li>
+<li>动态参数表达式有一些语法约束，因为某些字符，例如空格和引号，放在HTML特性名里是无效的。<strong>在html文件中使用动态参数时，如果参数表达式比较复杂，可以使用计算属性代替</strong></li>
+</ul>
+</li>
+<li><p>修饰符：修饰符是以.指明的特殊后缀，指出一个指令应该以特殊方式绑定。例如.prevent修饰符告诉v-on指令对于触发的事件调用event.preventDefault():</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">v-on:submit.prevent</span>=<span class="string">"onSubmit"</span>&gt;</span>...<span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="缩写"><a href="#缩写" class="headerlink" title="缩写"></a>缩写</h3><p>v-bind和v-on提供了简写：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">:href</span>=<span class="string">"url"</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> @<span class="attr">click</span>=<span class="string">"doSomething"</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="计算属性和侦听器"><a href="#计算属性和侦听器" class="headerlink" title="计算属性和侦听器"></a>计算属性和侦听器</h2><h3 id="计算属性"><a href="#计算属性" class="headerlink" title="计算属性"></a>计算属性</h3><p>在模板内可以使用任意的表达式，但是这些表达式应该只用于简单运算。<strong>对于复杂的逻辑，应该使用计算属性</strong></p>
+<p>示例：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"example"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>Original message: "&#123;&#123; message &#125;&#125;"<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>Computed reversed message: &#123;&#123; reversedMessage &#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"./vue.min.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="actionscript"> <span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</span></span><br><span class="line"><span class="actionscript">   el: <span class="string">'#example'</span>,</span></span><br><span class="line">   data: &#123;</span><br><span class="line"><span class="actionscript">     message: <span class="string">'Hello'</span></span></span><br><span class="line">   &#125;,</span><br><span class="line">   computed: &#123;</span><br><span class="line"><span class="actionscript">     reversedMessage: <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</span></span><br><span class="line"><span class="actionscript">       <span class="keyword">return</span> <span class="keyword">this</span>.message.split(<span class="string">''</span>).reverse().join(<span class="string">''</span>) <span class="comment">// 先转成数组，string没有reverse方法</span></span></span><br><span class="line">     &#125;</span><br><span class="line">   &#125;</span><br><span class="line"> &#125;)</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure><br>示例中我们声明了一个计算属性reverseMessage。我们提供的函数将用作属性vm.reversedMessage的getter函数。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(vm.message)</span><br><span class="line">vm.message = <span class="string">'Goodbye'</span></span><br><span class="line"><span class="built_in">console</span>.log(vm.reversedMessage)</span><br></pre></td></tr></table></figure></p>
+<p> <strong>计算属性可以像data中的属性一样直接在模板中使用。vue可以知道计算属性中所依赖的属性，并收集到其依赖，当依赖的属性发生变化的时后，计算属性会重新计算</strong></p>
+<h4 id="计算属性vs方法"><a href="#计算属性vs方法" class="headerlink" title="计算属性vs方法"></a>计算属性vs方法</h4><p> <strong>计算属性是基于响应式依赖进行缓存的，只要依赖变化才会重新求值，方法每次调用都会进行求值</strong>。如果不希望有缓存（仅仅只是计算而不依赖响应式属性，希望实时更新的时后），使用方法代替计算属性。</p>
+<h4 id="计算属性vs侦听属性"><a href="#计算属性vs侦听属性" class="headerlink" title="计算属性vs侦听属性"></a>计算属性vs侦听属性</h4><p> Vue提供了一种更通用的方式来观察和响应Vue实例上的数据变动：侦听属性。<strong>侦听属性可以观察到vm属性（只能是在data选项中定义的属性）的变化，并调用回调函数</strong>。<br> <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"demo"</span>&gt;</span>&#123;&#123; fullName &#125;&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="actionscript"> <span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</span></span><br><span class="line"><span class="actionscript">   el: <span class="string">'#demo'</span>,</span></span><br><span class="line">   data: &#123;</span><br><span class="line"><span class="actionscript">     firstName: <span class="string">'Foo'</span>,</span></span><br><span class="line"><span class="actionscript">     lastName: <span class="string">'Bar'</span>,</span></span><br><span class="line"><span class="actionscript">     fullName: <span class="string">'Foo Bar'</span></span></span><br><span class="line">   &#125;,</span><br><span class="line">   watch: &#123;</span><br><span class="line"><span class="actionscript">     firstName: <span class="function"><span class="keyword">function</span><span class="params">(val)</span> </span>&#123; <span class="comment">// 当firstName变化时，调用该回调函数，传入新的值作为参数</span></span></span><br><span class="line"><span class="actionscript">       <span class="keyword">this</span>.fullName = val + <span class="string">" "</span> + <span class="keyword">this</span>.lastName;</span></span><br><span class="line">     &#125;,</span><br><span class="line"><span class="actionscript">     lastName: <span class="function"><span class="keyword">function</span><span class="params">(val)</span> </span>&#123;</span></span><br><span class="line"><span class="actionscript">       <span class="keyword">this</span>.fullName = <span class="keyword">this</span>.firstName + <span class="string">' '</span> + val;</span></span><br><span class="line">     &#125;,</span><br><span class="line"><span class="actionscript">     noName: <span class="function"><span class="keyword">function</span><span class="params">(val)</span> </span>&#123; <span class="comment">// noName没有定义，使用回报错</span></span></span><br><span class="line"><span class="actionscript">       <span class="keyword">this</span>.fullName = <span class="keyword">this</span>.fullName + <span class="string">'noName'</span>;</span></span><br><span class="line">     &#125;</span><br><span class="line">   &#125;</span><br><span class="line"> &#125;)</span><br></pre></td></tr></table></figure></p>
+<h4 id="计算属性的setter"><a href="#计算属性的setter" class="headerlink" title="计算属性的setter"></a>计算属性的setter</h4><p> 计算属性默认值有getter，不过在需要的时候可以提供一个setter：<br> <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">computed: &#123;</span><br><span class="line">     reversedMessage: &#123;</span><br><span class="line">       <span class="keyword">get</span>: function() &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.message.split(<span class="string">''</span>).reverse().join(<span class="string">''</span>) <span class="comment">// 先转成数组，string没有reverse方法</span></span><br><span class="line">       &#125;,</span><br><span class="line">       <span class="keyword">set</span>: function(newValue) &#123;</span><br><span class="line">         <span class="keyword">this</span>.message = newValue;</span><br><span class="line">       &#125;</span><br><span class="line">     &#125;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="侦听器"><a href="#侦听器" class="headerlink" title="侦听器"></a>侦听器</h3><p>Vue通过watch选项可以监听对应数据的变化，当vm上的实例属性变化时，调用watch选项中指定的回调函数。<strong>当需要在数据变化时执行异步或者开销较大的操作时，这个方式时最有用的</strong>。例如，在输入框输入值的时候，希望向服务器发送一个请求，获取动态的值，这时候就可以使用侦听器。</p>
+<h2 id="Class和Style绑定"><a href="#Class和Style绑定" class="headerlink" title="Class和Style绑定"></a>Class和Style绑定</h2><p>操作元素的class列表和内联样式是数据绑定的一个常见需求。因为它们都是属性，所以哦我们可以用v-bind来处理他们：只需要通过表达式计算出字符串结果。不过字符串拼接麻烦且易错。<strong>在v-bind用于class和style时，Vue.js做了专门的增强。表达式结果的类型除了字符串以外，还可以是对象或者数组。</strong></p>
+<h3 id="绑定html-class"><a href="#绑定html-class" class="headerlink" title="绑定html class"></a>绑定html class</h3><h4 id="对象语法"><a href="#对象语法" class="headerlink" title="对象语法"></a>对象语法</h4><p>动态切换class，当isActive是真时，元素添加active类：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"static"</span> <span class="attr">v-bind:class</span>=<span class="string">"&#123;active: isActive, 'text-danger': hasError&#125;"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure><br>对象中可以有多个class，可以与普通的class共存。</p>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><time class="level-item" dateTime="2019-06-18T00:04:26.000Z" title="2019-06-18T00:04:26.000Z">2019-06-18</time><span class="level-item">6 minutes read (About 949 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2019/06/18/math/%E9%AB%98%E6%95%B01%EF%BC%9A%E5%87%BD%E6%95%B0/">高数1：函数</a></h1><div class="content"><p>下面是复习高数时的一些核心笔记：</p>
+<h2 id="函数概念"><a href="#函数概念" class="headerlink" title="函数概念"></a>函数概念</h2><ol>
+<li>函数三要素：定义域、值域、对应关系。</li>
+<li>一个自变量对应一个因变量。</li>
+<li>函数的参数表示：<br>$$\begin{cases}<br> x = x(t),\<br> y = y(t),<br> \end{cases}t\in[0,2\pi].<br>$$<br> 通过引入一个参变量t，来间接的确定x和y之间的函数关系。</li>
+<li>极坐标，与直角坐标x,y的关系如下：<br>$$\begin{cases}<br> x = r\cos \theta\<br> y = r\sin \theta<br> \end{cases}<br>$$<br>其中r是(x,y)到原点o的距离，$\theta$是与x轴的夹角大小，将上面的方程代入，函数解析式可以得到极坐标下的表达式。</li>
+<li>有界/无界函数，$\vert f(x)\vert \le M,\forall x \in X,\exists M\gt0$；<br>无界：$\vert f(x)\vert &gt; M,\exists x \in X$</li>
+<li>单调函数、奇偶函数、周期函数$f(x+T)=f(x)$</li>
+<li>反函数：如果函数映射是一一对应的，例如$f(x)=y$，能够得到唯一的$f(y)=x$，那么逆过来的映射叫做反函数，$x=f^{-1}(y)$。<strong>函数与其反函数的图像关于y=x对称。</strong></li>
+<li>复合函数：$y=f[\phi(x)],x\in X$，记作$f\circ \phi$，条件：$f(x)$的定义域包含$\phi(x)$的值域。</li>
+<li><p>基本初等函数：</p>
+<ul>
+<li>常数函数$y=c$</li>
+<li>幂函数$y=x^u$，u&gt;0时一定有意义，u&lt;0可能无意义($x^{-1}=\frac{1}{x}$)</li>
+<li>指数函数$y=a^x,a&gt;0且a\not ={1}$</li>
+<li>对数函数$y=\log_ax$</li>
+<li>三角函数$y=\sin x,y=\cos x, y=\tan x$等等</li>
+<li>反三角函数$y=\arcsin x,y=\arccos x$等等</li>
+</ul>
+</li>
+<li><p>由基本初等函数经过四则运算和有限次复合并且可用式子表示的函数是初等函数。</p>
+</li>
+</ol>
+<h2 id="极限"><a href="#极限" class="headerlink" title="极限"></a>极限</h2><ol>
+<li>$x_1,x_2,…,x_n,…$称为数列，$x_n=f(n)$的表达式称为通项公式。可以看成1…n…到实数R的一种映射。</li>
+<li>数列的界：对于数列中的每一个n，都有$x_n\le A$，则A为数列的上界，$x_b\ge B$，B为下界。<strong>同时有上界和下界的数列称为有界数列。</strong>有界数列的另一种定义$\vert x_n \vert \le M$。</li>
+<li>数列的极限：当$n\rightarrow \infty$时，$x_n=f(n)$的变化趋势，如果$x_n$趋向于某一个数值，那么$x_n$存在极限。<strong>数列极限的定义：</strong>，如果存在常数a，对于任意给定的$\epsilon &gt; 0$，总存在正整数N，当n&gt;N时，$\vert x_n - a\vert \lt \epsilon$都成立，a称为数列的极限，记作：$\lim \limits_{n \rightarrow \infty} x_n=a$。存在极限的数列称为收敛数列，不存在极限的数列称为发散数列。</li>
+<li>数列极限的性质：<ul>
+<li>唯一性：如果数列的极限存在，那么其极限唯一</li>
+<li>有界性：收敛数列必有界。</li>
+<li>保序性：$\lim\limits_{n\rightarrow \infty}x_n = a$，$\lim\limits_{n\rightarrow \infty} y_n= b，a\lt b$，那么存在N，对任意的n&gt;N，都有$x_n\lt y_n$</li>
+<li>保号性：如果$x_n$的极限是a，如果a&gt;0，$x_n$从某个位置开始大于0；如果a&lt;0，如果$x_n$从某个位置开始小于0。反过来可以得到a的符号。</li>
+</ul>
+</li>
+<li><p>收敛数列和其子数列的关系：数列${ x_n }$收敛于a的充分必要条件是它的任意数列都收敛于同一个极限a</p>
+<ul>
+<li>如果数列的两个子数列收敛于不同的极限，那么数列必发散</li>
+</ul>
+</li>
+<li><p><strong>数列极限的四则运算法则</strong></p>
+</li>
+</ol>
+</div></article></div><nav class="pagination is-centered mt-4" role="navigation" aria-label="pagination"><div class="pagination-previous"><a href="/page/13/">Previous</a></div><div class="pagination-next"><a href="/page/15/">Next</a></div><ul class="pagination-list is-hidden-mobile"><li><a class="pagination-link" href="/">1</a></li><li><span class="pagination-ellipsis">&hellip;</span></li><li><a class="pagination-link" href="/page/13/">13</a></li><li><a class="pagination-link is-current" href="/page/14/">14</a></li><li><a class="pagination-link" href="/page/15/">15</a></li><li><a class="pagination-link" href="/page/16/">16</a></li></ul></nav></div><div class="column column-left is-4-tablet is-4-desktop is-3-widescreen  order-1"><div class="card widget"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="/img/avatar.png" alt="Bright Wu"></figure><p class="title is-size-4 is-block line-height-inherit">Bright Wu</p><p class="is-size-6 is-block">working harder to be better</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>Beijing Chaoyang</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="/archives"><p class="title">154</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="/categories"><p class="title">84</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="/tags"><p class="title">115</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/wre232114" target="_blank" rel="noopener">Follow</a></div><div class="level is-mobile"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/wre232114"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Facebook" href="https://facebook.com"><i class="fab fa-facebook"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Twitter" href="https://twitter.com"><i class="fab fa-twitter"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Dribbble" href="https://dribbble.com"><i class="fab fa-dribbble"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="RSS" href="/"><i class="fas fa-rss"></i></a></div></div></div><!--!--><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">Links</h3><ul class="menu-list"><li><a class="level is-mobile is-mobile" href="https://hexo.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Hexo</span></span><span class="level-right"><span class="level-item tag">hexo.io</span></span></a></li><li><a class="level is-mobile is-mobile" href="https://brightblog.cn" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Bulma</span></span><span class="level-right"><span class="level-item tag">brightblog.cn</span></span></a></li></ul></div></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">Categories</h3><ul class="menu-list"><li><a class="level is-mobile is-marginless" href="/categories/Java/"><span class="level-start"><span class="level-item">Java</span></span><span class="level-end"><span class="level-item tag">1</span></span></a><ul class="mr-0"><li><a class="level is-mobile is-marginless" href="/categories/Java/spring%E5%AE%9E%E6%88%98/"><span class="level-start"><span class="level-item">spring实战</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile is-marginless" href="/categories/Open-Source/"><span class="level-start"><span class="level-item">Open Source</span></span><span class="level-end"><span class="level-item tag">1</span></span></a><ul class="mr-0"><li><a class="level is-mobile is-marginless" href="/categories/Open-Source/Huaxu/"><span class="level-start"><span class="level-item">Huaxu</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile is-marginless" href="/categories/Webpack/"><span class="level-start"><span class="level-item">Webpack</span></span><span class="level-end"><span class="level-item tag">2</span></span></a><ul class="mr-0"><li><a class="level is-mobile is-marginless" href="/categories/Webpack/Webpack%E5%9F%BA%E7%A1%80/"><span class="level-start"><span class="level-item">Webpack基础</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/Webpack/Webpack%E5%AE%9E%E6%88%98/"><span class="level-start"><span class="level-item">Webpack实战</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile is-marginless" href="/categories/css/"><span class="level-start"><span class="level-item">css</span></span><span class="level-end"><span class="level-item tag">10</span></span></a><ul class="mr-0"><li><a class="level is-mobile is-marginless" href="/categories/css/css%E5%9F%BA%E7%A1%80/"><span class="level-start"><span class="level-item">css基础</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/css/css%E5%B7%A5%E5%85%B7/"><span class="level-start"><span class="level-item">css工具</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/css/less/"><span class="level-start"><span class="level-item">less</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/css/sass/"><span class="level-start"><span class="level-item">sass</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile is-marginless" href="/categories/docker/"><span class="level-start"><span class="level-item">docker</span></span><span class="level-end"><span class="level-item tag">2</span></span></a><ul class="mr-0"><li><a class="level is-mobile is-marginless" href="/categories/docker/docker-swarm/"><span class="level-start"><span class="level-item">docker swarm</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/docker/docker%E5%9F%BA%E7%A1%80/"><span class="level-start"><span class="level-item">docker基础</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile is-marginless" href="/categories/git/"><span class="level-start"><span class="level-item">git</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/hexo/"><span class="level-start"><span class="level-item">hexo</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/html5/"><span class="level-start"><span class="level-item">html5</span></span><span class="level-end"><span class="level-item tag">8</span></span></a><ul class="mr-0"><li><a class="level is-mobile is-marginless" href="/categories/html5/dom/"><span class="level-start"><span class="level-item">dom</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/html5/html5-API/"><span class="level-start"><span class="level-item">html5 API</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/html5/html5%E6%A0%87%E7%AD%BE%E5%92%8C%E5%B1%9E%E6%80%A7/"><span class="level-start"><span class="level-item">html5标签和属性</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/html5/svg/"><span class="level-start"><span class="level-item">svg</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/html5/tips/"><span class="level-start"><span class="level-item">tips</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/html5/%E5%AE%9E%E6%88%98/"><span class="level-start"><span class="level-item">实战</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile is-marginless" href="/categories/js/"><span class="level-start"><span class="level-item">js</span></span><span class="level-end"><span class="level-item tag">6</span></span></a><ul class="mr-0"><li><a class="level is-mobile is-marginless" href="/categories/js/js%E5%9F%BA%E7%A1%80/"><span class="level-start"><span class="level-item">js基础</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/js/typescript/"><span class="level-start"><span class="level-item">typescript</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/js/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"><span class="level-start"><span class="level-item">正则表达式</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile is-marginless" href="/categories/linux/"><span class="level-start"><span class="level-item">linux</span></span><span class="level-end"><span class="level-item tag">1</span></span></a><ul class="mr-0"><li><a class="level is-mobile is-marginless" href="/categories/linux/%E5%B7%A5%E5%85%B7/"><span class="level-start"><span class="level-item">工具</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile is-marginless" href="/categories/nginx/"><span class="level-start"><span class="level-item">nginx</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/node-js/"><span class="level-start"><span class="level-item">node.js</span></span><span class="level-end"><span class="level-item tag">2</span></span></a><ul class="mr-0"><li><a class="level is-mobile is-marginless" href="/categories/node-js/npm/"><span class="level-start"><span class="level-item">npm</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/node-js/%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%B7%A5%E5%85%B7/"><span class="level-start"><span class="level-item">命令行工具</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile is-marginless" href="/categories/php/"><span class="level-start"><span class="level-item">php</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/spring-boot/"><span class="level-start"><span class="level-item">spring-boot</span></span><span class="level-end"><span class="level-item tag">1</span></span></a><ul class="mr-0"><li><a class="level is-mobile is-marginless" href="/categories/spring-boot/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/"><span class="level-start"><span class="level-item">开发工具</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile is-marginless" href="/categories/typescript/"><span class="level-start"><span class="level-item">typescript</span></span><span class="level-end"><span class="level-item tag">1</span></span></a><ul class="mr-0"><li><a class="level is-mobile is-marginless" href="/categories/typescript/%E8%B8%A9%E5%9D%91%E6%8C%87%E5%8D%97/"><span class="level-start"><span class="level-item">踩坑指南</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile is-marginless" href="/categories/vue/"><span class="level-start"><span class="level-item">vue</span></span><span class="level-end"><span class="level-item tag">11</span></span></a><ul class="mr-0"><li><a class="level is-mobile is-marginless" href="/categories/vue/cli/"><span class="level-start"><span class="level-item">cli</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/vue/tips/"><span class="level-start"><span class="level-item">tips</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/vue/vue-router/"><span class="level-start"><span class="level-item">vue-router</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/vue/vue%E5%AE%9E%E6%88%98/"><span class="level-start"><span class="level-item">vue实战</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/vue/vue%E7%BB%84%E4%BB%B6%E5%BC%80%E5%8F%91/"><span class="level-start"><span class="level-item">vue组件开发</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/vue/%E5%9F%BA%E7%A1%80/"><span class="level-start"><span class="level-item">基础</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li></ul></li><li><a class="level is-mobile is-marginless" href="/categories/xml/"><span class="level-start"><span class="level-item">xml</span></span><span class="level-end"><span class="level-item tag">1</span></span></a><ul class="mr-0"><li><a class="level is-mobile is-marginless" href="/categories/xml/%E5%9F%BA%E7%A1%80/"><span class="level-start"><span class="level-item">基础</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile is-marginless" href="/categories/%E5%AD%A6%E4%B9%A0%E6%89%93%E5%8D%A1/"><span class="level-start"><span class="level-item">学习打卡</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E5%AE%89%E5%85%A8/"><span class="level-start"><span class="level-item">安全</span></span><span class="level-end"><span class="level-item tag">3</span></span></a><ul class="mr-0"><li><a class="level is-mobile is-marginless" href="/categories/%E5%AE%89%E5%85%A8/%E5%AF%86%E7%A0%81%E6%8A%80%E6%9C%AF/"><span class="level-start"><span class="level-item">密码技术</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li></ul></li><li><a class="level is-mobile is-marginless" href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"><span class="level-start"><span class="level-item">操作系统</span></span><span class="level-end"><span class="level-item tag">23</span></span></a><ul class="mr-0"><li><a class="level is-mobile is-marginless" href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/shell/"><span class="level-start"><span class="level-item">shell</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/ucore/"><span class="level-start"><span class="level-item">ucore</span></span><span class="level-end"><span class="level-item tag">18</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/"><span class="level-start"><span class="level-item">操作系统原理</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li></ul></li><li><a class="level is-mobile is-marginless" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"><span class="level-start"><span class="level-item">数据库</span></span><span class="level-end"><span class="level-item tag">10</span></span></a><ul class="mr-0"><li><a class="level is-mobile is-marginless" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/mysql/"><span class="level-start"><span class="level-item">mysql</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/sql%E8%AF%AD%E5%8F%A5/"><span class="level-start"><span class="level-item">sql语句</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/%E5%AF%BC%E8%AE%BA/"><span class="level-start"><span class="level-item">导论</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%BC%96%E7%A8%8B/"><span class="level-start"><span class="level-item">数据库编程</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AE%BE%E8%AE%A1/"><span class="level-start"><span class="level-item">数据库设计</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li></ul></li><li><a class="level is-mobile is-marginless" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"><span class="level-start"><span class="level-item">数据结构</span></span><span class="level-end"><span class="level-item tag">1</span></span></a><ul class="mr-0"><li><a class="level is-mobile is-marginless" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%9B%BE/"><span class="level-start"><span class="level-item">图</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile is-marginless" href="/categories/%E6%A0%91%E8%8E%93%E6%B4%BE/"><span class="level-start"><span class="level-item">树莓派</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E6%AF%95%E8%AE%BE/"><span class="level-start"><span class="level-item">毕设</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E7%AE%97%E6%B3%95/"><span class="level-start"><span class="level-item">算法</span></span><span class="level-end"><span class="level-item tag">20</span></span></a><ul class="mr-0"><li><a class="level is-mobile is-marginless" href="/categories/%E7%AE%97%E6%B3%95/leetcode/"><span class="level-start"><span class="level-item">leetcode</span></span><span class="level-end"><span class="level-item tag">18</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E7%AE%97%E6%B3%95/%E6%A8%A1%E5%BC%8F%E5%8C%B9%E9%85%8D/"><span class="level-start"><span class="level-item">模式匹配</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E7%AE%97%E6%B3%95/%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2/"><span class="level-start"><span class="level-item">深度优先搜索</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile is-marginless" href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/"><span class="level-start"><span class="level-item">编程语言</span></span><span class="level-end"><span class="level-item tag">20</span></span></a><ul class="mr-0"><li><a class="level is-mobile is-marginless" href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C/"><span class="level-start"><span class="level-item">C</span></span><span class="level-end"><span class="level-item tag">1</span></span></a><ul class="mr-0"><li><a class="level is-mobile is-marginless" href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C/%E8%AF%AD%E8%A8%80/"><span class="level-start"><span class="level-item">语言</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile is-marginless" href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C%E8%AF%AD%E8%A8%80/"><span class="level-start"><span class="level-item">C语言</span></span><span class="level-end"><span class="level-item tag">17</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/"><span class="level-start"><span class="level-item">Java</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/java/"><span class="level-start"><span class="level-item">java</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile is-marginless" href="/categories/%E8%8B%B1%E8%AF%AD/"><span class="level-start"><span class="level-item">英语</span></span><span class="level-end"><span class="level-item tag">1</span></span></a><ul class="mr-0"><li><a class="level is-mobile is-marginless" href="/categories/%E8%8B%B1%E8%AF%AD/%E7%94%9F%E8%AF%8D/"><span class="level-start"><span class="level-item">生词</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile is-marginless" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"><span class="level-start"><span class="level-item">计算机网络</span></span><span class="level-end"><span class="level-item tag">3</span></span></a><ul class="mr-0"><li><a class="level is-mobile is-marginless" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/wireshark/"><span class="level-start"><span class="level-item">wireshark</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/"><span class="level-start"><span class="level-item">问题记录</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile is-marginless" href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"><span class="level-start"><span class="level-item">设计模式</span></span><span class="level-end"><span class="level-item tag">5</span></span></a><ul class="mr-0"><li><a class="level is-mobile is-marginless" href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E4%BA%A4%E7%BB%99%E5%AD%90%E7%B1%BB/"><span class="level-start"><span class="level-item">交给子类</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E7%94%9F%E6%88%90%E5%AE%9E%E4%BE%8B/"><span class="level-start"><span class="level-item">生成实例</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E9%80%82%E5%BA%94%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"><span class="level-start"><span class="level-item">适应设计模式</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li></ul></li></ul></div></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">Archives</h3><ul class="menu-list"><li><a class="level is-mobile is-marginless" href="/archives/2020/06/"><span class="level-start"><span class="level-item">June 2020</span></span><span class="level-end"><span class="level-item tag">8</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2020/05/"><span class="level-start"><span class="level-item">May 2020</span></span><span class="level-end"><span class="level-item tag">10</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2020/03/"><span class="level-start"><span class="level-item">March 2020</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2020/02/"><span class="level-start"><span class="level-item">February 2020</span></span><span class="level-end"><span class="level-item tag">18</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2020/01/"><span class="level-start"><span class="level-item">January 2020</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2019/12/"><span class="level-start"><span class="level-item">December 2019</span></span><span class="level-end"><span class="level-item tag">16</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2019/11/"><span class="level-start"><span class="level-item">November 2019</span></span><span class="level-end"><span class="level-item tag">29</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2019/10/"><span class="level-start"><span class="level-item">October 2019</span></span><span class="level-end"><span class="level-item tag">8</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2019/09/"><span class="level-start"><span class="level-item">September 2019</span></span><span class="level-end"><span class="level-item tag">9</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2019/08/"><span class="level-start"><span class="level-item">August 2019</span></span><span class="level-end"><span class="level-item tag">12</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2019/07/"><span class="level-start"><span class="level-item">July 2019</span></span><span class="level-end"><span class="level-item tag">17</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2019/06/"><span class="level-start"><span class="level-item">June 2019</span></span><span class="level-end"><span class="level-item tag">18</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2019/05/"><span class="level-start"><span class="level-item">May 2019</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li></ul></div></div></div><div class="column-right-shadow is-hidden-widescreen"></div></div><div class="column column-right is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only order-3"><div class="card widget"><div class="card-content"><h3 class="menu-label">Recent</h3><article class="media"><div class="media-content size-small"><p><time dateTime="2020-06-27T13:07:22.000Z">2020-06-27</time></p><p class="title is-6"><a class="link-muted" href="/2020/06/27/%E6%A0%91%E8%8E%93%E6%B4%BE/%E6%A0%91%E8%8E%93%E6%B4%BE3-5%E5%AF%B8%E6%98%BE%E7%A4%BA%E5%99%A8%E5%A5%97%E8%A3%85%E5%AE%89%E8%A3%85%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">树莓派3.5寸显示器套装安装操作系统</a></p><p class="is-uppercase"><a class="link-muted" href="/categories/%E6%A0%91%E8%8E%93%E6%B4%BE/">树莓派</a></p></div></article><article class="media"><div class="media-content size-small"><p><time dateTime="2020-06-15T00:21:47.000Z">2020-06-15</time></p><p class="title is-6"><a class="link-muted" href="/2020/06/15/opensource/%E8%B7%A8%E6%A1%86%E6%9E%B6%E3%80%81%E8%87%AA%E5%AE%9A%E4%B9%89%E4%B8%BB%E9%A2%98%E7%9A%84%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2%E7%B3%BB%E7%BB%9F%E5%8E%9F%E5%9E%8B%E6%A6%82%E8%A7%88/">跨框架、自定义主题的静态博客系统原型概览</a></p><p class="is-uppercase"><a class="link-muted" href="/categories/Open-Source/">Open Source</a> / <a class="link-muted" href="/categories/Open-Source/Huaxu/">Huaxu</a></p></div></article><article class="media"><div class="media-content size-small"><p><time dateTime="2020-06-15T00:18:37.000Z">2020-06-15</time></p><p class="title is-6"><a class="link-muted" href="/2020/06/15/webpack/webpack%E5%AE%9E%E6%88%98%EF%BC%9A%E6%89%93%E9%80%A0%E5%90%8C%E6%97%B6%E7%BC%96%E8%AF%91react%E5%92%8Cvue%E7%9A%84%E6%9E%84%E5%BB%BA%E5%BC%95%E6%93%8E/">webpack实战：打造同时编译react和vue的构建引擎</a></p><p class="is-uppercase"><a class="link-muted" href="/categories/Webpack/">Webpack</a> / <a class="link-muted" href="/categories/Webpack/Webpack%E5%AE%9E%E6%88%98/">Webpack实战</a></p></div></article><article class="media"><div class="media-content size-small"><p><time dateTime="2020-06-14T03:08:34.142Z">2020-06-14</time></p><p class="title is-6"><a class="link-muted" href="/2020/06/14/php/Smarty%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/">Smarty块度入门</a></p><p class="is-uppercase"><a class="link-muted" href="/categories/php/">php</a></p></div></article><article class="media"><div class="media-content size-small"><p><time dateTime="2020-06-14T03:08:34.122Z">2020-06-14</time></p><p class="title is-6"><a class="link-muted" href="/2020/06/14/git/%E5%9C%A8centos%E4%B8%8A%E6%90%AD%E5%BB%BAgit%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%BB%93%E5%BA%93/">在centos上搭建git服务器仓库</a></p><p class="is-uppercase"><a class="link-muted" href="/categories/git/">git</a></p></div></article></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">Tags</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/tags/Adapter%E6%A8%A1%E5%BC%8F/"><span class="tag">Adapter模式</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/C%E8%AF%AD%E8%A8%80/"><span class="tag">C语言</span><span class="tag is-grey-lightest">18</span></a></div><div class="control"><a class="tags has-addons" href="/tags/GCC/"><span class="tag">GCC</span><span class="tag is-grey-lightest">4</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Huaxu/"><span class="tag">Huaxu</span><span class="tag is-grey-lightest">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Iterator%E6%A8%A1%E5%BC%8F/"><span class="tag">Iterator模式</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Java/"><span class="tag">Java</span><span class="tag is-grey-lightest">3</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Linux%E5%91%BD%E4%BB%A4%E8%A1%8C%E4%B8%8Eshell%E8%84%9A%E6%9C%AC%E7%BC%96%E7%A8%8B/"><span class="tag">Linux命令行与shell脚本编程</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Maven/"><span class="tag">Maven</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Open-Source/"><span class="tag">Open Source</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/String/"><span class="tag">String</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Template-Method%E6%A8%A1%E5%BC%8F/"><span class="tag">Template Method模式</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Webpack/"><span class="tag">Webpack</span><span class="tag is-grey-lightest">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Webpack%E5%9F%BA%E7%A1%80/"><span class="tag">Webpack基础</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Webpack%E5%AE%9E%E6%88%98/"><span class="tag">Webpack实战</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/autoprefixer/"><span class="tag">autoprefixer</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/browserslist/"><span class="tag">browserslist</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/centos7%E5%B7%A5%E5%85%B7/"><span class="tag">centos7工具</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/css/"><span class="tag">css</span><span class="tag is-grey-lightest">7</span></a></div><div class="control"><a class="tags has-addons" href="/tags/css%E5%8D%95%E4%BD%8D/"><span class="tag">css单位</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/css%E5%9F%BA%E7%A1%80/"><span class="tag">css基础</span><span class="tag is-grey-lightest">5</span></a></div><div class="control"><a class="tags has-addons" href="/tags/css%E5%B7%A5%E5%85%B7/"><span class="tag">css工具</span><span class="tag is-grey-lightest">3</span></a></div><div class="control"><a class="tags has-addons" href="/tags/css%E5%B8%83%E5%B1%80/"><span class="tag">css布局</span><span class="tag is-grey-lightest">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/docker/"><span class="tag">docker</span><span class="tag is-grey-lightest">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/docker-swarm/"><span class="tag">docker swarm</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/docker%E5%9F%BA%E7%A1%80/"><span class="tag">docker基础</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/dom/"><span class="tag">dom</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/dom%E5%9F%BA%E7%A1%80/"><span class="tag">dom基础</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/git/"><span class="tag">git</span><span class="tag is-grey-lightest">4</span></a></div><div class="control"><a class="tags has-addons" href="/tags/hexo/"><span class="tag">hexo</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/html-Permission-API/"><span class="tag">html Permission API</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/html5/"><span class="tag">html5</span><span class="tag is-grey-lightest">8</span></a></div><div class="control"><a class="tags has-addons" href="/tags/html5-API/"><span class="tag">html5 API</span><span class="tag is-grey-lightest">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/html5%E6%A0%87%E7%AD%BE%E5%92%8C%E5%B1%9E%E6%80%A7/"><span class="tag">html5标签和属性</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/js/"><span class="tag">js</span><span class="tag is-grey-lightest">6</span></a></div><div class="control"><a class="tags has-addons" href="/tags/js%E5%9F%BA%E7%A1%80/"><span class="tag">js基础</span><span class="tag is-grey-lightest">4</span></a></div><div class="control"><a class="tags has-addons" href="/tags/js%E5%AF%B9%E8%B1%A1/"><span class="tag">js对象</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/js%E5%AF%B9%E8%B1%A1%E7%B1%BB%E5%9E%8B%E5%88%A4%E6%96%AD/"><span class="tag">js对象类型判断</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/js%E6%95%B0%E7%BB%84/"><span class="tag">js数组</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/leetcode/"><span class="tag">leetcode</span><span class="tag is-grey-lightest">18</span></a></div><div class="control"><a class="tags has-addons" href="/tags/less/"><span class="tag">less</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/linux%E5%91%BD%E4%BB%A4/"><span class="tag">linux命令</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/linux%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5/"><span class="tag">linux远程连接</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/mysql/"><span class="tag">mysql</span><span class="tag is-grey-lightest">5</span></a></div><div class="control"><a class="tags has-addons" href="/tags/nginx/"><span class="tag">nginx</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/node-js/"><span class="tag">node.js</span><span class="tag is-grey-lightest">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/npm/"><span class="tag">npm</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/postcss/"><span class="tag">postcss</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/spring/"><span class="tag">spring</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/spring-boot/"><span class="tag">spring-boot</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/spring%E5%AE%9E%E6%88%98/"><span class="tag">spring实战</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/sql%E8%AF%AD%E5%8F%A5/"><span class="tag">sql语句</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/ssh/"><span class="tag">ssh</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/svg/"><span class="tag">svg</span><span class="tag is-grey-lightest">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/svg%E5%9F%BA%E7%A1%80/"><span class="tag">svg基础</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/svg%E5%AE%9A%E4%BD%8D/"><span class="tag">svg定位</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/tips/"><span class="tag">tips</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/tslint%E5%9F%BA%E7%A1%80/"><span class="tag">tslint基础</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/typescript/"><span class="tag">typescript</span><span class="tag is-grey-lightest">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/ucore/"><span class="tag">ucore</span><span class="tag is-grey-lightest">18</span></a></div><div class="control"><a class="tags has-addons" href="/tags/ucore-os/"><span class="tag">ucore-os</span><span class="tag is-grey-lightest">3</span></a></div><div class="control"><a class="tags has-addons" href="/tags/vue/"><span class="tag">vue</span><span class="tag is-grey-lightest">11</span></a></div><div class="control"><a class="tags has-addons" href="/tags/vue-cli/"><span class="tag">vue-cli</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/vue-router/"><span class="tag">vue-router</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/vue-tips/"><span class="tag">vue-tips</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/vue%E5%8D%9A%E5%AE%A2%E5%90%8E%E5%8F%B0%E5%BC%80%E5%8F%91/"><span class="tag">vue博客后台开发</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/vue%E5%9F%BA%E7%A1%80/"><span class="tag">vue基础</span><span class="tag is-grey-lightest">3</span></a></div><div class="control"><a class="tags has-addons" href="/tags/vue%E5%AE%9E%E6%88%98/"><span class="tag">vue实战</span><span class="tag is-grey-lightest">3</span></a></div><div class="control"><a class="tags has-addons" href="/tags/vue%E7%BB%84%E4%BB%B6%E5%BC%80%E5%8F%91/"><span class="tag">vue组件开发</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/vue%E8%BF%9B%E9%98%B6/"><span class="tag">vue进阶</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/wireshark/"><span class="tag">wireshark</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/xml/"><span class="tag">xml</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E3%80%8AC-Primer%E3%80%8B/"><span class="tag">《C Primer》</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E3%80%8AC%E8%AF%AD%E8%A8%80%E7%BC%96%E7%A8%8B%E9%AD%94%E6%B3%95%E4%B9%A6%E3%80%8B/"><span class="tag">《C语言编程魔法书》</span><span class="tag is-grey-lightest">12</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E3%80%8ALinux%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%92%8CShell%E8%84%9A%E6%9C%AC%E7%BC%96%E7%A8%8B%E3%80%8B/"><span class="tag">《Linux命令行和Shell脚本编程》</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E3%80%8A%E5%9B%BE%E8%A7%A3%E5%AF%86%E7%A0%81%E6%8A%80%E6%9C%AF%E3%80%8B/"><span class="tag">《图解密码技术》</span><span class="tag is-grey-lightest">3</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/"><span class="tag">二叉树</span><span class="tag is-grey-lightest">5</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E4%BA%A4%E7%BB%99%E5%AD%90%E7%B1%BB/"><span class="tag">交给子类</span><span class="tag is-grey-lightest">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%88%86%E6%B2%BB/"><span class="tag">分治</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"><span class="tag">动态规划</span><span class="tag is-grey-lightest">8</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%8D%95%E8%AF%8D/"><span class="tag">单词</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%B7%A5%E5%85%B7/"><span class="tag">命令行工具</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%9B%BE/"><span class="tag">图</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%9F%BA%E7%A1%80/"><span class="tag">基础</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%AE%89%E5%85%A8/"><span class="tag">安全</span><span class="tag is-grey-lightest">3</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%AE%9E%E6%88%98/"><span class="tag">实战</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%AF%86%E7%A0%81%E6%8A%80%E6%9C%AF/"><span class="tag">密码技术</span><span class="tag is-grey-lightest">3</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%AF%BC%E8%AE%BA/"><span class="tag">导论</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/"><span class="tag">开发工具</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8B/"><span class="tag">异步编程</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"><span class="tag">操作系统</span><span class="tag is-grey-lightest">22</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/"><span class="tag">操作系统原理</span><span class="tag is-grey-lightest">3</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%95%B0%E5%AD%A6/"><span class="tag">数学</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"><span class="tag">数据库</span><span class="tag is-grey-lightest">10</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%BC%96%E7%A8%8B/"><span class="tag">数据库编程</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AE%BE%E8%AE%A1/"><span class="tag">数据库设计</span><span class="tag is-grey-lightest">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"><span class="tag">数据结构</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%95%B0%E7%BB%84/"><span class="tag">数组</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%9D%83%E9%99%90/"><span class="tag">权限</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/"><span class="tag">树莓派</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%A8%A1%E5%BC%8F%E5%8C%B9%E9%85%8D/"><span class="tag">模式匹配</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"><span class="tag">正则表达式</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%AF%95%E8%AE%BE/"><span class="tag">毕设</span><span class="tag is-grey-lightest">5</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2/"><span class="tag">深度优先搜索</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E7%94%9F%E6%88%90%E5%AE%9E%E4%BE%8B/"><span class="tag">生成实例</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E7%AE%97%E6%B3%95/"><span class="tag">算法</span><span class="tag is-grey-lightest">20</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/"><span class="tag">编程语言</span><span class="tag is-grey-lightest">20</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E8%8B%B1%E8%AF%AD/"><span class="tag">英语</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"><span class="tag">计算机网络</span><span class="tag is-grey-lightest">3</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"><span class="tag">设计模式</span><span class="tag is-grey-lightest">5</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"><span class="tag">读书笔记</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E8%B8%A9%E5%9D%91%E6%8C%87%E5%8D%97/"><span class="tag">踩坑指南</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E9%80%82%E5%BA%94%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"><span class="tag">适应设计模式</span><span class="tag is-grey-lightest">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E9%93%BE%E8%A1%A8/"><span class="tag">链表</span><span class="tag is-grey-lightest">5</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/"><span class="tag">问题记录</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E9%AB%98%E6%95%B01/"><span class="tag">高数1</span><span class="tag is-grey-lightest">1</span></a></div></div></div></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">Subscribe to Updates</h3><form action="https://feedburner.google.com/fb/a/mailverify" method="post" target="popupwindow" onsubmit="window.open(&#039;https://feedburner.google.com/fb/a/mailverify?uri=&#039;,&#039;popupwindow&#039;,&#039;scrollbars=yes,width=550,height=520&#039;);return true"><input type="hidden" value="" name="uri"><input type="hidden" name="loc" value="en_US"><div class="field has-addons"><div class="control has-icons-left is-expanded"><input class="input" name="email" type="email" placeholder="Email"><span class="icon is-small is-left"><i class="fas fa-envelope"></i></span></div><div class="control"><input class="button is-primary" type="submit" value="Subscribe"></div></div></form></div></div></div></div></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/img/logo.svg" alt="Bright的个人博客" height="28"></a><p class="size-small"><span>&copy; 2020 Bright</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script>moment.locale("default");</script><script>var IcarusThemeSettings = {
+            site: {
+                url: 'https://www.brightblog.cn',
+                external_link: {"enable":true,"exclude":[]}
+            },
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script src="/js/animation.js"></script><a id="back-to-top" title="Back to Top" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><script type="text/x-mathjax-config">MathJax.Hub.Config({
+            'HTML-CSS': {
+                matchFontHeight: false
+            },
+            SVG: {
+                matchFontHeight: false
+            },
+            CommonHTML: {
+                matchFontHeight: false
+            },
+            tex2jax: {
+                inlineMath: [
+                    ['$','$'],
+                    ['\\(','\\)']
+                ]
+            }
+        });</script><script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="Type something..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"Type something...","untitled":"(Untitled)","posts":"Posts","pages":"Pages","categories":"Categories","tags":"Tags"});
+        });</script></body></html>

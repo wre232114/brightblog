@@ -1,210 +1,505 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8"><meta name="generator" content="Hexo 4.2.1"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>Tag: html5 - Bright的个人博客</title><meta description="前端开发的技术分享和个人笔记总结"><meta property="og:type" content="blog"><meta property="og:title" content="Bright的个人博客"><meta property="og:url" content="https://www.brightblog.cn/"><meta property="og:site_name" content="Bright的个人博客"><meta property="og:description" content="前端开发的技术分享和个人笔记总结"><meta property="og:image" content="https://www.brightblog.cn/img/og_image.png"><meta property="article:author" content="Bright"><meta property="article:tag" content="前端开发 个人博客"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="/img/og_image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.brightblog.cn"},"headline":"Bright的个人博客","image":["https://www.brightblog.cn/img/og_image.png"],"author":{"@type":"Person","name":"Bright"},"description":"前端开发的技术分享和个人笔记总结"}</script><link rel="icon" href="/img/favicon.svg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css"><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script></head><body class="is-3-column"><nav class="navbar navbar-main"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="Bright的个人博客" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-6-widescreen"><div class="card"><div class="card-content"><nav class="breadcrumb" aria-label="breadcrumbs"><ul><li><a href="/tags">Tags</a></li><li class="is-active"><a href="#" aria-current="page">html5</a></li></ul></nav></div></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><time class="level-item" dateTime="2019-09-22T09:05:04.000Z" title="2019-09-22T09:05:04.000Z">2019-09-22</time><span class="level-item"><a class="link-muted" href="/categories/html5/">html5</a><span> / </span><a class="link-muted" href="/categories/html5/dom/">dom</a></span><span class="level-item">17 minutes read (About 2586 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2019/09/22/html/DOM%EF%BC%9A%E5%9F%BA%E7%A1%80/">DOM：基础</a></h1><div class="content"><p>这篇文章主要介绍dom的基础知识，基于最新的<a href="https://dom.spec.whatwg.org/">DOM标准</a>，和历史dom标准：<a href="https://www.w3.org/TR/?tag=dom&amp;status=rec">DOM 4/3/2/1</a>，包括dom的层级结构、dom事件、dom的遍历、dom层级中的接口和API等。</p>
+<h2 id="dom简介"><a href="#dom简介" class="headerlink" title="dom简介"></a>dom简介</h2><p>dom是Document Object Model的简写，就是xml或者html这种树形结构的文档以一种层级对象的形式表现出来。</p>
+<p>例如：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>hello world<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>welcome to the frontend world!<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure><br>用dom表示就是：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">              Document</span><br><span class="line">                 |</span><br><span class="line">                html</span><br><span class="line">              &#x2F;     \</span><br><span class="line">head:HTMLHeadElement  HTMLBodyElement</span><br><span class="line">            &#x2F;                 \</span><br><span class="line">  title:HTMLTileElement     p:HTMLPElement</span><br><span class="line">           &#x2F;                     \</span><br><span class="line">   &quot;...&quot;:TextNode           &quot;...&quot;:TextNode</span><br></pre></td></tr></table></figure><br>这里我们注意到有Document、Element、Node等等一系列接口，接下来我们终点关注接口的继承关系和接口中重要的API。</p>
+<h2 id="WHATWG和W3C"><a href="#WHATWG和W3C" class="headerlink" title="WHATWG和W3C"></a>WHATWG和W3C</h2><p>我们观察到DOM标准来自两个官网：WHATWG和W3C，那么WHATWG和W3C上的内容有什么区别呢？接下来我们从下面几个方向来取WHATWG和W3C做一个比较</p>
+<h3 id="WHATWG和W3C的组成"><a href="#WHATWG和W3C的组成" class="headerlink" title="WHATWG和W3C的组成"></a>WHATWG和W3C的组成</h3><p>WHATWG的全称是The Web Hypertext Application Technology Working Group(web超文本应用技术工作组)，WHATWG是一个由对web标准和测试的人组成的社区。由Apple、Mozilla、Opera在2004年创建。</p>
+<p>W3C的全称是The World Wide Web Consortium，由W3C会员、员工和社区共同贡献。</p>
+<h3 id="WHATWG和W3C标准"><a href="#WHATWG和W3C标准" class="headerlink" title="WHATWG和W3C标准"></a>WHATWG和W3C标准</h3><p>WHATWG和W3C是两个不同的标准组织，都致力于web标准的开发。但是WHATWG主要工作内容是HTML、HTML API、encode、DOM这些，与html文档内容及其操作相关，不包括css等。W3C的工作内容涉及到web的方方面面，web性能、css、可访问性等等。</p>
+<p>WHATWG中的标准叫living stardard，表示不断维护的html标准，其内容浓缩了多个历史W3C标准以及最新的标准。</p>
+<p>W3C标准按照版本号来区分标准版本，每一个历史标准都有版本号。</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>WAHTWG主要是由浏览器厂商发起的标准工作组，主要工作内容是HTML文档方向标准的开发。</p>
+<p>W3C是由W3C会员和世界各地的社区成员、学术组织工作维护的web标准，其标准内容涉及到web的方方面面。</p>
+<h2 id="DOM标准的历史"><a href="#DOM标准的历史" class="headerlink" title="DOM标准的历史"></a>DOM标准的历史</h2><p>这里的DOM标准主要基于W3C DOM标准</p>
+<h2 id="DOM中的空白和回车的处理"><a href="#DOM中的空白和回车的处理" class="headerlink" title="DOM中的空白和回车的处理"></a>DOM中的空白和回车的处理</h2><p>在DOM中，回车和空白都会被解析成文本节点。例如，一些文本序列是这样的：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span>\n\t<span class="tag">&lt;<span class="name">head</span>&gt;</span>\n\t\t<span class="tag">&lt;<span class="name">title</span>&gt;</span>空白测试<span class="tag">&lt;/<span class="name">title</span>&gt;</span>\n<span class="tag">&lt;/<span class="name">head</span>&gt;</span>\n<span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure><br>会被处理成如下的结构，请看<a href="http://software.hixie.ch/utilities/js/live-dom-viewer/">DOM结构在线演示</a>:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">-Doctype</span><br><span class="line">-HTML</span><br><span class="line">--HEAD</span><br><span class="line">---:text</span><br><span class="line">---TITLE</span><br><span class="line">----空白测试</span><br><span class="line">---:text</span><br><span class="line">----</span><br></pre></td></tr></table></figure><br>我们可以知道html源文档中的空白和换行，在DOM中都会变成文本节点。在块级元素之间，这些文档节点在显示上没有区别，只是我们用Node的遍历API遍历时，会取到Text节点。</p>
+<p><strong>行内元素源文档之间的空白和换行和被合并成一个空格</strong>，这也是我们在使用inline-block时会出现额外的空格的原因。解决方案一个是设置父元素的font-size=0，子元素为正常的font-size；另一个是压缩文档去掉标签之间的空格。<strong>第二个种方法是解决这个问题的最佳反感，尤其是在生产环境下，可以借助各种工程化工具来压缩html文档去掉额外的空格</strong></p>
+<h2 id="DOM中的继承"><a href="#DOM中的继承" class="headerlink" title="DOM中的继承"></a>DOM中的继承</h2><p>继承在DOM中是非常重要的，每一个DOM对象都有其实现的接口，该接口可能继承了其他的接口，这些接口中定义的API和属性可以操纵和控制DOM元素。</p>
+<p>我们这一节的主要目的是弄清楚DOM的继承关系，以及继承链上有哪些接口，这些接口有些什么属性和方法。</p>
+<h3 id="继承链"><a href="#继承链" class="headerlink" title="继承链"></a>继承链</h3><p>下面我们以a标签为例，弄清楚其继承链，包括继承链上接口信息：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">EventTarget----&gt;Node----&gt;Element----&gt;HTMLElement----&gt;HTMLAnchorElement</span><br></pre></td></tr></table></figure><br>我们可以看到a标签的DOM实例是HTMLAnchorElement的实现，其继承链上有HTMLElement、Element、Node、EventTarget，我们只要知道了其实例和继承的接口上有哪些实例和方法，就知道了该如何操作该DOM对象。</p>
+<h3 id="EventTarget接口"><a href="#EventTarget接口" class="headerlink" title="EventTarget接口"></a>EventTarget接口</h3><p>EventTarget接口提供了监听和触发事件的方法，能够监听事件的接口比如Element、Document、XMLHttpRequest等等。</p>
+<p>接口中只提供了以下方法：</p>
+<ul>
+<li>addEventListener(type, listener, [useCapture/options])：useCapture该函数一个useCapture从ie9+开始开始支持（默认是false，即冒泡阶段调用），options底版本浏览器不支持，options是一个对象，参数属性如下：<ul>
+<li>capture：布尔值，true表示捕获，默认是false</li>
+<li>once：布尔值，true表示只执行一次，默认是false</li>
+<li>passive：布尔值，true表示监听器永远不会调用preventDefault()，默认是false</li>
+<li><strong>this的处理：事件处理函数的this指向当前的EventTarget（哪个元素绑定的事件就指向哪一个元素）。箭头函数没有自己的this。如果使用bind绑定this，那么获取到的this就是bind绑定的this（只有new绑定的this优先级比bind高）。关于addEventListener的详细请看<a href="https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener">EventTarget.addEventListener</a></strong></li>
+</ul>
+</li>
+<li>removeEventListener</li>
+<li>dispatchEvent</li>
+</ul>
+<h3 id="Node接口"><a href="#Node接口" class="headerlink" title="Node接口"></a>Node接口</h3><p>我们先看Node接口，其属性和方法如下。</p>
+<p>先来属性：</p>
+<ul>
+<li>nodeType：节点类型，可能的值是1-12，对应关系如下：<ul>
+<li>1：Node.ELEMENT_NODE，元素比如<code>&lt;p&gt;</code>、<code>&lt;div&gt;</code></li>
+<li>3：Node.TEXT_NODE，文本节点，是Element或Attribute的子节点</li>
+<li>4：Node.CDATA_SECTION_NODE，例如&lt;!CDATA[[ … ]]&gt;</li>
+<li>7：Node.PROCESSING_INSTRUCTION_NODE，XML文档的ProcessingInstruction，例如<code>&lt;?xml-stylesheet ...?&gt;</code></li>
+<li>8：Node.COMMENT_NODE</li>
+<li>9：Node.DOCUMENT</li>
+<li>10：Node.DOCUMENT_TYPE，例如<code>&lt;!DOCTYPE html&gt;</code></li>
+<li>11：Node.DOCUMENT_FRAGMENT_NODE</li>
+<li>最新的标准中就这些，其他还有ENTITY、NOTATION等都已经在DOM4中被废除了，<strong>ATTRIBUTE没有被废除但是不属于Node了</strong>。具体需要的时候查<a href="https://developer.mozilla.org/en-US/docs/Web/API/Node/nodeType">MDN</a></li>
+</ul>
+</li>
+<li>nodeName：节点名称，对于不同的节点类型会返回不同的值<ul>
+<li>Element.nodeName：返回元素的名称，<strong>大写</strong></li>
+<li>Attr.nodeName：属性的名称，<strong>小写</strong></li>
+<li>Text.nodeName：返回#text</li>
+<li>CDATASection.nodeName：返回#cdata-section</li>
+<li>ProcessingInstruction.nodeName：目标的名称</li>
+<li>Comment.nodeName：#comment</li>
+<li>Document.nodeName：#document，例如document.nodeName的值就是”#document”</li>
+<li>DocumentType.nodeName：文档的类型，例如html，document会有两个子节点，一个是doctyoe，另一个是html根结点。取document.documentElement取到的就是html根结点</li>
+<li>DocumentFragment.nodeName：返回#document fragment</li>
+</ul>
+</li>
+<li>nodeValue：从字面意思上看，nodeValue就是Node的值，但是事实上，nodeValue只对少量的DOM对象有效，主要是值是文本的节点，其他的均返回null<ul>
+<li>Attr.nodeValue，字符串形式的属性值</li>
+<li>Text.nodeValue，字符串形式的节点内容</li>
+<li>CDATASection.nodeValue，字符串形式的节点内容</li>
+<li>ProcessingInstruction.nodeValue，同上</li>
+<li>Comment.nodeValue，字符串形式的注释文本</li>
+<li>其他的都返回null</li>
+</ul>
+</li>
+<li>parentNode：引用父节点</li>
+<li>childNodes：引用子节点，返回的是NodeList对象，这是一个类似于数组的对象，内容是Node列表，可能包含Element、Text、Comment等</li>
+<li>firstChild</li>
+<li>lastChild</li>
+<li>previouSibling，如果是同辈第一个节点，那么值为null</li>
+<li>nextSibling，如果是同辈最后一个节点，那么值为null</li>
+<li>ownerDocument：引用document/window.document</li>
+<li>textContent：文本，textContent的值取决于以下情况：<ul>
+<li>如果node是document、DOCTYPE或者notation(xml)，返回null</li>
+<li>如果node是CDATA、COMMENT、TEXT，textContent返回节点的值（文本）</li>
+<li>对于其他的类型，返回每一个子节点的textContent，不包括comment和processing instruction。如果没有子节点也没有内容，返回空字符串</li>
+</ul>
+</li>
+</ul>
+<p>再来方法：</p>
+<ul>
+<li>parent.appendChild(child)：将child插入到parent的最后面。如果child是一个对DOM中元素的引用，那么会将其<strong>移动到新的位置</strong>。如果需要克隆，而不是移动，需要使用cloneNode先克隆节点，然后再使用appendChild</li>
+<li>cloneNode([deep])：复制一个节点，可选参数deep是一个布尔值，当deep=true的时候，会复制其所有子节点，默认为false。cloneNode会复制所有的属性和内联的事件处理器。<strong>但是不会复制addEventListener挂载的事件处理器，也不会复制后来添加的事件处理器（例如：dom.onclick=）。canvas绘制的图像也不会被复制。被复制的节点游离于dom外</strong></li>
+<li>node1.compareDocumentPosition(node2)：比较两个节点的位置关系。IE9+。</li>
+<li>node1.contains(node2)：判断一个节点是不是另一个节点的子节点。IE9+。</li>
+<li>node.hasChildNodes()</li>
+<li>parent.insertBefore(newNode, referenceNode)，再parent下插入到参考节点的前面。如果是对文档中已有的节点进行操作那么是移动。如果需要复制使用cloneNode(true)。如果refNode是null，插入到最后面</li>
+<li>node.isEqualNode(otherNode)</li>
+<li>node.normalise()：将node的子树格式化，格式化的子树中没有空的文本节点以及没有相邻的文本节点。</li>
+<li>parent.removeChild(child)</li>
+<li>parent.replaceChild(newChild, oldChild)</li>
+</ul>
+<blockquote>
+<p><h3 id="difference-between-textContent-innerText">textContent和innerText的区别</h3></p>
+<ol>
+<li>textContent获取所有的文本内容，包括style和script标签,但是innerText只返回人类可读的内容</li>
+<li>textContent获取每一个节点的文本内容，包括隐藏的元素。innerText获取使用的css以后的文本，<strong>innerText会触发回流</strong></li>
+<li>使用textContent只会当作文本处理，不会有xss攻击的可能</li>
+</ol>
+</blockquote>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
+<li><a href="https://dom.spec.whatwg.org/">DOM Living Standard</a></li>
+<li><a href="https://www.w3.org/TR/?tag=dom&amp;status=rec">W3C DOM</a></li>
+<li>《Javascript DOM高级程序设计》</li>
+</ul>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><time class="level-item" dateTime="2019-09-18T23:53:58.000Z" title="2019-09-18T23:53:58.000Z">2019-09-19</time><span class="level-item"><a class="link-muted" href="/categories/html5/">html5</a><span> / </span><a class="link-muted" href="/categories/html5/html5-API/">html5 API</a></span><span class="level-item">2 minutes read (About 360 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2019/09/19/html/%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%AD%E7%9A%84%E6%9D%83%E9%99%90%E5%92%8CPermission-API/">浏览器中的权限和Permission API</a></h1><div class="content"><p>浏览器提供各种各样的能力，如访问摄像头，访问地理位置，访问剪切板，Notification等等，许多API都是需要用户授权才能使用的。但是以前的API授权方式不具有一致性，每个API都有自己的不一样的授权方式。目前处于Working Draft的Permission标准就是用于解决这个问题的，Chrome 60+，firefox 46+支持。</p>
+<p>Permission API用于解决浏览器的授权方式一致性问题，通过Permission API可以对所有的授权提供一直的授权申请、授权状态查询。</p>
+<h2 id="使用Permission-API"><a href="#使用Permission-API" class="headerlink" title="使用Permission API"></a>使用Permission API</h2><p>通过navigator.permissions.query来申请和获取权限状态。query方法的只接收一个参数，该参数是一个对象，该对象可能包含三个属性：</p>
+<ul>
+<li>name：申请的权限的名字，可能是  “geolocation”,<br>“notifications”,<br>“push”,<br>“midi”,<br>“camera”,<br>“microphone”,<br>“speaker”,<br>“device-info”,<br>“background-fetch”,<br>“background-sync”,<br>“bluetooth”,<br>“persistent-storage”,<br>“ambient-light-sensor”,<br>“accelerometer”,<br>“gyroscope”,<br>“magnetometer”,<br>“clipboard”,<br>“display”</li>
+<li>userVisibleOnly：仅用于push</li>
+<li>sysex：仅用于midi</li>
+</ul>
+<p>query方法返回一个promise，该promise resolve一个PermissionStatus对象，该对象的state或status属性代表当前授权的信息，可能的值是：</p>
+<ul>
+<li>granted</li>
+<li>prompt</li>
+<li>denied</li>
+</ul>
+<p>该对象的change事件当state改变时触发。</p>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a href="https://developer.mozilla.org/en-US/docs/Web/API/Permissions_API">MDN Permission API</a><br><a href="https://w3c.github.io/permissions/#request-permission-to-use">w3c Permission</a></p>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><time class="level-item" dateTime="2019-09-08T03:18:00.000Z" title="2019-09-08T03:18:00.000Z">2019-09-08</time><span class="level-item"><a class="link-muted" href="/categories/html5/">html5</a><span> / </span><a class="link-muted" href="/categories/html5/%E5%AE%9E%E6%88%98/">实战</a></span><span class="level-item">18 minutes read (About 2765 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2019/09/08/html/html%E5%AE%9E%E7%8E%B0%E9%80%89%E4%B8%AD%E3%80%81%E5%A4%8D%E5%88%B6%E3%80%81%E7%B2%98%E8%B4%B4/">html实现选中、获取设置光标、复制、粘贴，并实现一个markdown编辑器</a></h1><div class="content"><p>这篇文章记录了如何在html中选中、复制、粘贴内容，以及如何操作可编辑区域中的光标位置，并基于这些基础知识实现了一个简单的markdown编辑器。</p>
+<h2 id="基础概念"><a href="#基础概念" class="headerlink" title="基础概念"></a>基础概念</h2><p>首先我们要介绍一些要用到的基础概念和相关API的使用。</p>
+<h3 id="选中"><a href="#选中" class="headerlink" title="选中"></a>选中</h3><p>DOM提供了与选中有关的API，主要是Selection接口和Range接口。</p>
+<h4 id="Selection"><a href="#Selection" class="headerlink" title="Selection"></a>Selection</h4><p>一个Selection对象表示用户选择的文本范围或者当前光标的位置。使用window.getSelection()来获取Selection对象。</p>
+<p>和Selection相关的有三个关键的概念，分别是：anchor、focus、direction。</p>
+<ol>
+<li><p>anchor<br>anchor表示选择的开始，代表鼠标按下时的位置。这个位置在一次选择中是不变的。通常使用DOM节点+文本偏移来表示</p>
+</li>
+<li><p>focus<br>focus表示选择的结束，代表鼠标松开时的位置或者通过键盘操作结束时的位置。通常使用DOM节点+文本偏移来表示</p>
+</li>
+<li><p>direction<br>选择的方向，选择文本的时候可以从左向右选择，也可以从右向左选择。</p>
+</li>
+</ol>
+<p>anchor/focus和开始位置和结束位置（Range中的概念）不同，anchor可以在focus的前面，也可以在focus的后面，根据direction来确定。</p>
+<p><strong>Selection不仅仅可以选择文本，还可以选择多个节点</strong>，与此相关的概念是，anchorNode和focusNode，anchorNode表示anchor位置的节点，即按下鼠标时的节点；同理focusNode表示松开鼠标时的节点。</p>
+<p>下面是使用Selection时的一些tips:</p>
+<ul>
+<li>调用Selection.toString()会返回选择中包含的文本</li>
+<li>一个Selection可以包含多个Range</li>
+<li>调用Selection API时的表现<ul>
+<li>一个编辑宿主获取焦点，如果上一次选择在其外面</li>
+<li>如果Selection API被调用，导致编辑宿主中创建一个新的Selection</li>
+<li>焦点移动到编辑宿主</li>
+</ul>
+</li>
+</ul>
+<p>使用下面的API可以创建/修改selection：</p>
+<ul>
+<li>Selection.collapse(node, offset)：销毁指定的元素中的选择，并将光标定位到offset的位置</li>
+<li>Selection.setPosition(ndoe, offset)：同上，是collapse的别名</li>
+<li>Selection.collapseToStart()：销毁指定元素中的选择，并将光标定位到其range开始的位置</li>
+<li>Selection.collapseToEnd()：销毁指定元素中的选择，并将光标定位到range结束的位置</li>
+<li>Selection.extend(node, offset)：将focus移动到指定的位置，anchor不同，选择变成anchor到新的focus，不论方向</li>
+<li>Selection.selectAllChildren(parentNode)：丢弃之前的selection，添加指定Node的所有子节点到selection中</li>
+<li>Selection.addRange(range)</li>
+<li>Selection.setBaseExtent(anchorNode,anchorOffset,focusNode,focusOffset)：将两个节点和其之间的内容添加到选择中</li>
+</ul>
+<p>注意：Selection API参数是node和offset时(extend除外)，如果node节点是文本节点，offset就是光标左边字符的数量；对于其他的节点类型，是node的偏移的<strong>子节点的数量</strong>。举个例子：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">article</span> <span class="attr">contenteditable</span> <span class="attr">id</span>=<span class="string">"editor"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span>sfasffdgfdg<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span>光标位置<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">article</span>&gt;</span></span><br></pre></td></tr></table></figure><br>假设调用<code>window.getSelection().setPosition(document.getElementById(editor), 1)</code>，那么光标会被设置在第二个div的开始位置。如果希望精确到文本偏移，请确保选择一个其子节点是文本节点的节点。</p>
+<h4 id="Range"><a href="#Range" class="headerlink" title="Range"></a>Range</h4><p>Range代表document中的一部分，可以包含节点和文本节点的一部分。获取Range的方式是document.createRange()或者Selection.getRangeAt(index)</p>
+<p>使用Selection API和Range API操作文档中的选择的过程是，选择代表用户或者API选中的文档中的一部分节点或者文本，选中的这一部分节点或者文本叫做Range，所以Selection和Range是有对应关系的，大部分情况下一个Selection对应一个Range，但是也可以对应多个Range，例如使用ctrl或者API来选择多个Range。</p>
+<p>操作Range的常用API如下：</p>
+<ul>
+<li>Range.setStart(startNode, offset)：设置Range的开始位置。<strong>设置一个在end后面start会导致Range崩塌(collapse)，start和end都被设置在同一点，为start的位置</strong></li>
+<li>Range.setEnd(endNode, offset)</li>
+<li>Range.setStartBefore(referenceNode)</li>
+<li>Range.setStartAfter(referenceNode)</li>
+<li>Range.setEndBefore(refNode)</li>
+<li>Range.setEndAfter(refNode)</li>
+<li>Range.collapse(toStart)：将Range设置为一个边界点，默认到为结束，toStart结束为开始</li>
+<li>Range.selectNode(node)：将node及其内容加入到Range中</li>
+<li>Range.selectNodeContents(node)</li>
+</ul>
+<h3 id="浏览器的可编辑区域"><a href="#浏览器的可编辑区域" class="headerlink" title="浏览器的可编辑区域"></a>浏览器的可编辑区域</h3><p>首先我们先要了解以下浏览器的可编辑元素，浏览器的可编辑元素，我们知道的可编辑元素有两种，一个是将元素设置contenteditable，另一个是textarea。contenteditable可以设置于任何元素，让其内容变成编辑的，其与textarea的区别是，textarea的内容是纯文本，contenteditable元素的内容虽然输入的是纯文本，可以但是在浏览器中复制dom（直接选中复制即可），可以用dom API插入DOM，这样可以在contenteditable中实现高亮，显示图片预览等等功能。接下来我们对两者分别介绍。</p>
+<h4 id="contenteditable"><a href="#contenteditable" class="headerlink" title="contenteditable"></a>contenteditable</h4><p>contenteditable可以将任意一个元素设置成可编辑的，这里的可编辑，当用户聚焦的时候输入的时候，输入的是纯文本，也就是输入<code>&lt;span class=&quot;red&quot;&gt;red&lt;/span&gt;</code>的时候，显示的就是输入的文字。</p>
+<p>但是当我们从其他html页面中选中一部分然后复制时，可以直接将这一部分DOM复制过来，可以包括图片和样式。复制DOM：<br><img src="/img/2019-09-14-HTML-Selection.png" alt="HTMLSelection"><br>在contenteditable中复制结束后（图中自己使用contenteditable和Selection API写的markdown编辑器，详见）：<br><img src="/img/2019-09-14-HTML-Selectin-copy.png" alt="HTMLSelection"></p>
+<p>也可以直接用DOM API来操作DOM，例如设置颜色、背景、插入图片，表格等等。在发散思考一下，是不是利用这些特性，一个可编辑的富文本编辑器的雏形就出来了？可以在可编辑区域中插入表格，设置字体颜色，插入图片预览，最重要的是，可以直接复制这些内容！</p>
+<p>需要注意的是，我们在contenteditable区域中输入换行的时候，被编辑的元素中会插入一个DIV(或者是li等，取决于父元素)，而不是用\n表示。当我们想要获取到contentediable元素中的换行时，需要使用innerTEXT而不是textContent，关于innerTEXT和textContent的区别请看我的另一篇文章：<a href="http://brightblog.cn/">innerTEXT和textContent的区别</a>。</p>
+<p>而且当使用Selection API时，contenteditable也会比textarea复杂，因为contenteditable元素可能有很多子元素，在设置光标的位置的时候可能会遇到麻烦，请继续阅读下文的实现部分——实现一个markdown编辑器。</p>
+<h4 id="textarea"><a href="#textarea" class="headerlink" title="textarea"></a>textarea</h4><p>textarea是文本输入区域，其内容区域的所有内容都是文本。不能实现contenteditable元素中对dom操作的那么多功能。其优点是兼容性好，比较简单。</p>
+<p>在textarea中获取光标/选中的位置十分方便，直接使用textarea DOM(HTMLTextAreaElement接口）的selectionStart、selectionEnd、selectionDirection来获取，当selectionStart===selectionEnd时，表示光标的位置，获取到的是，光标在textarea中偏移的字符的数量。选择的方向可以是从前到后，也可以是从后到前，由selectionDirection给出，值是”forward”或者”backward”。</p>
+<p>提示：css规范并没有规定textarea的基线在哪里，不同浏览器对textarea的实现不同，其基线是不一致的，使用vertical-align: middle得不到一直的结果，并且其结果是不可预测的。</p>
+<h3 id="复制粘贴"><a href="#复制粘贴" class="headerlink" title="复制粘贴"></a>复制粘贴</h3><p>在浏览器中有两种和系统剪切板进行交互的方式：Document.execCommand以及现代异步的ClipBoard API。</p>
+<p>使用document.execCommand来实现复制粘贴可以兼容到IE 9，ClipBoard API是最新的标准，用于取代document.execCommand，chrome 66以后才支持。接下来我们来看看两种实现复制粘贴的方式。</p>
+<h4 id="document-execCommand"><a href="#document-execCommand" class="headerlink" title="document.execCommand"></a>document.execCommand</h4><p>使用copy、cut、paste三个命令来实现复制粘贴：</p>
+<ul>
+<li>document.execCommand(‘copy’)，将当前选中的内容替换系统剪切板的当前内容</li>
+<li>document.execCommand(‘paste’)，将系统剪切板中的内容复制到光标位置</li>
+<li>document.execCommand(‘cut’)，将当前选中的内容替换系统剪切板的当前内容，并移除原有内容</li>
+</ul>
+<p>当<strong>直接在事件处理器中执行命令时没有权限问题</strong>，但是如果要直接使用execCommand时，不同的浏览器会有不同的行为，在某些浏览器中可能会报错（没有复制权限），需要申请权限，关于权限API请看我的另一篇博客<a href="#">浏览器中的权限和Permission API</a></p>
+<h4 id="ClipBoard-API"><a href="#ClipBoard-API" class="headerlink" title="ClipBoard API"></a>ClipBoard API</h4><p>使用navigator.clipBoard可以访问clipboard API，clipboard API是最新的标准，所有的API都是基于Promise的异步API。</p>
+<p>提供了以下API：</p>
+<ul>
+<li>read()：从剪切板请求任意的数据，例如图片，返回一个Promise。Promise resolve的是一个DataTransfer对象。</li>
+<li>readText()：从剪切板请求文本。Pormise resolve的是一个DOMString文本。</li>
+<li>write()：向剪切板写入任意的数据，返回Promise，Promise resolve表示写入完成</li>
+<li>writeText()：向剪切板写入文本</li>
+<li><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">navigator.clipboard.readText().then(<span class="function"><span class="params">str</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(str)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>clipboard API的优势是其是最新支持的标准，能够直接操作剪切板，向剪切板插入任意数据。</p>
+<p>劣势是兼容性差，必须要Permission。</p>
+<h4 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h4><p><a href="https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Interact_with_the_clipboard">MDN Interact with the clipboard</a></p>
+<h2 id="实战"><a href="#实战" class="headerlink" title="实战"></a>实战</h2><p>这里我们使用上面提到的API，来实现一个简单版的markdown编辑器，主要功能是，在光标位置插入指定的内容，并重置光标位置。</p>
+<ul>
+<li>Selection和Range API用于设置光标位置，选中指定的区域。Range代表一个区域，API的主要作用是设置区域的开始和结束，Selection代表选中，可以包含多个区域，API的主要作用是设置range，操作选中的区域（销毁选中、选中指定的区域），设置光标。</li>
+<li>execCommand和ClipBoard API用于复制粘贴。选中-&gt;复制：可以复制到剪切板，设置光标-&gt;粘贴，可以在光标位置粘贴。</li>
+<li>contenteditable元素中插入的是dom，可以通过操作DOM来实现各种内容（多行、图片等）的插入。</li>
+</ul>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><time class="level-item" dateTime="2019-09-07T23:50:14.000Z" title="2019-09-07T23:50:14.000Z">2019-09-08</time><span class="level-item"><a class="link-muted" href="/categories/html5/">html5</a><span> / </span><a class="link-muted" href="/categories/html5/tips/">tips</a></span><span class="level-item">2 minutes read (About 241 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2019/09/08/html/html-tips/">html tips</a></h1><div class="content"><p>这篇文章的主要内容是记录开发中遇到的一些html小知识。</p>
+<h3 id="textContent和innerTEXT的区别"><a href="#textContent和innerTEXT的区别" class="headerlink" title="textContent和innerTEXT的区别"></a>textContent和innerTEXT的区别</h3><ol>
+<li><p>textContent<br>textContent的值取决于以下情况：</p>
+<ul>
+<li>如果节点是documnet、DOCTYPE或者notation，textContent返回null</li>
+<li>如果是CDATA Section、注释、处理指令或者text node，返回节点内部的文本</li>
+<li>其他节点返回所有子节点的textContent的字符串拼接</li>
+</ul>
+<p><strong>设置textContent会移除所有的子节点并用文本替换他们</strong>。</p>
+</li>
+</ol>
+<ol start="2">
+<li>innerTEXT<br>innerTEXT表示节点和其后代的<strong>渲染过</strong>的文本内容。只会返回用户可以看到的文本内容，例如script、style以及hidden的元素不会返回内容。</li>
+</ol>
+<p>textContent和innerTEXT的区别如下：</p>
+<ul>
+<li>textContent获取所有的内容，包括不可见的元素。innerTEXT只获取可见的内容。</li>
+<li><strong>textContent遇到br、div等元素不会添加换行，innerTEXT会自动添加换行</strong></li>
+</ul>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><time class="level-item" dateTime="2019-07-26T23:43:30.000Z" title="2019-07-26T23:43:30.000Z">2019-07-27</time><span class="level-item"><a class="link-muted" href="/categories/html5/">html5</a><span> / </span><a class="link-muted" href="/categories/html5/svg/">svg</a></span><span class="level-item">5 minutes read (About 760 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2019/07/27/html/svg%E5%9F%BA%E7%A1%80%EF%BC%9A%E5%AE%9A%E4%BD%8D&amp;%E5%9F%BA%E7%A1%80%E5%9B%BE%E5%BD%A2/">svg基础：定位&amp;基础图形</a></h1><div class="content"><p>在这篇文章中，我们检验SVG怎么样在一个绘制上下文中呈现对象的位置和大小，包括坐标系统以及’pixel’度量在可伸缩上下文中意味着什么。</p>
+<h2 id="网格"><a href="#网格" class="headerlink" title="网格"></a>网格</h2><p>对于所有的元素，SVG使用一个坐标系统或者grid系统，和canvas中使用的相似，左上角是(0,0)，向左x增大，向下y增大。位置可以通过指定相对于原点的左上偏移来指定。这也是HTML元素默认的坐标系统形式。</p>
+<p><strong>例如</strong><br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">rect</span> <span class="attr">x</span>=<span class="string">"0"</span> <span class="attr">y</span>=<span class="string">"0"</span> <span class="attr">width</span>=<span class="string">"100"</span> <span class="attr">height</span>=<span class="string">"100"</span> /&gt;</span></span><br></pre></td></tr></table></figure><br>定义了一个从左上角开始的举行，并且左右、上下横跨100px。</p>
+<h2 id="什么是“像素-pixel-”"><a href="#什么是“像素-pixel-”" class="headerlink" title="什么是“像素(pixel)”"></a>什么是“像素(pixel)”</h2><p>在大部分的基础场景中，SVG文档中的1像素对应输出设备的1像素（比如屏幕）。但是SVG中的S对应着Scalable（可伸缩的），如果SVG没有改变这个行为的可能性的话，它就不会有这个名字。非常像css种的绝对和相对的font-size。SVG定义了绝对长度单元（比如”pt”或者”cm”），称其为用户单元，它缺少单位并且只是单纯的数字。</p>
+<p>没有进一步明确的说明，一个用户单元等与1个屏幕分辨率。为了显式地改变这个行为，在SVG中有几个途径。从svg标签开始：</p>
+<blockquote>
+<p>\<svg width="100" height="100"></p>
+</blockquote>
+<p>上面的元素仅仅对应100x100 px，一个用户单元等于一个屏幕单元。</p>
+<blockquote>
+<p>\<svg width="200" height="200" viewBox="0 0 100 100"></p>
+</blockquote>
+<p>整个SVG画布是200x200 px。但是viewBox属性定义了画布展示的部分。200x200的区域从用户单元(0,0)开始，并且跨度为100x100用户单元。<strong>在这里，width=200，height=200，定义了svg的宽和高，这是不变的，那么viewBox的作用是什么呢?viewBox可以控制图形和显示区域的比例，在上例中，viewbox是(0,0)到(100,100)，那么可视区域将在200x200的区域内展示原图形中100x100的图形，相当于将svg放大了两倍。如下例：</strong></p>
+<svg version="1.1"
+     baseProfile="full"
+     width="300" height="200"
+     xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 150 100"><br>  <rect width="100%" height="100%" fill="red" /><br>  <circle cx="150" cy="100" r="80" fill="green" /><br>  <text x="150" y="125" font-size="60" text-anchor="middle" fill="white">SVG</text><br></svg>
 
-  <head><meta name="generator" content="Hexo 3.8.0">
-  <meta charset="utf-8">
-  
-    <title>
-      
-        tag: html5 |
-          
-            Bright的个人博客
-    </title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link rel="stylesheet" href="/css/reset.css">
-      <link rel="stylesheet" href="/css/style.css">
-        <link rel="stylesheet" href="/css/github-markdown.css">
-          <link rel="stylesheet" href="/css/atom-one-dark.css">
-            
-</head>
+<p>将用户单元转为屏幕单元的匹配称为用户坐标系统。除了缩放之外，坐标系统还可以旋转、扭曲和翻转。默认的用户坐标系统匹配一个用户像素称1个设备像素（但是，设备可能决定，设备的1个像素意味着什么。例如，一个设备像素可能对应多个物理像素，比如移动设备）。SVG文件中的用于明确w维度的长度单元，比如”in”或者”cm”，会用一种方式计算，让其在结果图片中1:1显示。</p>
+<h2 id="基本形状"><a href="#基本形状" class="headerlink" title="基本形状"></a>基本形状</h2><h3 id="矩形"><a href="#矩形" class="headerlink" title="矩形"></a>矩形</h3><blockquote>
+<p>\<rect x="10" y="10" width="30" height="30" stroke="black" fill="transparent" stroke-width="5" /></p>
+</blockquote>
+<svg version="1.1"
+     baseProfile="full"
+     width="100" height="50"
+     xmlns="http://www.w3.org/2000/svg"><br>     <rect x="10" y="10" width="30" height="30" stroke="black" fill="transparent" stroke-width="5" /><br></svg>
 
-    <body>
-      
-        <header id="header" class="card">
-  <span class="logo">B</span>
-  <span class="motto">技术 & 梦想 |&nbsp;学习 & 总结</span>
-  <nav>
-    <ul>
-    
-      <li>
-        <a href="/">首页 </a>
-      </li>
-    
-      <li>
-        <a href="/archives">归档 </a>
-      </li>
-    
-      <li>
-        <a href="/categories">分类 </a>
-      </li>
-    
-      <li>
-        <div class="search-input">
-          <i class="fa search"></i>
-          <input id="search-input" type="text">
-        </div>
-      </li>
-    </ul>
-  </nav>
-</header>
-          <main id="main">
-            
-              
-<aside id="left-sidebar" class="margin-right">
-  <nav class="card sidebar-component">
-  <div class="card-title">文章归档</div>
-  <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a><span class="archive-list-count">18</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a><span class="archive-list-count">17</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a><span class="archive-list-count">30</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a><span class="archive-list-count">15</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a><span class="archive-list-count">17</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a><span class="archive-list-count">18</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a><span class="archive-list-count">2</span></li></ul>
-</nav>
-  <nav class="card sidebar-component">
-  <div class="card-title">文章分类</div>
-  <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/css/">css</a><span class="category-list-count">10</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/css/css基础/">css基础</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/css工具/">css工具</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/less/">less</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/sass/">sass</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/docker/">docker</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/docker/docker-swarm/">docker swarm</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/docker/docker基础/">docker基础</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">git</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html5/">html5</a><span class="category-list-count">8</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/html5/dom/">dom</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html5/html5-API/">html5 API</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html5/html5标签和属性/">html5标签和属性</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html5/svg/">svg</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html5/tips/">tips</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html5/实战/">实战</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/">java</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/java/spring实战/">spring实战</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/js/">js</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/js/js基础/">js基础</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/js/typescript/">typescript</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/js/正则表达式/">正则表达式</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/linux/工具/">工具</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/nginx/">nginx</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node-js/">node.js</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/node-js/npm/">npm</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node-js/命令行工具/">命令行工具</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/php/">php</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/spring-boot/">spring-boot</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/spring-boot/开发工具/">开发工具</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/typescript/">typescript</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/typescript/踩坑指南/">踩坑指南</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/">vue</a><span class="category-list-count">11</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/vue/cli/">cli</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/tips/">tips</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/vue-router/">vue-router</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/vue实战/">vue实战</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/vue组件开发/">vue组件开发</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/基础/">基础</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/webpack/">webpack</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/webpack/webpack基础/">webpack基础</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/xml/">xml</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/xml/基础/">基础</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/学习打卡/">学习打卡</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/安全/">安全</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/安全/密码技术/">密码技术</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/操作系统/">操作系统</a><span class="category-list-count">23</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/操作系统/shell/">shell</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/操作系统/ucore/">ucore</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/操作系统/操作系统原理/">操作系统原理</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据库/">数据库</a><span class="category-list-count">10</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/数据库/mysql/">mysql</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据库/sql语句/">sql语句</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据库/导论/">导论</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据库/数据库编程/">数据库编程</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据库/数据库设计/">数据库设计</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据结构/">数据结构</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/数据结构/图/">图</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/毕设/">毕设</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/">算法</a><span class="category-list-count">20</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/算法/leetcode/">leetcode</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/模式匹配/">模式匹配</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/深度优先搜索/">深度优先搜索</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程语言/">编程语言</a><span class="category-list-count">20</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/编程语言/C/">C</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/编程语言/C/语言/">语言</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程语言/C语言/">C语言</a><span class="category-list-count">17</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程语言/Java/">Java</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程语言/java/">java</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/英语/">英语</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/英语/生词/">生词</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/计算机网络/">计算机网络</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/计算机网络/wireshark/">wireshark</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/计算机网络/问题记录/">问题记录</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/设计模式/">设计模式</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/设计模式/交给子类/">交给子类</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/设计模式/生成实例/">生成实例</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/设计模式/适应设计模式/">适应设计模式</a><span class="category-list-count">2</span></li></ul></li></ul>
-</nav>
-  <nav class="card sidebar-component">
-  <div class="card-title">最近文章</div>
-  <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2020/05/19/algorithm/leetcode/动态规划/interleaving-string/">interleaving string</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/17/algorithm/leetcode/分治/maximum-product-subarray/">maximum product subarray</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/15/algorithm/leetcode/动态规划/triangle/">triangle</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/12/algorithm/leetcode/动态规划/unique-binary-search-trees-ii/">unique binary search trees ii</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/11/algorithm/leetcode/动态规划/decode-ways/">decode-ways</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/09/algorithm/leetcode/动态规划/unique-path-II/">unique path II</a></li></ul>
-</nav>
-</aside>
+<blockquote>
+<p>\<rect x="60" y="10" rx="10" ry="10" width="30" height="30" stroke="black" fill="transparent" stroke-width="5" /></p>
+</blockquote>
+<svg version="1.1"
+     baseProfile="full"
+     width="100" height="50"
+     xmlns="http://www.w3.org/2000/svg"><br>     <rect x="60" y="10" rx="10" ry="10" width="30" height="30" stroke="black" fill="transparent" stroke-width="5" /><br></svg><br>### 圆<br>&gt; \<circle cx="25" cy="75" r="20" stroke="red" fill="transparent" stroke-width="5" /><br><br><svg version="1.1"
+     baseProfile="full"
+     width="100" height="100"
+     xmlns="http://www.w3.org/2000/svg"><br>     <circle cx="25" cy="75" r="20" stroke="red" fill="transparent" stroke-width="5" /><br></svg>
 
+<h3 id="椭圆"><a href="#椭圆" class="headerlink" title="椭圆"></a>椭圆</h3><blockquote>
+<p>\<ellipse cx="75" cy="75" rx="25" cy="5" /></p>
+</blockquote>
+<svg version="1.1"
+     baseProfile="full"
+     width="100" height="100"
+     xmlns="http://www.w3.org/2000/svg"><br>     <ellipse cx="75" cy="75" rx="25" cy="5" /><br></svg>
 
-                <!--
-<aside id="right-sidebar">
-  <nav class="card margin-bottom">
-  
-</nav>
-</aside>
+<h3 id="线"><a href="#线" class="headerlink" title="线"></a>线</h3><blockquote>
+<p>\<line x1="10" x2="50" y1="110" y2="150"/></p>
+</blockquote>
+<h3 id="多点连线"><a href="#多点连线" class="headerlink" title="多点连线"></a>多点连线</h3><blockquote>
+<p>\<polyline points="60 110, 65 120" /></p>
+</blockquote>
+<h3 id="多边形"><a href="#多边形" class="headerlink" title="多边形"></a>多边形</h3><blockquote>
+<p>\<polygon points="50 160, 55 180, 70 180"/></p>
+</blockquote>
+<h3 id="路径"><a href="#路径" class="headerlink" title="路径"></a>路径</h3><blockquote>
+<p>\<path d="M20,230,Q40,205,50,230,T90,230" fill="none" stroke="blue" stroke-width="5" /></p>
+</blockquote>
+<p>其中路径是最基础的形状，可以用路径画出其他的所有形状。</p>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><time class="level-item" dateTime="2019-07-25T22:50:30.000Z" title="2019-07-25T22:50:30.000Z">2019-07-26</time><span class="level-item"><a class="link-muted" href="/categories/html5/">html5</a><span> / </span><a class="link-muted" href="/categories/html5/svg/">svg</a></span><span class="level-item">10 minutes read (About 1560 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2019/07/26/html/svg%E5%9F%BA%E7%A1%80/">svg基础</a></h1><div class="content"><p>Scalable Vector Graphics(SVG)是一种基于XML的标记语言，用于描述基于二维的向量图形。SVG对于如何用text文本来描述图形是非常重要的。</p>
+<p>SVG是一个基于文本的开放Web标准。其被设计为与其他的web标准共同工作比如CSS、DOM和SMIL。</p>
+<p>SVG图片和其相关的行为被定义在XML文本文件中，这意味着它可以被搜索、索引、脚本化和压缩</p>
+<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>SVG是一种XML语言，和XHTML类似，可以被用于绘制向量图形。它可以被用于创建一张图片，这张图片由明确所有必须的线以及形状获得，通过修改已经存在的图片获得，或者将两者结合。图片和它的组件可以被转换、相互组合或者过滤以完全改变其外观。</p>
+<p>SVG是一个在1999年就已经提出来的标准。</p>
+<h3 id="基本成分"><a href="#基本成分" class="headerlink" title="基本成分"></a>基本成分</h3><p>HTML提供了元素用于定义headers、paragraphs、tables等等。以相同的形式，SVG提供了元素用于圆、矩形、以及简单和复杂的曲线。一个简单的SVG文档仅仅由<code>\&lt;svg></code>根元素以及其他一些基本形状一起组成。除此之外还有一个\&lt;g>元素，用于组织其他基本形状。</p>
+<p>从这里开始，SVG图片可以变得任意的复杂。SVG支持渐变、旋转、filter效果、动画、以及和javascript的交互等等。但是所有的这些额外的语言的特性依赖于这一小串元素用于定义图形区域。</p>
+<h3 id="开始之前"><a href="#开始之前" class="headerlink" title="开始之前"></a>开始之前</h3><p>有很多绘制引用可以使用比如Inkscape，但是这里我们使用最基本的XML和文本编辑器。这样是为了理解SVG的内部，自己写下标记语言是最好的学习方法。</p>
+<p>不是所有的SVG图片在任何应用中看起来都一样，因为他们可能支持不同的SVG标准，或者与其一同工作的其他标准比如css、javascript不同，这些都会导致表现不一致。</p>
+<p>SVG被所有的现代浏览器支持以及一小部分老的浏览器。</p>
+<p>如果你对XML不熟悉，下面的两条准则一定要牢记于心：</p>
+<ul>
+<li>SVG元素和属性应该注意大小写，因为XML是大小写敏感的（不像HTML）</li>
+<li>SVG的属性应该放在双引号中，即使是数字</li>
+</ul>
+<p>SVG是一个巨大的标准，这里只概括了其基础。一旦你熟悉了SVG，你应该阅读元素参考和接口参考获取更多的信息。</p>
+<h3 id="SVG的风味"><a href="#SVG的风味" class="headerlink" title="SVG的风味"></a>SVG的风味</h3><p>自从2003年成为recommendation，最常用的SVG版本是1.1，它在1.0的基础上构建，但是增加了更多模块。2008年推出了1.2</p>
+<h2 id="一个简单的实例"><a href="#一个简单的实例" class="headerlink" title="一个简单的实例"></a>一个简单的实例</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">svg</span> <span class="attr">version</span>=<span class="string">"1.1"</span></span></span><br><span class="line"><span class="tag">     <span class="attr">baseProfile</span>=<span class="string">"full"</span></span></span><br><span class="line"><span class="tag">     <span class="attr">width</span>=<span class="string">"300"</span> <span class="attr">height</span>=<span class="string">"200"</span></span></span><br><span class="line"><span class="tag">     <span class="attr">xmlns</span>=<span class="string">"http://www.w3.org/2000/svg"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">rect</span> <span class="attr">width</span>=<span class="string">"100%"</span> <span class="attr">height</span>=<span class="string">"100%"</span> <span class="attr">fill</span>=<span class="string">"red"</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">circle</span> <span class="attr">cx</span>=<span class="string">"150"</span> <span class="attr">cy</span>=<span class="string">"100"</span> <span class="attr">r</span>=<span class="string">"80"</span> <span class="attr">fill</span>=<span class="string">"green"</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">text</span> <span class="attr">x</span>=<span class="string">"150"</span> <span class="attr">y</span>=<span class="string">"125"</span> <span class="attr">font-size</span>=<span class="string">"60"</span> <span class="attr">text-anchor</span>=<span class="string">"middle"</span> <span class="attr">fill</span>=<span class="string">"white"</span>&gt;</span>SVG&gt;<span class="tag">&lt;/<span class="name">text</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">svg</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>新建一个文本文件，后缀改为svg，然后将上面的代码拷贝进去，在任意浏览器中打开，我们就能看到svg绘制出来的图形，如下：</p>
+<svg version="1.1"
+     baseProfile="full"
+     width="300" height="200"
+     xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 150 100"><br>  <rect width="100%" height="100%" fill="red" /><br>  <circle cx="150" cy="100" r="80" fill="green" /><br>  <text x="150" y="125" font-size="60" text-anchor="middle" fill="white">SVG</text><br></svg>
 
--->
-                <article id="article" class="margin-right ofhidn">
-                  
-  
-    
-      
-        
-            
-              <section class="bread-wrap">
-                <a href="/archives/2019" class="cate-name">
-                  2019
-                </a>
-              </section>
-              <div class="archives">
-                
-                  <div class="post-entry card">
-  <a href="/2019/09/22/html/DOM：基础/">
-    <h3>DOM：基础
-      <span class="title-right">html5</span>
-    </h3>
-    <div class="content">这篇文章主要介绍dom的基础知识，基于最新的DOM标准，和历史dom标准：DOM 4/3/2/1，包括dom的层级结构、dom事件、dom的遍历、dom层级中的接口和API等。
-dom简介dom是Do</div>
-    <div class="post-time">2019-09-22</div>
-  </a>
-</div>
-                    
-    
-      
-                  <div class="post-entry card">
-  <a href="/2019/09/19/html/浏览器中的权限和Permission-API/">
-    <h3>浏览器中的权限和Permission API
-      <span class="title-right">html5</span>
-    </h3>
-    <div class="content">浏览器提供各种各样的能力，如访问摄像头，访问地理位置，访问剪切板，Notification等等，许多API都是需要用户授权才能使用的。但是以前的API授权方式不具有一致性，每个API都有自己的不一样的</div>
-    <div class="post-time">2019-09-19</div>
-  </a>
-</div>
-                    
-    
-      
-                  <div class="post-entry card">
-  <a href="/2019/09/08/html/html实现选中、复制、粘贴/">
-    <h3>html实现选中、获取设置光标、复制、粘贴，并实现一个markdown编辑器
-      <span class="title-right">html5</span>
-    </h3>
-    <div class="content">这篇文章记录了如何在html中选中、复制、粘贴内容，以及如何操作可编辑区域中的光标位置，并基于这些基础知识实现了一个简单的markdown编辑器。
-基础概念首先我们要介绍一些要用到的基础概念和相关AP</div>
-    <div class="post-time">2019-09-08</div>
-  </a>
-</div>
-                    
-    
-      
-                  <div class="post-entry card">
-  <a href="/2019/09/08/html/html-tips/">
-    <h3>html tips
-      <span class="title-right">html5</span>
-    </h3>
-    <div class="content">这篇文章的主要内容是记录开发中遇到的一些html小知识。
-textContent和innerTEXT的区别
-textContenttextContent的值取决于以下情况：
+<p>渲染的步骤如下：</p>
+<ol>
+<li><p>从svg根元素开始：</p>
+<ul>
+<li>一个doctype声明，如上例</li>
+<li>在SVG2之前，为了识别SVG的版本以及为了多种验证方式，version和baseProfile属性必须一直被使用。version和baseProfile都在SVG2中被废弃了。</li>
+<li>作为XML的方言，SVG必须绑定正确的命名空间（在xmlns属性中）</li>
+</ul>
+</li>
+<li><p>通过绘制一个背景被设置为红色的覆盖整个区域的矩形\<rect/></p>
+</li>
+<li>一个半径为80的圆，左边偏移150，上面偏移100实现居中，填充为绿色。</li>
+<li>绘制文本”SVG”，每一个内部的字符都是被填充为白色。文本通过设置一个锚点来定位到我们想要的位置。上例中是middle，在实现水平和垂直的居中。</li>
+</ol>
+<h3 id="SVG-文件的基本属性"><a href="#SVG-文件的基本属性" class="headerlink" title="SVG 文件的基本属性"></a>SVG 文件的基本属性</h3><ul>
+<li>第一个需要注意的重要的事情是元素渲染的顺序。SVG文件的全局合法规则是，后一个元素渲染在前一个元素的上面。SVG文件中越向下的元素可见。</li>
+<li>web上的SVG文件可以在浏览器中被直接显示或者嵌入到HTML文件中，通过下面几个方法：<ul>
+<li>如果HTML是XHTML并且通过application/xhtml+xml类型传输，SVG可以年被直接嵌入到XML源文件中</li>
+<li>如果HTML是HTML5，并且浏览器是一个支持HTML5的浏览器，SVG可以被直接嵌入。但是，也许会有必须的语法改变来适应HTML5标准。</li>
+<li>SVG文件可以被引用为一个element元素：<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">object</span> <span class="attr">data</span>=<span class="string">"image.svg"</span> <span class="attr">type</span>=<span class="string">"image/svg+xml"</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+<li>iframe也可以被使用:<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">iframe</span> <span class="attr">src</span>=<span class="string">"image.svg"</span>&gt;</span><span class="tag">&lt;/<span class="name">iframe</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+<li>img标签理论上也能使用，可能有兼容性问题。</li>
+<li>最后SVG可以通过javascript被动态创建并且注入到HTML DOM中。使用这样的替换技术我们可以在不能常规处理SVG的浏览器中实现SVG。</li>
+</ul>
+</li>
+</ul>
+<h3 id="SVG文件类型"><a href="#SVG文件类型" class="headerlink" title="SVG文件类型"></a>SVG文件类型</h3><p>SVG文件有两种风格。普通的SVG文件包含SVG标记的简单文本文件。这些文件的推荐的文件名称后缀是”.svg”(都小写)</p>
+<p>因为可能存在的巨大的SVG文件（比如地图应用），SVG标准也支持GZIP压缩的SVG文件。推荐的文件扩展名是”.svgz”。可能会有兼容性的问题，对浏览器和服务器两端都有，一般浏览器只能解析从服务器获取的gzip压缩的svg文件，而不能从本地读取。</p>
+<h3 id="Webserver上的配置"><a href="#Webserver上的配置" class="headerlink" title="Webserver上的配置"></a>Webserver上的配置</h3><p>SVG的MIME类型是：</p>
+<blockquote>
+<p>Content-Type: image/svg+xml<br>Vary: Accept-Encoding</p>
+</blockquote>
+<p>对于gzip压缩的svg文件：</p>
+<blockquote>
+<p>Content-Type: image/svg+xml<br>Content-Encoding: gzip<br>Vary: Accept-Encoding</p>
+</blockquote>
+<p>服务器返回的HTTP头的错误配置是SVG文件加载失败的常见原因。</p>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><time class="level-item" dateTime="2019-07-22T23:37:50.000Z" title="2019-07-22T23:37:50.000Z">2019-07-23</time><span class="level-item"><a class="link-muted" href="/categories/html5/">html5</a><span> / </span><a class="link-muted" href="/categories/html5/html5-API/">html5 API</a></span><span class="level-item">14 minutes read (About 2174 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2019/07/23/html/html5-API/">html5 API</a></h1><div class="content"><p>在HTML5中，提供了很多的api，例如访问文件的File API，通过使用这个api，从web页面上访问本地文件系统会变得十分简单。还有websocket、localStorage、canvas、跨文档消息传递（postMessage）、web workers、地理位置等。近期新增的还有fetch api，steam api，TypeArray，ArrayBuffer，WebGL等等。</p>
+<p>这篇文章尽量对这些api做一个介绍和总结，如果内容太多会外链到其他的博客中。</p>
+<h2 id="FileList对象和File对象"><a href="#FileList对象和File对象" class="headerlink" title="FileList对象和File对象"></a>FileList对象和File对象</h2><p>浏览器中获取本地文件的唯一方法是使用input:file或者拖放API，浏览器由于安全问题，不能直接访问本地文件系统。</p>
+<p>通过input:file的DOM对象的files属性能够拿到当前选中文件列表（FileList对象），FileList对象的每一个属性（0、1…）值都是一个File对象，File继承自Blob对象，File对象中有文件的大小、名字、修改时间（lastModified）等等的信息。</p>
+<p>input:file可以指定accept属性，指定可以接受的文件类型。</p>
+<h3 id="Blob对象"><a href="#Blob对象" class="headerlink" title="Blob对象"></a>Blob对象</h3><p>Blob表示不变的二进制原始数组，它提供了一个slice方法，可以通过该方法访问到原始数据块。file对象也继承了这个Blob对象。</p>
+<p>属性：</p>
+<ul>
+<li>size，blob包含的数据的字节数</li>
+<li>type，blob包含的数据的mime类型</li>
+</ul>
+<p>方法：</p>
+<ul>
+<li>slice(start,[end])，返回一个截取特定长度的Blob对象</li>
+<li>stream()，将Blob转成一个ReadableSteam</li>
+<li>text()，将Blob转成一个stream并且完整的读取它，返回一个值为text的promise</li>
+<li>arrayBuffer()，将Blob转成一个stream并完整的读取它，返回一个值为arraybuffer的promise</li>
+</ul>
+<p>使用实例：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> obj = &#123;</span><br><span class="line">  hello: <span class="string">'world'</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">let</span> blob = <span class="keyword">new</span> Blob([<span class="built_in">JSON</span>.stringify(obj, <span class="literal">null</span>, <span class="number">2</span>)], &#123;</span><br><span class="line">  type: <span class="string">'application/json'</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">let</span> blobReader = <span class="keyword">new</span> FileReader();</span><br><span class="line">blobReader.readAsText(blob);</span><br><span class="line">blobReader.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>.result)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>Blob构造函数一共接收两个参数，第一个参数是一个数组，数组的内容可以是ArrayBuffer、ArrayBufferView、Blob、USVString，或者这些对象的任意混合。USVString会按照UTF-8处理。第二个参数是一个选项对象：</p>
+<ul>
+<li>type：Blob的MIME类型，默认是空字符串</li>
+<li>ending（非标准）：内容的换行字符（\n)</li>
+</ul>
+<p>Blob还能和createObjectURL一起使用，将typearray转成url对象。和FileReader结合使用可以以不同的形式读取Blob内部的内容。</p>
+<h3 id="FileReader接口"><a href="#FileReader接口" class="headerlink" title="FileReader接口"></a>FileReader接口</h3><p>FileReader主要用来把文件读入内存。</p>
+<p>FileReader的主要api有：</p>
+<ul>
+<li>readAsBinaryString(file)</li>
+<li>readAsDataURL(file)</li>
+<li>readAsText(file)</li>
+<li>readAsArrayBuffer(file)</li>
+<li>abort()</li>
+</ul>
+<p>文件读取的结果都存在FileReader实例化后的对象中，主要属性有：</p>
+<ul>
+<li>result</li>
+<li>readyState</li>
+</ul>
+<p>监听FileReader对象事件，可以知道FileReader当前的读取状态，主要事件有：</p>
+<ul>
+<li>onabort</li>
+<li>onerror</li>
+<li>onloadstart</li>
+<li>onprogress</li>
+<li>onload</li>
+<li>onloadend</li>
+</ul>
+<p><strong>事件参数都是Event对象，注意：读取的数据不在Event对象中，在FileReader对象中，我们在回调函数中可以通过this.result拿到读取的结果或者通过reader.result</strong></p>
+<h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Blob/Blob">MDN Blob</a></li>
+</ul>
+<h2 id="Web-Worker"><a href="#Web-Worker" class="headerlink" title="Web Worker"></a>Web Worker</h2><p>Web Worker是浏览器提供了一个多线程计算能力，能够打破js单线程的限制，开启新的线程用于计算。这里对Web Worker的创建，使用，消息通信和使用做一个介绍，并介绍如何在vue中使用worker来进行并行计算。最后给出一个实例：在vue中使用worker来进行markdown的编译，然后将编译后的结果渲染到视图中。</p>
+<pre class="tips">提示：浏览器还支持其他的多线程API，例如Service Worker、Shared Worker等等，线程间的通信使用消息机制，例如Channel messaging、BroadCast channel、web RTC等等，具体请看[浏览器的多线程支持和消息传递](#)</pre>
 
-如果节点是documne</div>
-    <div class="post-time">2019-09-08</div>
-  </a>
-</div>
-                    
-    
-      
-                  <div class="post-entry card">
-  <a href="/2019/07/27/html/svg基础：定位&基础图形/">
-    <h3>svg基础：定位&基础图形
-      <span class="title-right">html5</span>
-    </h3>
-    <div class="content">在这篇文章中，我们检验SVG怎么样在一个绘制上下文中呈现对象的位置和大小，包括坐标系统以及’pixel’度量在可伸缩上下文中意味着什么。
-网格对于所有的元素，SVG使用一个坐标系统或者grid系统，和</div>
-    <div class="post-time">2019-07-27</div>
-  </a>
-</div>
-                    
-    
-      
-                  <div class="post-entry card">
-  <a href="/2019/07/26/html/svg基础/">
-    <h3>svg基础
-      <span class="title-right">html5</span>
-    </h3>
-    <div class="content">Scalable Vector Graphics(SVG)是一种基于XML的标记语言，用于描述基于二维的向量图形。SVG对于如何用text文本来描述图形是非常重要的。
-SVG是一个基于文本的开放Web</div>
-    <div class="post-time">2019-07-26</div>
-  </a>
-</div>
-                    
-    
-      
-                  <div class="post-entry card">
-  <a href="/2019/07/23/html/html5-API/">
-    <h3>html5 API
-      <span class="title-right">html5</span>
-    </h3>
-    <div class="content">在HTML5中，提供了很多的api，例如访问文件的File API，通过使用这个api，从web页面上访问本地文件系统会变得十分简单。还有websocket、localStorage、canvas、跨</div>
-    <div class="post-time">2019-07-23</div>
-  </a>
-</div>
-                    
-    
-      
-                  <div class="post-entry card">
-  <a href="/2019/07/22/html/html5新标签-属性总结/">
-    <h3>html5新标签/属性总结
-      <span class="title-right">html5</span>
-    </h3>
-    <div class="content">结构型的标签html5新增了很多结构型的标签，这些标签没有默认样式，只设置了display:block，是块级元素，其作用主要是语义化，标签名就指示了这个标签所起的作用（除此之外，id、class都可</div>
-    <div class="post-time">2019-07-22</div>
-  </a>
-</div>
-                    
-                      
-              </div>
-              
-              
-                </article>
-          </main>
-          <footer id="footer">
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2020 Bright<br>
-      powered_by <a href="http://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
-</footer>
-<script src="/js/script.js"></script>
-    </body>
+<h3 id="创建Web-Worker"><a href="#创建Web-Worker" class="headerlink" title="创建Web Worker"></a>创建Web Worker</h3><p>创建Web Worker的方式是使用Worker构造函数new一个实例出来：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> worker = <span class="keyword">new</span> Worker(<span class="string">'myscript.js'</span>)</span><br></pre></td></tr></table></figure><br>Worker构造函数接收两个参数，第一个是url，表示worker中执行的脚本的url，必须遵循<strong>同源策略</strong>，也就是脚本所在的URL必须和文档是同一种协议、域名、端口（这里的url可以使用绝对、相对、对象URL、完整url，如果是在worker中创建Worker，相对url参照的是当前worker路径而不是文档）。第二个参数是一个可选的选项对象：</p>
+<ul>
+<li>type：创建的worker的类型，可以是classic或者module，默认classic</li>
+<li>credentials：值可以是omit、same-origin、include。默认omit</li>
+<li>name：worker的独立上下文的名字</li>
+</ul>
+<p>worker可能会抛出以下异常：</p>
+<ul>
+<li>SecurityError：文档不允许创建worker时抛出（例如违背了同源策略）</li>
+<li>NetworkError：当HTTP返回的文档类型不是text/javascript时抛出</li>
+<li>SyntaxError：当脚本url无法被解析时抛出</li>
+</ul>
+<h3 id="web-worker的通信"><a href="#web-worker的通信" class="headerlink" title="web worker的通信"></a>web worker的通信</h3><p>worker和主线程之间通过message进行通信，使用两个API，postMessage()方法和message事件。</p>
+<p>在主线程发出/接收信息：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> worker = <span class="keyword">new</span> Worker(<span class="string">'myscript.js'</span>)</span><br><span class="line">worker.postMessage([<span class="string">'val'</span>, <span class="string">'value'</span>])</span><br><span class="line">worker.onmessage = <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>在worker中发出/接收信息：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">postMessage([<span class="string">'va'</span>])</span><br><span class="line">onmessage = <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>postMessage(message, transfer)会接收两个参数，message表示传递的消息，可以是任意值。注意：这里message不是传递的引用，而是使用结构性克隆算法克隆的结果，worker中收到的结果是一份完全的拷贝。传递的过程是，先将数据克隆，然后序列化，再反序列化还原，所以这里我们传递的是什么数据结构，拿到的就是什么数据结构。</p>
+<p>第二个参数transfer是一个数组，里面是transferable对象列表，例如TypedArray。这些对象是按照引用来传递，但是传递到worker中以后，原来的上下文中的引用就不可用了，只有在worker中可用，相当于“将整个引用传递了过去”。</p>
+<pre class="tips">注意：这个参数只是表示将哪些过渡过去，传递的信息还是要使用message参数。</pre>
 
-</html>
+<p>在message事件中收到的是MessageEvent对象，该对象用于message事件（例如Server-Sent、WebSocket、跨文档通信、worker、channel messaging、broadcast messaging等），最常用的是data和origin/source（例如验证在跨文档通信中的来源）。该对象有下面几个只读的属性：</p>
+<ul>
+<li>data：在message事件中传递的数据，可以是任意的数据类型</li>
+<li>origin：代表事件源的字符串</li>
+<li>lastEventId：代表event的独特id</li>
+<li>source：代表消息发送者的message event源（可以是Window Proxy、MessagePort、或者Servcie Worker对象）</li>
+<li>ports：MessagePort对象数组（在channel messaging或者shared worker中使用）</li>
+</ul>
+<h3 id="web-worker的特性"><a href="#web-worker的特性" class="headerlink" title="web worker的特性"></a>web worker的特性</h3><h4 id="同源特性"><a href="#同源特性" class="headerlink" title="同源特性"></a>同源特性</h4><p>只能使用同源的url作为执行的代码来源，该代码的url，可以是相对url、绝对url、对象url、完整url路径，一种常见的方式是，通过URL.createObjectURL来创建对象URL，其值是脚本字符串，这样可以不进行网络请求的前提下执行指定的代码片段。</p>
+<h4 id="上下文特性"><a href="#上下文特性" class="headerlink" title="上下文特性"></a>上下文特性</h4><p>web worker拥有自己的独立上下文，和创建它的文档上下文毫不相关。在其特有的上下文中实现了window上下文中的很多API。</p>
+<p>self可以访问到上下文对象，在window上下文中，self指window对象；在worker上下文中，self指worker上下文。</p>
+<h4 id="API特性"><a href="#API特性" class="headerlink" title="API特性"></a>API特性</h4><p>web worker用于后台执行特定的代码，不能够直接和用户界面进行交互，例如window对象、DOM API在worker中都是不能访问的，但是worker中可以使用XMLHttpRequest、Websocket、Fetch API等IO操作的API，可以使用LocalStorage等存储API，也可以使用Promise、setTimeout等异步API。</p>
+<h3 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h3><p>这里我们利用上面学到的知识，封装一个简单的web worker库，具体细节请看<a href="#">vue实战：实现vue-web-worker</a>。</p>
+<h2 id="参考资料-1"><a href="#参考资料-1" class="headerlink" title="参考资料"></a>参考资料</h2><p><a href="https://developer.mozilla.org/en-US/docs/Web/API/Worker/Worker">Worker</a><br><a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers">Using Web Worker</a></p>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><time class="level-item" dateTime="2019-07-22T00:00:01.000Z" title="2019-07-22T00:00:01.000Z">2019-07-22</time><span class="level-item"><a class="link-muted" href="/categories/html5/">html5</a><span> / </span><a class="link-muted" href="/categories/html5/html5%E6%A0%87%E7%AD%BE%E5%92%8C%E5%B1%9E%E6%80%A7/">html5标签和属性</a></span><span class="level-item">5 minutes read (About 789 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2019/07/22/html/html5%E6%96%B0%E6%A0%87%E7%AD%BE-%E5%B1%9E%E6%80%A7%E6%80%BB%E7%BB%93/">html5新标签/属性总结</a></h1><div class="content"><h2 id="结构型的标签"><a href="#结构型的标签" class="headerlink" title="结构型的标签"></a>结构型的标签</h2><p>html5新增了很多结构型的标签，这些标签没有默认样式，只设置了display:block，是块级元素，其作用主要是语义化，标签名就指示了这个标签所起的作用（除此之外，id、class都可以起到类似的作用，只要能反映标签的作用）。</p>
+<p>主要的结构标签有：header、footer、section、article、aside、main、hgroup、figure、figurecation</p>
+<p>结构化标签的作用：</p>
+<ul>
+<li>article：表示文档，一般有自己的头部、内容等，例如一篇博客文章，可以与header、footer等结合使用</li>
+<li>section：用于分块，每一个分块一般有自己的标题，article强调独立性、section强调分块<ul>
+<li>不要将section用作设置样式的页面容器，那是div的工作</li>
+<li>如果article、aside、nav更符合使用条件，不要使用section元素</li>
+<li>不要为没有标题的内容区块使用section元素</li>
+</ul>
+</li>
+<li>nav：导航，页面的导航或者文档的导航</li>
+<li>aside：页面或者文章的附属信息<h2 id="默认有margin的元素"><a href="#默认有margin的元素" class="headerlink" title="默认有margin的元素"></a>默认有margin的元素</h2>p、ul、figure、body、ol，menu，dir，dd</li>
+</ul>
+<h2 id="默认有padding的元素"><a href="#默认有padding的元素" class="headerlink" title="默认有padding的元素"></a>默认有padding的元素</h2><p>ul、ol，menu，dir，button</p>
+<h2 id="默认有background的元素"><a href="#默认有background的元素" class="headerlink" title="默认有background的元素"></a>默认有background的元素</h2><p>mark</p>
+<h2 id="全局属性"><a href="#全局属性" class="headerlink" title="全局属性"></a>全局属性</h2><p>全局属性是指在任何标签上都能使用的属性。这里所指的任何标签是任何支持该属性的标签，有些全局属性被所有的标签支持，例如id、class等，有些只能被部分支持，例如contenteditable。</p>
+<h3 id="contenteditable"><a href="#contenteditable" class="headerlink" title="contenteditable"></a>contenteditable</h3><p>将元素的contenteditable属性置为true，会让该元素变成可编辑的，聚焦到该标签上时，可以编辑该标签内的内容。编辑会直接修改元素的文本，暂时没有相关的API，只能通过innerHTML/textContent获取元素的内容。回车会创建新的被编辑的元素，li会创建新的li，section会创建新的section。</p>
+<h3 id="hidden"><a href="#hidden" class="headerlink" title="hidden"></a>hidden</h3><p>所有元素都允许使用hidden属性。该属性类似于input元素中的hidden元素。功能是通知浏览器不渲染该元素（元素为渲染前获取不到元素所处的位置），使元素处于不可见的状态，但是内容还是由浏览器创建，之后可以通过脚本取消。</p>
+<h3 id="tabindex"><a href="#tabindex" class="headerlink" title="tabindex"></a>tabindex</h3><p>tabindex决定了一个元素能不能获取焦点，以及是否参与到线性的键盘导航中（使用tab键进行切换）</p>
+<p>tabindex接受整数作为它的值：</p>
+<ul>
+<li>-1，取值-1表示该元素可以被focus，但是不能被tab聚焦（元素可以使用focus()聚焦）</li>
+<li>0，取值0表示tab顺序按照文档的顺序，是DOM的顺序，和元素显示的位置无关</li>
+<li>正整数如1、2、3，tab会先切换到小的，再切换到大的，值一样的按照dom的顺序切换</li>
+</ul>
+</div></article></div></div><div class="column column-left is-4-tablet is-4-desktop is-3-widescreen  order-1"><div class="card widget"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="/img/avatar.png" alt="Bright Wu"></figure><p class="title is-size-4 is-block line-height-inherit">Bright Wu</p><p class="is-size-6 is-block">working harder to be better</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>Beijing Chaoyang</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="/archives"><p class="title">154</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="/categories"><p class="title">84</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="/tags"><p class="title">115</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/wre232114" target="_blank" rel="noopener">Follow</a></div><div class="level is-mobile"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/wre232114"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Facebook" href="https://facebook.com"><i class="fab fa-facebook"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Twitter" href="https://twitter.com"><i class="fab fa-twitter"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Dribbble" href="https://dribbble.com"><i class="fab fa-dribbble"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="RSS" href="/"><i class="fas fa-rss"></i></a></div></div></div><!--!--><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">Links</h3><ul class="menu-list"><li><a class="level is-mobile is-mobile" href="https://hexo.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Hexo</span></span><span class="level-right"><span class="level-item tag">hexo.io</span></span></a></li><li><a class="level is-mobile is-mobile" href="https://brightblog.cn" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Bulma</span></span><span class="level-right"><span class="level-item tag">brightblog.cn</span></span></a></li></ul></div></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">Categories</h3><ul class="menu-list"><li><a class="level is-mobile is-marginless" href="/categories/Java/"><span class="level-start"><span class="level-item">Java</span></span><span class="level-end"><span class="level-item tag">1</span></span></a><ul class="mr-0"><li><a class="level is-mobile is-marginless" href="/categories/Java/spring%E5%AE%9E%E6%88%98/"><span class="level-start"><span class="level-item">spring实战</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile is-marginless" href="/categories/Open-Source/"><span class="level-start"><span class="level-item">Open Source</span></span><span class="level-end"><span class="level-item tag">1</span></span></a><ul class="mr-0"><li><a class="level is-mobile is-marginless" href="/categories/Open-Source/Huaxu/"><span class="level-start"><span class="level-item">Huaxu</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile is-marginless" href="/categories/Webpack/"><span class="level-start"><span class="level-item">Webpack</span></span><span class="level-end"><span class="level-item tag">2</span></span></a><ul class="mr-0"><li><a class="level is-mobile is-marginless" href="/categories/Webpack/Webpack%E5%9F%BA%E7%A1%80/"><span class="level-start"><span class="level-item">Webpack基础</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/Webpack/Webpack%E5%AE%9E%E6%88%98/"><span class="level-start"><span class="level-item">Webpack实战</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile is-marginless" href="/categories/css/"><span class="level-start"><span class="level-item">css</span></span><span class="level-end"><span class="level-item tag">10</span></span></a><ul class="mr-0"><li><a class="level is-mobile is-marginless" href="/categories/css/css%E5%9F%BA%E7%A1%80/"><span class="level-start"><span class="level-item">css基础</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/css/css%E5%B7%A5%E5%85%B7/"><span class="level-start"><span class="level-item">css工具</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/css/less/"><span class="level-start"><span class="level-item">less</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/css/sass/"><span class="level-start"><span class="level-item">sass</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile is-marginless" href="/categories/docker/"><span class="level-start"><span class="level-item">docker</span></span><span class="level-end"><span class="level-item tag">2</span></span></a><ul class="mr-0"><li><a class="level is-mobile is-marginless" href="/categories/docker/docker-swarm/"><span class="level-start"><span class="level-item">docker swarm</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/docker/docker%E5%9F%BA%E7%A1%80/"><span class="level-start"><span class="level-item">docker基础</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile is-marginless" href="/categories/git/"><span class="level-start"><span class="level-item">git</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/hexo/"><span class="level-start"><span class="level-item">hexo</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/html5/"><span class="level-start"><span class="level-item">html5</span></span><span class="level-end"><span class="level-item tag">8</span></span></a><ul class="mr-0"><li><a class="level is-mobile is-marginless" href="/categories/html5/dom/"><span class="level-start"><span class="level-item">dom</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/html5/html5-API/"><span class="level-start"><span class="level-item">html5 API</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/html5/html5%E6%A0%87%E7%AD%BE%E5%92%8C%E5%B1%9E%E6%80%A7/"><span class="level-start"><span class="level-item">html5标签和属性</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/html5/svg/"><span class="level-start"><span class="level-item">svg</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/html5/tips/"><span class="level-start"><span class="level-item">tips</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/html5/%E5%AE%9E%E6%88%98/"><span class="level-start"><span class="level-item">实战</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile is-marginless" href="/categories/js/"><span class="level-start"><span class="level-item">js</span></span><span class="level-end"><span class="level-item tag">6</span></span></a><ul class="mr-0"><li><a class="level is-mobile is-marginless" href="/categories/js/js%E5%9F%BA%E7%A1%80/"><span class="level-start"><span class="level-item">js基础</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/js/typescript/"><span class="level-start"><span class="level-item">typescript</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/js/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"><span class="level-start"><span class="level-item">正则表达式</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile is-marginless" href="/categories/linux/"><span class="level-start"><span class="level-item">linux</span></span><span class="level-end"><span class="level-item tag">1</span></span></a><ul class="mr-0"><li><a class="level is-mobile is-marginless" href="/categories/linux/%E5%B7%A5%E5%85%B7/"><span class="level-start"><span class="level-item">工具</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile is-marginless" href="/categories/nginx/"><span class="level-start"><span class="level-item">nginx</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/node-js/"><span class="level-start"><span class="level-item">node.js</span></span><span class="level-end"><span class="level-item tag">2</span></span></a><ul class="mr-0"><li><a class="level is-mobile is-marginless" href="/categories/node-js/npm/"><span class="level-start"><span class="level-item">npm</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/node-js/%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%B7%A5%E5%85%B7/"><span class="level-start"><span class="level-item">命令行工具</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile is-marginless" href="/categories/php/"><span class="level-start"><span class="level-item">php</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/spring-boot/"><span class="level-start"><span class="level-item">spring-boot</span></span><span class="level-end"><span class="level-item tag">1</span></span></a><ul class="mr-0"><li><a class="level is-mobile is-marginless" href="/categories/spring-boot/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/"><span class="level-start"><span class="level-item">开发工具</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile is-marginless" href="/categories/typescript/"><span class="level-start"><span class="level-item">typescript</span></span><span class="level-end"><span class="level-item tag">1</span></span></a><ul class="mr-0"><li><a class="level is-mobile is-marginless" href="/categories/typescript/%E8%B8%A9%E5%9D%91%E6%8C%87%E5%8D%97/"><span class="level-start"><span class="level-item">踩坑指南</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile is-marginless" href="/categories/vue/"><span class="level-start"><span class="level-item">vue</span></span><span class="level-end"><span class="level-item tag">11</span></span></a><ul class="mr-0"><li><a class="level is-mobile is-marginless" href="/categories/vue/cli/"><span class="level-start"><span class="level-item">cli</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/vue/tips/"><span class="level-start"><span class="level-item">tips</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/vue/vue-router/"><span class="level-start"><span class="level-item">vue-router</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/vue/vue%E5%AE%9E%E6%88%98/"><span class="level-start"><span class="level-item">vue实战</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/vue/vue%E7%BB%84%E4%BB%B6%E5%BC%80%E5%8F%91/"><span class="level-start"><span class="level-item">vue组件开发</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/vue/%E5%9F%BA%E7%A1%80/"><span class="level-start"><span class="level-item">基础</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li></ul></li><li><a class="level is-mobile is-marginless" href="/categories/xml/"><span class="level-start"><span class="level-item">xml</span></span><span class="level-end"><span class="level-item tag">1</span></span></a><ul class="mr-0"><li><a class="level is-mobile is-marginless" href="/categories/xml/%E5%9F%BA%E7%A1%80/"><span class="level-start"><span class="level-item">基础</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile is-marginless" href="/categories/%E5%AD%A6%E4%B9%A0%E6%89%93%E5%8D%A1/"><span class="level-start"><span class="level-item">学习打卡</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E5%AE%89%E5%85%A8/"><span class="level-start"><span class="level-item">安全</span></span><span class="level-end"><span class="level-item tag">3</span></span></a><ul class="mr-0"><li><a class="level is-mobile is-marginless" href="/categories/%E5%AE%89%E5%85%A8/%E5%AF%86%E7%A0%81%E6%8A%80%E6%9C%AF/"><span class="level-start"><span class="level-item">密码技术</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li></ul></li><li><a class="level is-mobile is-marginless" href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"><span class="level-start"><span class="level-item">操作系统</span></span><span class="level-end"><span class="level-item tag">23</span></span></a><ul class="mr-0"><li><a class="level is-mobile is-marginless" href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/shell/"><span class="level-start"><span class="level-item">shell</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/ucore/"><span class="level-start"><span class="level-item">ucore</span></span><span class="level-end"><span class="level-item tag">18</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/"><span class="level-start"><span class="level-item">操作系统原理</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li></ul></li><li><a class="level is-mobile is-marginless" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"><span class="level-start"><span class="level-item">数据库</span></span><span class="level-end"><span class="level-item tag">10</span></span></a><ul class="mr-0"><li><a class="level is-mobile is-marginless" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/mysql/"><span class="level-start"><span class="level-item">mysql</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/sql%E8%AF%AD%E5%8F%A5/"><span class="level-start"><span class="level-item">sql语句</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/%E5%AF%BC%E8%AE%BA/"><span class="level-start"><span class="level-item">导论</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%BC%96%E7%A8%8B/"><span class="level-start"><span class="level-item">数据库编程</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AE%BE%E8%AE%A1/"><span class="level-start"><span class="level-item">数据库设计</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li></ul></li><li><a class="level is-mobile is-marginless" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"><span class="level-start"><span class="level-item">数据结构</span></span><span class="level-end"><span class="level-item tag">1</span></span></a><ul class="mr-0"><li><a class="level is-mobile is-marginless" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%9B%BE/"><span class="level-start"><span class="level-item">图</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile is-marginless" href="/categories/%E6%A0%91%E8%8E%93%E6%B4%BE/"><span class="level-start"><span class="level-item">树莓派</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E6%AF%95%E8%AE%BE/"><span class="level-start"><span class="level-item">毕设</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E7%AE%97%E6%B3%95/"><span class="level-start"><span class="level-item">算法</span></span><span class="level-end"><span class="level-item tag">20</span></span></a><ul class="mr-0"><li><a class="level is-mobile is-marginless" href="/categories/%E7%AE%97%E6%B3%95/leetcode/"><span class="level-start"><span class="level-item">leetcode</span></span><span class="level-end"><span class="level-item tag">18</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E7%AE%97%E6%B3%95/%E6%A8%A1%E5%BC%8F%E5%8C%B9%E9%85%8D/"><span class="level-start"><span class="level-item">模式匹配</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E7%AE%97%E6%B3%95/%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2/"><span class="level-start"><span class="level-item">深度优先搜索</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile is-marginless" href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/"><span class="level-start"><span class="level-item">编程语言</span></span><span class="level-end"><span class="level-item tag">20</span></span></a><ul class="mr-0"><li><a class="level is-mobile is-marginless" href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C/"><span class="level-start"><span class="level-item">C</span></span><span class="level-end"><span class="level-item tag">1</span></span></a><ul class="mr-0"><li><a class="level is-mobile is-marginless" href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C/%E8%AF%AD%E8%A8%80/"><span class="level-start"><span class="level-item">语言</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile is-marginless" href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C%E8%AF%AD%E8%A8%80/"><span class="level-start"><span class="level-item">C语言</span></span><span class="level-end"><span class="level-item tag">17</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/"><span class="level-start"><span class="level-item">Java</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/java/"><span class="level-start"><span class="level-item">java</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile is-marginless" href="/categories/%E8%8B%B1%E8%AF%AD/"><span class="level-start"><span class="level-item">英语</span></span><span class="level-end"><span class="level-item tag">1</span></span></a><ul class="mr-0"><li><a class="level is-mobile is-marginless" href="/categories/%E8%8B%B1%E8%AF%AD/%E7%94%9F%E8%AF%8D/"><span class="level-start"><span class="level-item">生词</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile is-marginless" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"><span class="level-start"><span class="level-item">计算机网络</span></span><span class="level-end"><span class="level-item tag">3</span></span></a><ul class="mr-0"><li><a class="level is-mobile is-marginless" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/wireshark/"><span class="level-start"><span class="level-item">wireshark</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/"><span class="level-start"><span class="level-item">问题记录</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile is-marginless" href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"><span class="level-start"><span class="level-item">设计模式</span></span><span class="level-end"><span class="level-item tag">5</span></span></a><ul class="mr-0"><li><a class="level is-mobile is-marginless" href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E4%BA%A4%E7%BB%99%E5%AD%90%E7%B1%BB/"><span class="level-start"><span class="level-item">交给子类</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E7%94%9F%E6%88%90%E5%AE%9E%E4%BE%8B/"><span class="level-start"><span class="level-item">生成实例</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E9%80%82%E5%BA%94%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"><span class="level-start"><span class="level-item">适应设计模式</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li></ul></li></ul></div></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">Archives</h3><ul class="menu-list"><li><a class="level is-mobile is-marginless" href="/archives/2020/06/"><span class="level-start"><span class="level-item">June 2020</span></span><span class="level-end"><span class="level-item tag">8</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2020/05/"><span class="level-start"><span class="level-item">May 2020</span></span><span class="level-end"><span class="level-item tag">10</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2020/03/"><span class="level-start"><span class="level-item">March 2020</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2020/02/"><span class="level-start"><span class="level-item">February 2020</span></span><span class="level-end"><span class="level-item tag">18</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2020/01/"><span class="level-start"><span class="level-item">January 2020</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2019/12/"><span class="level-start"><span class="level-item">December 2019</span></span><span class="level-end"><span class="level-item tag">16</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2019/11/"><span class="level-start"><span class="level-item">November 2019</span></span><span class="level-end"><span class="level-item tag">29</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2019/10/"><span class="level-start"><span class="level-item">October 2019</span></span><span class="level-end"><span class="level-item tag">8</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2019/09/"><span class="level-start"><span class="level-item">September 2019</span></span><span class="level-end"><span class="level-item tag">9</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2019/08/"><span class="level-start"><span class="level-item">August 2019</span></span><span class="level-end"><span class="level-item tag">12</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2019/07/"><span class="level-start"><span class="level-item">July 2019</span></span><span class="level-end"><span class="level-item tag">17</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2019/06/"><span class="level-start"><span class="level-item">June 2019</span></span><span class="level-end"><span class="level-item tag">18</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2019/05/"><span class="level-start"><span class="level-item">May 2019</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li></ul></div></div></div><div class="column-right-shadow is-hidden-widescreen"></div></div><div class="column column-right is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only order-3"><div class="card widget"><div class="card-content"><h3 class="menu-label">Recent</h3><article class="media"><div class="media-content size-small"><p><time dateTime="2020-06-27T13:07:22.000Z">2020-06-27</time></p><p class="title is-6"><a class="link-muted" href="/2020/06/27/%E6%A0%91%E8%8E%93%E6%B4%BE/%E6%A0%91%E8%8E%93%E6%B4%BE3-5%E5%AF%B8%E6%98%BE%E7%A4%BA%E5%99%A8%E5%A5%97%E8%A3%85%E5%AE%89%E8%A3%85%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">树莓派3.5寸显示器套装安装操作系统</a></p><p class="is-uppercase"><a class="link-muted" href="/categories/%E6%A0%91%E8%8E%93%E6%B4%BE/">树莓派</a></p></div></article><article class="media"><div class="media-content size-small"><p><time dateTime="2020-06-15T00:21:47.000Z">2020-06-15</time></p><p class="title is-6"><a class="link-muted" href="/2020/06/15/opensource/%E8%B7%A8%E6%A1%86%E6%9E%B6%E3%80%81%E8%87%AA%E5%AE%9A%E4%B9%89%E4%B8%BB%E9%A2%98%E7%9A%84%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2%E7%B3%BB%E7%BB%9F%E5%8E%9F%E5%9E%8B%E6%A6%82%E8%A7%88/">跨框架、自定义主题的静态博客系统原型概览</a></p><p class="is-uppercase"><a class="link-muted" href="/categories/Open-Source/">Open Source</a> / <a class="link-muted" href="/categories/Open-Source/Huaxu/">Huaxu</a></p></div></article><article class="media"><div class="media-content size-small"><p><time dateTime="2020-06-15T00:18:37.000Z">2020-06-15</time></p><p class="title is-6"><a class="link-muted" href="/2020/06/15/webpack/webpack%E5%AE%9E%E6%88%98%EF%BC%9A%E6%89%93%E9%80%A0%E5%90%8C%E6%97%B6%E7%BC%96%E8%AF%91react%E5%92%8Cvue%E7%9A%84%E6%9E%84%E5%BB%BA%E5%BC%95%E6%93%8E/">webpack实战：打造同时编译react和vue的构建引擎</a></p><p class="is-uppercase"><a class="link-muted" href="/categories/Webpack/">Webpack</a> / <a class="link-muted" href="/categories/Webpack/Webpack%E5%AE%9E%E6%88%98/">Webpack实战</a></p></div></article><article class="media"><div class="media-content size-small"><p><time dateTime="2020-06-14T03:08:34.142Z">2020-06-14</time></p><p class="title is-6"><a class="link-muted" href="/2020/06/14/php/Smarty%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/">Smarty块度入门</a></p><p class="is-uppercase"><a class="link-muted" href="/categories/php/">php</a></p></div></article><article class="media"><div class="media-content size-small"><p><time dateTime="2020-06-14T03:08:34.122Z">2020-06-14</time></p><p class="title is-6"><a class="link-muted" href="/2020/06/14/git/%E5%9C%A8centos%E4%B8%8A%E6%90%AD%E5%BB%BAgit%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%BB%93%E5%BA%93/">在centos上搭建git服务器仓库</a></p><p class="is-uppercase"><a class="link-muted" href="/categories/git/">git</a></p></div></article></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">Tags</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/tags/Adapter%E6%A8%A1%E5%BC%8F/"><span class="tag">Adapter模式</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/C%E8%AF%AD%E8%A8%80/"><span class="tag">C语言</span><span class="tag is-grey-lightest">18</span></a></div><div class="control"><a class="tags has-addons" href="/tags/GCC/"><span class="tag">GCC</span><span class="tag is-grey-lightest">4</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Huaxu/"><span class="tag">Huaxu</span><span class="tag is-grey-lightest">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Iterator%E6%A8%A1%E5%BC%8F/"><span class="tag">Iterator模式</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Java/"><span class="tag">Java</span><span class="tag is-grey-lightest">3</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Linux%E5%91%BD%E4%BB%A4%E8%A1%8C%E4%B8%8Eshell%E8%84%9A%E6%9C%AC%E7%BC%96%E7%A8%8B/"><span class="tag">Linux命令行与shell脚本编程</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Maven/"><span class="tag">Maven</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Open-Source/"><span class="tag">Open Source</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/String/"><span class="tag">String</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Template-Method%E6%A8%A1%E5%BC%8F/"><span class="tag">Template Method模式</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Webpack/"><span class="tag">Webpack</span><span class="tag is-grey-lightest">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Webpack%E5%9F%BA%E7%A1%80/"><span class="tag">Webpack基础</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Webpack%E5%AE%9E%E6%88%98/"><span class="tag">Webpack实战</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/autoprefixer/"><span class="tag">autoprefixer</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/browserslist/"><span class="tag">browserslist</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/centos7%E5%B7%A5%E5%85%B7/"><span class="tag">centos7工具</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/css/"><span class="tag">css</span><span class="tag is-grey-lightest">7</span></a></div><div class="control"><a class="tags has-addons" href="/tags/css%E5%8D%95%E4%BD%8D/"><span class="tag">css单位</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/css%E5%9F%BA%E7%A1%80/"><span class="tag">css基础</span><span class="tag is-grey-lightest">5</span></a></div><div class="control"><a class="tags has-addons" href="/tags/css%E5%B7%A5%E5%85%B7/"><span class="tag">css工具</span><span class="tag is-grey-lightest">3</span></a></div><div class="control"><a class="tags has-addons" href="/tags/css%E5%B8%83%E5%B1%80/"><span class="tag">css布局</span><span class="tag is-grey-lightest">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/docker/"><span class="tag">docker</span><span class="tag is-grey-lightest">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/docker-swarm/"><span class="tag">docker swarm</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/docker%E5%9F%BA%E7%A1%80/"><span class="tag">docker基础</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/dom/"><span class="tag">dom</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/dom%E5%9F%BA%E7%A1%80/"><span class="tag">dom基础</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/git/"><span class="tag">git</span><span class="tag is-grey-lightest">4</span></a></div><div class="control"><a class="tags has-addons" href="/tags/hexo/"><span class="tag">hexo</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/html-Permission-API/"><span class="tag">html Permission API</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/html5/"><span class="tag">html5</span><span class="tag is-grey-lightest">8</span></a></div><div class="control"><a class="tags has-addons" href="/tags/html5-API/"><span class="tag">html5 API</span><span class="tag is-grey-lightest">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/html5%E6%A0%87%E7%AD%BE%E5%92%8C%E5%B1%9E%E6%80%A7/"><span class="tag">html5标签和属性</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/js/"><span class="tag">js</span><span class="tag is-grey-lightest">6</span></a></div><div class="control"><a class="tags has-addons" href="/tags/js%E5%9F%BA%E7%A1%80/"><span class="tag">js基础</span><span class="tag is-grey-lightest">4</span></a></div><div class="control"><a class="tags has-addons" href="/tags/js%E5%AF%B9%E8%B1%A1/"><span class="tag">js对象</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/js%E5%AF%B9%E8%B1%A1%E7%B1%BB%E5%9E%8B%E5%88%A4%E6%96%AD/"><span class="tag">js对象类型判断</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/js%E6%95%B0%E7%BB%84/"><span class="tag">js数组</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/leetcode/"><span class="tag">leetcode</span><span class="tag is-grey-lightest">18</span></a></div><div class="control"><a class="tags has-addons" href="/tags/less/"><span class="tag">less</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/linux%E5%91%BD%E4%BB%A4/"><span class="tag">linux命令</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/linux%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5/"><span class="tag">linux远程连接</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/mysql/"><span class="tag">mysql</span><span class="tag is-grey-lightest">5</span></a></div><div class="control"><a class="tags has-addons" href="/tags/nginx/"><span class="tag">nginx</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/node-js/"><span class="tag">node.js</span><span class="tag is-grey-lightest">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/npm/"><span class="tag">npm</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/postcss/"><span class="tag">postcss</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/spring/"><span class="tag">spring</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/spring-boot/"><span class="tag">spring-boot</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/spring%E5%AE%9E%E6%88%98/"><span class="tag">spring实战</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/sql%E8%AF%AD%E5%8F%A5/"><span class="tag">sql语句</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/ssh/"><span class="tag">ssh</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/svg/"><span class="tag">svg</span><span class="tag is-grey-lightest">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/svg%E5%9F%BA%E7%A1%80/"><span class="tag">svg基础</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/svg%E5%AE%9A%E4%BD%8D/"><span class="tag">svg定位</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/tips/"><span class="tag">tips</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/tslint%E5%9F%BA%E7%A1%80/"><span class="tag">tslint基础</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/typescript/"><span class="tag">typescript</span><span class="tag is-grey-lightest">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/ucore/"><span class="tag">ucore</span><span class="tag is-grey-lightest">18</span></a></div><div class="control"><a class="tags has-addons" href="/tags/ucore-os/"><span class="tag">ucore-os</span><span class="tag is-grey-lightest">3</span></a></div><div class="control"><a class="tags has-addons" href="/tags/vue/"><span class="tag">vue</span><span class="tag is-grey-lightest">11</span></a></div><div class="control"><a class="tags has-addons" href="/tags/vue-cli/"><span class="tag">vue-cli</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/vue-router/"><span class="tag">vue-router</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/vue-tips/"><span class="tag">vue-tips</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/vue%E5%8D%9A%E5%AE%A2%E5%90%8E%E5%8F%B0%E5%BC%80%E5%8F%91/"><span class="tag">vue博客后台开发</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/vue%E5%9F%BA%E7%A1%80/"><span class="tag">vue基础</span><span class="tag is-grey-lightest">3</span></a></div><div class="control"><a class="tags has-addons" href="/tags/vue%E5%AE%9E%E6%88%98/"><span class="tag">vue实战</span><span class="tag is-grey-lightest">3</span></a></div><div class="control"><a class="tags has-addons" href="/tags/vue%E7%BB%84%E4%BB%B6%E5%BC%80%E5%8F%91/"><span class="tag">vue组件开发</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/vue%E8%BF%9B%E9%98%B6/"><span class="tag">vue进阶</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/wireshark/"><span class="tag">wireshark</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/xml/"><span class="tag">xml</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E3%80%8AC-Primer%E3%80%8B/"><span class="tag">《C Primer》</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E3%80%8AC%E8%AF%AD%E8%A8%80%E7%BC%96%E7%A8%8B%E9%AD%94%E6%B3%95%E4%B9%A6%E3%80%8B/"><span class="tag">《C语言编程魔法书》</span><span class="tag is-grey-lightest">12</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E3%80%8ALinux%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%92%8CShell%E8%84%9A%E6%9C%AC%E7%BC%96%E7%A8%8B%E3%80%8B/"><span class="tag">《Linux命令行和Shell脚本编程》</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E3%80%8A%E5%9B%BE%E8%A7%A3%E5%AF%86%E7%A0%81%E6%8A%80%E6%9C%AF%E3%80%8B/"><span class="tag">《图解密码技术》</span><span class="tag is-grey-lightest">3</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/"><span class="tag">二叉树</span><span class="tag is-grey-lightest">5</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E4%BA%A4%E7%BB%99%E5%AD%90%E7%B1%BB/"><span class="tag">交给子类</span><span class="tag is-grey-lightest">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%88%86%E6%B2%BB/"><span class="tag">分治</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"><span class="tag">动态规划</span><span class="tag is-grey-lightest">8</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%8D%95%E8%AF%8D/"><span class="tag">单词</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%B7%A5%E5%85%B7/"><span class="tag">命令行工具</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%9B%BE/"><span class="tag">图</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%9F%BA%E7%A1%80/"><span class="tag">基础</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%AE%89%E5%85%A8/"><span class="tag">安全</span><span class="tag is-grey-lightest">3</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%AE%9E%E6%88%98/"><span class="tag">实战</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%AF%86%E7%A0%81%E6%8A%80%E6%9C%AF/"><span class="tag">密码技术</span><span class="tag is-grey-lightest">3</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%AF%BC%E8%AE%BA/"><span class="tag">导论</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/"><span class="tag">开发工具</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8B/"><span class="tag">异步编程</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"><span class="tag">操作系统</span><span class="tag is-grey-lightest">22</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/"><span class="tag">操作系统原理</span><span class="tag is-grey-lightest">3</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%95%B0%E5%AD%A6/"><span class="tag">数学</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"><span class="tag">数据库</span><span class="tag is-grey-lightest">10</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%BC%96%E7%A8%8B/"><span class="tag">数据库编程</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AE%BE%E8%AE%A1/"><span class="tag">数据库设计</span><span class="tag is-grey-lightest">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"><span class="tag">数据结构</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%95%B0%E7%BB%84/"><span class="tag">数组</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%9D%83%E9%99%90/"><span class="tag">权限</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/"><span class="tag">树莓派</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%A8%A1%E5%BC%8F%E5%8C%B9%E9%85%8D/"><span class="tag">模式匹配</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"><span class="tag">正则表达式</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%AF%95%E8%AE%BE/"><span class="tag">毕设</span><span class="tag is-grey-lightest">5</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2/"><span class="tag">深度优先搜索</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E7%94%9F%E6%88%90%E5%AE%9E%E4%BE%8B/"><span class="tag">生成实例</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E7%AE%97%E6%B3%95/"><span class="tag">算法</span><span class="tag is-grey-lightest">20</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/"><span class="tag">编程语言</span><span class="tag is-grey-lightest">20</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E8%8B%B1%E8%AF%AD/"><span class="tag">英语</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"><span class="tag">计算机网络</span><span class="tag is-grey-lightest">3</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"><span class="tag">设计模式</span><span class="tag is-grey-lightest">5</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"><span class="tag">读书笔记</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E8%B8%A9%E5%9D%91%E6%8C%87%E5%8D%97/"><span class="tag">踩坑指南</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E9%80%82%E5%BA%94%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"><span class="tag">适应设计模式</span><span class="tag is-grey-lightest">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E9%93%BE%E8%A1%A8/"><span class="tag">链表</span><span class="tag is-grey-lightest">5</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/"><span class="tag">问题记录</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E9%AB%98%E6%95%B01/"><span class="tag">高数1</span><span class="tag is-grey-lightest">1</span></a></div></div></div></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">Subscribe to Updates</h3><form action="https://feedburner.google.com/fb/a/mailverify" method="post" target="popupwindow" onsubmit="window.open(&#039;https://feedburner.google.com/fb/a/mailverify?uri=&#039;,&#039;popupwindow&#039;,&#039;scrollbars=yes,width=550,height=520&#039;);return true"><input type="hidden" value="" name="uri"><input type="hidden" name="loc" value="en_US"><div class="field has-addons"><div class="control has-icons-left is-expanded"><input class="input" name="email" type="email" placeholder="Email"><span class="icon is-small is-left"><i class="fas fa-envelope"></i></span></div><div class="control"><input class="button is-primary" type="submit" value="Subscribe"></div></div></form></div></div></div></div></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/img/logo.svg" alt="Bright的个人博客" height="28"></a><p class="size-small"><span>&copy; 2020 Bright</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script>moment.locale("default");</script><script>var IcarusThemeSettings = {
+            site: {
+                url: 'https://www.brightblog.cn',
+                external_link: {"enable":true,"exclude":[]}
+            },
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script src="/js/animation.js"></script><a id="back-to-top" title="Back to Top" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><script type="text/x-mathjax-config">MathJax.Hub.Config({
+            'HTML-CSS': {
+                matchFontHeight: false
+            },
+            SVG: {
+                matchFontHeight: false
+            },
+            CommonHTML: {
+                matchFontHeight: false
+            },
+            tex2jax: {
+                inlineMath: [
+                    ['$','$'],
+                    ['\\(','\\)']
+                ]
+            }
+        });</script><script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="Type something..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"Type something...","untitled":"(Untitled)","posts":"Posts","pages":"Pages","categories":"Categories","tags":"Tags"});
+        });</script></body></html>

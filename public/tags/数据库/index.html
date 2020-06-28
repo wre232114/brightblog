@@ -1,251 +1,500 @@
-<!DOCTYPE html>
-<html>
-
-  <head><meta name="generator" content="Hexo 3.8.0">
-  <meta charset="utf-8">
-  
-    <title>
-      
-        tag: 数据库 |
-          
-            Bright的个人博客
-    </title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link rel="stylesheet" href="/css/reset.css">
-      <link rel="stylesheet" href="/css/style.css">
-        <link rel="stylesheet" href="/css/github-markdown.css">
-          <link rel="stylesheet" href="/css/atom-one-dark.css">
-            
-</head>
-
-    <body>
-      
-        <header id="header" class="card">
-  <span class="logo">B</span>
-  <span class="motto">技术 & 梦想 |&nbsp;学习 & 总结</span>
-  <nav>
-    <ul>
-    
-      <li>
-        <a href="/">首页 </a>
-      </li>
-    
-      <li>
-        <a href="/archives">归档 </a>
-      </li>
-    
-      <li>
-        <a href="/categories">分类 </a>
-      </li>
-    
-      <li>
-        <div class="search-input">
-          <i class="fa search"></i>
-          <input id="search-input" type="text">
-        </div>
-      </li>
-    </ul>
-  </nav>
-</header>
-          <main id="main">
-            
-              
-<aside id="left-sidebar" class="margin-right">
-  <nav class="card sidebar-component">
-  <div class="card-title">文章归档</div>
-  <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a><span class="archive-list-count">18</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a><span class="archive-list-count">17</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a><span class="archive-list-count">30</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a><span class="archive-list-count">15</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a><span class="archive-list-count">17</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a><span class="archive-list-count">18</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a><span class="archive-list-count">2</span></li></ul>
-</nav>
-  <nav class="card sidebar-component">
-  <div class="card-title">文章分类</div>
-  <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/css/">css</a><span class="category-list-count">10</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/css/css基础/">css基础</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/css工具/">css工具</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/less/">less</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/sass/">sass</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/docker/">docker</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/docker/docker-swarm/">docker swarm</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/docker/docker基础/">docker基础</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">git</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html5/">html5</a><span class="category-list-count">8</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/html5/dom/">dom</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html5/html5-API/">html5 API</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html5/html5标签和属性/">html5标签和属性</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html5/svg/">svg</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html5/tips/">tips</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html5/实战/">实战</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/">java</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/java/spring实战/">spring实战</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/js/">js</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/js/js基础/">js基础</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/js/typescript/">typescript</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/js/正则表达式/">正则表达式</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/linux/工具/">工具</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/nginx/">nginx</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node-js/">node.js</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/node-js/npm/">npm</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node-js/命令行工具/">命令行工具</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/php/">php</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/spring-boot/">spring-boot</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/spring-boot/开发工具/">开发工具</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/typescript/">typescript</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/typescript/踩坑指南/">踩坑指南</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/">vue</a><span class="category-list-count">11</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/vue/cli/">cli</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/tips/">tips</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/vue-router/">vue-router</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/vue实战/">vue实战</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/vue组件开发/">vue组件开发</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/基础/">基础</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/webpack/">webpack</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/webpack/webpack基础/">webpack基础</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/xml/">xml</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/xml/基础/">基础</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/学习打卡/">学习打卡</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/安全/">安全</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/安全/密码技术/">密码技术</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/操作系统/">操作系统</a><span class="category-list-count">23</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/操作系统/shell/">shell</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/操作系统/ucore/">ucore</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/操作系统/操作系统原理/">操作系统原理</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据库/">数据库</a><span class="category-list-count">10</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/数据库/mysql/">mysql</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据库/sql语句/">sql语句</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据库/导论/">导论</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据库/数据库编程/">数据库编程</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据库/数据库设计/">数据库设计</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据结构/">数据结构</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/数据结构/图/">图</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/毕设/">毕设</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/">算法</a><span class="category-list-count">20</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/算法/leetcode/">leetcode</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/模式匹配/">模式匹配</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/深度优先搜索/">深度优先搜索</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程语言/">编程语言</a><span class="category-list-count">20</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/编程语言/C/">C</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/编程语言/C/语言/">语言</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程语言/C语言/">C语言</a><span class="category-list-count">17</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程语言/Java/">Java</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程语言/java/">java</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/英语/">英语</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/英语/生词/">生词</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/计算机网络/">计算机网络</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/计算机网络/wireshark/">wireshark</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/计算机网络/问题记录/">问题记录</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/设计模式/">设计模式</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/设计模式/交给子类/">交给子类</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/设计模式/生成实例/">生成实例</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/设计模式/适应设计模式/">适应设计模式</a><span class="category-list-count">2</span></li></ul></li></ul>
-</nav>
-  <nav class="card sidebar-component">
-  <div class="card-title">最近文章</div>
-  <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2020/05/19/algorithm/leetcode/动态规划/interleaving-string/">interleaving string</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/17/algorithm/leetcode/分治/maximum-product-subarray/">maximum product subarray</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/15/algorithm/leetcode/动态规划/triangle/">triangle</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/12/algorithm/leetcode/动态规划/unique-binary-search-trees-ii/">unique binary search trees ii</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/11/algorithm/leetcode/动态规划/decode-ways/">decode-ways</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/09/algorithm/leetcode/动态规划/unique-path-II/">unique path II</a></li></ul>
-</nav>
-</aside>
-
-
-                <!--
-<aside id="right-sidebar">
-  <nav class="card margin-bottom">
-  
-</nav>
-</aside>
-
--->
-                <article id="article" class="margin-right ofhidn">
-                  
-  
-    
-      
-        
-            
-              <section class="bread-wrap">
-                <a href="/archives/2020" class="cate-name">
-                  2020
-                </a>
-              </section>
-              <div class="archives">
-                
-                  <div class="post-entry card">
-  <a href="/2020/02/25/database/mysql/mysql添加新账户并设置远程可访问/">
-    <h3>mysql添加新账户并设置远程可访问
-      <span class="title-right">数据库</span>
-    </h3>
-    <div class="content">这篇文章学习mysql中的用户创建和权限管理，最终的成果是创建一个新的只拥有某一个数据库访问权限的账户，同时开启这个账户的远程访问权限。参考资料是《mysql技术内幕》的第十三章。
-MySQL账户管理</div>
-    <div class="post-time">2020-02-25</div>
-  </a>
-</div>
-                    
-    
-      
-                  <div class="post-entry card">
-  <a href="/2020/02/20/database/MySQL技术内幕/mysql语法1：建立数据库和表/">
-    <h3>mysql语法1：建立数据库和表
-      <span class="title-right">数据库</span>
-    </h3>
-    <div class="content">这篇文章给出mysql中建立数据库和表的详细语法。如果不记得详细语法，在mysql客户端中可以通过help create database或者help create table来获取语法参考，如下例：</div>
-    <div class="post-time">2020-02-20</div>
-  </a>
-</div>
-                    
-    
-      
-                  <div class="post-entry card">
-  <a href="/2020/02/11/database/数据库系统全书/4-关系代数/">
-    <h3>4.关系代数
-      <span class="title-right">数据库</span>
-    </h3>
-    <div class="content">前面复习的是数据库设计，包括如何建模（E/R模型），如何转化为实际的数据库模型（关系模型）以及设计消除冗余等异常的关系（BCNF，四范式、散范式）。这里开始复习数据库编程的设计，即用户如何查询和修改数</div>
-    <div class="post-time">2020-02-11</div>
-  </a>
-</div>
-                    
-    
-      
-                  <div class="post-entry card">
-  <a href="/2020/02/07/database/数据库系统全书/3-关系数据模型/">
-    <h3>3.关系数据模型
-      <span class="title-right">数据库</span>
-    </h3>
-    <div class="content">前面学的E/R模型是对于现实世界进行建模的一种很好的方式，但是其不好实现。现今的数据库实现通常使用关系数据模型。关系模型只有一个概念：“关系”，即组织数据的一种二维表。E/R符号用于设计数据库并阐述数</div>
-    <div class="post-time">2020-02-07</div>
-  </a>
-</div>
-                    
-    
-      
-                  <div class="post-entry card">
-  <a href="/2020/02/06/database/数据库系统全书/2-实体-联系数据模型/">
-    <h3>2.实体-联系数据模型
-      <span class="title-right">数据库</span>
-    </h3>
-    <div class="content">复习要点大全本篇复习笔记的要点，分成大概下面几个部分：
-
-1.E/R图的基础知识：E/R的组成、表示及其细节等
-数据库建模的步骤：构思-&amp;gt;E/R模型-&amp;gt;关系模型-&amp;gt;关系DBMS
-E/</div>
-    <div class="post-time">2020-02-06</div>
-  </a>
-</div>
-                    
-    
-      
-                  <div class="post-entry card">
-  <a href="/2020/02/05/database/数据库系统全书/1-数据库系统导论/">
-    <h3>1.数据库系统导论
-      <span class="title-right">数据库</span>
-    </h3>
-    <div class="content">顾名思义，数据库就是存储数据的仓库，是信息的集合。这些数据一定是能够长期存储的，不会因断电而丢失，所以数据库中的数据一般存储在磁盘等永久存储器材中，而不是RAM（随机访问内存，或者运行内存，断电会丢失</div>
-    <div class="post-time">2020-02-05</div>
-  </a>
-</div>
-                    
-    
-      
-        
-          </div>
-          
-          
-            
-              <section class="bread-wrap">
-                <a href="/archives/2019" class="cate-name">
-                  2019
-                </a>
-              </section>
-              <div class="archives">
-                
-                  <div class="post-entry card">
-  <a href="/2019/11/28/database/mysql/MySql-Workbench-生成表关系图/">
-    <h3>MySql Workbench 生成表关系图
-      <span class="title-right">数据库</span>
-    </h3>
-    <div class="content">这篇文章学习如何在mysql workbench上，根据已有的表生成关系图。当刚刚上手一个数据库的时候，如果能有该数据库的关系图的话，能够更好更快的掌握数据库各部分的功能及其相互关系。
-反向工程已有数</div>
-    <div class="post-time">2019-11-28</div>
-  </a>
-</div>
-                    
-    
-      
-                  <div class="post-entry card">
-  <a href="/2019/09/25/database/MySQL技术内幕/MySQL数据类型/">
-    <h3>MySQL数据类型
-      <span class="title-right">数据库</span>
-    </h3>
-    <div class="content">这篇文章主要介绍mysql的数据类型，基于《MySQL技术内幕》的第三章，主要内容是mysql中的详细数据类型、类型转换以及如何对数据进行处理。
-要点总结
-数据值类别：mysql数据库中能够存储如下类</div>
-    <div class="post-time">2019-09-25</div>
-  </a>
-</div>
-                    
-    
-      
-                  <div class="post-entry card">
-  <a href="/2019/08/17/database/数据库系统全书/5-数据库语言sql/">
-    <h3>5.数据库语言sql
-      <span class="title-right">数据库</span>
-    </h3>
-    <div class="content">《数据库系统全书》读书笔记，主要包括书中有关sql部分，主要是的第六章和第七章。这里记录了最常用的sql语法及其详细的语法规则。这一系列读书笔记作为数据库系统原理课程同步复习笔记，综合了课程所学和书中</div>
-    <div class="post-time">2019-08-17</div>
-  </a>
-</div>
-                    
-    
-      
-                  <div class="post-entry card">
-  <a href="/2019/05/24/database/mysql/centos-下安装mysql/">
-    <h3>centos 下安装mysql
-      <span class="title-right">数据库</span>
-    </h3>
-    <div class="content">安装client
-yum install mysql
-
-这会安装client，这时如果输入mysql，会显示：
-
-ERROR 2002 (HY000): Can’t connect to local </div>
-    <div class="post-time">2019-05-24</div>
-  </a>
-</div>
-                    
-                      
-              </div>
-              
-              
-                </article>
-          </main>
-          <footer id="footer">
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2020 Bright<br>
-      powered_by <a href="http://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
-</footer>
-<script src="/js/script.js"></script>
-    </body>
-
-</html>
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8"><meta name="generator" content="Hexo 4.2.1"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>Tag: 数据库 - Bright的个人博客</title><meta description="前端开发的技术分享和个人笔记总结"><meta property="og:type" content="blog"><meta property="og:title" content="Bright的个人博客"><meta property="og:url" content="https://www.brightblog.cn/"><meta property="og:site_name" content="Bright的个人博客"><meta property="og:description" content="前端开发的技术分享和个人笔记总结"><meta property="og:image" content="https://www.brightblog.cn/img/og_image.png"><meta property="article:author" content="Bright"><meta property="article:tag" content="前端开发 个人博客"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="/img/og_image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.brightblog.cn"},"headline":"Bright的个人博客","image":["https://www.brightblog.cn/img/og_image.png"],"author":{"@type":"Person","name":"Bright"},"description":"前端开发的技术分享和个人笔记总结"}</script><link rel="icon" href="/img/favicon.svg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css"><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script></head><body class="is-3-column"><nav class="navbar navbar-main"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="Bright的个人博客" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-6-widescreen"><div class="card"><div class="card-content"><nav class="breadcrumb" aria-label="breadcrumbs"><ul><li><a href="/tags">Tags</a></li><li class="is-active"><a href="#" aria-current="page">数据库</a></li></ul></nav></div></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><time class="level-item" dateTime="2020-02-25T07:57:14.000Z" title="2020-02-25T07:57:14.000Z">2020-02-25</time><span class="level-item"><a class="link-muted" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a><span> / </span><a class="link-muted" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/mysql/">mysql</a></span><span class="level-item">4 minutes read (About 555 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2020/02/25/database/mysql/mysql%E6%B7%BB%E5%8A%A0%E6%96%B0%E8%B4%A6%E6%88%B7%E5%B9%B6%E8%AE%BE%E7%BD%AE%E8%BF%9C%E7%A8%8B%E5%8F%AF%E8%AE%BF%E9%97%AE/">mysql添加新账户并设置远程可访问</a></h1><div class="content"><p>这篇文章学习mysql中的用户创建和权限管理，最终的成果是创建一个新的只拥有某一个数据库访问权限的账户，同时开启这个账户的远程访问权限。参考资料是《mysql技术内幕》的第十三章。</p>
+<h2 id="MySQL账户管理"><a href="#MySQL账户管理" class="headerlink" title="MySQL账户管理"></a>MySQL账户管理</h2><p>参考另一篇博客，<a href="#">mysql安全性和访问控制</a></p>
+<h2 id="示例：添加新用户、授权并开启远程访问"><a href="#示例：添加新用户、授权并开启远程访问" class="headerlink" title="示例：添加新用户、授权并开启远程访问"></a>示例：添加新用户、授权并开启远程访问</h2><ol>
+<li><p>创建新用户</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">user</span> <span class="string">'valner'</span>@<span class="string">'%'</span> <span class="keyword">identified</span> <span class="keyword">by</span> <span class="string">'密码'</span>;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>为新用户赋予指定数据库的访问权限</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">grant</span> <span class="keyword">ALL</span> <span class="keyword">on</span> valner.* <span class="keyword">to</span> <span class="string">'valner'</span>@<span class="string">'%'</span>;</span><br></pre></td></tr></table></figure>
+<p>mysql的账户名有用户名（登陆用的）和主机地址以及字符<code>@</code>组成，格式是<code>&#39;username&#39;@&#39;hostname&#39;</code>。同一个username，但是hostname不一样视为不同的用户，这也是为什么<code>&#39;root&#39;@&#39;localhost&#39;</code>（默认账户）远程登陆不上，因为root只允许在localhost登陆，如果需要开启远程登陆，可以指定’%’表示在所有机器上都可以登陆，也可以指定具体的域名或者ip地址或者通配符。</p>
+</li>
+</ol>
+<h3 id="踩坑记录"><a href="#踩坑记录" class="headerlink" title="踩坑记录"></a>踩坑记录</h3><p>正常来说按照上面的设置应该是可以正常远程访问的。但是，首先操作系统会有防火墙，mysql使用的3306端口不一定会对外开放；所以一定要在防火墙开放3306端口。在centos7下可以使用<code>firewall</code>、<code>iptables</code>。</p>
+<p>其次，我们一般使用的是云服务器，云服务器提供商出于安全的考虑，可能限制服务器开放的端口，需要我们在运营商的后台手动配置开放的端口。我这里买的是阿里云的服务器，阿里云的云服务器就会限制对外网开放的端口，需要手动在阿里云网站的管理后台来手动添加开发的端口。（查了半天这个原因，明明firewall和iptables服务都没有启动，但是3306端口就是不开放。）</p>
+<p>还可以通过<code>nmap</code>工具来扫描服务器开放的端口。</p>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><time class="level-item" dateTime="2020-02-20T11:08:04.000Z" title="2020-02-20T11:08:04.000Z">2020-02-20</time><span class="level-item"><a class="link-muted" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a><span> / </span><a class="link-muted" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/mysql/">mysql</a></span><span class="level-item">a minute read (About 188 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2020/02/20/database/MySQL%E6%8A%80%E6%9C%AF%E5%86%85%E5%B9%95/mysql%E8%AF%AD%E6%B3%951%EF%BC%9A%E5%BB%BA%E7%AB%8B%E6%95%B0%E6%8D%AE%E5%BA%93%E5%92%8C%E8%A1%A8/">mysql语法1：建立数据库和表</a></h1><div class="content"><p>这篇文章给出mysql中建立数据库和表的详细语法。如果不记得详细语法，在mysql客户端中可以通过<code>help create database</code>或者<code>help create table</code>来获取语法参考，如下例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; help create database</span><br><span class="line">Name: &#39;CREATE DATABASE&#39;</span><br><span class="line">Description:</span><br><span class="line">Syntax:</span><br><span class="line">CREATE &#123;DATABASE | SCHEMA&#125; [IF NOT EXISTS] db_name</span><br><span class="line">    [create_specification] ...</span><br><span class="line"></span><br><span class="line">create_specification:</span><br><span class="line">    [DEFAULT] CHARACTER SET [&#x3D;] charset_name</span><br><span class="line">  | [DEFAULT] COLLATE [&#x3D;] collation_name</span><br><span class="line"></span><br><span class="line">CREATE DATABASE creates a database with the given name. To use this</span><br><span class="line">statement, you need the CREATE privilege for the database. CREATE</span><br><span class="line">SCHEMA is a synonym for CREATE DATABASE.</span><br><span class="line"></span><br><span class="line">URL: https:&#x2F;&#x2F;dev.mysql.com&#x2F;doc&#x2F;refman&#x2F;5.7&#x2F;en&#x2F;create-database.html</span><br></pre></td></tr></table></figure></p>
+<h2 id="建立数据库"><a href="#建立数据库" class="headerlink" title="建立数据库"></a>建立数据库</h2><p>语法，采用上下文无关文法表示，其中<code>{}</code>表示是必须的，<code>[]</code>表示是可选的：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">CREATE &#123;DATABASE | SCHEMA&#125; [IF NOT EXISTS] db_name</span><br><span class="line">    [create_specification] ...</span><br><span class="line"></span><br><span class="line">create_specification:</span><br><span class="line">    [DEFAULT] CHARACTER SET [&#x3D;] charset_name</span><br><span class="line">    | [DEFAULT] COLLATE [&#x3D;] collation_name</span><br></pre></td></tr></table></figure></p>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><time class="level-item" dateTime="2020-02-11T01:48:16.000Z" title="2020-02-11T01:48:16.000Z">2020-02-11</time><span class="level-item"><a class="link-muted" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a><span> / </span><a class="link-muted" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%BC%96%E7%A8%8B/">数据库编程</a></span><span class="level-item">14 minutes read (About 2131 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2020/02/11/database/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%85%A8%E4%B9%A6/4-%E5%85%B3%E7%B3%BB%E4%BB%A3%E6%95%B0/">4.关系代数</a></h1><div class="content"><p>前面复习的是数据库设计，包括如何建模（E/R模型），如何转化为实际的数据库模型（关系模型）以及设计消除冗余等异常的关系（BCNF，四范式、散范式）。这里开始复习数据库编程的设计，即用户如何查询和修改数据库的内容，从关系代数开始。</p>
+<p><code>关系代数</code>能够描述关系上的操作，包括并、差、笛卡儿集、选择、投影、连接等。关系代数能够描述如何从给定的关系中查询和修改特定的元组，sql等高级语言就以关系代数作为工具来对关系数据库进行查询和修改。</p>
+<h2 id="复习要点"><a href="#复习要点" class="headerlink" title="复习要点"></a>复习要点</h2><ul>
+<li>一般系统将关系看成<code>包</code>而不是<code>集合</code>，<code>包</code>允许重复的元组（没有键约束的情况下）<h3 id="基于集合的关系代数"><a href="#基于集合的关系代数" class="headerlink" title="基于集合的关系代数"></a>基于集合的关系代数</h3></li>
+<li>关系代数基础：代数一定有操作符和原子操作数，关系代数的操作数是关系，操作符是关系操作。<ul>
+<li><code>关系代数</code>的原子操作数是：1.代表关系的变量。2.代表有限关系的常量。</li>
+<li>操作符是：1.并、交、差。2.除去某些行或者列的操作；<code>选择</code>是除去行，<code>投影</code>是除去列。3.组合两个关系元组的操作；有笛卡儿运算（两个关系所有可能的元组配对方式）、连接（两个关系选择一些元组配对）。4.重命名，改变属性的名称或者关系的名称</li>
+<li><strong>关系代数的表达式称为查询</strong>。</li>
+<li><strong>关系代数的所有操作得到的结果集合都会去重。</strong></li>
+</ul>
+</li>
+<li>1.关系的集合操作：并（union）、交（intersection）、差（difference）。<strong>所有集合操作会将结果去重！！</strong><ul>
+<li>并（$R \cup U$）：得到R中、U中以及R和U中都有的元组组成的关系。</li>
+<li>交（$R \cap U$）：得到R和U中都有的元组组成的关系。</li>
+<li>差（$R-U$）：得到在R中但是不在U中的元组组成的关系。</li>
+<li>上述运算需要添加条件才能进行：1.R和S必须是具有同样属性的关系。2.R和S的列必须是一一对应的。如果要对属性个数相同、但是名称不同的关系进行集合操作，需要使用重命名操作。</li>
+</ul>
+</li>
+<li>2.投影（projection）：投影用来生成新的关系，这个关系只包含原来关系R的部分列。$\pi_{A_1,A_2,…,A_n}(R)$表示R在${A_1,A_2,…,A_n}$上的投影，即投影得到的关系由${A_1,A_2,…,A_n}$这些属性组成。</li>
+<li>3.选择（selection）：通过选择的条件筛选元组得到新关系。$\sigma_{c}(R)$表示R中满足条件c的元组组成的关系。c是条件表达式，可以使用$=\gt\le$等比较符以及AND、OR等连接符。</li>
+<li>4.笛卡尔集：表示为$R\times S$，表示R和S中所有元素的组合，如果R中有两个元组，S中有三个元组，那么$R\times S$有6个元组。</li>
+<li>5.连接：笛卡儿集是两个关系中元组任意组合，而连接是只将满足条件的特定元组组合。连接分为：<ul>
+<li><strong>自然连接</strong>：如果两个关系有相同的属性，那么在两个关系中满足相同属性的值相同的元组会被连接。例如R(A,B)和S(B,C)，关系R和S有相同属性B，那么自然连接将R和S中B相同的元组连接起来。得到的关系是$R\Join S=T(A,B,C)$，B只会出现一次。<strong>注意R和S中每两个元组都需要尝试进行配对。</strong></li>
+<li><strong>$\theta$连接</strong>：将满足给定条件的元组进行连接，记作$R\underset{C}{\Join} S$，相当于：1.求$R\times S$。再选择满足条件C的元组。R和S中的相同元素会出现两次，例如T(A,R.B,S.B,C)。</li>
+</ul>
+</li>
+<li>6.组合上述操作：通过组合上述操作，可以得到任意复杂的表达式。例如$\pi_{title,year}(\sigma_{length\ge 100}(movie))\cap (\sigma_{starName=’Fox’}(movie))$，表示取movie中的length大于等于100的且starName=’Fox’的元组，然后将这些元组投影到title和year上。</li>
+<li>7.重命名：$\rho_s(A_1,\ldots,A_n$)(R)，表示将关系R重命名成S，且属性名对应改成$A_1,\ldots,A_n$。重命名不会修改关系中的属性个数和元组数据，只会改名。如果不改属性名，属性名可以不写，变成$\rho_s(R)$。</li>
+<li>8.基本操作集：有一些操作能够从由若干其他操作代替，不能由其他操作代替的操作的集合称为基本操作集，有<code>连接、差、投影、积运算和重命名</code></li>
+</ul>
+<h3 id="包上的关系操作"><a href="#包上的关系操作" class="headerlink" title="包上的关系操作"></a>包上的关系操作</h3><ul>
+<li><strong>包上的关系操作</strong>：包和集合的区别是，<code>包允许重复的元组</code>。常见的DBMS中基本是基于包实现的，因为包上的关系操作有更高的效率，不需要去重。而且投影时，如果得到的是相同的若干元组，例如(1,2,3)，(1,2,4)投影前两个会得到(1,2)和(1,2)，如果采取集合对结结果去重，那么聚集操作会丢失数据。</li>
+<li>包的并、交、差：<ul>
+<li>1.并：包的并要将相同元组出现的次数相加，如果两个包中一个包含元组r次，另一个包含同样的元组m次。求并后得到的包含元组r+m次。</li>
+<li>2.交：包的交取相同元组出现次数的最小值。$\min(r,m)$</li>
+<li>3.差：包的差取相同元组出现次数的差。$\max(0,r-m)$</li>
+</ul>
+</li>
+<li>包的投影操作：投影直接得到原关系的每一个元组，不过元组只包含投影的属性。不去重。</li>
+<li>包的选择：和集合上的选择相同，不去重。</li>
+<li>包的笛卡儿集：和集合上的笛卡尔集相同，不考虑重复元组的问题。例如两个包中分别有r和m个重复元组，那么笛卡尔集结果中有r*m个元组。</li>
+<li>包的连接：和集合上的连接相同，区别是不去重。</li>
+</ul>
+<h3 id="关系代数的扩展"><a href="#关系代数的扩展" class="headerlink" title="关系代数的扩展"></a>关系代数的扩展</h3><ul>
+<li>前面的是经典的关系代数，现代查询语言包含更多的关系代数操作，这些操作称为关系代数的扩展</li>
+<li>1.取重操作符$\delta$：去除重复元组</li>
+<li>2.聚集操作：例如求和、求平均值等。被<code>分组操作</code>使用，对<strong>某一组</strong>中所有元组进行聚集。有SUM、AVG、MIN、MAX、COUNT等。</li>
+<li>3.分组操作$\gamma$：根据一个或者多个元素的值进行分组，这些元组称为分组元素，分组元素的值相同多元组被分成一组。</li>
+<li>4.排序操作$\tau$：根据一个或者多个属性排序，只改变元组的顺序</li>
+<li>5.扩展投影：可以以原来的列进行计算，得到新的列。</li>
+<li>6.外连接：自然连接会出现悬挂元组，即一些没有配对成功的元组。外连接分成<strong>左外连接和右外连接</strong>，会填充左边或者右边关系的悬挂元组的空属性为null。</li>
+</ul>
+<h3 id="关系的约束"><a href="#关系的约束" class="headerlink" title="关系的约束"></a>关系的约束</h3><ul>
+<li>引用完整性约束：规定某个上下文中出现的值也必须在另一个上下文中出现。例如关系中一个关系R的某个属性A引用另一个关系S中的某个属性B，当R中取某一个元组具有属性值a时，a值也必须在S中某个元组中存在。如SQL中的外键约束。</li>
+<li>其他约束：例如域约束等等。</li>
+</ul>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><time class="level-item" dateTime="2020-02-07T02:07:52.000Z" title="2020-02-07T02:07:52.000Z">2020-02-07</time><span class="level-item"><a class="link-muted" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a><span> / </span><a class="link-muted" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AE%BE%E8%AE%A1/">数据库设计</a></span><span class="level-item">19 minutes read (About 2870 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2020/02/07/database/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%85%A8%E4%B9%A6/3-%E5%85%B3%E7%B3%BB%E6%95%B0%E6%8D%AE%E6%A8%A1%E5%9E%8B/">3.关系数据模型</a></h1><div class="content"><p>前面学的E/R模型是对于现实世界进行建模的一种很好的方式，但是其不好实现。现今的数据库实现通常使用<strong>关系数据模型</strong>。关系模型只有一个概念：“关系”，即组织数据的一种二维表。E/R符号用于设计数据库并阐述数据之间的关系，关系数据模型用于数据的实际存储，如何将E/R符号转为关系数据模型也是本片笔记的复习重点。</p>
+<h2 id="复习要点"><a href="#复习要点" class="headerlink" title="复习要点"></a>复习要点</h2><p>本章的复习要点如下，需要补充的部分在后文补充，点击连接即可跳转。</p>
+<ul>
+<li>1.关系模型的基础：关系模型通过一种<strong>称为<code>关系</code>的二维表</strong>描述数据，类似于表格。<ul>
+<li>属性：关系模型的”表头”称为属性。</li>
+<li>模式：<strong>关系名和属性名集合的组成称为这个关系的模式</strong>。例如Movie(title, year, length, filmType)。关系模式的集合称为数据库模式。</li>
+<li>元组：除”表头”(属性名所在行)之外的行称为元组。元组之中的元素的顺序要和属性顺序对应上。</li>
+<li>域：关系模型要求元组的每个分量具有原子性，必须属于某种元素类型，例如string或者integer。</li>
+<li>关系的等价：关系是集合而不是列表，可以改变元组或者属性的顺序来得到等价的关系。</li>
+<li>关系实例：一个给定关系中元组的集合称为<strong>关系的实例</strong>。实例会随数据库的修改而改变。</li>
+</ul>
+</li>
+<li>2.从E/R图到关系设计：数据库设计实践中，一般先设计E/R模型，再转为关系模型，会更加简单，而不是直接使用关系模型设计。<ul>
+<li>E/R模型到关系模型的通用转换规则：1.每一个实体集合转化为具有同一属性集合的关系。2.用关系代替联系，该关系的属性是连接的实体集的键集合和联系的属性。</li>
+<li>考虑特殊情况：1.弱实体集需要考虑支持键。2.”isa”联系和子类要特殊对待。3.有时需要把两个关系合成1个，尤其是在转化多对一联系时。</li>
+<li>组合关系：有些情况下可以将多个关系合成一个关系，例如多对一联系。假设R是E到F的多对一联系，可以将R的关系合并到E的关系中，合并的属性具体是，F的主键，R的属性。</li>
+<li>处理弱实体集：核心思想——需要添加其他实体集的支持键。1.从弱实体集W得到的关系R需要添加所有的支持键作为属性。2.与W相连的<strong>非支持联系</strong>需要添加W的所有支持键作为属性。3.支持联系不需要转为关系，支持联系的属性作为R的属性。</li>
+<li>子类结构到关系的转化：<ul>
+<li>1.E/R方式转化：每一个子类都转为关系R（包括根实体集），R的属性是子类的属性加上根实体集的<code>键属性</code>。新增实体时，子类关系和根关系都需要插入元组。</li>
+<li>2.面向对象方式：每一个子类都转为关系R（不包括根实体集），R的属性是子类的属性加上根实体集的<code>所有属性</code>；同时如果有组合的子类，例如既是卡通电影，又是恐怖电影，则新建一个关系，这个关系包含卡通、恐怖、根三个实体集的所有属性。新增实体时，只在对应的关系中插入元组。</li>
+<li>3.空值方式：只建立一个关系，将所有的子类的属性都添加到这个关系中。添加某一个子类的实体时，关系中不属于该子类的属性设置为空值。</li>
+<li>各种方式比较：1.”空值”方式只使用一个关系，查询效率最高，但是会占用额外的内存空间，因为有很多空值。2.查询“范意义”时，例如仅仅针对电影，E/R方式效率比面向对象高，因为只需要查根关系。而面向对象需要查所有子类关系。3.查询跨越多个子类的关系，E/R方式效率更低。</li>
+<li>总结：三种各种各有优劣，需要根据查询的实际情况合空间情况、关系数量情况进行权衡。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>3.函数依赖：单值依赖称为函数依赖（缩写为FD），如果属性集合A确定，那么属性集合B也确定，则说明A函数决定B，记作A-&gt;B。<ul>
+<li>关系的键：能函数决定关系中其他所有属性的<strong>最小化属性集合（即没有满足条件的集合是其真子集）</strong>。如果能函数决定关系中其他所有属性，但是不是最小化属性集合，则称为<code>超键</code>。<strong>关系可以有多个键，但是只有一个主键，在关系模式中画下划线表示。</strong></li>
+</ul>
+</li>
+<li>4.函数依赖的规则：如何从已知的函数依赖推断除其他函数依赖。<ul>
+<li>1.分解结合规则：A-&gt;B1B2 =&gt; A-&gt;B1和A-&gt;B2，反过来也正确。</li>
+<li>2.平凡依赖规则：A-&gt;B，且B是A的子集。如果有A-BC，B是A的子集，可以直接去掉B，得到A-&gt;C。</li>
+<li>3.属性集合的闭包：给定一个属性集合{A1,…,An}，如果有FD：A1…Am -&gt; B，则将B加入到集合中，重复直到没有更多属性能够假如到集合中，最终得到的属性集称为集合{A1,…,An}的闭包，记作{A1,…,An}+。<strong>如果{A1,…,An}+ = 所有属性，那么{A1,…,An}是关系的超键，</strong>可以根据这条规律来从FD计算关系的键。</li>
+<li>4.传递规则：如果有A1…An -&gt; B1…Bm，B1…Bm -&gt; C1…Ck，那么有A1…An -&gt; C1…Ck。简记为A-&gt;B，B-&gt;C，则A-&gt;C。</li>
+<li>关系的基本FD集：如果一个FD集合能够推断出关系的所有FD，改FD集合称为关系的基本FD集。如果改集合没有真子集是基本FD集，那么其实最小化的基本FD集。</li>
+<li>函数依赖的投影：<strong>关系的投影就是去除一部分属性后剩余属性组成的关系</strong>，函数依赖的投影就是原关系的所有FD中，左右两边的属性都在投影的到的关系中的FD集合。</li>
+</ul>
+</li>
+<li>5.关系数据库模式设计：E/R模型转为的关系模型可能会有冗余等异常，需要进一步的设计分析消除异常。<ul>
+<li>异常：1.冗余：同一数据多次存储。2.更新异常：只更新了一个元组而没有更新其他元组中的相同信息。3.删除异常：删除一个元组会导致其他不需要删除的数据丢失。</li>
+<li>分解关系：一般用分解的方式来消除异常。将{A1,…,An}分解成{B1,…,Bm}和{C1,…,Ck}且{A1,…,An}={B1,…,Bm}并{C1,…,Ck}。那么采用什么样的分解方式，能消除什么样的异常呢？下面的范式给出了分解规则。</li>
+<li><strong>1.BCNF范式</strong>：如果关系R满足BCNF，那么R中的每一个非平凡FD，如果左边的属性都是超键，则满足BCNF范式。如果有一个非平凡FD左边不是超键，那么该FD违反BCNF范式。分解规则是：假如{A1…An}-&gt;{B1…Bn}违反BCNF，那么求S={A1..An}+，将S的所有属性作为新的关系R，{A1..An}和除开S外的其他属性作为另一个关系，如果另一个关系违反BCNF，则继续分解。<strong>BCNF分解后的多个关系连接后能够正确恢复。</strong></li>
+<li><strong>2.第三范式</strong>：BCNF分解后得到的关系，可能不能保持FD。例如在原关系R中有AC-&gt;B,分解得到了关系R1(A,B)和R2(B,C)。那么满足R1和R2的元组重新连接后可能不满足AC-&gt;B这个FD了，也就是分解成R1和R2会导致丢失AC-&gt;这个FD。<strong>第三范式稍稍放松了BCNF的限制，可以解决这个问题。</strong><code>如果关系R中有A-&gt;B，那么要么A的超键，要么B是主属性（主属性是键包含的属性）</code>。三范式能够消除大部分的冗余，但是不是全部，如果要全部消除冗余，需要分解到BCNF范式。三范式的分解方式和BCNF相同。</li>
+<li><strong>3.第四范式</strong>：解决多值依赖的问题，知识点在下面。</li>
+</ul>
+</li>
+<li>6.多值依赖：是两个属性或属性集合之间相互独立的断言。是广义上的FD，每个FD也是一个多值依赖。<ul>
+<li>属性独立及其冗余：例如R(a,b,c,d,e)，abcde相互独立，R中不存在FD，那么不违反BCNF范式，但是abcde可以随意组合，假设元组中a相同，bc有两个值，de有三个值，那么需要6个元组来存储这些值，bc的两个值要存储3次，de的三个值要存储2次。</li>
+<li>多值依赖的定义：给定一个属性集合的值，存在有与关系中其他属性值独立的属性值。记作A-&gt;-&gt;B。</li>
+<li>多值依赖规则：1.平凡依赖规则：如果有A-&gt;-&gt;B，且C是B的属性与A的1个或者多个属性的并，则有A-&gt;-&gt;C。相反的，去掉B中属于A的属性也成立。2.传递规则：如果有A-&gt;-&gt;B，和B-&gt;-&gt;C，那么有A-&gt;-&gt;C（去掉C中同时属于B、C的属性）。3.多值依赖不遵循分解规则，遵循合并规则。</li>
+<li><strong>非平凡MVD（MVD=多值依赖）</strong>：A-&gt;-&gt;B是非平凡MVD，那么，B中不含A中的任何属性且R中存在A、B之外的属性。3.互补规则：有A-&gt;-&gt;B，则有A-&gt;-&gt;C，C是不属于AB的所有属性。</li>
+<li><strong>第四范式</strong>：在R中，如果有非平凡MVD A-&gt;-&gt;B，那么A是超键。</li>
+<li><strong>分阶段扫第四范式</strong>：对于违反四范式的A-&gt;-&gt;B，分解成AB，以及A和AB外的全部属性。如果分解后的关系不满足四范式，则继续分解。</li>
+</ul>
+</li>
+</ul>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><time class="level-item" dateTime="2020-02-06T00:47:48.000Z" title="2020-02-06T00:47:48.000Z">2020-02-06</time><span class="level-item"><a class="link-muted" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a><span> / </span><a class="link-muted" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AE%BE%E8%AE%A1/">数据库设计</a></span><span class="level-item">21 minutes read (About 3090 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2020/02/06/database/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%85%A8%E4%B9%A6/2-%E5%AE%9E%E4%BD%93-%E8%81%94%E7%B3%BB%E6%95%B0%E6%8D%AE%E6%A8%A1%E5%9E%8B/">2.实体-联系数据模型</a></h1><div class="content"><h2 id="复习要点大全"><a href="#复习要点大全" class="headerlink" title="复习要点大全"></a>复习要点大全</h2><p>本篇复习笔记的要点，分成大概下面几个部分：</p>
+<ul>
+<li>1.E/R图的基础知识：E/R的组成、表示及其细节等<ul>
+<li>数据库建模的步骤：构思-&gt;E/R模型-&gt;关系模型-&gt;关系DBMS</li>
+<li>E/R模型的三个要素：实体集、属性（带下划线的属性是键）、联系</li>
+<li>E/R图的图形表示：矩形表示实体集、椭圆表示属性、菱形表示联系</li>
+<li>联系的多样性：两个实体集中的联系可能存在<code>一对一</code>，<code>多对一</code>，<code>多对多</code>。重点是这三种关系的理解。</li>
+<li>多路联系：多个实体共享相同的联系，例如多方签合同</li>
+<li>联系中的角色：一个联系中，一个实体集可以出现多次，每次表示不同的角色。通过命名联系来区分角色。</li>
+<li>联系的属性：有时候需要给联系添加属性，例如合同有签订薪水，这份薪水与合同（联系）相关，而于任何实体集不相关。</li>
+<li>多路联系化二元联系：将多路联系化成实体集，原来的联系与实体集的连线变成新的二元联系。</li>
+<li>E/R模型中的子类：子类有父类公共的属性以及自生额外的属性。子类与父实体集通过<code>isa</code>的联系相连，<code>isa</code>用顶角向上的三角形表示。<code>isa</code>联系不标箭头，但是都是1对1联系。E/R图中子类上只连接自己特有的属性。子类拥有父类的属性和联系。</li>
+</ul>
+</li>
+<li>2.设计原则<ul>
+<li>忠实性：设计要忠于现实世界，以及实际情况。</li>
+<li>避免冗余：相同的数据避免存储两次。冗余可能导致：1.浪费空间。2.修改时没有全部修改导致不一致。</li>
+<li>简单性考虑：设计尽可能简单，除非绝对需要，否则一定不要添加额外的成份。</li>
+<li>选择正确的联系：实体集可以以多种方式联系起来。联系是否需要首先取决于实际情况，其次取决于联系是否是冗余的——即该联系可以由其他联系导出。</li>
+<li>选择正确的元素种类：属性是最容易实现，当然是使用实体集还是使用属性来进行建模，是根据实际情况确定的。</li>
+</ul>
+</li>
+<li>约束的建模<ul>
+<li>E/R图中的元素只能表示结构上的约束，不能表示数据上的约束。数据上的约束需要额外的建模。</li>
+<li>约束一般有：<ul>
+<li>键约束：唯一标识一个实体的属性或者属性集。E/R图中通过带下划线的属性表示键。父实体集必须拥有所有的键属性。</li>
+<li>单值约束：属性值在某种情况下具有唯一性要求。键约束也是单值约束；还有多对一联系等</li>
+<li>引用完整性约束：被引用的某个值在数据库中必须存在。E/R图中通过连线的圆角表示引用完整性约束。</li>
+<li>域约束：属性只必须在一个值集或者范围内。</li>
+<li>一般约束：任意定义的任意的约束。例如要求影星不超过10个。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>弱实体集<ul>
+<li>一个实体集的键是由<strong>另一个实体集的部分或者全部属性构成</strong>，这样的实体集称为弱实体集。</li>
+<li>弱实体集主要由两个来源：1.一个实体集E和另一个实体集F处于层次结构中，但是不是子类的关系，E的键要通过F才能唯一确定。例如球员编号，只有知道是哪个球队的多少号才能确定一个球员。2.连接实体集，例如多路联系中转为二元联系时新建的实体集，这种实体集没有自己的键，其键由多个实体集来确定。</li>
+<li>弱实体集的要求：1.只能通过多对一联系来获取其他实体集的<strong>键属性</strong>作为键。2.该多对一联系必须有引用完整性。3.多个多对一联系，每个联系都会提供键</li>
+<li>弱实体集的符号：1.弱实体集用双边矩形来表示。2.弱实体集的多对一支持联系用双边菱形表示。</li>
+</ul>
+</li>
+</ul>
+<p>上面的是要点总结，忘记细节看本文后面的详细知识点细节。</p>
+<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>实体-联系模型也叫E/R模型，是数据库设计方向的研究范畴。数据库设计最要的是设计出要存储的信息以及信息组成部分之间的关系。通常数据库的结构称为<strong>数据库模式</strong>，一般以某种语言或者符号来描述。除了E/R模型以外，还有关系模型、对象模型、半结构化模型等。</p>
+<p>在实际的数据库建模中，E/R模型并不直接作为数据库管理系统的直接模式，原因是E/R模型是一种抽象模型，并不是足够有效的数据结构。最常见的DBMS采用的模型是关系模型。所以实际数据库建模的步骤一般如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">思想  ---&gt; E&#x2F;R设计 ---&gt; 关系模式 ---&gt; 关系DBMS</span><br></pre></td></tr></table></figure><br>一般的数据库设计步骤是：先明确要存储的数据，利用E/R模型设计出数据实体属性以及数据实体之间的联系；然后通过一定的规则将E/R模型转为关系模型；最后将关系模型转成DBMS支持的输入，例如sql语句，输入DBMS建立真实的数据模型。</p>
+<h2 id="E-R模型的要素"><a href="#E-R模型的要素" class="headerlink" title="E/R模型的要素"></a>E/R模型的要素</h2><p>E/R模型一共有三个要素：</p>
+<ol>
+<li>实体集</li>
+<li>属性</li>
+<li>联系</li>
+</ol>
+<p>实体集是某一个抽象事务的集合，从面向对象的角度来说，“实体”和“对象”很相似。“实体集”和“对象类”也有相似性，但是“实体集”只包含属性，而不包含对属性的操作。以电影举例，每部电影是一个实体，所有电影构成实体集，电影都有主演、制片人、导演等等属性。</p>
+<p>实体集具有<code>属性</code>，属性是实体集中的实体所有的性质。例如电影实体中可能有title、length这些属性来表明电影的标题和时长。</p>
+<p>联系是两个或者多个实体集之间的连接。例如Movie和Stars是两个实体集，那么Star出演Movie，那么两个实体集之间就具有了某种联系Star-in。例子中的联系是二元的，E/R模型支持多路联系。在转为关系模型时，多路联系会转成二元联系，后面的笔记会详细讲述这一部分。</p>
+<h3 id="实体-联系图"><a href="#实体-联系图" class="headerlink" title="实体-联系图"></a>实体-联系图</h3><p>上面讨论了E/R模型的三个要素，可以以图形的形式来描述实体集、属性和联系。每一种元素都用不同的图形来表示，使用实线来连接属性、联系和实体集。三个要素分别用下面的图形来表示：</p>
+<ul>
+<li>矩形表示实体集</li>
+<li>椭圆表示属性</li>
+<li>菱形表示联系</li>
+</ul>
+<p>如下例：<br>！<a href="/img/E-R模型示例.png">E/R模型图例</a></p>
+<p>上图中的有三个实体集：movies、stars、studios，这些实体集用矩形表示。每一个实体集都有自己的属性，属性用椭圆表示。三个实体集之间有两个联系，联系用菱形表示。实体集、属性、联系之间均以实线相连。</p>
+<p>E/R模型并不会直接存入数据库，但是在进行数据库设计之前，先想一下E/R模型，确定数据对象的属性和其联系，能够帮助我们更好的进行数据库设计。</p>
+<p>联系一般表示两个实体之间某些属性之间的对应关系，例如star和movie具有star-in的联系R，表示某一个明星出演某一步电影，R的可以元组可能是<code>Alice Starwar</code>，表示Alice出演了Starwar这部电影。通过在联系中将star的name属性和movies的title属性关联，就能确定不同实体集之间的实体的关系。</p>
+<h3 id="联系的多样性"><a href="#联系的多样性" class="headerlink" title="联系的多样性"></a>联系的多样性</h3><p>上面举的联系的例子中，两个实体集之间的实体的关系可能是一对一的关系，即仅一个明星出演仅一部电影，但是可能存在一个演员至多出演一步电影且一部电影可以请多个演员，这种关系就是多对一。也可能存在一个明星参演多部电影，一部电影多个明星演，这种关系就是多对多。所以我们说联系具有<strong>多样性</strong>，联系可能是一对一、多对一、多对多。向下详细说明这三种联系的定义：</p>
+<ul>
+<li>多对一：如果实体集E中任一实体通过联系R<strong>至多</strong>与实体集F中的一个实体联系，那么R称为E到F的多对一联系</li>
+<li>一对一：如果E到F是多对一联系，F到E也是多对一联系，那么R称为E到F的一对一联系</li>
+<li>多对多：即不是多对一也不是一对一</li>
+</ul>
+<blockquote>
+<p>为了便于理解，可以从函数的角度来理解，E看作定义域，F看作值域。定义域中取一个值，如果值域值多有一个值相对应，那么是函数。所以多对一和函数的定义其实是相同的。取一个x，最多一个y。如果反过来也成立，取一个y最多一个x，那么x和y就是一一对应的了，即一对一的关系。</p>
+</blockquote>
+<p>E/R图中使用箭头来表示联系的多样性，简单来记就是：<strong>箭头指向一</strong>，即如果R是E到F的多对一联系，那么R到F的联系要打箭头。用上例的图，如果stars到movies是多对一联系，那么图如下：<br><img src="/img/E-R模型示例1.png" alt="E/R图例1"></p>
+<p>给定一个演员，最多一部电影，但是多个演员可以出演相同的电影。</p>
+<h3 id="多路联系"><a href="#多路联系" class="headerlink" title="多路联系"></a>多路联系</h3><p>上面给出的联系都是二元联系，但是联系可以是多路的。举个例子，假如有三方签合同，三方分别是三个实体集，那么这三个实体集肯定都共享“合同”这个联系，如下例：<br><img src="/img/多路联系.png" alt="多路联系"><br>上例中的箭头也表示多对一的关系，表示一个明星最多签约一家制片公司，一部电影也最多签约一家制片公司。</p>
+<h3 id="联系中的角色"><a href="#联系中的角色" class="headerlink" title="联系中的角色"></a>联系中的角色</h3><p>同样，一个实体集在一个E/R图中可能多次出现，例如电影和其续集的关系。电影和电影的续集都属于电影这个实体集，那么在电影到电影续集这个联系中，同一个实体集（电影）充当了两个<strong>角色</strong>。人们一般给联系的联系来命名来区分角色，如下例：<br><img src="/img/联系中的角色.png" alt="联系中的角色"></p>
+<h3 id="联系的属性"><a href="#联系的属性" class="headerlink" title="联系的属性"></a>联系的属性</h3></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><time class="level-item" dateTime="2020-02-05T00:38:53.000Z" title="2020-02-05T00:38:53.000Z">2020-02-05</time><span class="level-item"><a class="link-muted" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a><span> / </span><a class="link-muted" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/%E5%AF%BC%E8%AE%BA/">导论</a></span><span class="level-item">27 minutes read (About 3988 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2020/02/05/database/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%85%A8%E4%B9%A6/1-%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%AF%BC%E8%AE%BA/">1.数据库系统导论</a></h1><div class="content"><p>顾名思义，数据库就是存储数据的仓库，是信息的集合。这些数据一定是能够长期存储的，不会因断电而丢失，所以数据库中的数据一般存储在磁盘等永久存储器材中，而不是RAM（随机访问内存，或者运行内存，断电会丢失数据）中。当然现在有一些No-SQL数据库例如redis用作缓存，是存放在RAM中的，这种缓存数据库和持久数据库不同，这一系列复习笔记主要关注的是持久数据库。缓存数据库在另外的笔记中学习。</p>
+<h2 id="数据库漫谈"><a href="#数据库漫谈" class="headerlink" title="数据库漫谈"></a>数据库漫谈</h2><p>数据库的能力一般通过数据库管理系统来使用，这种软件被称为DBMS（Database Manage System，数据库管理系统），DBMS一般会提供命令行或者图形界面的方式来操作数据库系统中的数据。DBMS中实现了数据库系统的基本能力，例如持久存储，事务处理，提供程序访问接口等。同时能够提供对于数据库进行增删改查的功能、能够有效处理数据库访问时不同用户并发访问的问题。</p>
+<p>为了简化数据库的使用和提高数据库操作的性能，一般会提供用于数据库操作的特殊语言，例如用于描述数据库的数据库定义语言，用于查询和更新的语言（比如SQL）。对于<strong>文件系统</strong>而言，文件系统能够提供持久存储的能力，也能够新增删除数据。但是一般的操作系统，不会提供对于文件系统的查询语言，我们要从数以亿计的文件中找出特定文件中的特定一个数据字段，几乎是不可能的。而且文件系统对于数据模式的支持仅仅限于文件夹。所以文件系统虽然能够提供持久存储和一定的数据访问能力，但是远远到不到数据库系统的要求。数据库系统需要进一步的设计。</p>
+<p>个人pc或者一般的linux服务器上使用的数据库，例如mysql，底层是使用文件系统实现的。例如新建一个数据库，DBMS会在操作系统中创建一个新的文件并设置其初始大小，例如4G。数据库的细节存储在该文件中，一般不直接访问硬盘，需要调用操作系统提供的文件系统API。但是特定的数据库服务器上会搭载特定的系统，数据库系统能够直接访问硬盘，以提供更高的数据存储效率。</p>
+<p>DBMS的一个很重要的特性就是能够快速存取一些小块的数据，例如对于机票、酒店等订票系统，要能够存取每一个订单的日期、价格、起始地点等等信息，对于银行需要存储客户的信息，以及它们的存款、交易记录等等。数据库系统需要提供能很方便快捷的方式来访问其中的某一条或者数条数据，例如输入一个高级语言语句<code>select age from user where name = &#39;john&#39;</code>，就能找到john的年龄，而不是在一大堆文件中找john，再去找john的年龄。</p>
+<p>相信大家一定都有找一大堆文件找不着需要的文件的经历，是不是耗时耗神还找不着？大家的解决方案是什么呢？是不是一般是分类分文件夹来存放文件，一个文件夹不存放大量的文件。这种行为背后的思想是什么呢？索引。我们要找一个文件，首先找到那个文件夹，其实就是根据文件找到索引，我知道这个文件属于哪一个索引（文件夹），就能快速找到它。数据库的底层其实也是这么实现的，借助了索引树这样的数据结构。大家找文件时的另一问题是，按照什么顺序来找文件呢？从前到后，还是从后到前，还是从中间开始呢？一般都是从前到后或者从后到前，这样的查找方式叫做线性查找，最坏的情况下需要将所有文件过一遍才能找到（因为可能要找的文件在最后面或者最开始）。而如果我们将文件按照文件名进行排序呢？（windows下文件夹下右键可以设置）例如我们要找<code>notes.txt</code>这个文件，它的首字母是n，那么我们是不是可以跳着看呢？先看中间，如果看到了一个l开头的，那么n在l后面，前面的就不用看了，看l后面的文件找<code>notes.txt</code>就行了，如此重复。这种查找方式叫做二分查找，假如有n个文件，最坏只需要看$log_2n$次，而线性查找需要看n次。假如n是128，那么$log_2n=7$，对于128个文件，最多只要次就能找到，想想字典就能理解了。</p>
+<p>上面提到的一些技术都是数据库底层使用的技术，索引技术，查找算法。这样的技术也是从日常生活遇到的痛点问题而来中，不仅艺术源于生活，技术也源于生活–。那么在日常的电脑使用中，是不是也可以使用一些个人数据库系统（例如access）来解决一些数据管理的问题呢？答案是肯定的，当然是不是使用是需求而定，当你快要为数据管理而抓狂的时候，就可以考虑使用了。当然利用文件夹分类，名称、时间排序的方式是最简便和最常用的方式，对于大多数人而言。</p>
+<p>言归正传，对于目前最流行的数据库，使用的都是关系数据库模式。关系数据库的核心思想是以一种类似表格的方式来组织数据，例如对于机票系统，存储的信息可能是下面这样：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">-----------------------------------------------------</span><br><span class="line">airline | name   | id-number | price | from | arrive-at</span><br><span class="line">-----------------------------------------------------</span><br><span class="line">gh2634  | bright | 430xxx    | 639   | CS   | Tianjin</span><br><span class="line">....</span><br><span class="line">-----------------------------------------------------</span><br></pre></td></tr></table></figure><br>关系数据库将一条记录的相关信息组织成“一行”，当我们查找某些数据，例如bright将乘坐的航班的“price”的时候，先找到bright所在的那一行，然后再在这一行中找相应的price。“表头”称为模式，模式在数据库表建立的时候确定，可以在建立之后更改。那么问题又来了，既然数据库也是以“表格“的形式来存储，为什么不直接用excel呢？首先，两者用途不同，excel是个人电脑上的办公软件，而数据库一般是运行于服务器上的服务器软件。其次，存储的数据量不同，excel表格最多也就存几万条数据，而商用数据库中的数据都是数以亿计。两者具有相似的存储模式，但是用途不一样决定了两者的功能和实现天差地别。</p>
+<p>前面提到的一些例子都是文本，但是在实际中我们会遇到很多非文本数据例如视频、音频等。这些多媒体数据在数据库中如何存储呢？一种方式就是存储多媒体文件的路径，还有一种方式是将多媒体文件直接存入数据库中。后面文章会详细讨论多媒体数据在数据库中的存储和读取问题（以mysql为例）。</p>
+<h2 id="数据库管理系统"><a href="#数据库管理系统" class="headerlink" title="数据库管理系统"></a>数据库管理系统</h2><p>前面提到了数据管理系统（DBMS）是数据库管理的软件，提供了完整的数据库功能。对于数据库用户而言提供的最重要的几个功能是：</p>
+<ul>
+<li>数据查询和更新</li>
+<li>数据模式定义</li>
+<li>事务管理</li>
+</ul>
+<p>上述的功能是用户关心的，用户只需要输入特殊的命令或者语句，就能定义数据模式，查询更新数据，开启事务，而不关心数据库底层的的运行。而对于数据库实现，则需要对输入的命令进行解析然后执行。同时要能够进行并发控制、事务管理、日志恢复等。一个DBMS的结构一般如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">用户&#x2F;应用程序                  数据库管理员</span><br><span class="line">    |     \                       | DDL命令</span><br><span class="line">    |查询   \ 事务命令              |</span><br><span class="line">    |更新    \                     |</span><br><span class="line">    |        \                    |</span><br><span class="line">查询编译器    事务管理器          DDL编译器</span><br><span class="line">    |          | \             &#x2F;</span><br><span class="line">    |   -------|--------------&#x2F;</span><br><span class="line">    | &#x2F;        |    \-----------|</span><br><span class="line">执行引擎----&gt;日志与恢复        并发控制</span><br><span class="line">    |                           |</span><br><span class="line">    |                           |</span><br><span class="line">    |                           |</span><br><span class="line">    |                           |</span><br><span class="line">索引&#x2F;文件&#x2F;                存有索状态的表（在内存中）</span><br><span class="line">记录管理器</span><br><span class="line">    |</span><br><span class="line">    |</span><br><span class="line">缓冲区管理器</span><br><span class="line">    |</span><br><span class="line">    |</span><br><span class="line">存储器管理器</span><br><span class="line">    |</span><br><span class="line">    |</span><br><span class="line">  存储器</span><br></pre></td></tr></table></figure><br>上图显示了一个数据库系统的详细结构，接下来自顶向下分析：</p>
+<ul>
+<li>最顶层是用户/应用程序，和数据库管理员。可以将他们统一认为是数据库用户，不过一个操作数据，一个操作数据库</li>
+<li>下一层是直接与上一部分对接，查询编译器用于编译用户输入的命令语句，编译成树结构并制定查询计划。事务管理器用于进行事务调度，调用下一层的并发控制模块。DDL编译器将DDL命令翻译成语法树结构并提交给执行引擎</li>
+<li>再下一层是执行引擎、日志恢复、并发控制。执行引擎用于执行用户输入的各种命令，会与其他的大多数模块打交道，例如调用调度器避免并发修改数据；调用日志模块回滚事务。同时会调用底层的功能，实现对具体数据的访问。</li>
+<li>下面的存储器管理器和缓冲区管理器主要的功能是控制存储器和缓冲区的访问。</li>
+</ul>
+<p>用户见到的最影响系统性能的DBMS部分是查询处理器，查询处理器包括两个部分：</p>
+<ul>
+<li>查询编译器：将查询转为内部使用的查询计划，查询计划是在数据上的操作序列。通常查询计划中的操作数用“关系代数”实现。查询编译器由三个模块组成：查询分析器、查询预处理器、查询优化器。查询编译器利用元数据和数据统计确定哪种操作序列最快，例如，如果数据模式中使用了索引，那么将使用索引相关的操作大大检查查询时间。</li>
+<li>执行引擎。执行引擎负责执行查询计划的每一步。执行引擎和系统中其他的大部分模块交互。因为用户的命令编译后在执行引擎中执行，执行引擎必须访问日志模块以读写日志实现事务的一致性。必须访问调度器来避免访问已加锁的数据。</li>
+<li><h3 id="事务管理"><a href="#事务管理" class="headerlink" title="事务管理"></a>事务管理</h3>数据库中一个非常重要的部分就是事务处理，事务具有的特性有原子性（Atomic）、隔离性（Isolation）、持久性（duration）、一致性（Consistence）。一般用ACID来表示，具体如下：</li>
+<li>原子性（A）：事务要不全部执行，要不不执行</li>
+<li>隔离性（I）：表现为同时只有一个事务在执行，多个事务可以同时执行，但是必须保证同时执行的部分是互不影响的。看起来和单独按序执行没有区别</li>
+<li>持久性（D）：事务一旦完成，影响是持久存在的。</li>
+<li>一致性（C）：一致性是指事务中的数组元组之间的联系具有一致性，例如一个表中的id，是另一个表中的外键，那么这两个值应该是严格相等的。范围更广的一致性还包括数据的合法性，例如金额一般不是负数等。</li>
+</ul>
+<p>事务管理要解决的三个问题是：</p>
+<ul>
+<li>记日志：日志用于数据库崩溃后的恢复和事务失败回滚的恢复。</li>
+<li>并发控制：控制数据的并发访问，一般是使用锁的方式。</li>
+<li>消除死锁：利用锁来控制数据的并发访问可能会导致死锁的问题，所以事务管理器一定要能够消除死锁并将系统恢复到一个一致的状态。</li>
+</ul>
+<h2 id="数据库系统研究概述"><a href="#数据库系统研究概述" class="headerlink" title="数据库系统研究概述"></a>数据库系统研究概述</h2><p>数据库系统的研究方向主要有以下三个：</p>
+<ul>
+<li>数据库设计：如何设计一个数据库，包括数据库应该存什么样的信息？如何组织？数据项之间如何链接？如何设计没有冗余、一致的数据结构？</li>
+<li>数据库程序设计：研究如何在应用程序中使用数据库提供的功能，包括如何使用事务管理等功能？数据库设计如何与普通程序设计结合？常用的web系统都属于此类</li>
+<li>数据库系统实现：研究数据库系统的底层实现，包括如何实现事务管理？如何实现日志系统？如何实现锁机制、采用何种锁？数据如何存储在磁盘上？</li>
+</ul>
+<p>这一系列复习笔记参考了《数据库系统大全》一书，会全部涉及到上面三个方向，从数据库设计方法原则，到数据库程序设计，再到数据库底层的实现。</p>
+<p>数据库设计上会复习E/R模型、关系数据库模型、函数依赖和设计范式、对象数据库设计和XML等。数据库程序设计上会复习关系代数、SQL语言、高级语言访问数据库。数据库系统实现主要关注三个方面：1.存储器管理。2.查询处理。3.事务管理。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>这篇文章主要概述了数据库系统解决的问题，主要包括以下几个方面：</p>
+<ul>
+<li>持久存储数据、高效查询更新数据、自定数据模式</li>
+<li>事务处理的ACID原则</li>
+<li>数据库的几个研究/学习方向</li>
+</ul>
+<p>接下来的复习，希望能深入理解数据库系统从外到内的方方面面。从数据库设计到数据库应用程序设计，再到数据库底层的实现原理，都能了然于心。</p>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><time class="level-item" dateTime="2019-11-28T02:59:19.000Z" title="2019-11-28T02:59:19.000Z">2019-11-28</time><span class="level-item"><a class="link-muted" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a><span> / </span><a class="link-muted" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/mysql/">mysql</a></span><span class="level-item">2 minutes read (About 319 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2019/11/28/database/mysql/MySql-Workbench-%E7%94%9F%E6%88%90%E8%A1%A8%E5%85%B3%E7%B3%BB%E5%9B%BE/">MySql Workbench 生成表关系图</a></h1><div class="content"><p>这篇文章学习如何在mysql workbench上，根据已有的表生成关系图。当刚刚上手一个数据库的时候，如果能有该数据库的关系图的话，能够更好更快的掌握数据库各部分的功能及其相互关系。</p>
+<h2 id="反向工程已有数据库"><a href="#反向工程已有数据库" class="headerlink" title="反向工程已有数据库"></a>反向工程已有数据库</h2><p>要从一个已有的数据库创建数据库表的关系图，我们需要使用反向工程来创建一个model，具体操作是：</p>
+<h3 id="选择database-gt-Reverse-Engineer"><a href="#选择database-gt-Reverse-Engineer" class="headerlink" title="选择database -&gt; Reverse Engineer"></a>选择database -&gt; Reverse Engineer</h3><p>然后会出现要连接数据库的界面，选好需要连接的数据库，点next。</p>
+<p>在下一个界面选择需要反向工程的数据库，选好后点next</p>
+<p>然后点excute。之后一直点next，直到生成了model。</p>
+<p>此时就会得到想要的图了，如果没有，点生成的model的界面中的EER Diagram。</p>
+<p>中间有一些选项以及model、diagram之间的关系没有深入分析，以后用到的时候补充</p>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a href="https://dataedo.com/kb/tools/mysql-workbench/create-database-diagram">How to create ER diagram for existing MySQL database with MySQL Workbench</a></p>
+<p><a href="https://dataedo.com/kb/tools/mysql-workbench/how-to-reverse-engineer-database">How to reverse engineer a database with MySQL Workbench</a></p>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><time class="level-item" dateTime="2019-09-24T22:33:44.000Z" title="2019-09-24T22:33:44.000Z">2019-09-25</time><span class="level-item"><a class="link-muted" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a><span> / </span><a class="link-muted" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/mysql/">mysql</a></span><span class="level-item">10 minutes read (About 1524 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2019/09/25/database/MySQL%E6%8A%80%E6%9C%AF%E5%86%85%E5%B9%95/MySQL%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/">MySQL数据类型</a></h1><div class="content"><p>这篇文章主要介绍mysql的数据类型，基于《MySQL技术内幕》的第三章，主要内容是mysql中的详细数据类型、类型转换以及如何对数据进行处理。</p>
+<h2 id="要点总结"><a href="#要点总结" class="headerlink" title="要点总结"></a>要点总结</h2><ul>
+<li>数据值类别：mysql数据库中能够存储如下类别的数据<ul>
+<li>数值：包括整数、浮点数、和位域值。其中整数和浮点数可以分成精确值和近似值，用科学计数法（例如.158E8）表示的是近似值，4、1.25这样形式表示的精确值。近似值会有舍入误差，精确值的近似结果是精确的。</li>
+<li>字符串值：例如’123ss’，可以值单引号或者双引号（尽量使用单引号）。可以只用\转义（例如\’,\t），使用<code>&#39;&#39;</code>也可以转义单引号</li>
+<li>日期时间值：可以单独日期和时间，例如（’2012-06-17’、’12:30:43），也可以组合在一起（’2008-06-15 10:30:12.5）</li>
+<li>空间值：例如(10,20)这种表示平面中坐标系的</li>
+<li>布尔值：常量TRUE和FALSE，分别表示1和0。表达式中的0表示FALSE，非0、非NULL表示真</li>
+</ul>
+</li>
+<li>mysql数据类型<ul>
+<li>数字类型：<ul>
+<li>TINYINT</li>
+<li>SMALLINT</li>
+<li>MEDIUMINT</li>
+<li>INT</li>
+<li>BIGINT</li>
+<li>DECIMAL</li>
+<li>FLOAT</li>
+<li>DOUBLE</li>
+<li>BIT</li>
+</ul>
+</li>
+<li>字符串类型：<ul>
+<li>CHAR</li>
+<li>VARCHAR</li>
+<li>BINARY</li>
+<li>VARBINARY</li>
+<li>TYNYBLOB</li>
+<li>BLOB</li>
+<li>MEDIUMBLOB</li>
+<li>LONGBLOB</li>
+<li>TINYTEXT</li>
+<li>TEXT</li>
+<li>MEDIUMTEXT</li>
+<li>LONGTEXT</li>
+<li>ENUM</li>
+<li>SET</li>
+</ul>
+</li>
+<li>时态类型：<ul>
+<li>DATE: ‘YYYY-MM-DD’</li>
+<li>TIME: ‘hh:mm:ss’</li>
+<li>DATETIME: ‘YYYY-MM-DD hh:mm:ss’</li>
+<li>TIMESTAMP: ‘YYYY-MM-DD hh:mm:ss’</li>
+<li>YEAR: YYYY或YY<h2 id="数据值类别"><a href="#数据值类别" class="headerlink" title="数据值类别"></a>数据值类别</h2>MySQL支持多种常规类别的数据值。其中包括数值、字符串值、日期/时间这样的时态值、空间值，以及NULL值。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="数值"><a href="#数值" class="headerlink" title="数值"></a>数值</h3><p>MySQL能够识别的数字标阔整数、定点数或者浮点数，以及位阈值。</p>
+<h4 id="精确值数和近似值数"><a href="#精确值数和近似值数" class="headerlink" title="精确值数和近似值数"></a>精确值数和近似值数</h4><p>MySQL支持对精确值进行精确运算，以及对近似值的近似运算。<strong>精确值包括整数（如0、14、-382）和带小数点的数（0.0、38.5、-18.247）；近似值是采用科学计数法表示的浮点数，他们带有一个底数和一个指数（如1.58E5、-1.58E5）</strong>。</p>
+<p>整数可以用十进制和16进制两种格式来表示。<strong>16进制默认为字符串，但在数值运算的时候，十六进制常量会被视为64位的整数。例如，0x10==16</strong></p>
+<p>小数精确值由三部分组成：整数部分、小数点、小数部分，其中整数部分和小数部分都是数字序列。小数点前后的数字序列可以有一个为空，但是不能同时为空。</p>
+<p><strong>16进制不能用科学计数法来表示</strong></p>
+<p>精确值运算后得到的值也是精确的，只要没有超出精度。近似值的计算是近似的，会有舍入误差。MySQL按照以下规则决定使用精确计算还是近似计算：</p>
+<ul>
+<li>只要表达式里有近似值，就会当作浮点（近似）表达式来计算</li>
+<li>如果表达式只包含整数精确值，但其中的值带有小数部分，那么它会以BIGINT（64位）精度来计算</li>
+<li>如果表达式只包含精确值，但是有小数，会按照65位decimal算法来计算</li>
+<li>在表达式里，如果存在字符串必须转换成一个数才能进行计算的情况，那么该字符串会被转换成一个双精度浮点值。该表达式进行近似计算。</li>
+</ul>
+<h4 id="位域值"><a href="#位域值" class="headerlink" title="位域值"></a>位域值</h4><p>位阈值可以写成b’val’或者0bval，其中，bal是一个或者多个0/1组成的数字序列。例如b’1001’或0b1001表示9。</p>
+<p>在结果集里面，BIT值会被显示为一个二进制串。将BIT结果+0，或者使用CAST()函数，可以将其转化为一个整数。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select b&#39;1001&#39; + 0, CAST(0b1001 AS UNSIGNED);</span><br></pre></td></tr></table></figure></p>
+<h3 id="字符串值"><a href="#字符串值" class="headerlink" title="字符串值"></a>字符串值</h3><p>字符串两端的引号既可以是单引号，也可以是双引号。<strong>但是推荐使用单引号：</strong></p>
+<ul>
+<li>SQL标准规定使用单引号</li>
+<li>如果启用了SQL模式ANSI_QUOTES，那么mysql会将双引号引起来的值处理成标识符，代表数据库中的表名、数据库名或者表的列名等等。例如，如果开启了ANSI_QUOTES模式，<code>SELECT &quot;last_name&quot; from president;</code>中的<code>&quot;last_name&quot;</code>会被视为president表中<code>last_name</code>字段，而不是一个字符串常量。</li>
+</ul>
+<p>上面原因的第二个，两种结果天差地别，如果<code>&quot;last_name&quot;</code>被当成常量，那么选出来的结果中有一列就是常量，值就是<code>&quot;last_name&quot;</code>。如果当成标识符，选的是president表中的last_name字符串的值。</p>
+<p>MySQL能够识别出字符串里用来代表特殊字符的转义序列：<code>\0, \&#39;, \&quot;, \b, \n, \r, \t, \\, \z</code>。如果向取消反斜线字符的特殊含义，并把他当作一个普通的字符，需要启用SQL的NO_BACKSLASH_ESCAPE模式。转义序列区分大小写。不是上列转义字符，如果加上<code>\</code>，会被解释成原字符。</p>
+<h4 id="字符串的16进制表示法"><a href="#字符串的16进制表示法" class="headerlink" title="字符串的16进制表示法"></a>字符串的16进制表示法</h4><p>有两种16进制的字符串表示法，一种是X’val’，<code>val</code>是16进制串，<code>x</code>和<code>val</code>都中的字母都不区分大小写。例如X’4A’表示J：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; select X'4A', x'4a';</span><br><span class="line">+<span class="comment">-------+-------+</span></span><br><span class="line">| X'4A' | x'4a' |</span><br><span class="line">+<span class="comment">-------+-------+</span></span><br><span class="line">| J     | J     |</span><br></pre></td></tr></table></figure><br>在字符串上下文中16进制串当作字符串，在数字上下文中，16进制串当作数字：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; select X'4A', x'4a';</span><br><span class="line">+<span class="comment">-------+-------+</span></span><br><span class="line">| X'4A' | x'4a' |</span><br><span class="line">+<span class="comment">-------+-------+</span></span><br><span class="line">| J     | J     |</span><br></pre></td></tr></table></figure></p>
+<p>另一种就是<code>0x</code>开头的16进制表示法，例如<code>0x0a</code>，其中<code>0x</code>只能是小写。16进制默认是字符串，当用于数字/数学运算时，被解析成64位整数。<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; select 0x61626364, 0x61626364+0;</span><br><span class="line">+<span class="comment">------------+--------------+</span></span><br><span class="line">| 0x61626364 | 0x61626364+0 |</span><br><span class="line">+<span class="comment">------------+--------------+</span></span><br><span class="line">| abcd       |   1633837924 |</span><br><span class="line">+<span class="comment">------------+--------------+</span></span><br></pre></td></tr></table></figure></p>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><time class="level-item" dateTime="2019-08-16T23:26:08.000Z" title="2019-08-16T23:26:08.000Z">2019-08-17</time><span class="level-item"><a class="link-muted" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a><span> / </span><a class="link-muted" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/sql%E8%AF%AD%E5%8F%A5/">sql语句</a></span><span class="level-item">18 minutes read (About 2711 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2019/08/17/database/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%85%A8%E4%B9%A6/5-%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AF%AD%E8%A8%80sql/">5.数据库语言sql</a></h1><div class="content"><p>《数据库系统全书》读书笔记，主要包括书中有关sql部分，主要是的第六章和第七章。这里记录了最常用的sql语法及其详细的语法规则。这一系列读书笔记作为<code>数据库系统原理</code>课程同步复习笔记，综合了课程所学和书中所述，同时尽量添加自己的个人理解。</p>
+<h2 id="复习要点"><a href="#复习要点" class="headerlink" title="复习要点"></a>复习要点</h2><p>SQL语句是数据库系统中最普遍使用的对于数据库进行操作和修改的语言。查询部分的功能类似于前面学习过的扩展关系代数，关系代数是sql实现的工具。除此之外包括数据库定义和修改等，SQL既是DDL（数据定义语言）又是DML（数据描述语言）。</p>
+<ul>
+<li>简单查询：<code>SELECT attrNames FROM tableNames WHERE condition</code>。<ul>
+<li>SELECT对应扩展投影，后面接投影属性名，*表示所有属性。</li>
+<li>WHERE对应选择，选择关系中满足condition的元组（condition可以使用$+-*/$和比较运算符$\ge$、$\gt$、$\le$、$\lt$、=、&lt;&gt;，<code>&lt;&gt;</code>表示不等于。</li>
+<li><strong>字符串用单引号括起来</strong>。字符串比较的几种方式：1.比较，包括等于、大于、小于等。2.匹配，使用s (NOT )LIKE p的形式，s是字符串，p是模式可以使用%(任意长度字符，包括0)和_(任一个字符)。</li>
+</ul>
+</li>
+<li>多关系查询</li>
+<li>子查询</li>
+<li>去重、分组和聚集</li>
+<li>关系增删改查</li>
+<li>数据库、关系定义</li>
+</ul>
+<h2 id="查询"><a href="#查询" class="headerlink" title="查询"></a>查询</h2><h3 id="sql中的简单查询"><a href="#sql中的简单查询" class="headerlink" title="sql中的简单查询"></a>sql中的简单查询</h3><p>sql中最简单的查询是找出关系中满足特定条件的元组。简单查询使用三个保留字：SELECT、FORM、WHERE来表示一个SQL查询语句。<br>例如：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> *</span><br><span class="line"><span class="keyword">FROM</span> Movie</span><br><span class="line"><span class="keyword">WHERE</span> studioName = <span class="string">'Disney'</span> <span class="keyword">AND</span> <span class="keyword">year</span> = <span class="number">1990</span></span><br><span class="line"><span class="comment"># 形式</span></span><br><span class="line"><span class="keyword">SELECT</span> col1, col2, ...</span><br><span class="line"><span class="keyword">FROM</span> relation1, relation2,...</span><br><span class="line"><span class="keyword">WHERE</span> cond1 <span class="keyword">and</span>/<span class="keyword">or</span> cond2, ...</span><br></pre></td></tr></table></figure><br>上面的语句从数据库的关系模式Movie中找出studioName=’Disney’和year=1990的元组（就是在Movie中找出某些列满足特定条件的行），select *表示选择所有列。简单总结就是：from确定从哪些关系中查询，where确定要取的行，select确定取到的行中的哪些列。</p>
+<p><strong>todo select from where的所有可能取值的总结</strong><br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> 逗号隔开的属性列表|*|属性 <span class="keyword">as</span> 别名|常量 <span class="keyword">as</span> 别名</span><br><span class="line"><span class="keyword">from</span> 逗号隔开的关系列表|元组变量例如Movie m|</span><br><span class="line"><span class="keyword">where</span> 布尔表达式 <span class="keyword">and</span>/<span class="keyword">or</span>/<span class="keyword">not</span> 布尔表达式|<span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">null</span>|a <span class="keyword">in</span> b|</span><br><span class="line"><span class="keyword">order</span> <span class="keyword">by</span> 属性列表</span><br></pre></td></tr></table></figure></p>
+<h4 id="1-sql中的投影"><a href="#1-sql中的投影" class="headerlink" title="1. sql中的投影"></a>1. sql中的投影</h4><p>   select * 会选择满足where条件的关系中的所有的元组（行）中的所有属性（列），但是有时候我们不需要所有的列，这个时候可以使用投影，select title选择元组中和title属性，然后将其投影到结果列title上。</p>
+<p>   如果我们希望将选择的列投影到不同的列上我们可以使用as，例如：<code>select title as name</code>，这样选择的元组中对应的title属性会被投影到结果表的name列。</p>
+<p>   <strong>select还可以用表达式取代属性</strong>，例如<code>select length*0.66667 as duration</code>，这将选择的元组中的length属性乘以0.6667的结果投影到duration，这样我们在结果表中拿到的length对应的列就是计算后的结果duration。</p>
+<p>   还可以添加常量到select中，例如：<code>select ‘.html’ as ext</code></p>
+<h4 id="2-sql中的选择"><a href="#2-sql中的选择" class="headerlink" title="2. sql中的选择"></a>2. sql中的选择</h4><p>   where后面接一个条件表达式，和c中的表达式类型，其求值结果是布尔值。</p>
+<ul>
+<li>值比较：使用6中常用的比较运算符：=、&lt;&gt;（不等于）、&lt;、&gt;、&lt;=和&gt;=。常量和跟在from后面的关系的属性都是可以比较的，也可以通过算术运算比如+、-、*、/来计算后比较。<strong>通过||可以连接字符串（’foo’||’bar’=’foobar’</strong>。</li>
+<li>布尔运算：上面提到的比较的结果可以通过and,or,not来进行布尔运算</li>
+</ul>
+<h4 id="3-字符串比较"><a href="#3-字符串比较" class="headerlink" title="3. 字符串比较"></a>3. 字符串比较</h4><p>   当两个字符串里面的字符序列完全相同时，称两个字符串相等。sql允许固定长度和可变长的字符串。</p>
+<p>   字符串的大小比较是比较其字典顺序，按照其逐个字母的先后比较。</p>
+<p>   sql提供了简单的字符串模式匹配的功能：like，例如：<code>s NOT LIKE p</code>其中s是字符串，p是模式。模式的形式是字符串+特殊字符串(%表示匹配任意长度的字符串，包括0，_表示匹配任意一个字符)。当s符合模式p的时候表达式才为真。</p>
+<p>   <strong>sql规定单引号是字符串的开始和结束，如果要在字符串内部使用单引号，那么使用两个单引号</strong>，例如: <code>‘%’’s%’=%’s%</code>。</p>
+<h4 id="4-日期和时间"><a href="#4-日期和时间" class="headerlink" title="4. 日期和时间"></a>4. 日期和时间</h4><p>   sql的实现版本通常将时间和日期作为特殊的数据类型。<strong>日期常量是由DATE保留字+单引号+特定字符串，例如date’1948-05-14’</strong>，时间是time’15:33:14’，时间日期是timestamp’1948-05-14 12:00:00’。<strong>可以直接用比较运算符对时间日期进行运算</strong></p>
+<h4 id="5-空值的比较"><a href="#5-空值的比较" class="headerlink" title="5. 空值的比较"></a>5. 空值的比较</h4><p>   SQL允许属性的值为特殊值null。where中要考虑null空值带来的影响：</p>
+<ul>
+<li>null和其他任何数据（包括null）算术运算+-得到的结果依然是空值</li>
+<li><p>null和其他任何数据（包括null）比较运算=或&gt;，结果都是unknown值。</p>
+<p>正确判断是否空值的方式是使用<code>x is null</code>或者<code>x is not null。</code></p>
+</li>
+</ul>
+<h4 id="6-布尔值unknown"><a href="#6-布尔值unknown" class="headerlink" title="6. 布尔值unknown"></a>6. 布尔值unknown</h4><p>   前面提到涉及到null的比较运算结果是unknown，那么我们布尔值的可能就有三种了：true、false、unknown。而前面又提到，布尔值可以通过AND、OR、NOT进行运算，那么这三种情况的运算结果是什么呢？</p>
+<p>   一种方式是将true看成1，false看成0，unknown看成0.5，三者的and运算取值的最小值，例如true AND unknown值是0.5，也就是unknown。or取最大值，例如false or unknown值是unknown。not取1-v，not unknown = 1-0.5=0.5=unknown。</p>
+<p>   综上，unknown and false = false，unknown or false = unknown，not (unknown or false) = unknown。</p>
+<p>   但使用where查询时，只有值时true才有效，false和unknown都无效。</p>
+<h4 id="7-输出排序"><a href="#7-输出排序" class="headerlink" title="7. 输出排序"></a>7. 输出排序</h4><p>   可以基于任何一个属性（或者多个）来进行排序，并将其他的属性跟在它后面进行约束。当第一属性相同时，按照第二属性排序，以此类推。</p>
+<p>   <code>order by 属性列表，逗号隔开</code></p>
+<h3 id="多个关系上的查询"><a href="#多个关系上的查询" class="headerlink" title="多个关系上的查询"></a>多个关系上的查询</h3><p><strong>关系代数的强大在于它能够通过连接、笛卡尔积、并、交和差来组合多个关系。在SQL中也可以做相同的操作</strong></p>
+<h4 id="1-SQL中的积和连接"><a href="#1-SQL中的积和连接" class="headerlink" title="1. SQL中的积和连接"></a>1. SQL中的积和连接</h4><p><strong>查询多个关系：在from后面接逗号隔开的多个关系，在select和where中可以使用任何出现在这些关系中的属性</strong></p>
+<p>例如：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">name</span></span><br><span class="line"><span class="keyword">from</span> Movie, MovieExec</span><br><span class="line"><span class="keyword">where</span> title = <span class="string">'Star Wars'</span> <span class="keyword">and</span> producerid = certid;</span><br></pre></td></tr></table></figure></p>
+<p>该语句的执行过程是：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">|     |    |     |</span><br><span class="line">|-----|-   |     |</span><br><span class="line">|     | \-&gt;|-----|</span><br><span class="line">|     |    |     |</span><br></pre></td></tr></table></figure></p>
+<ol>
+<li>遍历两个关系的所有元组对</li>
+<li>找出所有满足关系的元素对，将元组对合成一个元素返回。</li>
+</ol>
+<p>执行的结果是：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">|-----||----|</span><br><span class="line">|-----||----|</span><br></pre></td></tr></table></figure></p>
+<h4 id="2-属性歧义"><a href="#2-属性歧义" class="headerlink" title="2. 属性歧义"></a>2. 属性歧义</h4><p><strong>如果两个关系中有同名属性，可以通过table1.name=table2.name这种添加表名限定的形式来实现区分，包括在select和where中都可以这么区分</strong></p>
+<h4 id="3-元组变量"><a href="#3-元组变量" class="headerlink" title="3. 元组变量"></a>3. 元组变量</h4><p>可以对同一个关系进行多次查询，也就是说，对于关系R，可以<code>from R r1, R r2, ...</code>，这里的r1，r2就代表R的两个拷贝的不同元组。</p>
+<p>例如，找出Star表中所有地址相同的star（s1.name &lt; s2.name是为了去重）:<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> s1.name, s2.name</span><br><span class="line"><span class="keyword">from</span> Star s1, Star s2</span><br><span class="line"><span class="keyword">where</span> s1.address = s2.address <span class="keyword">and</span> s1.name &lt; s2.name</span><br></pre></td></tr></table></figure><br><em>tips：这里看起来是根据address进行分组，但是其实不是，sql中的分组只能select分组的属性和其他属性的聚集操作。我们要找到同一个表中的某一项相同的不同元组，只能通过同表的多表查询来实现。</em></p>
+<h4 id="4-多关系的解释"><a href="#4-多关系的解释" class="headerlink" title="4. 多关系的解释"></a>4. 多关系的解释</h4><p>多关系的连接书中给了多种解释方案，比如嵌套循环——看成两个元组集合的二重循环；并行赋值——两个不同实例将可能的元组赋值给各自的元组变量，然后比较这两个元组变量；关系代数——先取笛卡尔积（笛卡尔积是《离散数学》中的概念，在我的《离散数学》复习篇博客中会涉及），然后对结果进行筛选。</p>
+<p>这多种解释的结果是相同的，只是过程不同，结果都是将两个关系的元组进行组合，并进行筛选。上面给的解释只是组合前筛选和组合后筛选的区别。</p>
+<h4 id="5-查询的并、交、差"><a href="#5-查询的并、交、差" class="headerlink" title="5. 查询的并、交、差"></a>5. 查询的并、交、差</h4><p>sql中的union、intersect和except分别表示并、交、查。可以直接用这三个关键字，将多个括号括起来的查询的结果组合起来。</p>
+<p><strong>只能对列数相同的结果关系集合进行操作</strong></p>
+<p>例如：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(<span class="keyword">select</span> bookid, bookname <span class="keyword">from</span> book) <span class="keyword">union</span> (<span class="keyword">select</span> majorid, majorname <span class="keyword">from</span> major);</span><br></pre></td></tr></table></figure><br>结果是：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">+--------+--------------------------+</span><br><span class="line">| bookid | bookname                 |</span><br><span class="line">+--------+--------------------------+</span><br><span class="line">| b001   | 货币银行学               |</span><br><span class="line">| m2     | 信息安全                 |</span><br><span class="line">| m1     | 计算机科学与技术         |</span><br><span class="line">+--------+--------------------------+</span><br></pre></td></tr></table></figure><br><em>注意：mysql中只支持union，不支持intersect和except，需要使用group by或者not in来模拟</em></p>
+<h3 id="子查询"><a href="#子查询" class="headerlink" title="子查询"></a>子查询</h3><p>当某个查询是另一个查询的一部分时，称为子查询。子查询可以拥有下一级的子查询。例如上例中通过两个子查询的union得到最终的查询结果。使用子查询的其他方式：</p>
+<ul>
+<li>子查询可以返回单个常量，这个常量能在where中和另一个常量进行比较</li>
+<li>子查询可以返回关系，该关系可以在where子句中以不同的方式使用（in、not in、exist、all等等）</li>
+<li>像许多存储的关系一样，子查询形成的关系能够出现在FROM子句中。</li>
+</ul>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><time class="level-item" dateTime="2019-05-24T14:34:33.000Z" title="2019-05-24T14:34:33.000Z">2019-05-24</time><span class="level-item"><a class="link-muted" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a><span> / </span><a class="link-muted" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/mysql/">mysql</a></span><span class="level-item">4 minutes read (About 548 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2019/05/24/database/mysql/centos-%E4%B8%8B%E5%AE%89%E8%A3%85mysql/">centos 下安装mysql</a></h1><div class="content"><h2 id="安装client"><a href="#安装client" class="headerlink" title="安装client"></a>安装client</h2><blockquote>
+<p>yum install mysql</p>
+</blockquote>
+<p>这会安装client，这时如果输入mysql，会显示：</p>
+<blockquote>
+<p>ERROR 2002 (HY000): Can’t connect to local MySQL server through socket ‘/var/lib/mysql/mysql.sock’ (2)</p>
+</blockquote>
+<p>查了一下，发现并没有/var/lib/mysql/mysql.sock这个文件，可能是并没有安装mysql-server。</p>
+<p>接下来我们我们安装server</p>
+<h2 id="安装server"><a href="#安装server" class="headerlink" title="安装server"></a>安装server</h2><blockquote>
+<p>yum install mysql-community-server</p>
+</blockquote>
+<p>安装完成后，启动mysql。<strong>如果提示没有找不到安装包，说明默认的git仓库中没有mysql-community-server这个软件包，解决方案有两个，第一个是直接去mysql官网下载安装包，然后用<code>yum localinstall</code>来按照；第二个是添加有mysql-community-server的仓库；第三种是参考官方网站上的安装教程，官方给出了包含安装仓库和密钥的rpm包。下面给出官方示例：</strong></p>
+<ol>
+<li>下载仓库rpm：<code>wget https://dev.mysql.com/get/mysql80-community-release-el7-3.noarch.rpm</code></li>
+<li>本地安装rpm：<code>yum localinstall mysql80-community-release-el7-3.noarch.rpm</code></li>
+<li>安装mymsql-server：<code>yum install -y mysql-community-server</code></li>
+</ol>
+<p>【官方教程地址】(<a href="https://dev.mysql.com/doc/refman/8.0/en/linux-installation-yum-repo.html">https://dev.mysql.com/doc/refman/8.0/en/linux-installation-yum-repo.html</a>)</p>
+<p>保存后重新执行<code>yum install mysql-community-server</code>就可以了。</p>
+<blockquote>
+<p>service mysqld start</p>
+</blockquote>
+<p>完成安装。</p>
+<h2 id="mysql-client连接远程数据库"><a href="#mysql-client连接远程数据库" class="headerlink" title="mysql client连接远程数据库"></a>mysql client连接远程数据库</h2><blockquote>
+<p>mysql -h 远程地址 -u root -p</p>
+</blockquote>
+<h2 id="配置mysql"><a href="#配置mysql" class="headerlink" title="配置mysql"></a>配置mysql</h2><p>安装完mysql后，mysql默认是不会启动的，所以我们在控制台输入mysql命令，会报错。接下来我们手动启动mysql服务，并添加到开机自启动。</p>
+<p>启动mysql服务：</p>
+<blockquote>
+<p>systemctl start mysqld.service</p>
+</blockquote>
+<p>然后执行：</p>
+<blockquote>
+<p>systemctl status mysqld.service</p>
+</blockquote>
+<p>如果看到输出中提示mysql server处于running中，说明mysql启动成功。mysql启动后会有一个默认的密码，我们要找出这个默认的密码，输入：</p>
+<blockquote>
+<p>grep “password” /var/log/mysqld.log</p>
+</blockquote>
+<p>结果如图：<br><img src="/img/mysql默认密码.png" alt="默认密码"></p>
+<h3 id="修改默认密码"><a href="#修改默认密码" class="headerlink" title="修改默认密码"></a>修改默认密码</h3><p>使用默认密码登陆mysql：</p>
+<blockquote>
+<p>mysql -u root -p</p>
+<h1 id="输入默认密码"><a href="#输入默认密码" class="headerlink" title="输入默认密码"></a>输入默认密码</h1></blockquote>
+<p>然后必须修改默认密码才能进行操作，修改默认密码输入如下指令：</p>
+<blockquote>
+<p>alter user ‘root‘@’localhost’ identified by ‘密码’;</p>
+</blockquote>
+</div></article></div></div><div class="column column-left is-4-tablet is-4-desktop is-3-widescreen  order-1"><div class="card widget"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="/img/avatar.png" alt="Bright Wu"></figure><p class="title is-size-4 is-block line-height-inherit">Bright Wu</p><p class="is-size-6 is-block">working harder to be better</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>Beijing Chaoyang</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="/archives"><p class="title">154</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="/categories"><p class="title">84</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="/tags"><p class="title">115</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/wre232114" target="_blank" rel="noopener">Follow</a></div><div class="level is-mobile"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/wre232114"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Facebook" href="https://facebook.com"><i class="fab fa-facebook"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Twitter" href="https://twitter.com"><i class="fab fa-twitter"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Dribbble" href="https://dribbble.com"><i class="fab fa-dribbble"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="RSS" href="/"><i class="fas fa-rss"></i></a></div></div></div><!--!--><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">Links</h3><ul class="menu-list"><li><a class="level is-mobile is-mobile" href="https://hexo.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Hexo</span></span><span class="level-right"><span class="level-item tag">hexo.io</span></span></a></li><li><a class="level is-mobile is-mobile" href="https://brightblog.cn" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Bulma</span></span><span class="level-right"><span class="level-item tag">brightblog.cn</span></span></a></li></ul></div></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">Categories</h3><ul class="menu-list"><li><a class="level is-mobile is-marginless" href="/categories/Java/"><span class="level-start"><span class="level-item">Java</span></span><span class="level-end"><span class="level-item tag">1</span></span></a><ul class="mr-0"><li><a class="level is-mobile is-marginless" href="/categories/Java/spring%E5%AE%9E%E6%88%98/"><span class="level-start"><span class="level-item">spring实战</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile is-marginless" href="/categories/Open-Source/"><span class="level-start"><span class="level-item">Open Source</span></span><span class="level-end"><span class="level-item tag">1</span></span></a><ul class="mr-0"><li><a class="level is-mobile is-marginless" href="/categories/Open-Source/Huaxu/"><span class="level-start"><span class="level-item">Huaxu</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile is-marginless" href="/categories/Webpack/"><span class="level-start"><span class="level-item">Webpack</span></span><span class="level-end"><span class="level-item tag">2</span></span></a><ul class="mr-0"><li><a class="level is-mobile is-marginless" href="/categories/Webpack/Webpack%E5%9F%BA%E7%A1%80/"><span class="level-start"><span class="level-item">Webpack基础</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/Webpack/Webpack%E5%AE%9E%E6%88%98/"><span class="level-start"><span class="level-item">Webpack实战</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile is-marginless" href="/categories/css/"><span class="level-start"><span class="level-item">css</span></span><span class="level-end"><span class="level-item tag">10</span></span></a><ul class="mr-0"><li><a class="level is-mobile is-marginless" href="/categories/css/css%E5%9F%BA%E7%A1%80/"><span class="level-start"><span class="level-item">css基础</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/css/css%E5%B7%A5%E5%85%B7/"><span class="level-start"><span class="level-item">css工具</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/css/less/"><span class="level-start"><span class="level-item">less</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/css/sass/"><span class="level-start"><span class="level-item">sass</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile is-marginless" href="/categories/docker/"><span class="level-start"><span class="level-item">docker</span></span><span class="level-end"><span class="level-item tag">2</span></span></a><ul class="mr-0"><li><a class="level is-mobile is-marginless" href="/categories/docker/docker-swarm/"><span class="level-start"><span class="level-item">docker swarm</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/docker/docker%E5%9F%BA%E7%A1%80/"><span class="level-start"><span class="level-item">docker基础</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile is-marginless" href="/categories/git/"><span class="level-start"><span class="level-item">git</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/hexo/"><span class="level-start"><span class="level-item">hexo</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/html5/"><span class="level-start"><span class="level-item">html5</span></span><span class="level-end"><span class="level-item tag">8</span></span></a><ul class="mr-0"><li><a class="level is-mobile is-marginless" href="/categories/html5/dom/"><span class="level-start"><span class="level-item">dom</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/html5/html5-API/"><span class="level-start"><span class="level-item">html5 API</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/html5/html5%E6%A0%87%E7%AD%BE%E5%92%8C%E5%B1%9E%E6%80%A7/"><span class="level-start"><span class="level-item">html5标签和属性</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/html5/svg/"><span class="level-start"><span class="level-item">svg</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/html5/tips/"><span class="level-start"><span class="level-item">tips</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/html5/%E5%AE%9E%E6%88%98/"><span class="level-start"><span class="level-item">实战</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile is-marginless" href="/categories/js/"><span class="level-start"><span class="level-item">js</span></span><span class="level-end"><span class="level-item tag">6</span></span></a><ul class="mr-0"><li><a class="level is-mobile is-marginless" href="/categories/js/js%E5%9F%BA%E7%A1%80/"><span class="level-start"><span class="level-item">js基础</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/js/typescript/"><span class="level-start"><span class="level-item">typescript</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/js/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"><span class="level-start"><span class="level-item">正则表达式</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile is-marginless" href="/categories/linux/"><span class="level-start"><span class="level-item">linux</span></span><span class="level-end"><span class="level-item tag">1</span></span></a><ul class="mr-0"><li><a class="level is-mobile is-marginless" href="/categories/linux/%E5%B7%A5%E5%85%B7/"><span class="level-start"><span class="level-item">工具</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile is-marginless" href="/categories/nginx/"><span class="level-start"><span class="level-item">nginx</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/node-js/"><span class="level-start"><span class="level-item">node.js</span></span><span class="level-end"><span class="level-item tag">2</span></span></a><ul class="mr-0"><li><a class="level is-mobile is-marginless" href="/categories/node-js/npm/"><span class="level-start"><span class="level-item">npm</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/node-js/%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%B7%A5%E5%85%B7/"><span class="level-start"><span class="level-item">命令行工具</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile is-marginless" href="/categories/php/"><span class="level-start"><span class="level-item">php</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/spring-boot/"><span class="level-start"><span class="level-item">spring-boot</span></span><span class="level-end"><span class="level-item tag">1</span></span></a><ul class="mr-0"><li><a class="level is-mobile is-marginless" href="/categories/spring-boot/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/"><span class="level-start"><span class="level-item">开发工具</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile is-marginless" href="/categories/typescript/"><span class="level-start"><span class="level-item">typescript</span></span><span class="level-end"><span class="level-item tag">1</span></span></a><ul class="mr-0"><li><a class="level is-mobile is-marginless" href="/categories/typescript/%E8%B8%A9%E5%9D%91%E6%8C%87%E5%8D%97/"><span class="level-start"><span class="level-item">踩坑指南</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile is-marginless" href="/categories/vue/"><span class="level-start"><span class="level-item">vue</span></span><span class="level-end"><span class="level-item tag">11</span></span></a><ul class="mr-0"><li><a class="level is-mobile is-marginless" href="/categories/vue/cli/"><span class="level-start"><span class="level-item">cli</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/vue/tips/"><span class="level-start"><span class="level-item">tips</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/vue/vue-router/"><span class="level-start"><span class="level-item">vue-router</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/vue/vue%E5%AE%9E%E6%88%98/"><span class="level-start"><span class="level-item">vue实战</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/vue/vue%E7%BB%84%E4%BB%B6%E5%BC%80%E5%8F%91/"><span class="level-start"><span class="level-item">vue组件开发</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/vue/%E5%9F%BA%E7%A1%80/"><span class="level-start"><span class="level-item">基础</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li></ul></li><li><a class="level is-mobile is-marginless" href="/categories/xml/"><span class="level-start"><span class="level-item">xml</span></span><span class="level-end"><span class="level-item tag">1</span></span></a><ul class="mr-0"><li><a class="level is-mobile is-marginless" href="/categories/xml/%E5%9F%BA%E7%A1%80/"><span class="level-start"><span class="level-item">基础</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile is-marginless" href="/categories/%E5%AD%A6%E4%B9%A0%E6%89%93%E5%8D%A1/"><span class="level-start"><span class="level-item">学习打卡</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E5%AE%89%E5%85%A8/"><span class="level-start"><span class="level-item">安全</span></span><span class="level-end"><span class="level-item tag">3</span></span></a><ul class="mr-0"><li><a class="level is-mobile is-marginless" href="/categories/%E5%AE%89%E5%85%A8/%E5%AF%86%E7%A0%81%E6%8A%80%E6%9C%AF/"><span class="level-start"><span class="level-item">密码技术</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li></ul></li><li><a class="level is-mobile is-marginless" href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"><span class="level-start"><span class="level-item">操作系统</span></span><span class="level-end"><span class="level-item tag">23</span></span></a><ul class="mr-0"><li><a class="level is-mobile is-marginless" href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/shell/"><span class="level-start"><span class="level-item">shell</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/ucore/"><span class="level-start"><span class="level-item">ucore</span></span><span class="level-end"><span class="level-item tag">18</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/"><span class="level-start"><span class="level-item">操作系统原理</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li></ul></li><li><a class="level is-mobile is-marginless" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"><span class="level-start"><span class="level-item">数据库</span></span><span class="level-end"><span class="level-item tag">10</span></span></a><ul class="mr-0"><li><a class="level is-mobile is-marginless" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/mysql/"><span class="level-start"><span class="level-item">mysql</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/sql%E8%AF%AD%E5%8F%A5/"><span class="level-start"><span class="level-item">sql语句</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/%E5%AF%BC%E8%AE%BA/"><span class="level-start"><span class="level-item">导论</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%BC%96%E7%A8%8B/"><span class="level-start"><span class="level-item">数据库编程</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AE%BE%E8%AE%A1/"><span class="level-start"><span class="level-item">数据库设计</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li></ul></li><li><a class="level is-mobile is-marginless" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"><span class="level-start"><span class="level-item">数据结构</span></span><span class="level-end"><span class="level-item tag">1</span></span></a><ul class="mr-0"><li><a class="level is-mobile is-marginless" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%9B%BE/"><span class="level-start"><span class="level-item">图</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile is-marginless" href="/categories/%E6%A0%91%E8%8E%93%E6%B4%BE/"><span class="level-start"><span class="level-item">树莓派</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E6%AF%95%E8%AE%BE/"><span class="level-start"><span class="level-item">毕设</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E7%AE%97%E6%B3%95/"><span class="level-start"><span class="level-item">算法</span></span><span class="level-end"><span class="level-item tag">20</span></span></a><ul class="mr-0"><li><a class="level is-mobile is-marginless" href="/categories/%E7%AE%97%E6%B3%95/leetcode/"><span class="level-start"><span class="level-item">leetcode</span></span><span class="level-end"><span class="level-item tag">18</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E7%AE%97%E6%B3%95/%E6%A8%A1%E5%BC%8F%E5%8C%B9%E9%85%8D/"><span class="level-start"><span class="level-item">模式匹配</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E7%AE%97%E6%B3%95/%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2/"><span class="level-start"><span class="level-item">深度优先搜索</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile is-marginless" href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/"><span class="level-start"><span class="level-item">编程语言</span></span><span class="level-end"><span class="level-item tag">20</span></span></a><ul class="mr-0"><li><a class="level is-mobile is-marginless" href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C/"><span class="level-start"><span class="level-item">C</span></span><span class="level-end"><span class="level-item tag">1</span></span></a><ul class="mr-0"><li><a class="level is-mobile is-marginless" href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C/%E8%AF%AD%E8%A8%80/"><span class="level-start"><span class="level-item">语言</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile is-marginless" href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C%E8%AF%AD%E8%A8%80/"><span class="level-start"><span class="level-item">C语言</span></span><span class="level-end"><span class="level-item tag">17</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/"><span class="level-start"><span class="level-item">Java</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/java/"><span class="level-start"><span class="level-item">java</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile is-marginless" href="/categories/%E8%8B%B1%E8%AF%AD/"><span class="level-start"><span class="level-item">英语</span></span><span class="level-end"><span class="level-item tag">1</span></span></a><ul class="mr-0"><li><a class="level is-mobile is-marginless" href="/categories/%E8%8B%B1%E8%AF%AD/%E7%94%9F%E8%AF%8D/"><span class="level-start"><span class="level-item">生词</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile is-marginless" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"><span class="level-start"><span class="level-item">计算机网络</span></span><span class="level-end"><span class="level-item tag">3</span></span></a><ul class="mr-0"><li><a class="level is-mobile is-marginless" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/wireshark/"><span class="level-start"><span class="level-item">wireshark</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/"><span class="level-start"><span class="level-item">问题记录</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile is-marginless" href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"><span class="level-start"><span class="level-item">设计模式</span></span><span class="level-end"><span class="level-item tag">5</span></span></a><ul class="mr-0"><li><a class="level is-mobile is-marginless" href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E4%BA%A4%E7%BB%99%E5%AD%90%E7%B1%BB/"><span class="level-start"><span class="level-item">交给子类</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E7%94%9F%E6%88%90%E5%AE%9E%E4%BE%8B/"><span class="level-start"><span class="level-item">生成实例</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E9%80%82%E5%BA%94%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"><span class="level-start"><span class="level-item">适应设计模式</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li></ul></li></ul></div></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">Archives</h3><ul class="menu-list"><li><a class="level is-mobile is-marginless" href="/archives/2020/06/"><span class="level-start"><span class="level-item">June 2020</span></span><span class="level-end"><span class="level-item tag">8</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2020/05/"><span class="level-start"><span class="level-item">May 2020</span></span><span class="level-end"><span class="level-item tag">10</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2020/03/"><span class="level-start"><span class="level-item">March 2020</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2020/02/"><span class="level-start"><span class="level-item">February 2020</span></span><span class="level-end"><span class="level-item tag">18</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2020/01/"><span class="level-start"><span class="level-item">January 2020</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2019/12/"><span class="level-start"><span class="level-item">December 2019</span></span><span class="level-end"><span class="level-item tag">16</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2019/11/"><span class="level-start"><span class="level-item">November 2019</span></span><span class="level-end"><span class="level-item tag">29</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2019/10/"><span class="level-start"><span class="level-item">October 2019</span></span><span class="level-end"><span class="level-item tag">8</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2019/09/"><span class="level-start"><span class="level-item">September 2019</span></span><span class="level-end"><span class="level-item tag">9</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2019/08/"><span class="level-start"><span class="level-item">August 2019</span></span><span class="level-end"><span class="level-item tag">12</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2019/07/"><span class="level-start"><span class="level-item">July 2019</span></span><span class="level-end"><span class="level-item tag">17</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2019/06/"><span class="level-start"><span class="level-item">June 2019</span></span><span class="level-end"><span class="level-item tag">18</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2019/05/"><span class="level-start"><span class="level-item">May 2019</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li></ul></div></div></div><div class="column-right-shadow is-hidden-widescreen"></div></div><div class="column column-right is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only order-3"><div class="card widget"><div class="card-content"><h3 class="menu-label">Recent</h3><article class="media"><div class="media-content size-small"><p><time dateTime="2020-06-27T13:07:22.000Z">2020-06-27</time></p><p class="title is-6"><a class="link-muted" href="/2020/06/27/%E6%A0%91%E8%8E%93%E6%B4%BE/%E6%A0%91%E8%8E%93%E6%B4%BE3-5%E5%AF%B8%E6%98%BE%E7%A4%BA%E5%99%A8%E5%A5%97%E8%A3%85%E5%AE%89%E8%A3%85%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">树莓派3.5寸显示器套装安装操作系统</a></p><p class="is-uppercase"><a class="link-muted" href="/categories/%E6%A0%91%E8%8E%93%E6%B4%BE/">树莓派</a></p></div></article><article class="media"><div class="media-content size-small"><p><time dateTime="2020-06-15T00:21:47.000Z">2020-06-15</time></p><p class="title is-6"><a class="link-muted" href="/2020/06/15/opensource/%E8%B7%A8%E6%A1%86%E6%9E%B6%E3%80%81%E8%87%AA%E5%AE%9A%E4%B9%89%E4%B8%BB%E9%A2%98%E7%9A%84%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2%E7%B3%BB%E7%BB%9F%E5%8E%9F%E5%9E%8B%E6%A6%82%E8%A7%88/">跨框架、自定义主题的静态博客系统原型概览</a></p><p class="is-uppercase"><a class="link-muted" href="/categories/Open-Source/">Open Source</a> / <a class="link-muted" href="/categories/Open-Source/Huaxu/">Huaxu</a></p></div></article><article class="media"><div class="media-content size-small"><p><time dateTime="2020-06-15T00:18:37.000Z">2020-06-15</time></p><p class="title is-6"><a class="link-muted" href="/2020/06/15/webpack/webpack%E5%AE%9E%E6%88%98%EF%BC%9A%E6%89%93%E9%80%A0%E5%90%8C%E6%97%B6%E7%BC%96%E8%AF%91react%E5%92%8Cvue%E7%9A%84%E6%9E%84%E5%BB%BA%E5%BC%95%E6%93%8E/">webpack实战：打造同时编译react和vue的构建引擎</a></p><p class="is-uppercase"><a class="link-muted" href="/categories/Webpack/">Webpack</a> / <a class="link-muted" href="/categories/Webpack/Webpack%E5%AE%9E%E6%88%98/">Webpack实战</a></p></div></article><article class="media"><div class="media-content size-small"><p><time dateTime="2020-06-14T03:08:34.142Z">2020-06-14</time></p><p class="title is-6"><a class="link-muted" href="/2020/06/14/php/Smarty%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/">Smarty块度入门</a></p><p class="is-uppercase"><a class="link-muted" href="/categories/php/">php</a></p></div></article><article class="media"><div class="media-content size-small"><p><time dateTime="2020-06-14T03:08:34.122Z">2020-06-14</time></p><p class="title is-6"><a class="link-muted" href="/2020/06/14/git/%E5%9C%A8centos%E4%B8%8A%E6%90%AD%E5%BB%BAgit%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%BB%93%E5%BA%93/">在centos上搭建git服务器仓库</a></p><p class="is-uppercase"><a class="link-muted" href="/categories/git/">git</a></p></div></article></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">Tags</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/tags/Adapter%E6%A8%A1%E5%BC%8F/"><span class="tag">Adapter模式</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/C%E8%AF%AD%E8%A8%80/"><span class="tag">C语言</span><span class="tag is-grey-lightest">18</span></a></div><div class="control"><a class="tags has-addons" href="/tags/GCC/"><span class="tag">GCC</span><span class="tag is-grey-lightest">4</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Huaxu/"><span class="tag">Huaxu</span><span class="tag is-grey-lightest">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Iterator%E6%A8%A1%E5%BC%8F/"><span class="tag">Iterator模式</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Java/"><span class="tag">Java</span><span class="tag is-grey-lightest">3</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Linux%E5%91%BD%E4%BB%A4%E8%A1%8C%E4%B8%8Eshell%E8%84%9A%E6%9C%AC%E7%BC%96%E7%A8%8B/"><span class="tag">Linux命令行与shell脚本编程</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Maven/"><span class="tag">Maven</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Open-Source/"><span class="tag">Open Source</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/String/"><span class="tag">String</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Template-Method%E6%A8%A1%E5%BC%8F/"><span class="tag">Template Method模式</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Webpack/"><span class="tag">Webpack</span><span class="tag is-grey-lightest">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Webpack%E5%9F%BA%E7%A1%80/"><span class="tag">Webpack基础</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Webpack%E5%AE%9E%E6%88%98/"><span class="tag">Webpack实战</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/autoprefixer/"><span class="tag">autoprefixer</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/browserslist/"><span class="tag">browserslist</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/centos7%E5%B7%A5%E5%85%B7/"><span class="tag">centos7工具</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/css/"><span class="tag">css</span><span class="tag is-grey-lightest">7</span></a></div><div class="control"><a class="tags has-addons" href="/tags/css%E5%8D%95%E4%BD%8D/"><span class="tag">css单位</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/css%E5%9F%BA%E7%A1%80/"><span class="tag">css基础</span><span class="tag is-grey-lightest">5</span></a></div><div class="control"><a class="tags has-addons" href="/tags/css%E5%B7%A5%E5%85%B7/"><span class="tag">css工具</span><span class="tag is-grey-lightest">3</span></a></div><div class="control"><a class="tags has-addons" href="/tags/css%E5%B8%83%E5%B1%80/"><span class="tag">css布局</span><span class="tag is-grey-lightest">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/docker/"><span class="tag">docker</span><span class="tag is-grey-lightest">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/docker-swarm/"><span class="tag">docker swarm</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/docker%E5%9F%BA%E7%A1%80/"><span class="tag">docker基础</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/dom/"><span class="tag">dom</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/dom%E5%9F%BA%E7%A1%80/"><span class="tag">dom基础</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/git/"><span class="tag">git</span><span class="tag is-grey-lightest">4</span></a></div><div class="control"><a class="tags has-addons" href="/tags/hexo/"><span class="tag">hexo</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/html-Permission-API/"><span class="tag">html Permission API</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/html5/"><span class="tag">html5</span><span class="tag is-grey-lightest">8</span></a></div><div class="control"><a class="tags has-addons" href="/tags/html5-API/"><span class="tag">html5 API</span><span class="tag is-grey-lightest">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/html5%E6%A0%87%E7%AD%BE%E5%92%8C%E5%B1%9E%E6%80%A7/"><span class="tag">html5标签和属性</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/js/"><span class="tag">js</span><span class="tag is-grey-lightest">6</span></a></div><div class="control"><a class="tags has-addons" href="/tags/js%E5%9F%BA%E7%A1%80/"><span class="tag">js基础</span><span class="tag is-grey-lightest">4</span></a></div><div class="control"><a class="tags has-addons" href="/tags/js%E5%AF%B9%E8%B1%A1/"><span class="tag">js对象</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/js%E5%AF%B9%E8%B1%A1%E7%B1%BB%E5%9E%8B%E5%88%A4%E6%96%AD/"><span class="tag">js对象类型判断</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/js%E6%95%B0%E7%BB%84/"><span class="tag">js数组</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/leetcode/"><span class="tag">leetcode</span><span class="tag is-grey-lightest">18</span></a></div><div class="control"><a class="tags has-addons" href="/tags/less/"><span class="tag">less</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/linux%E5%91%BD%E4%BB%A4/"><span class="tag">linux命令</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/linux%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5/"><span class="tag">linux远程连接</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/mysql/"><span class="tag">mysql</span><span class="tag is-grey-lightest">5</span></a></div><div class="control"><a class="tags has-addons" href="/tags/nginx/"><span class="tag">nginx</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/node-js/"><span class="tag">node.js</span><span class="tag is-grey-lightest">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/npm/"><span class="tag">npm</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/postcss/"><span class="tag">postcss</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/spring/"><span class="tag">spring</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/spring-boot/"><span class="tag">spring-boot</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/spring%E5%AE%9E%E6%88%98/"><span class="tag">spring实战</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/sql%E8%AF%AD%E5%8F%A5/"><span class="tag">sql语句</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/ssh/"><span class="tag">ssh</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/svg/"><span class="tag">svg</span><span class="tag is-grey-lightest">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/svg%E5%9F%BA%E7%A1%80/"><span class="tag">svg基础</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/svg%E5%AE%9A%E4%BD%8D/"><span class="tag">svg定位</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/tips/"><span class="tag">tips</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/tslint%E5%9F%BA%E7%A1%80/"><span class="tag">tslint基础</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/typescript/"><span class="tag">typescript</span><span class="tag is-grey-lightest">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/ucore/"><span class="tag">ucore</span><span class="tag is-grey-lightest">18</span></a></div><div class="control"><a class="tags has-addons" href="/tags/ucore-os/"><span class="tag">ucore-os</span><span class="tag is-grey-lightest">3</span></a></div><div class="control"><a class="tags has-addons" href="/tags/vue/"><span class="tag">vue</span><span class="tag is-grey-lightest">11</span></a></div><div class="control"><a class="tags has-addons" href="/tags/vue-cli/"><span class="tag">vue-cli</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/vue-router/"><span class="tag">vue-router</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/vue-tips/"><span class="tag">vue-tips</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/vue%E5%8D%9A%E5%AE%A2%E5%90%8E%E5%8F%B0%E5%BC%80%E5%8F%91/"><span class="tag">vue博客后台开发</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/vue%E5%9F%BA%E7%A1%80/"><span class="tag">vue基础</span><span class="tag is-grey-lightest">3</span></a></div><div class="control"><a class="tags has-addons" href="/tags/vue%E5%AE%9E%E6%88%98/"><span class="tag">vue实战</span><span class="tag is-grey-lightest">3</span></a></div><div class="control"><a class="tags has-addons" href="/tags/vue%E7%BB%84%E4%BB%B6%E5%BC%80%E5%8F%91/"><span class="tag">vue组件开发</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/vue%E8%BF%9B%E9%98%B6/"><span class="tag">vue进阶</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/wireshark/"><span class="tag">wireshark</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/xml/"><span class="tag">xml</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E3%80%8AC-Primer%E3%80%8B/"><span class="tag">《C Primer》</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E3%80%8AC%E8%AF%AD%E8%A8%80%E7%BC%96%E7%A8%8B%E9%AD%94%E6%B3%95%E4%B9%A6%E3%80%8B/"><span class="tag">《C语言编程魔法书》</span><span class="tag is-grey-lightest">12</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E3%80%8ALinux%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%92%8CShell%E8%84%9A%E6%9C%AC%E7%BC%96%E7%A8%8B%E3%80%8B/"><span class="tag">《Linux命令行和Shell脚本编程》</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E3%80%8A%E5%9B%BE%E8%A7%A3%E5%AF%86%E7%A0%81%E6%8A%80%E6%9C%AF%E3%80%8B/"><span class="tag">《图解密码技术》</span><span class="tag is-grey-lightest">3</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/"><span class="tag">二叉树</span><span class="tag is-grey-lightest">5</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E4%BA%A4%E7%BB%99%E5%AD%90%E7%B1%BB/"><span class="tag">交给子类</span><span class="tag is-grey-lightest">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%88%86%E6%B2%BB/"><span class="tag">分治</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"><span class="tag">动态规划</span><span class="tag is-grey-lightest">8</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%8D%95%E8%AF%8D/"><span class="tag">单词</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%B7%A5%E5%85%B7/"><span class="tag">命令行工具</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%9B%BE/"><span class="tag">图</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%9F%BA%E7%A1%80/"><span class="tag">基础</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%AE%89%E5%85%A8/"><span class="tag">安全</span><span class="tag is-grey-lightest">3</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%AE%9E%E6%88%98/"><span class="tag">实战</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%AF%86%E7%A0%81%E6%8A%80%E6%9C%AF/"><span class="tag">密码技术</span><span class="tag is-grey-lightest">3</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%AF%BC%E8%AE%BA/"><span class="tag">导论</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/"><span class="tag">开发工具</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8B/"><span class="tag">异步编程</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"><span class="tag">操作系统</span><span class="tag is-grey-lightest">22</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/"><span class="tag">操作系统原理</span><span class="tag is-grey-lightest">3</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%95%B0%E5%AD%A6/"><span class="tag">数学</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"><span class="tag">数据库</span><span class="tag is-grey-lightest">10</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%BC%96%E7%A8%8B/"><span class="tag">数据库编程</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AE%BE%E8%AE%A1/"><span class="tag">数据库设计</span><span class="tag is-grey-lightest">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"><span class="tag">数据结构</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%95%B0%E7%BB%84/"><span class="tag">数组</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%9D%83%E9%99%90/"><span class="tag">权限</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/"><span class="tag">树莓派</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%A8%A1%E5%BC%8F%E5%8C%B9%E9%85%8D/"><span class="tag">模式匹配</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"><span class="tag">正则表达式</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%AF%95%E8%AE%BE/"><span class="tag">毕设</span><span class="tag is-grey-lightest">5</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2/"><span class="tag">深度优先搜索</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E7%94%9F%E6%88%90%E5%AE%9E%E4%BE%8B/"><span class="tag">生成实例</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E7%AE%97%E6%B3%95/"><span class="tag">算法</span><span class="tag is-grey-lightest">20</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/"><span class="tag">编程语言</span><span class="tag is-grey-lightest">20</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E8%8B%B1%E8%AF%AD/"><span class="tag">英语</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"><span class="tag">计算机网络</span><span class="tag is-grey-lightest">3</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"><span class="tag">设计模式</span><span class="tag is-grey-lightest">5</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"><span class="tag">读书笔记</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E8%B8%A9%E5%9D%91%E6%8C%87%E5%8D%97/"><span class="tag">踩坑指南</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E9%80%82%E5%BA%94%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"><span class="tag">适应设计模式</span><span class="tag is-grey-lightest">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E9%93%BE%E8%A1%A8/"><span class="tag">链表</span><span class="tag is-grey-lightest">5</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/"><span class="tag">问题记录</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E9%AB%98%E6%95%B01/"><span class="tag">高数1</span><span class="tag is-grey-lightest">1</span></a></div></div></div></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">Subscribe to Updates</h3><form action="https://feedburner.google.com/fb/a/mailverify" method="post" target="popupwindow" onsubmit="window.open(&#039;https://feedburner.google.com/fb/a/mailverify?uri=&#039;,&#039;popupwindow&#039;,&#039;scrollbars=yes,width=550,height=520&#039;);return true"><input type="hidden" value="" name="uri"><input type="hidden" name="loc" value="en_US"><div class="field has-addons"><div class="control has-icons-left is-expanded"><input class="input" name="email" type="email" placeholder="Email"><span class="icon is-small is-left"><i class="fas fa-envelope"></i></span></div><div class="control"><input class="button is-primary" type="submit" value="Subscribe"></div></div></form></div></div></div></div></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/img/logo.svg" alt="Bright的个人博客" height="28"></a><p class="size-small"><span>&copy; 2020 Bright</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script>moment.locale("default");</script><script>var IcarusThemeSettings = {
+            site: {
+                url: 'https://www.brightblog.cn',
+                external_link: {"enable":true,"exclude":[]}
+            },
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script src="/js/animation.js"></script><a id="back-to-top" title="Back to Top" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><script type="text/x-mathjax-config">MathJax.Hub.Config({
+            'HTML-CSS': {
+                matchFontHeight: false
+            },
+            SVG: {
+                matchFontHeight: false
+            },
+            CommonHTML: {
+                matchFontHeight: false
+            },
+            tex2jax: {
+                inlineMath: [
+                    ['$','$'],
+                    ['\\(','\\)']
+                ]
+            }
+        });</script><script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="Type something..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"Type something...","untitled":"(Untitled)","posts":"Posts","pages":"Pages","categories":"Categories","tags":"Tags"});
+        });</script></body></html>
